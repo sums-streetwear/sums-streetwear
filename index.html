@@ -37,7 +37,7 @@ body {
 ========================= */
 
 header {
-    min-height: 78px;
+    min-height: 82px;
     background: white;
     border-bottom: 1px solid #ddd;
 
@@ -45,7 +45,7 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    padding: 10px 4%;
+    padding: 8px 4%;
 
     position: sticky;
     top: 0;
@@ -53,7 +53,9 @@ header {
 }
 
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 .logo-area {
     display: flex;
@@ -62,15 +64,25 @@ header {
 
     text-decoration: none;
     color: #111;
+
+    min-width: 150px;
 }
 
 .logo-area img {
-    width: 58px;
-    height: 58px;
+    width: 70px;
+    height: 70px;
 
     object-fit: contain;
 
     display: block;
+
+    background: white;
+
+    /* Makes the logo easier to see */
+    padding: 3px;
+
+    /* Prevents a broken/empty image from taking over */
+    max-width: 70px;
 }
 
 .brand-name {
@@ -80,7 +92,9 @@ header {
 }
 
 
-/* NAV */
+/* =========================
+   NAV
+========================= */
 
 nav {
     display: flex;
@@ -103,7 +117,9 @@ nav a:hover {
 }
 
 
-/* RIGHT SIDE */
+/* =========================
+   RIGHT SIDE
+========================= */
 
 .header-right {
     display: flex;
@@ -112,7 +128,9 @@ nav a:hover {
 }
 
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 .search-box {
     display: flex;
@@ -141,7 +159,9 @@ nav a:hover {
 }
 
 
-/* BAG */
+/* =========================
+   BAG
+========================= */
 
 .bag-button {
     border: none;
@@ -343,12 +363,6 @@ nav a:hover {
     background: white;
 }
 
-
-/*
-   FRONT + BACK
-   BOTH ALWAYS VISIBLE
-*/
-
 .product-image {
     display: grid;
 
@@ -372,9 +386,6 @@ nav a:hover {
 
     background: #f3f3f3;
 }
-
-
-/* PRODUCT DETAILS */
 
 .product-info {
     padding: 18px 4px 5px;
@@ -669,7 +680,7 @@ nav a:hover {
 
 
 /* =========================
-   FOOTER / CONTACT
+   FOOTER
 ========================= */
 
 footer {
@@ -722,7 +733,7 @@ footer a:hover {
     header {
         min-height: 70px;
 
-        padding: 10px 4%;
+        padding: 7px 4%;
 
         flex-wrap: wrap;
 
@@ -730,8 +741,8 @@ footer a:hover {
     }
 
     .logo-area img {
-        width: 48px;
-        height: 48px;
+        width: 60px;
+        height: 60px;
     }
 
     .brand-name {
@@ -844,18 +855,22 @@ footer a:hover {
 
 <header>
 
-<a href="#" class="logo-area">
+<a href="#"
+   class="logo-area">
 
     <!--
-       IMPORTANT:
-       Your logo file must be named:
+        YOUR LOGO FILE:
 
-       sums-logo.png
+        sums-logo.png
+
+        Keep the logo file in the
+        SAME GitHub repository as index.html.
     -->
 
     <img
-        src="sums-logo.png"
+        src="./sums-logo.png"
         alt="SUMS Logo"
+        onerror="this.style.display='none';"
     >
 
     <span class="brand-name">
@@ -1030,19 +1045,17 @@ footer a:hover {
 <div class="products">
 
 
-<!-- WHITE HOODIE -->
-
 <div class="product">
 
 <div class="product-image">
 
     <img
-        src="white-hoodie.jpg"
+        src="./white-hoodie.jpg"
         alt="SUMS White Hoodie Front"
     >
 
     <img
-        src="white-hoodie-back.jpg"
+        src="./white-hoodie-back.jpg"
         alt="SUMS White Hoodie Back"
     >
 
@@ -1064,12 +1077,7 @@ footer a:hover {
 
     <button
         class="add-button"
-        onclick="addToBag(
-            'SUMS White Hoodie',
-            'White',
-            700,
-            'white-hoodie.jpg'
-        )"
+        onclick="addToBag('SUMS White Hoodie','White',700,'./white-hoodie.jpg')"
     >
         ADD TO BAG
     </button>
@@ -1080,19 +1088,17 @@ footer a:hover {
 
 
 
-<!-- GREY HOODIE -->
-
 <div class="product">
 
 <div class="product-image">
 
     <img
-        src="grey-hoodie.jpg"
+        src="./grey-hoodie.jpg"
         alt="SUMS Grey Hoodie Front"
     >
 
     <img
-        src="grey-hoodie-back.jpg"
+        src="./grey-hoodie-back.jpg"
         alt="SUMS Grey Hoodie Back"
     >
 
@@ -1114,12 +1120,7 @@ footer a:hover {
 
     <button
         class="add-button"
-        onclick="addToBag(
-            'SUMS Grey Hoodie',
-            'Grey',
-            700,
-            'grey-hoodie.jpg'
-        )"
+        onclick="addToBag('SUMS Grey Hoodie','Grey',700,'./grey-hoodie.jpg')"
     >
         ADD TO BAG
     </button>
@@ -1130,19 +1131,17 @@ footer a:hover {
 
 
 
-<!-- BROWN HOODIE -->
-
 <div class="product">
 
 <div class="product-image">
 
     <img
-        src="brown-hoodie.jpg"
+        src="./brown-hoodie.jpg"
         alt="SUMS Brown Hoodie Front"
     >
 
     <img
-        src="brown-hoodie-back.jpg"
+        src="./brown-hoodie-back.jpg"
         alt="SUMS Brown Hoodie Back"
     >
 
@@ -1164,12 +1163,7 @@ footer a:hover {
 
     <button
         class="add-button"
-        onclick="addToBag(
-            'SUMS Brown Hoodie',
-            'Brown',
-            700,
-            'brown-hoodie.jpg'
-        )"
+        onclick="addToBag('SUMS Brown Hoodie','Brown',700,'./brown-hoodie.jpg')"
     >
         ADD TO BAG
     </button>
@@ -1213,19 +1207,17 @@ footer a:hover {
 <div class="products">
 
 
-<!-- GREY T-SHIRT -->
-
 <div class="product">
 
 <div class="product-image">
 
     <img
-        src="grey-tshirt.jpg"
+        src="./grey-tshirt.jpg"
         alt="SUMS Grey T-Shirt Front"
     >
 
     <img
-        src="grey-tshirt-back.jpg"
+        src="./grey-tshirt-back.jpg"
         alt="SUMS Grey T-Shirt Back"
     >
 
@@ -1247,12 +1239,7 @@ footer a:hover {
 
     <button
         class="add-button"
-        onclick="addToBag(
-            'SUMS Grey T-Shirt',
-            'Grey',
-            400,
-            'grey-tshirt.jpg'
-        )"
+        onclick="addToBag('SUMS Grey T-Shirt','Grey',400,'./grey-tshirt.jpg')"
     >
         ADD TO BAG
     </button>
@@ -1263,19 +1250,17 @@ footer a:hover {
 
 
 
-<!-- NAVY T-SHIRT -->
-
 <div class="product">
 
 <div class="product-image">
 
     <img
-        src="navy-tshirt.jpg"
+        src="./navy-tshirt.jpg"
         alt="SUMS Navy T-Shirt Front"
     >
 
     <img
-        src="navy-tshirt-back.jpg"
+        src="./navy-tshirt-back.jpg"
         alt="SUMS Navy T-Shirt Back"
     >
 
@@ -1297,12 +1282,7 @@ footer a:hover {
 
     <button
         class="add-button"
-        onclick="addToBag(
-            'SUMS Navy T-Shirt',
-            'Navy',
-            400,
-            'navy-tshirt.jpg'
-        )"
+        onclick="addToBag('SUMS Navy T-Shirt','Navy',400,'./navy-tshirt.jpg')"
     >
         ADD TO BAG
     </button>
@@ -1313,19 +1293,17 @@ footer a:hover {
 
 
 
-<!-- SKY BLUE T-SHIRT -->
-
 <div class="product">
 
 <div class="product-image">
 
     <img
-        src="skyblue-tshirt.jpg"
+        src="./skyblue-tshirt.jpg"
         alt="SUMS Sky Blue T-Shirt Front"
     >
 
     <img
-        src="skyblue-tshirt-back.jpg"
+        src="./skyblue-tshirt-back.jpg"
         alt="SUMS Sky Blue T-Shirt Back"
     >
 
@@ -1347,12 +1325,7 @@ footer a:hover {
 
     <button
         class="add-button"
-        onclick="addToBag(
-            'SUMS Sky Blue T-Shirt',
-            'Sky Blue',
-            400,
-            'skyblue-tshirt.jpg'
-        )"
+        onclick="addToBag('SUMS Sky Blue T-Shirt','Sky Blue',400,'./skyblue-tshirt.jpg')"
     >
         ADD TO BAG
     </button>
@@ -1396,45 +1369,23 @@ footer a:hover {
 
 <div class="products premium-products">
 
-
 <div class="product">
-
     <div class="coming-soon">
-
-        <h3>
-            COMING SOON
-        </h3>
-
+        <h3>COMING SOON</h3>
     </div>
-
 </div>
 
-
 <div class="product">
-
     <div class="coming-soon">
-
-        <h3>
-            COMING SOON
-        </h3>
-
+        <h3>COMING SOON</h3>
     </div>
-
 </div>
 
-
 <div class="product">
-
     <div class="coming-soon">
-
-        <h3>
-            COMING SOON
-        </h3>
-
+        <h3>COMING SOON</h3>
     </div>
-
 </div>
-
 
 </div>
 
@@ -1611,27 +1562,19 @@ footer a:hover {
     </h3>
 
     <p>
-        <a href="#hoodies">
-            Hoodies
-        </a>
+        <a href="#hoodies">Hoodies</a>
     </p>
 
     <p>
-        <a href="#tshirts">
-            T-Shirts
-        </a>
+        <a href="#tshirts">T-Shirts</a>
     </p>
 
     <p>
-        <a href="#premium">
-            Premium
-        </a>
+        <a href="#premium">Premium</a>
     </p>
 
     <p>
-        <a href="#about">
-            About SUMS
-        </a>
+        <a href="#about">About SUMS</a>
     </p>
 
 </div>
@@ -1707,13 +1650,10 @@ function updateBag() {
 
             total += item.price;
 
-
             const div =
                 document.createElement("div");
 
-
             div.className = "bag-item";
-
 
             div.innerHTML = `
 
@@ -1746,9 +1686,7 @@ function updateBag() {
                     </button>
 
                 </div>
-
             `;
-
 
             bagItems.appendChild(div);
 
@@ -1790,14 +1728,13 @@ function closeBag() {
 
 
 /* =========================
-   WHATSAPP ORDER
+   WHATSAPP
 ========================= */
 
 function updateWhatsApp() {
 
     let message =
         "Hi SUMS! I would like to order:%0A%0A";
-
 
     let total = 0;
 
@@ -1827,21 +1764,11 @@ function updateWhatsApp() {
             }
         );
 
-
         message +=
             "%0ATotal: R" +
             total;
     }
 
-
-    /*
-       SUMS WHATSAPP NUMBER
-
-       079 626 5589
-
-       International:
-       27796265589
-    */
 
     const phone =
         "27796265589";
@@ -1912,7 +1839,7 @@ function searchProducts() {
 
 
 /* =========================
-   ESCAPE CLOSES BAG
+   ESCAPE
 ========================= */
 
 document.addEventListener(
@@ -1920,9 +1847,7 @@ document.addEventListener(
     function(event) {
 
         if (event.key === "Escape") {
-
             closeBag();
-
         }
 
     }
@@ -1930,7 +1855,7 @@ document.addEventListener(
 
 
 /* =========================
-   START WHATSAPP
+   START
 ========================= */
 
 updateWhatsApp();
