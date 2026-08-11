@@ -7,7 +7,7 @@
     <title>SUMS — Premium Streetwear</title>
 
     <meta name="description"
-        content="SUMS — Premium streetwear from Port St Johns, Eastern Cape.">
+          content="SUMS — Premium streetwear from Port St Johns, Eastern Cape.">
 
     <style>
 
@@ -48,6 +48,7 @@
         nav {
             height: 76px;
             padding: 0 5%;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -61,14 +62,25 @@
         }
 
         .brand {
-            font-size: 31px;
-            font-weight: 900;
-            letter-spacing: -2px;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand img {
+            width: 48px;
+            height: 48px;
+
+            object-fit: contain;
+            display: block;
+
+            /* Turns the white logo black for the white navbar */
+            filter: invert(1);
         }
 
         .nav-links {
             display: flex;
             gap: 38px;
+
             font-size: 13px;
             font-weight: 700;
         }
@@ -90,9 +102,12 @@
         .cart-button {
             border: none;
             background: none;
+
             cursor: pointer;
+
             font-size: 14px;
             font-weight: bold;
+
             display: flex;
             align-items: center;
             gap: 5px;
@@ -101,8 +116,10 @@
         .bag-count {
             background: #111111;
             color: #ffffff;
+
             width: 20px;
             height: 20px;
+
             border-radius: 50%;
 
             display: inline-flex;
@@ -133,7 +150,8 @@
             justify-content: center;
 
             text-align: center;
-            color: white;
+
+            color: #ffffff;
 
             padding: 50px 20px;
         }
@@ -145,30 +163,38 @@
         .hero-small {
             font-size: 13px;
             font-weight: bold;
+
             letter-spacing: 5px;
+
             margin-bottom: 22px;
         }
 
         .hero h1 {
             font-size: clamp(60px, 12vw, 150px);
+
             line-height: 0.83;
+
             font-weight: 900;
+
             letter-spacing: -8px;
         }
 
         .hero p {
             margin-top: 30px;
+
             font-size: 18px;
         }
 
         .hero-button {
             display: inline-block;
+
             margin-top: 35px;
 
             background: #ffffff;
             color: #111111;
 
             padding: 16px 32px;
+
             border-radius: 30px;
 
             font-weight: bold;
@@ -191,29 +217,40 @@
 
         .section-header {
             display: flex;
+
             justify-content: space-between;
             align-items: end;
+
             gap: 50px;
+
             margin-bottom: 45px;
         }
 
         .section-label {
             font-size: 12px;
+
             letter-spacing: 4px;
+
             font-weight: bold;
+
             margin-bottom: 14px;
         }
 
         .section-title {
             font-size: clamp(42px, 6vw, 78px);
+
             line-height: 0.9;
+
             letter-spacing: -5px;
+
             font-weight: 900;
         }
 
         .section-description {
             max-width: 390px;
+
             color: #666666;
+
             line-height: 1.6;
         }
 
@@ -224,8 +261,11 @@
 
         .category-title {
             font-size: 28px;
+
             margin: 60px 0 25px;
+
             font-weight: 900;
+
             letter-spacing: -1px;
         }
 
@@ -236,7 +276,9 @@
 
         .products {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 18px;
         }
 
@@ -248,17 +290,21 @@
             height: 480px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             overflow: hidden;
+
             background: #f1f1f1;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
+
             object-fit: cover;
+
             display: block;
 
             transition: transform 0.4s ease;
@@ -274,36 +320,45 @@
 
         .product-name {
             font-size: 19px;
+
             font-weight: 800;
         }
 
         .product-colour {
             color: #777777;
+
             margin-top: 7px;
+
             font-size: 14px;
         }
 
         .product-bottom {
             display: flex;
+
             justify-content: space-between;
             align-items: center;
+
             margin-top: 20px;
         }
 
         .price {
             font-size: 17px;
+
             font-weight: 800;
         }
 
         .add-button {
             border: none;
+
             background: #111111;
             color: #ffffff;
 
             padding: 12px 20px;
+
             border-radius: 25px;
 
             font-weight: bold;
+
             cursor: pointer;
 
             transition: 0.2s;
@@ -311,6 +366,7 @@
 
         .add-button:hover {
             background: #333333;
+
             transform: translateY(-2px);
         }
 
@@ -321,6 +377,7 @@
 
         .premium {
             background: #000000;
+
             color: #ffffff;
         }
 
@@ -330,21 +387,26 @@
 
         .coming-soon-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 18px;
         }
 
         .coming-soon {
             height: 520px;
+
             background: #111111;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             text-align: center;
 
             position: relative;
+
             overflow: hidden;
         }
 
@@ -357,31 +419,41 @@
             height: 280px;
 
             border: 1px solid #333333;
+
             border-radius: 50%;
         }
 
         .coming-content {
             position: relative;
+
             z-index: 2;
         }
 
         .coming-number {
             font-size: 12px;
+
             letter-spacing: 5px;
+
             color: #777777;
+
             margin-bottom: 20px;
         }
 
         .coming-title {
             font-size: 36px;
+
             line-height: 0.95;
+
             font-weight: 900;
         }
 
         .coming-subtitle {
             margin-top: 14px;
+
             color: #777777;
+
             font-size: 12px;
+
             letter-spacing: 3px;
         }
 
@@ -392,16 +464,21 @@
 
         .statement {
             padding: 130px 5%;
+
             background: #ffffff;
+
             text-align: center;
         }
 
         .statement p {
             max-width: 1000px;
+
             margin: auto;
 
             font-size: clamp(38px, 6vw, 78px);
+
             font-weight: 900;
+
             line-height: 0.92;
 
             letter-spacing: -5px;
@@ -424,9 +501,11 @@
             margin-top: 30px;
 
             font-size: clamp(22px, 3vw, 38px);
+
             line-height: 1.2;
 
             font-weight: 600;
+
             letter-spacing: -1px;
         }
 
@@ -436,7 +515,9 @@
             max-width: 750px;
 
             color: #555555;
+
             font-size: 16px;
+
             line-height: 1.8;
         }
 
@@ -447,6 +528,7 @@
 
         footer {
             background: #000000;
+
             color: #ffffff;
 
             padding: 65px 5% 30px;
@@ -454,7 +536,9 @@
 
         .footer-top {
             display: flex;
+
             justify-content: space-between;
+
             gap: 40px;
 
             margin-bottom: 70px;
@@ -462,37 +546,47 @@
 
         .footer-brand {
             font-size: 44px;
+
             font-weight: 900;
+
             letter-spacing: -4px;
         }
 
         .footer-links {
             display: flex;
+
             gap: 70px;
         }
 
         .footer-column h3 {
             font-size: 11px;
+
             letter-spacing: 3px;
+
             margin-bottom: 18px;
         }
 
         .footer-column a {
             display: block;
+
             color: #999999;
+
             margin-bottom: 10px;
+
             font-size: 14px;
         }
 
         .footer-column a:hover {
-            color: white;
+            color: #ffffff;
         }
 
         .copyright {
             border-top: 1px solid #333333;
+
             padding-top: 25px;
 
             color: #777777;
+
             font-size: 12px;
         }
 
@@ -503,11 +597,13 @@
 
         .cart-overlay {
             position: fixed;
+
             inset: 0;
 
             background: rgba(0, 0, 0, 0.55);
 
             opacity: 0;
+
             visibility: hidden;
 
             transition: 0.3s;
@@ -517,6 +613,7 @@
 
         .cart-overlay.active {
             opacity: 1;
+
             visibility: visible;
         }
 
@@ -527,11 +624,13 @@
             top: 0;
 
             height: 100%;
+
             width: min(450px, 100%);
 
             background: #ffffff;
 
             display: flex;
+
             flex-direction: column;
 
             transform: translateX(100%);
@@ -547,7 +646,9 @@
             padding: 25px;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
             border-bottom: 1px solid #dddddd;
@@ -559,19 +660,25 @@
 
         .close-cart {
             background: none;
+
             border: none;
+
             font-size: 28px;
+
             cursor: pointer;
         }
 
         .cart-items {
             flex: 1;
+
             overflow-y: auto;
+
             padding: 25px;
         }
 
         .cart-item {
             padding-bottom: 20px;
+
             margin-bottom: 20px;
 
             border-bottom: 1px solid #eeeeee;
@@ -579,7 +686,9 @@
 
         .cart-item-top {
             display: flex;
+
             justify-content: space-between;
+
             gap: 15px;
         }
 
@@ -589,22 +698,31 @@
 
         .cart-item-details {
             color: #777777;
+
             font-size: 13px;
+
             margin-top: 6px;
         }
 
         .remove-item {
             border: none;
+
             background: none;
+
             color: #888888;
+
             cursor: pointer;
+
             font-size: 12px;
         }
 
         .cart-controls {
             display: flex;
+
             align-items: center;
+
             gap: 15px;
+
             margin-top: 14px;
         }
 
@@ -613,6 +731,7 @@
             height: 30px;
 
             border: 1px solid #cccccc;
+
             background: #ffffff;
 
             cursor: pointer;
@@ -620,7 +739,9 @@
 
         .empty-cart {
             text-align: center;
+
             color: #777777;
+
             padding: 50px 20px;
         }
 
@@ -632,9 +753,11 @@
 
         .cart-total {
             display: flex;
+
             justify-content: space-between;
 
             font-size: 20px;
+
             font-weight: 900;
 
             margin-bottom: 20px;
@@ -644,7 +767,9 @@
             width: 100%;
 
             border: none;
+
             background: #000000;
+
             color: #ffffff;
 
             padding: 17px;
@@ -652,6 +777,7 @@
             border-radius: 30px;
 
             font-weight: bold;
+
             cursor: pointer;
         }
 
@@ -662,17 +788,21 @@
 
         .checkout {
             position: fixed;
+
             inset: 0;
 
             background: rgba(0, 0, 0, 0.7);
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             padding: 20px;
 
             opacity: 0;
+
             visibility: hidden;
 
             transition: 0.3s;
@@ -682,6 +812,7 @@
 
         .checkout.active {
             opacity: 1;
+
             visibility: visible;
         }
 
@@ -689,6 +820,7 @@
             background: #ffffff;
 
             width: min(550px, 100%);
+
             max-height: 90vh;
 
             overflow-y: auto;
@@ -700,11 +832,13 @@
 
         .checkout-box h2 {
             font-size: 34px;
+
             margin-bottom: 8px;
         }
 
         .checkout-box p {
             color: #777777;
+
             margin-bottom: 25px;
         }
 
@@ -712,12 +846,15 @@
             position: absolute;
 
             right: 25px;
+
             top: 20px;
 
             background: none;
+
             border: none;
 
             font-size: 28px;
+
             cursor: pointer;
         }
 
@@ -729,6 +866,7 @@
             display: block;
 
             font-size: 12px;
+
             font-weight: bold;
 
             margin-bottom: 7px;
@@ -745,11 +883,13 @@
             outline: none;
 
             font-family: inherit;
+
             font-size: 14px;
         }
 
         .form-group textarea {
             min-height: 90px;
+
             resize: vertical;
         }
 
@@ -757,12 +897,15 @@
             padding: 20px 0;
 
             border-top: 1px solid #eeeeee;
+
             border-bottom: 1px solid #eeeeee;
 
             display: flex;
+
             justify-content: space-between;
 
             font-size: 20px;
+
             font-weight: 900;
 
             margin: 25px 0;
@@ -774,6 +917,7 @@
             border: none;
 
             background: #000000;
+
             color: #ffffff;
 
             padding: 17px;
@@ -796,8 +940,9 @@
                 height: 65px;
             }
 
-            .brand {
-                font-size: 25px;
+            .brand img {
+                width: 42px;
+                height: 42px;
             }
 
             .nav-links {
@@ -843,7 +988,9 @@
 
             .footer-links {
                 margin-top: 40px;
+
                 flex-wrap: wrap;
+
                 gap: 35px;
             }
 
@@ -866,8 +1013,13 @@
 <nav>
 
     <div class="brand">
-        SUMS
+
+        <img
+            src="sums-logo-transparent.png"
+            alt="SUMS">
+
     </div>
+
 
     <div class="nav-links">
 
@@ -885,6 +1037,7 @@
 
     </div>
 
+
     <div class="nav-icons">
 
         <button
@@ -896,7 +1049,9 @@
             <span
                 class="bag-count"
                 id="bagCount">
+
                 0
+
             </span>
 
         </button>
@@ -980,6 +1135,7 @@
     <h3 class="category-title">
         HOODIES
     </h3>
+
 
     <div class="products">
 
@@ -1132,6 +1288,7 @@
     <h3 class="category-title">
         T-SHIRTS
     </h3>
+
 
     <div class="products">
 
@@ -1424,15 +1581,17 @@
             THE EASTERN CAPE.
         </h2>
 
+
         <p class="about-text">
 
             SUMS is a streetwear brand from
             Port St Johns, Eastern Cape —
-            built around individuality,
-            confidence and a different way
-            of seeing everyday style.
+            shaped by coastal energy, modern
+            design and the confidence to create
+            your own direction.
 
         </p>
+
 
         <p class="about-small">
 
@@ -1444,11 +1603,16 @@
 
             <br><br>
 
-            SUMS is about more than putting on a shirt
-            or a hoodie. It is about the attitude that
-            comes with it. The confidence to stand out,
-            the freedom to create your own lane,
-            and the mindset to keep moving different.
+            The idea is simple: make clothing that
+            carries presence without needing to
+            shout. Every piece is designed to fit
+            naturally into the streets, the city,
+            the coast and everywhere in between.
+
+            <br><br>
+
+            SUMS represents movement, ambition
+            and a mindset that refuses to stand still.
 
             <br><br>
 
@@ -1473,6 +1637,7 @@
         <div class="footer-brand">
             SUMS
         </div>
+
 
         <div class="footer-links">
 
@@ -1528,7 +1693,6 @@
                 </a>
 
             </div>
-
 
         </div>
 
@@ -1593,6 +1757,7 @@
                 </span>
 
             </div>
+
 
             <button
                 class="checkout-button"
@@ -1763,6 +1928,7 @@
 
 
         updateCart();
+
         openCart();
 
     }
@@ -1784,6 +1950,7 @@
 
 
         let total = 0;
+
         let itemCount = 0;
 
 
@@ -1805,6 +1972,7 @@
 
 
             total += itemTotal;
+
             itemCount += item.quantity;
 
 
@@ -1875,8 +2043,10 @@
         cartTotal.textContent =
             `R${total}`;
 
+
         bagCount.textContent =
             itemCount;
+
 
         document.getElementById(
             "checkoutTotal"
@@ -1917,6 +2087,7 @@
             .getElementById("cartOverlay")
             .classList.add("active");
 
+
         document
             .body
             .classList.add("cart-open");
@@ -1929,6 +2100,7 @@
         document
             .getElementById("cartOverlay")
             .classList.remove("active");
+
 
         document
             .body
