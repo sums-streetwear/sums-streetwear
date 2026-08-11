@@ -6,9 +6,10 @@
 
 <title>SUMS — Premium Streetwear</title>
 
-<meta name="description" content="SUMS — Premium streetwear from Port St Johns, Eastern Cape. Shop hoodies and T-shirts.">
+<meta name="description" content="SUMS Premium Streetwear from Port St Johns, Eastern Cape, South Africa.">
 
 <style>
+
 * {
     margin: 0;
     padding: 0;
@@ -21,9 +22,10 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #fff;
+    background: white;
     color: #111;
 }
+
 
 /* =========================
    HEADER
@@ -31,48 +33,61 @@ body {
 
 header {
     height: 78px;
-    background: #fff;
+    background: white;
     border-bottom: 1px solid #ddd;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 4%;
+
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
+
+/* LOGO */
+
 .logo-area {
     display: flex;
     align-items: center;
     gap: 12px;
+
     text-decoration: none;
     color: #111;
 }
 
 .logo-area img {
-    width: 45px;
-    height: 45px;
+    width: 48px;
+    height: 48px;
+
     object-fit: contain;
 }
 
 .brand-name {
-    font-size: 21px;
+    font-size: 22px;
     font-weight: 900;
     letter-spacing: 5px;
 }
 
+
+/* NAVIGATION */
+
 nav {
     display: flex;
-    gap: 32px;
     align-items: center;
+    gap: 32px;
 }
 
 nav a {
-    text-decoration: none;
     color: #111;
+    text-decoration: none;
+
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 900;
+
     letter-spacing: 1px;
 }
 
@@ -80,22 +95,31 @@ nav a:hover {
     text-decoration: underline;
 }
 
+
+/* HEADER RIGHT */
+
 .header-right {
     display: flex;
     align-items: center;
     gap: 18px;
 }
 
+
+/* SEARCH */
+
 .search-box {
     display: flex;
     align-items: center;
+
     border: 1px solid #111;
     border-radius: 30px;
-    padding: 7px 13px;
-    width: 180px;
+
+    padding: 8px 14px;
+
+    width: 190px;
 }
 
-.search-box span {
+.search-icon {
     font-size: 18px;
     margin-right: 8px;
 }
@@ -103,32 +127,45 @@ nav a:hover {
 .search-box input {
     border: none;
     outline: none;
+
     width: 100%;
+
     font-size: 13px;
 }
+
+
+/* BAG */
 
 .bag-button {
     border: none;
     background: none;
+
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
     font-size: 13px;
     font-weight: 900;
-    display: flex;
-    gap: 7px;
-    align-items: center;
 }
 
 .bag-number {
-    background: #111;
-    color: #fff;
-    width: 22px;
-    height: 22px;
+    width: 23px;
+    height: 23px;
+
     border-radius: 50%;
+
+    background: #111;
+    color: white;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 11px;
 }
+
 
 /* =========================
    HERO
@@ -136,48 +173,69 @@ nav a:hover {
 
 .hero {
     min-height: 72vh;
+
     background: #111;
     color: white;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     padding: 70px 20px;
 }
 
 .hero-content {
-    max-width: 1100px;
+    max-width: 1200px;
 }
 
 .hero-small {
     font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 7px;
+    font-weight: 900;
+
+    letter-spacing: 8px;
+
     margin-bottom: 25px;
 }
 
 .hero h1 {
     font-size: clamp(70px, 13vw, 180px);
-    line-height: .8;
+
+    line-height: .82;
+
     font-weight: 900;
+
     letter-spacing: -7px;
 }
 
 .hero p {
     font-size: 18px;
+
     margin-top: 35px;
 }
 
 .hero-button {
     display: inline-block;
+
     margin-top: 30px;
-    padding: 17px 32px;
+
+    padding: 17px 34px;
+
     background: white;
     color: #111;
+
     border-radius: 40px;
+
     text-decoration: none;
+
     font-weight: 900;
 }
+
+.hero-button:hover {
+    transform: scale(1.03);
+}
+
 
 /* =========================
    CATEGORY CARDS
@@ -185,20 +243,28 @@ nav a:hover {
 
 .categories {
     padding: 18px;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     gap: 18px;
 }
 
 .category {
-    min-height: 320px;
+    min-height: 300px;
+
     background: #111;
     color: white;
+
     display: flex;
     align-items: flex-end;
+
     padding: 35px;
+
     text-decoration: none;
+
     position: relative;
+
     overflow: hidden;
 }
 
@@ -208,21 +274,27 @@ nav a:hover {
 }
 
 .category h2 {
-    font-size: clamp(35px, 5vw, 70px);
+    font-size: clamp(40px, 5vw, 70px);
+
     font-weight: 900;
-    letter-spacing: -2px;
+
+    letter-spacing: -3px;
 }
 
 .category span {
     position: absolute;
+
     top: 30px;
     right: 30px;
-    font-size: 13px;
-    font-weight: bold;
+
+    font-size: 12px;
+
+    font-weight: 900;
 }
 
+
 /* =========================
-   SECTIONS
+   GENERAL SECTIONS
 ========================= */
 
 .section {
@@ -231,22 +303,29 @@ nav a:hover {
 
 .section-header {
     display: flex;
+
     justify-content: space-between;
     align-items: end;
+
     margin-bottom: 35px;
 }
 
 .section-header h2 {
-    font-size: clamp(40px, 6vw, 75px);
+    font-size: clamp(45px, 6vw, 80px);
+
     font-weight: 900;
-    letter-spacing: -3px;
+
+    letter-spacing: -4px;
 }
 
 .section-header p {
+    max-width: 360px;
+
     font-size: 14px;
-    max-width: 350px;
+
     line-height: 1.5;
 }
+
 
 /* =========================
    PRODUCTS
@@ -254,95 +333,97 @@ nav a:hover {
 
 .products {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 18px;
 }
 
 .product {
-    background: #f3f3f3;
-    position: relative;
+    background: white;
 }
 
+
+/*
+   FRONT + BACK
+   BOTH ARE AUTOMATICALLY
+   VISIBLE
+*/
+
 .product-image {
-    position: relative;
-    overflow: hidden;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 3px;
+
     background: #eee;
-    aspect-ratio: 1 / 1.15;
+
+    overflow: hidden;
 }
 
 .product-image img {
     width: 100%;
+
+    aspect-ratio: 1 / 1.15;
+
     height: 100%;
+
     object-fit: cover;
+
     display: block;
-    transition: opacity .25s ease;
 }
 
-.product-image .back-image {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-}
 
-.product-image:hover .front-image {
-    opacity: 0;
-}
-
-.product-image:hover .back-image {
-    opacity: 1;
-}
-
-.flip-button {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    border: none;
-    background: white;
-    color: #111;
-    padding: 9px 13px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 800;
-    cursor: pointer;
-    z-index: 2;
-}
+/* PRODUCT INFORMATION */
 
 .product-info {
-    background: white;
     padding: 18px 4px 5px;
 }
 
 .product-name {
     font-size: 17px;
+
     font-weight: 900;
 }
 
 .product-colour {
     color: #666;
-    margin-top: 5px;
+
+    margin-top: 6px;
+
     font-size: 13px;
 }
 
 .product-price {
     margin-top: 10px;
+
     font-weight: 900;
 }
 
 .add-button {
     width: 100%;
+
     margin-top: 15px;
+
     border: none;
+
     background: #111;
     color: white;
+
     padding: 14px;
+
     font-weight: 900;
+
     cursor: pointer;
+
     font-size: 13px;
 }
 
 .add-button:hover {
     background: #333;
 }
+
 
 /* =========================
    PREMIUM
@@ -357,25 +438,40 @@ nav a:hover {
     color: #ccc;
 }
 
-.premium-products .product {
-    background: #1c1c1c;
+.premium-products {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .coming-soon {
     aspect-ratio: 1 / 1.15;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     background:
-        linear-gradient(135deg, #111 25%, #222 25%, #222 50%, #111 50%, #111 75%, #222 75%);
+        linear-gradient(
+            135deg,
+            #111 25%,
+            #222 25%,
+            #222 50%,
+            #111 50%,
+            #111 75%,
+            #222 75%
+        );
+
     background-size: 25px 25px;
 }
 
 .coming-soon h3 {
     font-size: 28px;
+
     letter-spacing: 4px;
 }
+
 
 /* =========================
    ABOUT
@@ -383,6 +479,7 @@ nav a:hover {
 
 .about {
     background: white;
+
     padding: 100px 8%;
 }
 
@@ -392,23 +489,32 @@ nav a:hover {
 
 .about h2 {
     font-size: clamp(55px, 9vw, 110px);
+
     font-weight: 900;
+
     letter-spacing: -5px;
+
     margin-bottom: 35px;
 }
 
 .about p {
     font-size: 21px;
+
     line-height: 1.7;
+
     max-width: 850px;
 }
 
 .about-small {
     margin-top: 35px;
+
     font-size: 13px !important;
+
     letter-spacing: 2px;
-    font-weight: bold;
+
+    font-weight: 900;
 }
+
 
 /* =========================
    SEARCH RESULTS
@@ -416,13 +522,16 @@ nav a:hover {
 
 .search-results {
     display: none;
-    padding: 35px 4%;
+
+    padding: 40px 4%;
+
     background: #f5f5f5;
 }
 
 .search-results h2 {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
+
 
 /* =========================
    BAG PANEL
@@ -430,17 +539,29 @@ nav a:hover {
 
 .bag-panel {
     position: fixed;
+
     top: 0;
+
     right: -430px;
+
     width: 420px;
+
     max-width: 95%;
+
     height: 100vh;
+
     background: white;
+
     z-index: 2000;
+
     box-shadow: -5px 0 30px rgba(0,0,0,.2);
+
     transition: right .3s ease;
+
     padding: 30px;
+
     display: flex;
+
     flex-direction: column;
 }
 
@@ -450,9 +571,13 @@ nav a:hover {
 
 .bag-header {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     padding-bottom: 20px;
+
     border-bottom: 1px solid #ddd;
 }
 
@@ -462,33 +587,45 @@ nav a:hover {
 
 .close-bag {
     border: none;
+
     background: none;
-    font-size: 28px;
+
+    font-size: 30px;
+
     cursor: pointer;
 }
 
 .bag-items {
     flex: 1;
+
     overflow-y: auto;
+
     padding-top: 20px;
 }
 
 .empty-bag {
     color: #777;
+
     text-align: center;
+
     margin-top: 50px;
 }
 
 .bag-item {
     display: flex;
+
     gap: 15px;
+
     padding: 15px 0;
+
     border-bottom: 1px solid #ddd;
 }
 
 .bag-item img {
     width: 80px;
+
     height: 90px;
+
     object-fit: cover;
 }
 
@@ -502,40 +639,58 @@ nav a:hover {
 
 .bag-item-info p {
     font-size: 13px;
+
     margin-top: 6px;
 }
 
 .remove-item {
     border: none;
+
     background: none;
+
     text-decoration: underline;
+
     cursor: pointer;
+
     margin-top: 8px;
+
     font-size: 11px;
 }
 
 .bag-footer {
     border-top: 1px solid #ddd;
+
     padding-top: 20px;
 }
 
 .total {
     display: flex;
+
     justify-content: space-between;
+
     font-weight: 900;
+
     font-size: 18px;
 }
 
 .whatsapp-order {
     display: block;
+
     text-align: center;
+
     background: #111;
+
     color: white;
+
     text-decoration: none;
+
     padding: 16px;
+
     margin-top: 18px;
+
     font-weight: 900;
 }
+
 
 /* =========================
    FOOTER
@@ -543,17 +698,24 @@ nav a:hover {
 
 footer {
     background: #111;
+
     color: white;
+
     padding: 40px 4%;
+
     display: flex;
+
     justify-content: space-between;
-    gap: 20px;
 }
 
 footer p {
     font-size: 12px;
+
     color: #aaa;
+
+    margin-top: 7px;
 }
+
 
 /* =========================
    MOBILE
@@ -562,10 +724,14 @@ footer p {
 @media (max-width: 800px) {
 
     header {
-        height: auto;
         min-height: 70px;
+
+        height: auto;
+
         padding: 12px 4%;
+
         flex-wrap: wrap;
+
         gap: 12px;
     }
 
@@ -575,15 +741,19 @@ footer p {
 
     nav {
         order: 3;
+
         width: 100%;
+
         justify-content: center;
+
         gap: 18px;
+
         overflow-x: auto;
-        padding: 5px 0;
     }
 
     nav a {
         font-size: 11px;
+
         white-space: nowrap;
     }
 
@@ -609,6 +779,7 @@ footer p {
 
     .products {
         grid-template-columns: repeat(2, 1fr);
+
         gap: 10px;
     }
 
@@ -640,15 +811,16 @@ footer p {
         display: block;
     }
 
-    footer p {
-        margin-top: 10px;
+    footer div + div {
+        margin-top: 15px;
     }
 }
+
 
 @media (max-width: 480px) {
 
     .header-right {
-        gap: 8px;
+        gap: 7px;
     }
 
     .search-box {
@@ -663,15 +835,18 @@ footer p {
         grid-template-columns: 1fr 1fr;
     }
 
-    .flip-button {
-        font-size: 9px;
-        padding: 7px 9px;
+    .product-image {
+        gap: 2px;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      HEADER
@@ -680,37 +855,80 @@ footer p {
 <header>
 
 <a href="#" class="logo-area">
-    <img src="sums-logo-transparent.png" alt="SUMS Logo">
-    <span class="brand-name">SUMS</span>
+
+    <!-- YOUR SUMS LOGO -->
+
+    <img
+        src="sums-logo.png"
+        alt="SUMS Logo"
+    >
+
+    <span class="brand-name">
+        SUMS
+    </span>
+
 </a>
 
+
 <nav>
-    <a href="#hoodies">HOODIES</a>
-    <a href="#tshirts">T-SHIRTS</a>
-    <a href="#premium">PREMIUM</a>
-    <a href="#about">ABOUT</a>
+
+    <a href="#hoodies">
+        HOODIES
+    </a>
+
+    <a href="#tshirts">
+        T-SHIRTS
+    </a>
+
+    <a href="#premium">
+        PREMIUM
+    </a>
+
+    <a href="#about">
+        ABOUT
+    </a>
+
 </nav>
+
 
 <div class="header-right">
 
     <div class="search-box">
-        <span>⌕</span>
+
+        <span class="search-icon">
+            ⌕
+        </span>
+
         <input
             type="text"
             id="searchInput"
             placeholder="Search"
             oninput="searchProducts()"
         >
+
     </div>
 
-    <button class="bag-button" onclick="openBag()">
+
+    <button
+        class="bag-button"
+        onclick="openBag()"
+    >
+
         BAG
-        <span class="bag-number" id="bagNumber">0</span>
+
+        <span
+            class="bag-number"
+            id="bagNumber"
+        >
+            0
+        </span>
+
     </button>
 
 </div>
 
 </header>
+
 
 
 <!-- =========================
@@ -721,13 +939,23 @@ footer p {
 
 <div class="hero-content">
 
-    <div class="hero-small">SUMS CLOTHING</div>
+    <div class="hero-small">
+        SUMS CLOTHING
+    </div>
 
-    <h1>MOVE<br>DIFFERENT.</h1>
+    <h1>
+        MOVE<br>
+        DIFFERENT.
+    </h1>
 
-    <p>Premium streetwear made for those who refuse to blend in.</p>
+    <p>
+        Premium streetwear made for those who refuse to blend in.
+    </p>
 
-    <a href="#hoodies" class="hero-button">
+    <a
+        href="#hoodies"
+        class="hero-button"
+    >
         SHOP SUMS
     </a>
 
@@ -736,45 +964,87 @@ footer p {
 </section>
 
 
+
 <!-- =========================
      CATEGORIES
 ========================= -->
 
 <section class="categories">
 
-<a href="#hoodies" class="category">
-    <span>SHOP NOW →</span>
-    <h2>HOODIES</h2>
+<a
+    href="#hoodies"
+    class="category"
+>
+
+    <span>
+        SHOP NOW →
+    </span>
+
+    <h2>
+        HOODIES
+    </h2>
+
 </a>
 
-<a href="#tshirts" class="category">
-    <span>SHOP NOW →</span>
-    <h2>T-SHIRTS</h2>
+
+<a
+    href="#tshirts"
+    class="category"
+>
+
+    <span>
+        SHOP NOW →
+    </span>
+
+    <h2>
+        T-SHIRTS
+    </h2>
+
 </a>
 
 </section>
+
 
 
 <!-- =========================
      SEARCH RESULTS
 ========================= -->
 
-<section class="search-results" id="searchResults">
-    <h2>SEARCH RESULTS</h2>
-    <div class="products" id="searchProducts"></div>
+<section
+    class="search-results"
+    id="searchResults"
+>
+
+    <h2>
+        SEARCH RESULTS
+    </h2>
+
+    <div
+        class="products"
+        id="searchProducts"
+    ></div>
+
 </section>
+
 
 
 <!-- =========================
      HOODIES
 ========================= -->
 
-<section class="section" id="hoodies">
+<section
+    class="section"
+    id="hoodies"
+>
 
 <div class="section-header">
 
     <div>
-        <h2>HOODIES</h2>
+
+        <h2>
+            HOODIES
+        </h2>
+
     </div>
 
     <p>
@@ -787,203 +1057,198 @@ footer p {
 
 <div class="products">
 
+
+
 <!-- WHITE HOODIE -->
 
-<div class="product"
-     data-name="SUMS White Hoodie"
-     data-type="hoodie"
-     data-colour="white">
+<div
+    class="product"
+    data-name="SUMS White Hoodie"
+    data-type="hoodie"
+    data-colour="white"
+>
 
-    <div class="product-image">
+<div class="product-image">
 
-        <img
-            class="front-image"
-            src="white-hoodie.jpg"
-            alt="SUMS White Hoodie Front"
-        >
+    <img
+        src="white-hoodie.jpg"
+        alt="SUMS White Hoodie Front"
+    >
 
-        <img
-            class="back-image"
-            src="white-hoodie-back.jpg"
-            alt="SUMS White Hoodie Back"
-        >
-
-        <button
-            class="flip-button"
-            onclick="flipProduct(this)"
-        >
-            FRONT / BACK
-        </button>
-
-    </div>
-
-    <div class="product-info">
-
-        <div class="product-name">
-            SUMS Hoodie
-        </div>
-
-        <div class="product-colour">
-            White
-        </div>
-
-        <div class="product-price">
-            R700
-        </div>
-
-        <button
-            class="add-button"
-            onclick="addToBag(
-                'SUMS White Hoodie',
-                'White',
-                700,
-                'white-hoodie.jpg'
-            )"
-        >
-            ADD TO BAG
-        </button>
-
-    </div>
+    <img
+        src="white-hoodie-back.jpg"
+        alt="SUMS White Hoodie Back"
+    >
 
 </div>
+
+
+<div class="product-info">
+
+    <div class="product-name">
+        SUMS Hoodie
+    </div>
+
+    <div class="product-colour">
+        White
+    </div>
+
+    <div class="product-price">
+        R700
+    </div>
+
+    <button
+        class="add-button"
+        onclick="addToBag(
+            'SUMS White Hoodie',
+            'White',
+            700,
+            'white-hoodie.jpg'
+        )"
+    >
+        ADD TO BAG
+    </button>
+
+</div>
+
+</div>
+
 
 
 <!-- GREY HOODIE -->
 
-<div class="product"
-     data-name="SUMS Grey Hoodie"
-     data-type="hoodie"
-     data-colour="grey">
+<div
+    class="product"
+    data-name="SUMS Grey Hoodie"
+    data-type="hoodie"
+    data-colour="grey"
+>
 
-    <div class="product-image">
+<div class="product-image">
 
-        <img
-            class="front-image"
-            src="grey-hoodie.jpg"
-            alt="SUMS Grey Hoodie Front"
-        >
+    <img
+        src="grey-hoodie.jpg"
+        alt="SUMS Grey Hoodie Front"
+    >
 
-        <img
-            class="back-image"
-            src="grey-hoodie-back.jpg"
-            alt="SUMS Grey Hoodie Back"
-        >
-
-        <button
-            class="flip-button"
-            onclick="flipProduct(this)"
-        >
-            FRONT / BACK
-        </button>
-
-    </div>
-
-    <div class="product-info">
-
-        <div class="product-name">
-            SUMS Hoodie
-        </div>
-
-        <div class="product-colour">
-            Grey
-        </div>
-
-        <div class="product-price">
-            R700
-        </div>
-
-        <button
-            class="add-button"
-            onclick="addToBag(
-                'SUMS Grey Hoodie',
-                'Grey',
-                700,
-                'grey-hoodie.jpg'
-            )"
-        >
-            ADD TO BAG
-        </button>
-
-    </div>
+    <img
+        src="grey-hoodie-back.jpg"
+        alt="SUMS Grey Hoodie Back"
+    >
 
 </div>
+
+
+<div class="product-info">
+
+    <div class="product-name">
+        SUMS Hoodie
+    </div>
+
+    <div class="product-colour">
+        Grey
+    </div>
+
+    <div class="product-price">
+        R700
+    </div>
+
+    <button
+        class="add-button"
+        onclick="addToBag(
+            'SUMS Grey Hoodie',
+            'Grey',
+            700,
+            'grey-hoodie.jpg'
+        )"
+    >
+        ADD TO BAG
+    </button>
+
+</div>
+
+</div>
+
 
 
 <!-- BROWN HOODIE -->
 
-<div class="product"
-     data-name="SUMS Brown Hoodie"
-     data-type="hoodie"
-     data-colour="brown">
+<div
+    class="product"
+    data-name="SUMS Brown Hoodie"
+    data-type="hoodie"
+    data-colour="brown"
+>
 
-    <div class="product-image">
+<div class="product-image">
 
-        <img
-            class="front-image"
-            src="brown-hoodie.jpg"
-            alt="SUMS Brown Hoodie Front"
-        >
+    <img
+        src="brown-hoodie.jpg"
+        alt="SUMS Brown Hoodie Front"
+    >
 
-        <img
-            class="back-image"
-            src="brown-hoodie-back.jpg"
-            alt="SUMS Brown Hoodie Back"
-        >
-
-        <button
-            class="flip-button"
-            onclick="flipProduct(this)"
-        >
-            FRONT / BACK
-        </button>
-
-    </div>
-
-    <div class="product-info">
-
-        <div class="product-name">
-            SUMS Hoodie
-        </div>
-
-        <div class="product-colour">
-            Brown
-        </div>
-
-        <div class="product-price">
-            R700
-        </div>
-
-        <button
-            class="add-button"
-            onclick="addToBag(
-                'SUMS Brown Hoodie',
-                'Brown',
-                700,
-                'brown-hoodie.jpg'
-            )"
-        >
-            ADD TO BAG
-        </button>
-
-    </div>
+    <img
+        src="brown-hoodie-back.jpg"
+        alt="SUMS Brown Hoodie Back"
+    >
 
 </div>
+
+
+<div class="product-info">
+
+    <div class="product-name">
+        SUMS Hoodie
+    </div>
+
+    <div class="product-colour">
+        Brown
+    </div>
+
+    <div class="product-price">
+        R700
+    </div>
+
+    <button
+        class="add-button"
+        onclick="addToBag(
+            'SUMS Brown Hoodie',
+            'Brown',
+            700,
+            'brown-hoodie.jpg'
+        )"
+    >
+        ADD TO BAG
+    </button>
+
+</div>
+
+</div>
+
 
 </div>
 
 </section>
 
 
+
 <!-- =========================
      T-SHIRTS
 ========================= -->
 
-<section class="section" id="tshirts">
+<section
+    class="section"
+    id="tshirts"
+>
 
 <div class="section-header">
 
     <div>
-        <h2>T-SHIRTS</h2>
+
+        <h2>
+            T-SHIRTS
+        </h2>
+
     </div>
 
     <p>
@@ -996,203 +1261,198 @@ footer p {
 
 <div class="products">
 
+
+
 <!-- GREY T-SHIRT -->
 
-<div class="product"
-     data-name="SUMS Grey T-Shirt"
-     data-type="tshirt"
-     data-colour="grey">
+<div
+    class="product"
+    data-name="SUMS Grey T-Shirt"
+    data-type="tshirt"
+    data-colour="grey"
+>
 
-    <div class="product-image">
+<div class="product-image">
 
-        <img
-            class="front-image"
-            src="grey-tshirt.jpg"
-            alt="SUMS Grey T-Shirt Front"
-        >
+    <img
+        src="grey-tshirt.jpg"
+        alt="SUMS Grey T-Shirt Front"
+    >
 
-        <img
-            class="back-image"
-            src="grey-tshirt-back.jpg"
-            alt="SUMS Grey T-Shirt Back"
-        >
-
-        <button
-            class="flip-button"
-            onclick="flipProduct(this)"
-        >
-            FRONT / BACK
-        </button>
-
-    </div>
-
-    <div class="product-info">
-
-        <div class="product-name">
-            SUMS T-Shirt
-        </div>
-
-        <div class="product-colour">
-            Grey
-        </div>
-
-        <div class="product-price">
-            R400
-        </div>
-
-        <button
-            class="add-button"
-            onclick="addToBag(
-                'SUMS Grey T-Shirt',
-                'Grey',
-                400,
-                'grey-tshirt.jpg'
-            )"
-        >
-            ADD TO BAG
-        </button>
-
-    </div>
+    <img
+        src="grey-tshirt-back.jpg"
+        alt="SUMS Grey T-Shirt Back"
+    >
 
 </div>
+
+
+<div class="product-info">
+
+    <div class="product-name">
+        SUMS T-Shirt
+    </div>
+
+    <div class="product-colour">
+        Grey
+    </div>
+
+    <div class="product-price">
+        R400
+    </div>
+
+    <button
+        class="add-button"
+        onclick="addToBag(
+            'SUMS Grey T-Shirt',
+            'Grey',
+            400,
+            'grey-tshirt.jpg'
+        )"
+    >
+        ADD TO BAG
+    </button>
+
+</div>
+
+</div>
+
 
 
 <!-- NAVY T-SHIRT -->
 
-<div class="product"
-     data-name="SUMS Navy T-Shirt"
-     data-type="tshirt"
-     data-colour="navy">
+<div
+    class="product"
+    data-name="SUMS Navy T-Shirt"
+    data-type="tshirt"
+    data-colour="navy"
+>
 
-    <div class="product-image">
+<div class="product-image">
 
-        <img
-            class="front-image"
-            src="navy-tshirt.jpg"
-            alt="SUMS Navy T-Shirt Front"
-        >
+    <img
+        src="navy-tshirt.jpg"
+        alt="SUMS Navy T-Shirt Front"
+    >
 
-        <img
-            class="back-image"
-            src="navy-tshirt-back.jpg"
-            alt="SUMS Navy T-Shirt Back"
-        >
-
-        <button
-            class="flip-button"
-            onclick="flipProduct(this)"
-        >
-            FRONT / BACK
-        </button>
-
-    </div>
-
-    <div class="product-info">
-
-        <div class="product-name">
-            SUMS T-Shirt
-        </div>
-
-        <div class="product-colour">
-            Navy
-        </div>
-
-        <div class="product-price">
-            R400
-        </div>
-
-        <button
-            class="add-button"
-            onclick="addToBag(
-                'SUMS Navy T-Shirt',
-                'Navy',
-                400,
-                'navy-tshirt.jpg'
-            )"
-        >
-            ADD TO BAG
-        </button>
-
-    </div>
+    <img
+        src="navy-tshirt-back.jpg"
+        alt="SUMS Navy T-Shirt Back"
+    >
 
 </div>
+
+
+<div class="product-info">
+
+    <div class="product-name">
+        SUMS T-Shirt
+    </div>
+
+    <div class="product-colour">
+        Navy
+    </div>
+
+    <div class="product-price">
+        R400
+    </div>
+
+    <button
+        class="add-button"
+        onclick="addToBag(
+            'SUMS Navy T-Shirt',
+            'Navy',
+            400,
+            'navy-tshirt.jpg'
+        )"
+    >
+        ADD TO BAG
+    </button>
+
+</div>
+
+</div>
+
 
 
 <!-- SKY BLUE T-SHIRT -->
 
-<div class="product"
-     data-name="SUMS Sky Blue T-Shirt"
-     data-type="tshirt"
-     data-colour="skyblue">
+<div
+    class="product"
+    data-name="SUMS Sky Blue T-Shirt"
+    data-type="tshirt"
+    data-colour="skyblue"
+>
 
-    <div class="product-image">
+<div class="product-image">
 
-        <img
-            class="front-image"
-            src="skyblue-tshirt.jpg"
-            alt="SUMS Sky Blue T-Shirt Front"
-        >
+    <img
+        src="skyblue-tshirt.jpg"
+        alt="SUMS Sky Blue T-Shirt Front"
+    >
 
-        <img
-            class="back-image"
-            src="skyblue-tshirt-back.jpg"
-            alt="SUMS Sky Blue T-Shirt Back"
-        >
-
-        <button
-            class="flip-button"
-            onclick="flipProduct(this)"
-        >
-            FRONT / BACK
-        </button>
-
-    </div>
-
-    <div class="product-info">
-
-        <div class="product-name">
-            SUMS T-Shirt
-        </div>
-
-        <div class="product-colour">
-            Sky Blue
-        </div>
-
-        <div class="product-price">
-            R400
-        </div>
-
-        <button
-            class="add-button"
-            onclick="addToBag(
-                'SUMS Sky Blue T-Shirt',
-                'Sky Blue',
-                400,
-                'skyblue-tshirt.jpg'
-            )"
-        >
-            ADD TO BAG
-        </button>
-
-    </div>
+    <img
+        src="skyblue-tshirt-back.jpg"
+        alt="SUMS Sky Blue T-Shirt Back"
+    >
 
 </div>
+
+
+<div class="product-info">
+
+    <div class="product-name">
+        SUMS T-Shirt
+    </div>
+
+    <div class="product-colour">
+        Sky Blue
+    </div>
+
+    <div class="product-price">
+        R400
+    </div>
+
+    <button
+        class="add-button"
+        onclick="addToBag(
+            'SUMS Sky Blue T-Shirt',
+            'Sky Blue',
+            400,
+            'skyblue-tshirt.jpg'
+        )"
+    >
+        ADD TO BAG
+    </button>
+
+</div>
+
+</div>
+
 
 </div>
 
 </section>
 
 
+
 <!-- =========================
      PREMIUM
 ========================= -->
 
-<section class="section premium-section" id="premium">
+<section
+    class="section premium-section"
+    id="premium"
+>
 
 <div class="section-header">
 
     <div>
-        <h2>PREMIUM</h2>
+
+        <h2>
+            PREMIUM
+        </h2>
+
     </div>
 
     <p>
@@ -1206,55 +1466,100 @@ footer p {
 
 <div class="products premium-products">
 
-    <div class="product">
-        <div class="coming-soon">
-            <h3>COMING SOON</h3>
-        </div>
-    </div>
 
-    <div class="product">
-        <div class="coming-soon">
-            <h3>COMING SOON</h3>
-        </div>
-    </div>
+<div class="product">
 
-    <div class="product">
-        <div class="coming-soon">
-            <h3>COMING SOON</h3>
-        </div>
+    <div class="coming-soon">
+
+        <h3>
+            COMING SOON
+        </h3>
+
     </div>
 
 </div>
 
+
+<div class="product">
+
+    <div class="coming-soon">
+
+        <h3>
+            COMING SOON
+        </h3>
+
+    </div>
+
+</div>
+
+
+<div class="product">
+
+    <div class="coming-soon">
+
+        <h3>
+            COMING SOON
+        </h3>
+
+    </div>
+
+</div>
+
+
+</div>
+
 </section>
+
 
 
 <!-- =========================
      ABOUT
 ========================= -->
 
-<section class="about" id="about">
+<section
+    class="about"
+    id="about"
+>
 
 <div class="about-inner">
 
-    <h2>ABOUT SUMS.</h2>
+    <h2>
+        ABOUT SUMS.
+    </h2>
+
 
     <p>
-        SUMS is a premium streetwear brand from Port St Johns
-        in the Eastern Cape, South Africa. Built around confidence,
-        creativity and the freedom to move differently, SUMS brings
-        a fresh streetwear identity to a place with its own character.
+        SUMS is a premium streetwear brand from
+        Port St Johns in the Eastern Cape,
+        South Africa.
     </p>
+
 
     <p style="margin-top:25px;">
-        From everyday essentials to pieces that stand apart,
-        SUMS is about making clothing feel personal. Clean designs,
-        strong energy and a mindset that says you don't have to
-        follow the crowd.
+
+        Built around confidence, creativity and
+        the freedom to move differently, SUMS
+        brings a fresh streetwear identity from
+        a place with its own character and energy.
+
     </p>
 
+
+    <p style="margin-top:25px;">
+
+        From everyday essentials to pieces that
+        stand apart, SUMS is about making clothing
+        feel personal. Clean designs, strong energy
+        and a mindset that says you don't have to
+        follow the crowd.
+
+    </p>
+
+
     <p class="about-small">
+
         PORT ST JOHNS · EASTERN CAPE · SOUTH AFRICA
+
     </p>
 
 </div>
@@ -1262,15 +1567,23 @@ footer p {
 </section>
 
 
+
 <!-- =========================
-     BAG
+     BAG PANEL
 ========================= -->
 
-<div class="bag-panel" id="bagPanel">
+<div
+    class="bag-panel"
+    id="bagPanel"
+>
+
 
 <div class="bag-header">
 
-    <h2>YOUR BAG</h2>
+    <h2>
+        YOUR BAG
+    </h2>
+
 
     <button
         class="close-bag"
@@ -1282,7 +1595,10 @@ footer p {
 </div>
 
 
-<div class="bag-items" id="bagItems">
+<div
+    class="bag-items"
+    id="bagItems"
+>
 
     <div class="empty-bag">
         Your bag is empty.
@@ -1295,13 +1611,16 @@ footer p {
 
     <div class="total">
 
-        <span>TOTAL</span>
+        <span>
+            TOTAL
+        </span>
 
         <span id="bagTotal">
             R0
         </span>
 
     </div>
+
 
     <a
         href="#"
@@ -1317,6 +1636,7 @@ footer p {
 </div>
 
 
+
 <!-- =========================
      FOOTER
 ========================= -->
@@ -1324,18 +1644,32 @@ footer p {
 <footer>
 
 <div>
-    <strong>SUMS</strong>
-    <p>Premium Streetwear</p>
+
+    <strong>
+        SUMS
+    </strong>
+
+    <p>
+        Premium Streetwear
+    </p>
+
 </div>
 
+
 <div>
-    <p>Port St Johns · Eastern Cape · South Africa</p>
+
+    <p>
+        Port St Johns · Eastern Cape · South Africa
+    </p>
+
 </div>
 
 </footer>
 
 
+
 <script>
+
 
 /* =========================
    BAG
@@ -1344,81 +1678,140 @@ footer p {
 let bag = [];
 
 
-function addToBag(name, colour, price, image) {
+function addToBag(
+    name,
+    colour,
+    price,
+    image
+) {
 
     bag.push({
+
         name: name,
+
         colour: colour,
+
         price: price,
+
         image: image
+
     });
+
 
     updateBag();
 
     openBag();
+
 }
+
 
 
 function updateBag() {
 
-    const bagItems = document.getElementById("bagItems");
-    const bagNumber = document.getElementById("bagNumber");
-    const bagTotal = document.getElementById("bagTotal");
+    const bagItems =
+        document.getElementById(
+            "bagItems"
+        );
 
-    bagNumber.textContent = bag.length;
+
+    const bagNumber =
+        document.getElementById(
+            "bagNumber"
+        );
+
+
+    const bagTotal =
+        document.getElementById(
+            "bagTotal"
+        );
+
+
+    bagNumber.textContent =
+        bag.length;
+
 
     if (bag.length === 0) {
 
         bagItems.innerHTML =
             '<div class="empty-bag">Your bag is empty.</div>';
 
-        bagTotal.textContent = "R0";
+        bagTotal.textContent =
+            "R0";
+
+        updateWhatsApp();
 
         return;
+
     }
 
 
     let total = 0;
 
+
     bagItems.innerHTML = "";
 
 
-    bag.forEach((item, index) => {
+    bag.forEach(
+        (item, index) => {
 
-        total += item.price;
+            total += item.price;
 
-        const div = document.createElement("div");
 
-        div.className = "bag-item";
+            const div =
+                document.createElement(
+                    "div"
+                );
 
-        div.innerHTML = `
 
-            <img src="${item.image}" alt="${item.name}">
+            div.className =
+                "bag-item";
 
-            <div class="bag-item-info">
 
-                <h3>${item.name}</h3>
+            div.innerHTML = `
 
-                <p>${item.colour}</p>
-
-                <p><strong>R${item.price}</strong></p>
-
-                <button
-                    class="remove-item"
-                    onclick="removeFromBag(${index})"
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
                 >
-                    REMOVE
-                </button>
 
-            </div>
-        `;
+                <div class="bag-item-info">
 
-        bagItems.appendChild(div);
+                    <h3>
+                        ${item.name}
+                    </h3>
 
-    });
+                    <p>
+                        ${item.colour}
+                    </p>
+
+                    <p>
+                        <strong>
+                            R${item.price}
+                        </strong>
+                    </p>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromBag(${index})"
+                    >
+                        REMOVE
+                    </button>
+
+                </div>
+
+            `;
 
 
-    bagTotal.textContent = "R" + total;
+            bagItems.appendChild(
+                div
+            );
+
+        }
+    );
+
+
+    bagTotal.textContent =
+        "R" + total;
 
 
     updateWhatsApp();
@@ -1426,99 +1819,110 @@ function updateBag() {
 }
 
 
+
 function removeFromBag(index) {
 
-    bag.splice(index, 1);
+    bag.splice(
+        index,
+        1
+    );
 
     updateBag();
 
 }
 
 
+
 function openBag() {
 
     document
-        .getElementById("bagPanel")
-        .classList.add("open");
+        .getElementById(
+            "bagPanel"
+        )
+        .classList.add(
+            "open"
+        );
 
 }
+
 
 
 function closeBag() {
 
     document
-        .getElementById("bagPanel")
-        .classList.remove("open");
+        .getElementById(
+            "bagPanel"
+        )
+        .classList.remove(
+            "open"
+        );
 
 }
 
 
+
 /* =========================
-   WHATSAPP ORDER
+   WHATSAPP
 ========================= */
 
 function updateWhatsApp() {
 
-    let message = "Hi SUMS! I would like to order:%0A%0A";
+    let message =
+        "Hi SUMS! I would like to order:%0A%0A";
+
 
     let total = 0;
 
-    bag.forEach((item, index) => {
 
-        message +=
-            (index + 1) +
-            ". " +
-            item.name +
-            " - " +
-            item.colour +
-            " - R" +
-            item.price +
-            "%0A";
+    bag.forEach(
+        (item, index) => {
 
-        total += item.price;
-
-    });
+            message +=
+                (index + 1) +
+                ". " +
+                item.name +
+                " - " +
+                item.colour +
+                " - R" +
+                item.price +
+                "%0A";
 
 
-    message += "%0ATotal: R" + total;
+            total += item.price;
 
-    const phone = "27796265589";
-
-    document.getElementById("whatsappOrder").href =
-        "https://wa.me/" + phone + "?text=" + message;
-
-}
+        }
+    );
 
 
-/* =========================
-   FRONT / BACK
-========================= */
-
-function flipProduct(button) {
-
-    const productImage =
-        button.parentElement;
-
-    const front =
-        productImage.querySelector(".front-image");
-
-    const back =
-        productImage.querySelector(".back-image");
+    message +=
+        "%0ATotal: R" +
+        total;
 
 
-    if (back.style.opacity === "1") {
+    /*
+       YOUR WHATSAPP NUMBER
+       079 626 5589
 
-        back.style.opacity = "0";
-        front.style.opacity = "1";
+       International format:
+       27796265589
+    */
 
-    } else {
+    const phone =
+        "27796265589";
 
-        front.style.opacity = "0";
-        back.style.opacity = "1";
 
-    }
+    document
+        .getElementById(
+            "whatsappOrder"
+        )
+        .href =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        message;
 
 }
+
 
 
 /* =========================
@@ -1529,30 +1933,42 @@ function searchProducts() {
 
     const search =
         document
-        .getElementById("searchInput")
+        .getElementById(
+            "searchInput"
+        )
         .value
         .toLowerCase()
         .trim();
 
 
     const results =
-        document.getElementById("searchResults");
+        document.getElementById(
+            "searchResults"
+        );
 
-    const resultsContainer =
-        document.getElementById("searchProducts");
+
+    const container =
+        document.getElementById(
+            "searchProducts"
+        );
 
 
     if (search === "") {
 
-        results.style.display = "none";
+        results.style.display =
+            "none";
 
         return;
+
     }
 
 
-    results.style.display = "block";
+    results.style.display =
+        "block";
 
-    resultsContainer.innerHTML = "";
+
+    container.innerHTML =
+        "";
 
 
     const products =
@@ -1564,39 +1980,52 @@ function searchProducts() {
     let found = 0;
 
 
-    products.forEach(product => {
+    products.forEach(
+        product => {
 
-        const name =
-            product.dataset.name.toLowerCase();
-
-        const type =
-            product.dataset.type.toLowerCase();
-
-        const colour =
-            product.dataset.colour.toLowerCase();
+            const name =
+                product.dataset.name
+                .toLowerCase();
 
 
-        if (
-            name.includes(search) ||
-            type.includes(search) ||
-            colour.includes(search)
-        ) {
+            const type =
+                product.dataset.type
+                .toLowerCase();
 
-            const copy =
-                product.cloneNode(true);
 
-            resultsContainer.appendChild(copy);
+            const colour =
+                product.dataset.colour
+                .toLowerCase();
 
-            found++;
+
+            if (
+                name.includes(search) ||
+                type.includes(search) ||
+                colour.includes(search)
+            ) {
+
+                const copy =
+                    product.cloneNode(
+                        true
+                    );
+
+
+                container.appendChild(
+                    copy
+                );
+
+
+                found++;
+
+            }
 
         }
-
-    });
+    );
 
 
     if (found === 0) {
 
-        resultsContainer.innerHTML =
+        container.innerHTML =
             "<p>No SUMS products found.</p>";
 
     }
@@ -1604,21 +2033,29 @@ function searchProducts() {
 }
 
 
+
 /* =========================
-   CLOSE BAG WITH ESCAPE
+   ESCAPE CLOSES BAG
 ========================= */
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener(
+    "keydown",
+    function(event) {
 
-    if (event.key === "Escape") {
+        if (
+            event.key ===
+            "Escape"
+        ) {
 
-        closeBag();
+            closeBag();
+
+        }
 
     }
-
-});
+);
 
 </script>
+
 
 </body>
 </html>
