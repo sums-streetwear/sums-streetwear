@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>SUMS — Premium Streetwear</title>
 
-<meta name="description"
-content="SUMS Premium Streetwear from Port St Johns, Eastern Cape, South Africa.">
+<meta
+    name="description"
+    content="SUMS Premium Streetwear from Port St Johns, Eastern Cape, South Africa."
+>
 
 <style>
+
+/* ================================
+   RESET
+================================ */
 
 * {
     margin: 0;
@@ -23,26 +34,141 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: white;
-    color: #111;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    overflow-x: hidden;
 }
 
 
-/* HEADER */
+/* ================================
+   COOKIE SCREEN
+================================ */
 
-header {
-    min-height: 82px;
-    background: #111;
-    border-bottom: 1px solid #333;
+.cookie-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.55);
+
+    backdrop-filter: blur(5px);
+
+    z-index: 9999;
 
     display: flex;
+
     align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.cookie-box {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    padding: 35px;
+
+    border-radius: 2px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.25);
+}
+
+.cookie-box h2 {
+
+    font-size: 28px;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 15px;
+}
+
+.cookie-box p {
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: #555555;
+
+    margin-bottom: 25px;
+}
+
+.cookie-buttons {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.cookie-button {
+
+    flex: 1;
+
+    border: none;
+
+    padding: 15px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.accept-cookies {
+
+    background: #111111;
+
+    color: #ffffff;
+}
+
+.decline-cookies {
+
+    background: #eeeeee;
+
+    color: #111111;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+header {
+
+    min-height: 76px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+
+    align-items: center;
+
     justify-content: space-between;
 
     padding: 8px 4%;
 
     position: sticky;
+
     top: 0;
+
     z-index: 1000;
 }
 
@@ -50,66 +176,77 @@ header {
 /* LOGO */
 
 .logo-area {
+
     display: flex;
+
     align-items: center;
+
     gap: 12px;
 
     text-decoration: none;
-    color: white;
 
-    min-width: 150px;
+    color: #111111;
 }
 
 .logo-area img {
-    width: 70px;
-    height: 70px;
+
+    width: 58px;
+
+    height: 58px;
 
     object-fit: contain;
 
     display: block;
-
-    background: #111;
-
-    padding: 3px;
-
-    max-width: 70px;
 }
 
 .brand-name {
+
     font-size: 22px;
+
     font-weight: 900;
+
     letter-spacing: 5px;
 }
 
 
-/* NAV */
+/* NAVIGATION */
 
 nav {
+
     display: flex;
+
     align-items: center;
+
     gap: 30px;
 }
 
 nav a {
-    color: white;
+
+    color: #111111;
+
     text-decoration: none;
 
-    font-size: 13px;
+    font-size: 12px;
+
     font-weight: 900;
 
     letter-spacing: 1px;
 }
 
 nav a:hover {
+
     text-decoration: underline;
 }
 
 
-/* RIGHT SIDE */
+/* HEADER RIGHT */
 
 .header-right {
+
     display: flex;
+
     align-items: center;
+
     gap: 18px;
 }
 
@@ -117,10 +254,13 @@ nav a:hover {
 /* SEARCH */
 
 .search-box {
+
     display: flex;
+
     align-items: center;
 
-    border: 1px solid white;
+    border: 1px solid #111111;
+
     border-radius: 30px;
 
     padding: 8px 14px;
@@ -129,13 +269,16 @@ nav a:hover {
 }
 
 .search-icon {
+
     font-size: 18px;
+
     margin-right: 8px;
-    color: white;
 }
 
 .search-box input {
+
     border: none;
+
     outline: none;
 
     width: 100%;
@@ -143,59 +286,77 @@ nav a:hover {
     font-size: 13px;
 
     background: transparent;
-    color: white;
+
+    color: #111111;
 }
 
 .search-box input::placeholder {
-    color: #ccc;
+
+    color: #777777;
 }
 
 
 /* BAG */
 
 .bag-button {
+
     border: none;
+
     background: none;
 
     cursor: pointer;
 
     display: flex;
+
     align-items: center;
+
     gap: 7px;
 
-    font-size: 13px;
+    font-size: 12px;
+
     font-weight: 900;
 
-    color: white;
+    color: #111111;
 }
 
 .bag-number {
+
     width: 23px;
+
     height: 23px;
 
     border-radius: 50%;
 
-    background: white;
-    color: #111;
+    background: #111111;
+
+    color: #ffffff;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     font-size: 11px;
 }
 
 
-/* HERO */
+/* ================================
+   HERO
+================================ */
 
 .hero {
+
     min-height: 72vh;
 
-    background: #111;
-    color: white;
+    background: #f2f2f2;
+
+    color: #111111;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -204,70 +365,93 @@ nav a:hover {
 }
 
 .hero-content {
+
     max-width: 1200px;
 }
 
 .hero-small {
-    font-size: 13px;
+
+    font-size: 12px;
+
     font-weight: 900;
 
-    letter-spacing: 8px;
+    letter-spacing: 7px;
 
     margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-size: clamp(70px, 13vw, 180px);
+
+    font-size: clamp(65px, 13vw, 170px);
 
     line-height: .82;
 
     font-weight: 900;
 
-    letter-spacing: -7px;
+    letter-spacing: -8px;
 }
 
 .hero p {
-    font-size: 18px;
+
+    font-size: 17px;
 
     margin-top: 35px;
+
+    color: #444444;
 }
 
 .hero-button {
+
     display: inline-block;
 
     margin-top: 30px;
 
-    padding: 17px 34px;
+    padding: 17px 35px;
 
-    background: white;
-    color: #111;
+    background: #111111;
+
+    color: #ffffff;
 
     border-radius: 40px;
 
     text-decoration: none;
 
     font-weight: 900;
+
+    font-size: 13px;
+}
+
+.hero-button:hover {
+
+    background: #333333;
 }
 
 
-/* CATEGORY */
+/* ================================
+   CATEGORY
+================================ */
 
 .categories {
+
     padding: 18px;
 
     display: grid;
+
     grid-template-columns: 1fr 1fr;
 
     gap: 18px;
 }
 
 .category {
+
     min-height: 300px;
 
-    background: #111;
-    color: white;
+    background: #111111;
+
+    color: #ffffff;
 
     display: flex;
+
     align-items: flex-end;
 
     padding: 35px;
@@ -278,11 +462,14 @@ nav a:hover {
 }
 
 .category:nth-child(2) {
-    background: #eee;
-    color: #111;
+
+    background: #eeeeee;
+
+    color: #111111;
 }
 
 .category h2 {
+
     font-size: clamp(40px, 5vw, 70px);
 
     font-weight: 900;
@@ -291,32 +478,41 @@ nav a:hover {
 }
 
 .category span {
+
     position: absolute;
 
     top: 30px;
+
     right: 30px;
 
-    font-size: 12px;
+    font-size: 11px;
+
     font-weight: 900;
 }
 
 
-/* SECTIONS */
+/* ================================
+   SECTIONS
+================================ */
 
 .section {
-    padding: 80px 4%;
+
+    padding: 90px 4%;
 }
 
 .section-header {
+
     display: flex;
 
     justify-content: space-between;
+
     align-items: end;
 
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 .section-header h2 {
+
     font-size: clamp(45px, 6vw, 80px);
 
     font-weight: 900;
@@ -325,44 +521,53 @@ nav a:hover {
 }
 
 .section-header p {
-    max-width: 360px;
+
+    max-width: 380px;
 
     font-size: 14px;
 
-    line-height: 1.5;
+    line-height: 1.6;
+
+    color: #555555;
 }
 
 
-/* PRODUCTS */
+/* ================================
+   PRODUCTS
+================================ */
 
 .products {
+
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 18px;
+    gap: 20px;
 }
 
 .product {
-    background: white;
+
+    background: #ffffff;
 }
 
 
-/* FRONT + BACK */
+/* PRODUCT IMAGES */
 
 .product-image {
+
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
     gap: 3px;
 
-    background: #eee;
+    background: #eeeeee;
 
     overflow: hidden;
 }
 
 .product-image img {
+
     width: 100%;
 
     aspect-ratio: 1 / 1.15;
@@ -371,31 +576,35 @@ nav a:hover {
 
     display: block;
 
-    background: #f3f3f3;
-
     cursor: zoom-in;
 
-    transition: transform .25s ease;
+    transition:
+        transform .25s ease;
 }
 
 .product-image img:hover {
+
     transform: scale(1.025);
 }
 
 
-/* PRODUCT DETAILS */
+/* PRODUCT INFO */
 
 .product-info {
-    padding: 18px 4px 5px;
+
+    padding: 18px 3px 5px;
 }
 
 .product-name {
+
     font-size: 17px;
+
     font-weight: 900;
 }
 
 .product-colour {
-    color: #666;
+
+    color: #666666;
 
     margin-top: 6px;
 
@@ -403,21 +612,24 @@ nav a:hover {
 }
 
 .product-price {
+
     margin-top: 10px;
 
     font-weight: 900;
 }
 
 
-/* SIZE SELECTOR */
+/* SIZE */
 
 .size-label {
+
     display: block;
 
     margin-top: 15px;
+
     margin-bottom: 7px;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: 900;
 
@@ -425,15 +637,16 @@ nav a:hover {
 }
 
 .size-select {
+
     width: 100%;
 
     padding: 12px;
 
-    border: 1px solid #bbb;
+    border: 1px solid #bbbbbb;
 
-    background: white;
+    background: #ffffff;
 
-    color: #111;
+    color: #111111;
 
     font-size: 13px;
 
@@ -442,22 +655,20 @@ nav a:hover {
     outline: none;
 }
 
-.size-select:focus {
-    border-color: #111;
-}
 
-
-/* ADD BUTTON */
+/* ADD */
 
 .add-button {
+
     width: 100%;
 
     margin-top: 12px;
 
     border: none;
 
-    background: #111;
-    color: white;
+    background: #111111;
+
+    color: #ffffff;
 
     padding: 14px;
 
@@ -465,28 +676,33 @@ nav a:hover {
 
     cursor: pointer;
 
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .add-button:hover {
-    background: #333;
+
+    background: #333333;
 }
 
 
-/* IMAGE VIEWER */
+/* ================================
+   IMAGE VIEWER
+================================ */
 
 .image-viewer {
+
     position: fixed;
 
     inset: 0;
 
-    background: rgba(0,0,0,.92);
+    background: rgba(255,255,255,.96);
 
     z-index: 5000;
 
     display: none;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 25px;
@@ -495,72 +711,73 @@ nav a:hover {
 }
 
 .image-viewer.open {
+
     display: flex;
 }
 
 .image-viewer img {
-    max-width: 95vw;
-    max-height: 90vh;
 
-    width: auto;
-    height: auto;
+    max-width: 95vw;
+
+    max-height: 90vh;
 
     object-fit: contain;
 
-    background: white;
+    background: #ffffff;
 
     cursor: default;
-
-    box-shadow: 0 10px 50px rgba(0,0,0,.5);
 }
 
 .close-viewer {
+
     position: absolute;
 
     top: 18px;
+
     right: 25px;
 
     width: 48px;
+
     height: 48px;
 
     border: none;
 
     border-radius: 50%;
 
-    background: white;
-    color: #111;
+    background: #111111;
 
-    font-size: 32px;
+    color: #ffffff;
 
-    line-height: 1;
+    font-size: 30px;
 
     cursor: pointer;
-
-    z-index: 5001;
 }
 
 
-/* PREMIUM */
+/* ================================
+   PREMIUM
+================================ */
 
 .premium-section {
-    background: #111;
-    color: white;
+
+    background: #111111;
+
+    color: #ffffff;
 }
 
 .premium-section .section-header p {
-    color: #ccc;
-}
 
-.premium-products {
-    grid-template-columns: repeat(3, 1fr);
+    color: #bbbbbb;
 }
 
 .coming-soon {
+
     aspect-ratio: 1 / 1.15;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -568,37 +785,43 @@ nav a:hover {
     background:
         linear-gradient(
             135deg,
-            #111 25%,
-            #222 25%,
-            #222 50%,
-            #111 50%,
-            #111 75%,
-            #222 75%
+            #111111 25%,
+            #1d1d1d 25%,
+            #1d1d1d 50%,
+            #111111 50%,
+            #111111 75%,
+            #1d1d1d 75%
         );
 
     background-size: 25px 25px;
 }
 
 .coming-soon h3 {
+
     font-size: 28px;
 
     letter-spacing: 4px;
 }
 
 
-/* ABOUT */
+/* ================================
+   ABOUT
+================================ */
 
 .about {
-    background: white;
+
+    background: #ffffff;
 
     padding: 100px 8%;
 }
 
 .about-inner {
+
     max-width: 1000px;
 }
 
 .about h2 {
+
     font-size: clamp(55px, 9vw, 110px);
 
     font-weight: 900;
@@ -609,17 +832,21 @@ nav a:hover {
 }
 
 .about p {
-    font-size: 21px;
+
+    font-size: 20px;
 
     line-height: 1.7;
 
     max-width: 850px;
+
+    color: #333333;
 }
 
 .about-small {
+
     margin-top: 35px;
 
-    font-size: 13px !important;
+    font-size: 12px !important;
 
     letter-spacing: 2px;
 
@@ -627,53 +854,65 @@ nav a:hover {
 }
 
 
-/* BAG */
+/* ================================
+   BAG
+================================ */
 
 .bag-panel {
+
     position: fixed;
 
     top: 0;
+
     right: -430px;
 
     width: 420px;
+
     max-width: 95%;
 
     height: 100vh;
 
-    background: white;
+    background: #ffffff;
 
     z-index: 2000;
 
-    box-shadow: -5px 0 30px rgba(0,0,0,.2);
+    box-shadow:
+        -5px 0 30px rgba(0,0,0,.15);
 
     transition: right .3s ease;
 
     padding: 30px;
 
     display: flex;
+
     flex-direction: column;
 }
 
 .bag-panel.open {
+
     right: 0;
 }
 
 .bag-header {
+
     display: flex;
 
     justify-content: space-between;
+
     align-items: center;
 
     padding-bottom: 20px;
 
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #dddddd;
 }
 
 .bag-header h2 {
+
     font-size: 28px;
 }
 
 .close-bag {
+
     border: none;
 
     background: none;
@@ -684,6 +923,7 @@ nav a:hover {
 }
 
 .bag-items {
+
     flex: 1;
 
     overflow-y: auto;
@@ -692,7 +932,8 @@ nav a:hover {
 }
 
 .empty-bag {
-    color: #777;
+
+    color: #777777;
 
     text-align: center;
 
@@ -700,41 +941,49 @@ nav a:hover {
 }
 
 .bag-item {
+
     display: flex;
 
     gap: 15px;
 
     padding: 15px 0;
 
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #dddddd;
 }
 
 .bag-item img {
+
     width: 80px;
+
     height: 90px;
 
     object-fit: cover;
 }
 
 .bag-item-info {
+
     flex: 1;
 }
 
 .bag-item-info h3 {
+
     font-size: 14px;
 }
 
 .bag-item-info p {
+
     font-size: 13px;
 
     margin-top: 6px;
 }
 
 .bag-item-size {
+
     font-weight: 900;
 }
 
 .remove-item {
+
     border: none;
 
     background: none;
@@ -749,12 +998,14 @@ nav a:hover {
 }
 
 .bag-footer {
-    border-top: 1px solid #ddd;
+
+    border-top: 1px solid #dddddd;
 
     padding-top: 20px;
 }
 
 .total {
+
     display: flex;
 
     justify-content: space-between;
@@ -765,13 +1016,14 @@ nav a:hover {
 }
 
 .whatsapp-order {
+
     display: block;
 
     text-align: center;
 
-    background: #111;
+    background: #111111;
 
-    color: white;
+    color: #ffffff;
 
     text-decoration: none;
 
@@ -783,14 +1035,17 @@ nav a:hover {
 }
 
 
-/* FOOTER */
+/* ================================
+   FOOTER
+================================ */
 
 footer {
-    background: #111;
 
-    color: white;
+    background: #f2f2f2;
 
-    padding: 55px 4%;
+    color: #111111;
+
+    padding: 60px 4%;
 
     display: grid;
 
@@ -800,7 +1055,8 @@ footer {
 }
 
 footer h3 {
-    font-size: 18px;
+
+    font-size: 17px;
 
     margin-bottom: 12px;
 
@@ -808,29 +1064,35 @@ footer h3 {
 }
 
 footer p {
+
     font-size: 13px;
 
-    color: #bbb;
+    color: #555555;
 
     line-height: 1.7;
 }
 
 footer a {
-    color: white;
+
+    color: #111111;
 
     text-decoration: none;
 }
 
 footer a:hover {
+
     text-decoration: underline;
 }
 
 
-/* MOBILE */
+/* ================================
+   MOBILE
+================================ */
 
 @media (max-width: 800px) {
 
     header {
+
         min-height: 70px;
 
         padding: 7px 4%;
@@ -841,15 +1103,19 @@ footer a:hover {
     }
 
     .logo-area img {
-        width: 60px;
-        height: 60px;
+
+        width: 55px;
+
+        height: 55px;
     }
 
     .brand-name {
+
         font-size: 17px;
     }
 
     nav {
+
         order: 3;
 
         width: 100%;
@@ -862,109 +1128,154 @@ footer a:hover {
     }
 
     nav a {
+
         font-size: 11px;
 
         white-space: nowrap;
     }
 
     .search-box {
+
         width: 130px;
     }
 
     .hero {
+
         min-height: 65vh;
     }
 
     .hero h1 {
+
         letter-spacing: -4px;
     }
 
     .categories {
+
         grid-template-columns: 1fr;
     }
 
     .category {
+
         min-height: 220px;
     }
 
     .section {
-        padding: 55px 4%;
+
+        padding: 60px 4%;
     }
 
     .section-header {
+
         display: block;
     }
 
     .section-header p {
+
         margin-top: 15px;
     }
 
     .products {
+
         grid-template-columns: repeat(2, 1fr);
 
         gap: 10px;
     }
 
     .product-name {
+
         font-size: 14px;
     }
 
     .about {
+
         padding: 70px 6%;
     }
 
     .about p {
+
         font-size: 17px;
     }
 
     footer {
+
         grid-template-columns: 1fr;
     }
 
-    .image-viewer {
-        padding: 15px;
+    .cookie-box {
+
+        padding: 25px;
     }
 
-    .image-viewer img {
-        max-width: 96vw;
-        max-height: 82vh;
+    .cookie-buttons {
+
+        flex-direction: column;
     }
-}
-
-
-@media (max-width: 480px) {
-
-    .header-right {
-        gap: 7px;
-    }
-
-    .search-box {
-        width: 110px;
-    }
-
-    .search-box input {
-        font-size: 11px;
-    }
-
-    .product-image {
-        gap: 2px;
-    }
-
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- HEADER -->
+<!-- ================================
+     COOKIE NOTICE
+================================ -->
+
+<div
+    class="cookie-overlay"
+    id="cookieOverlay"
+>
+
+    <div class="cookie-box">
+
+        <h2>
+            SUMS USES COOKIES.
+        </h2>
+
+        <p>
+            We use cookies to help the SUMS website
+            work properly and remember your preferences.
+            Choose whether you want to accept or decline
+            cookies before continuing.
+        </p>
+
+        <div class="cookie-buttons">
+
+            <button
+                class="cookie-button accept-cookies"
+                onclick="acceptCookies()"
+            >
+                ACCEPT COOKIES
+            </button>
+
+            <button
+                class="cookie-button decline-cookies"
+                onclick="declineCookies()"
+            >
+                DECLINE
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================================
+     HEADER
+================================ -->
 
 <header>
 
-<a href="#"
-   class="logo-area">
+<a
+    href="#"
+    class="logo-area"
+>
 
     <img
         src="./sums-logo.png"
@@ -1039,7 +1350,9 @@ footer a:hover {
 
 
 
-<!-- HERO -->
+<!-- ================================
+     HERO
+================================ -->
 
 <section class="hero">
 
@@ -1072,7 +1385,9 @@ footer a:hover {
 
 
 
-<!-- CATEGORY -->
+<!-- ================================
+     CATEGORIES
+================================ -->
 
 <section class="categories">
 
@@ -1111,7 +1426,9 @@ footer a:hover {
 
 
 
-<!-- HOODIES -->
+<!-- ================================
+     HOODIES
+================================ -->
 
 <section
     class="section"
@@ -1120,11 +1437,9 @@ footer a:hover {
 
 <div class="section-header">
 
-    <div>
-        <h2>
-            HOODIES
-        </h2>
-    </div>
+    <h2>
+        HOODIES
+    </h2>
 
     <p>
         Clean silhouettes. Everyday comfort.
@@ -1138,75 +1453,75 @@ footer a:hover {
 <div class="products">
 
 
-<!-- WHITE HOODIE -->
+<!-- WHITE -->
 
 <div class="product">
 
 <div class="product-image">
 
-    <img
-        src="./white-hoodie.jpg"
-        alt="SUMS White Hoodie Front"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./white-hoodie.jpg"
+    alt="SUMS White Hoodie Front"
+    onclick="openViewer(this.src)"
+>
 
-    <img
-        src="./white-hoodie-back.jpg"
-        alt="SUMS White Hoodie Back"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./white-hoodie-back.jpg"
+    alt="SUMS White Hoodie Back"
+    onclick="openViewer(this.src)"
+>
 
 </div>
 
 <div class="product-info">
 
-    <div class="product-name">
-        SUMS Hoodie
-    </div>
+<div class="product-name">
+    SUMS Hoodie
+</div>
 
-    <div class="product-colour">
-        White
-    </div>
+<div class="product-colour">
+    White
+</div>
 
-    <div class="product-price">
-        R700
-    </div>
+<div class="product-price">
+    R700
+</div>
 
-    <label class="size-label">
-        SELECT SIZE
-    </label>
+<label class="size-label">
+    SELECT SIZE
+</label>
 
-    <select
-        class="size-select"
-        id="whiteHoodieSize"
-    >
+<select
+    class="size-select"
+    id="whiteHoodieSize"
+>
 
-        <option value="">
-            Choose a size
-        </option>
+<option value="">
+    Choose a size
+</option>
 
-        <option value="Small">
-            Small (S)
-        </option>
+<option value="Small">
+    Small (S)
+</option>
 
-        <option value="Medium">
-            Medium (M)
-        </option>
+<option value="Medium">
+    Medium (M)
+</option>
 
-    </select>
+</select>
 
-    <button
-        class="add-button"
-        onclick="addProductFromSelect(
-            'SUMS White Hoodie',
-            'White',
-            700,
-            './white-hoodie.jpg',
-            'whiteHoodieSize'
-        )"
-    >
-        ADD TO BAG
-    </button>
+<button
+    class="add-button"
+    onclick="addProductFromSelect(
+        'SUMS White Hoodie',
+        'White',
+        700,
+        './white-hoodie.jpg',
+        'whiteHoodieSize'
+    )"
+>
+    ADD TO BAG
+</button>
 
 </div>
 
@@ -1214,75 +1529,75 @@ footer a:hover {
 
 
 
-<!-- GREY HOODIE -->
+<!-- GREY -->
 
 <div class="product">
 
 <div class="product-image">
 
-    <img
-        src="./grey-hoodie.jpg"
-        alt="SUMS Grey Hoodie Front"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./grey-hoodie.jpg"
+    alt="SUMS Grey Hoodie Front"
+    onclick="openViewer(this.src)"
+>
 
-    <img
-        src="./grey-hoodie-back.jpg"
-        alt="SUMS Grey Hoodie Back"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./grey-hoodie-back.jpg"
+    alt="SUMS Grey Hoodie Back"
+    onclick="openViewer(this.src)"
+>
 
 </div>
 
 <div class="product-info">
 
-    <div class="product-name">
-        SUMS Hoodie
-    </div>
+<div class="product-name">
+    SUMS Hoodie
+</div>
 
-    <div class="product-colour">
-        Grey
-    </div>
+<div class="product-colour">
+    Grey
+</div>
 
-    <div class="product-price">
-        R700
-    </div>
+<div class="product-price">
+    R700
+</div>
 
-    <label class="size-label">
-        SELECT SIZE
-    </label>
+<label class="size-label">
+    SELECT SIZE
+</label>
 
-    <select
-        class="size-select"
-        id="greyHoodieSize"
-    >
+<select
+    class="size-select"
+    id="greyHoodieSize"
+>
 
-        <option value="">
-            Choose a size
-        </option>
+<option value="">
+    Choose a size
+</option>
 
-        <option value="Small">
-            Small (S)
-        </option>
+<option value="Small">
+    Small (S)
+</option>
 
-        <option value="Medium">
-            Medium (M)
-        </option>
+<option value="Medium">
+    Medium (M)
+</option>
 
-    </select>
+</select>
 
-    <button
-        class="add-button"
-        onclick="addProductFromSelect(
-            'SUMS Grey Hoodie',
-            'Grey',
-            700,
-            './grey-hoodie.jpg',
-            'greyHoodieSize'
-        )"
-    >
-        ADD TO BAG
-    </button>
+<button
+    class="add-button"
+    onclick="addProductFromSelect(
+        'SUMS Grey Hoodie',
+        'Grey',
+        700,
+        './grey-hoodie.jpg',
+        'greyHoodieSize'
+    )"
+>
+    ADD TO BAG
+</button>
 
 </div>
 
@@ -1290,75 +1605,75 @@ footer a:hover {
 
 
 
-<!-- BROWN HOODIE -->
+<!-- BROWN -->
 
 <div class="product">
 
 <div class="product-image">
 
-    <img
-        src="./brown-hoodie.jpg"
-        alt="SUMS Brown Hoodie Front"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./brown-hoodie.jpg"
+    alt="SUMS Brown Hoodie Front"
+    onclick="openViewer(this.src)"
+>
 
-    <img
-        src="./brown-hoodie-back.jpg"
-        alt="SUMS Brown Hoodie Back"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./brown-hoodie-back.jpg"
+    alt="SUMS Brown Hoodie Back"
+    onclick="openViewer(this.src)"
+>
 
 </div>
 
 <div class="product-info">
 
-    <div class="product-name">
-        SUMS Hoodie
-    </div>
+<div class="product-name">
+    SUMS Hoodie
+</div>
 
-    <div class="product-colour">
-        Brown
-    </div>
+<div class="product-colour">
+    Brown
+</div>
 
-    <div class="product-price">
-        R700
-    </div>
+<div class="product-price">
+    R700
+</div>
 
-    <label class="size-label">
-        SELECT SIZE
-    </label>
+<label class="size-label">
+    SELECT SIZE
+</label>
 
-    <select
-        class="size-select"
-        id="brownHoodieSize"
-    >
+<select
+    class="size-select"
+    id="brownHoodieSize"
+>
 
-        <option value="">
-            Choose a size
-        </option>
+<option value="">
+    Choose a size
+</option>
 
-        <option value="Small">
-            Small (S)
-        </option>
+<option value="Small">
+    Small (S)
+</option>
 
-        <option value="Medium">
-            Medium (M)
-        </option>
+<option value="Medium">
+    Medium (M)
+</option>
 
-    </select>
+</select>
 
-    <button
-        class="add-button"
-        onclick="addProductFromSelect(
-            'SUMS Brown Hoodie',
-            'Brown',
-            700,
-            './brown-hoodie.jpg',
-            'brownHoodieSize'
-        )"
-    >
-        ADD TO BAG
-    </button>
+<button
+    class="add-button"
+    onclick="addProductFromSelect(
+        'SUMS Brown Hoodie',
+        'Brown',
+        700,
+        './brown-hoodie.jpg',
+        'brownHoodieSize'
+    )"
+>
+    ADD TO BAG
+</button>
 
 </div>
 
@@ -1371,7 +1686,9 @@ footer a:hover {
 
 
 
-<!-- T-SHIRTS -->
+<!-- ================================
+     T-SHIRTS
+================================ -->
 
 <section
     class="section"
@@ -1380,11 +1697,9 @@ footer a:hover {
 
 <div class="section-header">
 
-    <div>
-        <h2>
-            T-SHIRTS
-        </h2>
-    </div>
+    <h2>
+        T-SHIRTS
+    </h2>
 
     <p>
         Simple. Clean. SUMS.
@@ -1397,75 +1712,75 @@ footer a:hover {
 <div class="products">
 
 
-<!-- GREY T-SHIRT -->
+<!-- GREY -->
 
 <div class="product">
 
 <div class="product-image">
 
-    <img
-        src="./grey-tshirt.jpg"
-        alt="SUMS Grey T-Shirt Front"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./grey-tshirt.jpg"
+    alt="SUMS Grey T-Shirt Front"
+    onclick="openViewer(this.src)"
+>
 
-    <img
-        src="./grey-tshirt-back.jpg"
-        alt="SUMS Grey T-Shirt Back"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./grey-tshirt-back.jpg"
+    alt="SUMS Grey T-Shirt Back"
+    onclick="openViewer(this.src)"
+>
 
 </div>
 
 <div class="product-info">
 
-    <div class="product-name">
-        SUMS T-Shirt
-    </div>
+<div class="product-name">
+    SUMS T-Shirt
+</div>
 
-    <div class="product-colour">
-        Grey
-    </div>
+<div class="product-colour">
+    Grey
+</div>
 
-    <div class="product-price">
-        R400
-    </div>
+<div class="product-price">
+    R400
+</div>
 
-    <label class="size-label">
-        SELECT SIZE
-    </label>
+<label class="size-label">
+    SELECT SIZE
+</label>
 
-    <select
-        class="size-select"
-        id="greyTshirtSize"
-    >
+<select
+    class="size-select"
+    id="greyTshirtSize"
+>
 
-        <option value="">
-            Choose a size
-        </option>
+<option value="">
+    Choose a size
+</option>
 
-        <option value="Small">
-            Small (S)
-        </option>
+<option value="Small">
+    Small (S)
+</option>
 
-        <option value="Medium">
-            Medium (M)
-        </option>
+<option value="Medium">
+    Medium (M)
+</option>
 
-    </select>
+</select>
 
-    <button
-        class="add-button"
-        onclick="addProductFromSelect(
-            'SUMS Grey T-Shirt',
-            'Grey',
-            400,
-            './grey-tshirt.jpg',
-            'greyTshirtSize'
-        )"
-    >
-        ADD TO BAG
-    </button>
+<button
+    class="add-button"
+    onclick="addProductFromSelect(
+        'SUMS Grey T-Shirt',
+        'Grey',
+        400,
+        './grey-tshirt.jpg',
+        'greyTshirtSize'
+    )"
+>
+    ADD TO BAG
+</button>
 
 </div>
 
@@ -1473,75 +1788,75 @@ footer a:hover {
 
 
 
-<!-- NAVY T-SHIRT -->
+<!-- NAVY -->
 
 <div class="product">
 
 <div class="product-image">
 
-    <img
-        src="./navy-tshirt.jpg"
-        alt="SUMS Navy T-Shirt Front"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./navy-tshirt.jpg"
+    alt="SUMS Navy T-Shirt Front"
+    onclick="openViewer(this.src)"
+>
 
-    <img
-        src="./navy-tshirt-back.jpg"
-        alt="SUMS Navy T-Shirt Back"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./navy-tshirt-back.jpg"
+    alt="SUMS Navy T-Shirt Back"
+    onclick="openViewer(this.src)"
+>
 
 </div>
 
 <div class="product-info">
 
-    <div class="product-name">
-        SUMS T-Shirt
-    </div>
+<div class="product-name">
+    SUMS T-Shirt
+</div>
 
-    <div class="product-colour">
-        Navy
-    </div>
+<div class="product-colour">
+    Navy
+</div>
 
-    <div class="product-price">
-        R400
-    </div>
+<div class="product-price">
+    R400
+</div>
 
-    <label class="size-label">
-        SELECT SIZE
-    </label>
+<label class="size-label">
+    SELECT SIZE
+</label>
 
-    <select
-        class="size-select"
-        id="navyTshirtSize"
-    >
+<select
+    class="size-select"
+    id="navyTshirtSize"
+>
 
-        <option value="">
-            Choose a size
-        </option>
+<option value="">
+    Choose a size
+</option>
 
-        <option value="Small">
-            Small (S)
-        </option>
+<option value="Small">
+    Small (S)
+</option>
 
-        <option value="Medium">
-            Medium (M)
-        </option>
+<option value="Medium">
+    Medium (M)
+</option>
 
-    </select>
+</select>
 
-    <button
-        class="add-button"
-        onclick="addProductFromSelect(
-            'SUMS Navy T-Shirt',
-            'Navy',
-            400,
-            './navy-tshirt.jpg',
-            'navyTshirtSize'
-        )"
-    >
-        ADD TO BAG
-    </button>
+<button
+    class="add-button"
+    onclick="addProductFromSelect(
+        'SUMS Navy T-Shirt',
+        'Navy',
+        400,
+        './navy-tshirt.jpg',
+        'navyTshirtSize'
+    )"
+>
+    ADD TO BAG
+</button>
 
 </div>
 
@@ -1549,75 +1864,75 @@ footer a:hover {
 
 
 
-<!-- SKY BLUE T-SHIRT -->
+<!-- SKY BLUE -->
 
 <div class="product">
 
 <div class="product-image">
 
-    <img
-        src="./skyblue-tshirt.jpg"
-        alt="SUMS Sky Blue T-Shirt Front"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./skyblue-tshirt.jpg"
+    alt="SUMS Sky Blue T-Shirt Front"
+    onclick="openViewer(this.src)"
+>
 
-    <img
-        src="./skyblue-tshirt-back.jpg"
-        alt="SUMS Sky Blue T-Shirt Back"
-        onclick="openViewer(this.src)"
-    >
+<img
+    src="./skyblue-tshirt-back.jpg"
+    alt="SUMS Sky Blue T-Shirt Back"
+    onclick="openViewer(this.src)"
+>
 
 </div>
 
 <div class="product-info">
 
-    <div class="product-name">
-        SUMS T-Shirt
-    </div>
+<div class="product-name">
+    SUMS T-Shirt
+</div>
 
-    <div class="product-colour">
-        Sky Blue
-    </div>
+<div class="product-colour">
+    Sky Blue
+</div>
 
-    <div class="product-price">
-        R400
-    </div>
+<div class="product-price">
+    R400
+</div>
 
-    <label class="size-label">
-        SELECT SIZE
-    </label>
+<label class="size-label">
+    SELECT SIZE
+</label>
 
-    <select
-        class="size-select"
-        id="skyblueTshirtSize"
-    >
+<select
+    class="size-select"
+    id="skyblueTshirtSize"
+>
 
-        <option value="">
-            Choose a size
-        </option>
+<option value="">
+    Choose a size
+</option>
 
-        <option value="Small">
-            Small (S)
-        </option>
+<option value="Small">
+    Small (S)
+</option>
 
-        <option value="Medium">
-            Medium (M)
-        </option>
+<option value="Medium">
+    Medium (M)
+</option>
 
-    </select>
+</select>
 
-    <button
-        class="add-button"
-        onclick="addProductFromSelect(
-            'SUMS Sky Blue T-Shirt',
-            'Sky Blue',
-            400,
-            './skyblue-tshirt.jpg',
-            'skyblueTshirtSize'
-        )"
-    >
-        ADD TO BAG
-    </button>
+<button
+    class="add-button"
+    onclick="addProductFromSelect(
+        'SUMS Sky Blue T-Shirt',
+        'Sky Blue',
+        400,
+        './skyblue-tshirt.jpg',
+        'skyblueTshirtSize'
+    )"
+>
+    ADD TO BAG
+</button>
 
 </div>
 
@@ -1630,7 +1945,9 @@ footer a:hover {
 
 
 
-<!-- PREMIUM -->
+<!-- ================================
+     PREMIUM
+================================ -->
 
 <section
     class="section premium-section"
@@ -1639,11 +1956,9 @@ footer a:hover {
 
 <div class="section-header">
 
-    <div>
-        <h2>
-            PREMIUM
-        </h2>
-    </div>
+    <h2>
+        PREMIUM
+    </h2>
 
     <p>
         Something elevated is on the way.
@@ -1654,44 +1969,44 @@ footer a:hover {
 </div>
 
 
-<div class="products premium-products">
+<div class="products">
 
 
 <div class="product">
 
-    <div class="coming-soon">
+<div class="coming-soon">
 
-        <h3>
-            COMING SOON
-        </h3>
+<h3>
+    COMING SOON
+</h3>
 
-    </div>
+</div>
 
 </div>
 
 
 <div class="product">
 
-    <div class="coming-soon">
+<div class="coming-soon">
 
-        <h3>
-            COMING SOON
-        </h3>
+<h3>
+    COMING SOON
+</h3>
 
-    </div>
+</div>
 
 </div>
 
 
 <div class="product">
 
-    <div class="coming-soon">
+<div class="coming-soon">
 
-        <h3>
-            COMING SOON
-        </h3>
+<h3>
+    COMING SOON
+</h3>
 
-    </div>
+</div>
 
 </div>
 
@@ -1702,7 +2017,9 @@ footer a:hover {
 
 
 
-<!-- ABOUT -->
+<!-- ================================
+     ABOUT
+================================ -->
 
 <section
     class="about"
@@ -1711,40 +2028,40 @@ footer a:hover {
 
 <div class="about-inner">
 
-    <h2>
-        ABOUT SUMS.
-    </h2>
+<h2>
+    ABOUT SUMS.
+</h2>
 
-    <p>
-        SUMS is a premium streetwear brand
-        from Port St Johns in the Eastern Cape,
-        South Africa.
-    </p>
+<p>
+    SUMS is a premium streetwear brand
+    from Port St Johns in the Eastern Cape,
+    South Africa.
+</p>
 
-    <p style="margin-top:25px;">
+<p style="margin-top:25px;">
 
-        Built around confidence, creativity and
-        the freedom to move differently, SUMS
-        brings a fresh streetwear identity from
-        a place with its own character and energy.
+    Built around confidence, creativity and
+    the freedom to move differently, SUMS
+    brings a fresh streetwear identity from
+    a place with its own character and energy.
 
-    </p>
+</p>
 
-    <p style="margin-top:25px;">
+<p style="margin-top:25px;">
 
-        From everyday essentials to pieces that
-        stand apart, SUMS is about making clothing
-        feel personal. Clean designs, strong energy
-        and a mindset that says you don't have to
-        follow the crowd.
+    From everyday essentials to pieces that
+    stand apart, SUMS is about making clothing
+    feel personal. Clean designs, strong energy
+    and a mindset that says you don't have to
+    follow the crowd.
 
-    </p>
+</p>
 
-    <p class="about-small">
+<p class="about-small">
 
-        PORT ST JOHNS · EASTERN CAPE · SOUTH AFRICA
+    PORT ST JOHNS · EASTERN CAPE · SOUTH AFRICA
 
-    </p>
+</p>
 
 </div>
 
@@ -1752,7 +2069,9 @@ footer a:hover {
 
 
 
-<!-- IMAGE VIEWER -->
+<!-- ================================
+     IMAGE VIEWER
+================================ -->
 
 <div
     class="image-viewer"
@@ -1760,26 +2079,27 @@ footer a:hover {
     onclick="closeViewer(event)"
 >
 
-    <button
-        class="close-viewer"
-        onclick="closeViewer(event)"
-        aria-label="Close image"
-    >
-        ×
-    </button>
+<button
+    class="close-viewer"
+    onclick="closeViewer(event)"
+>
+    ×
+</button>
 
-    <img
-        id="viewerImage"
-        src=""
-        alt="SUMS product"
-        onclick="event.stopPropagation()"
-    >
+<img
+    id="viewerImage"
+    src=""
+    alt="SUMS product"
+    onclick="event.stopPropagation()"
+>
 
 </div>
 
 
 
-<!-- BAG -->
+<!-- ================================
+     BAG
+================================ -->
 
 <div
     class="bag-panel"
@@ -1788,16 +2108,16 @@ footer a:hover {
 
 <div class="bag-header">
 
-    <h2>
-        YOUR BAG
-    </h2>
+<h2>
+    YOUR BAG
+</h2>
 
-    <button
-        class="close-bag"
-        onclick="closeBag()"
-    >
-        ×
-    </button>
+<button
+    class="close-bag"
+    onclick="closeBag()"
+>
+    ×
+</button>
 
 </div>
 
@@ -1807,36 +2127,36 @@ footer a:hover {
     id="bagItems"
 >
 
-    <div class="empty-bag">
-        Your bag is empty.
-    </div>
+<div class="empty-bag">
+    Your bag is empty.
+</div>
 
 </div>
 
 
 <div class="bag-footer">
 
-    <div class="total">
+<div class="total">
 
-        <span>
-            TOTAL
-        </span>
+<span>
+    TOTAL
+</span>
 
-        <span id="bagTotal">
-            R0
-        </span>
+<span id="bagTotal">
+    R0
+</span>
 
-    </div>
+</div>
 
 
-    <a
-        href="#"
-        class="whatsapp-order"
-        id="whatsappOrder"
-        target="_blank"
-    >
-        ORDER VIA WHATSAPP
-    </a>
+<a
+    href="#"
+    class="whatsapp-order"
+    id="whatsappOrder"
+    target="_blank"
+>
+    ORDER VIA WHATSAPP
+</a>
 
 </div>
 
@@ -1844,76 +2164,74 @@ footer a:hover {
 
 
 
-<!-- FOOTER -->
+<!-- ================================
+     FOOTER
+================================ -->
 
 <footer>
 
 <div>
 
-    <h3>
-        SUMS
-    </h3>
+<h3>
+    SUMS
+</h3>
 
-    <p>
-        Premium Streetwear
-    </p>
+<p>
+    Premium Streetwear
+</p>
 
-    <p>
-        Port St Johns · Eastern Cape · South Africa
-    </p>
-
-</div>
-
-
-<div>
-
-    <h3>
-        CONTACT
-    </h3>
-
-    <p>
-        WhatsApp:
-        <a href="https://wa.me/27796265589">
-            079 626 5589
-        </a>
-    </p>
-
-    <p>
-        Tap the number to contact SUMS on WhatsApp.
-    </p>
+<p>
+    Port St Johns · Eastern Cape · South Africa
+</p>
 
 </div>
 
 
 <div>
 
-    <h3>
-        QUICK LINKS
-    </h3>
+<h3>
+    CONTACT
+</h3>
 
-    <p>
-        <a href="#hoodies">
-            Hoodies
-        </a>
-    </p>
+<p>
+    WhatsApp:
+    <a href="https://wa.me/27796265589">
+        079 626 5589
+    </a>
+</p>
 
-    <p>
-        <a href="#tshirts">
-            T-Shirts
-        </a>
-    </p>
+</div>
 
-    <p>
-        <a href="#premium">
-            Premium
-        </a>
-    </p>
 
-    <p>
-        <a href="#about">
-            About SUMS
-        </a>
-    </p>
+<div>
+
+<h3>
+    QUICK LINKS
+</h3>
+
+<p>
+    <a href="#hoodies">
+        Hoodies
+    </a>
+</p>
+
+<p>
+    <a href="#tshirts">
+        T-Shirts
+    </a>
+</p>
+
+<p>
+    <a href="#premium">
+        Premium
+    </a>
+</p>
+
+<p>
+    <a href="#about">
+        About SUMS
+    </a>
+</p>
 
 </div>
 
@@ -1923,17 +2241,68 @@ footer a:hover {
 
 <script>
 
-/* IMAGE VIEWER */
+/* ================================
+   COOKIES
+================================ */
+
+function acceptCookies() {
+
+    localStorage.setItem(
+        "sumsCookies",
+        "accepted"
+    );
+
+    document
+        .getElementById("cookieOverlay")
+        .style.display = "none";
+}
+
+
+function declineCookies() {
+
+    localStorage.setItem(
+        "sumsCookies",
+        "declined"
+    );
+
+    document
+        .getElementById("cookieOverlay")
+        .style.display = "none";
+}
+
+
+function checkCookies() {
+
+    const choice =
+        localStorage.getItem("sumsCookies");
+
+    if (
+        choice === "accepted" ||
+        choice === "declined"
+    ) {
+
+        document
+            .getElementById("cookieOverlay")
+            .style.display = "none";
+
+    }
+
+}
+
+
+/* ================================
+   IMAGE VIEWER
+================================ */
 
 function openViewer(imageSource) {
 
     const viewer =
         document.getElementById("imageViewer");
 
-    const viewerImage =
+    const image =
         document.getElementById("viewerImage");
 
-    viewerImage.src = imageSource;
+    image.src = imageSource;
 
     viewer.classList.add("open");
 
@@ -1947,24 +2316,24 @@ function closeViewer(event) {
         event &&
         event.target.id === "viewerImage"
     ) {
+
         return;
     }
 
-    const viewer =
-        document.getElementById("imageViewer");
-
-    viewer.classList.remove("open");
+    document
+        .getElementById("imageViewer")
+        .classList.remove("open");
 
     document.body.style.overflow = "";
 }
 
 
-/* BAG */
+/* ================================
+   BAG
+================================ */
 
 let bag = [];
 
-
-/* ADD PRODUCT WITH SIZE */
 
 function addProductFromSelect(
     name,
@@ -1974,11 +2343,8 @@ function addProductFromSelect(
     selectId
 ) {
 
-    const sizeSelect =
-        document.getElementById(selectId);
-
     const size =
-        sizeSelect.value;
+        document.getElementById(selectId).value;
 
 
     if (!size) {
@@ -1987,31 +2353,9 @@ function addProductFromSelect(
             "Please choose a size before adding this item to your bag."
         );
 
-        sizeSelect.focus();
-
         return;
     }
 
-
-    addToBag(
-        name,
-        colour,
-        size,
-        price,
-        image
-    );
-}
-
-
-/* ADD TO BAG */
-
-function addToBag(
-    name,
-    colour,
-    size,
-    price,
-    image
-) {
 
     bag.push({
 
@@ -2027,36 +2371,35 @@ function addToBag(
 
     });
 
+
     updateBag();
 
     openBag();
 }
 
 
-/* UPDATE BAG */
-
 function updateBag() {
 
-    const bagItems =
+    const items =
         document.getElementById("bagItems");
 
-    const bagNumber =
+    const number =
         document.getElementById("bagNumber");
 
-    const bagTotal =
+    const totalElement =
         document.getElementById("bagTotal");
 
 
-    bagNumber.textContent =
+    number.textContent =
         bag.length;
 
 
     if (bag.length === 0) {
 
-        bagItems.innerHTML =
+        items.innerHTML =
             '<div class="empty-bag">Your bag is empty.</div>';
 
-        bagTotal.textContent =
+        totalElement.textContent =
             "R0";
 
         updateWhatsApp();
@@ -2067,7 +2410,7 @@ function updateBag() {
 
     let total = 0;
 
-    bagItems.innerHTML = "";
+    items.innerHTML = "";
 
 
     bag.forEach(
@@ -2078,7 +2421,6 @@ function updateBag() {
 
             const div =
                 document.createElement("div");
-
 
             div.className =
                 "bag-item";
@@ -2119,25 +2461,22 @@ function updateBag() {
                     </button>
 
                 </div>
-
             `;
 
 
-            bagItems.appendChild(div);
+            items.appendChild(div);
 
         }
     );
 
 
-    bagTotal.textContent =
+    totalElement.textContent =
         "R" + total;
 
 
     updateWhatsApp();
 }
 
-
-/* REMOVE */
 
 function removeFromBag(index) {
 
@@ -2147,8 +2486,6 @@ function removeFromBag(index) {
 }
 
 
-/* OPEN BAG */
-
 function openBag() {
 
     document
@@ -2156,8 +2493,6 @@ function openBag() {
         .classList.add("open");
 }
 
-
-/* CLOSE BAG */
 
 function closeBag() {
 
@@ -2167,13 +2502,14 @@ function closeBag() {
 }
 
 
-/* WHATSAPP */
+/* ================================
+   WHATSAPP
+================================ */
 
 function updateWhatsApp() {
 
     let message =
         "Hi SUMS! I would like to order:%0A%0A";
-
 
     let total = 0;
 
@@ -2204,7 +2540,6 @@ function updateWhatsApp() {
                     "%0A%0A";
 
                 total += item.price;
-
             }
         );
 
@@ -2215,21 +2550,17 @@ function updateWhatsApp() {
     }
 
 
-    const phone =
-        "27796265589";
-
-
     document
         .getElementById("whatsappOrder")
         .href =
-        "https://wa.me/" +
-        phone +
-        "?text=" +
+        "https://wa.me/27796265589?text=" +
         message;
 }
 
 
-/* SEARCH */
+/* ================================
+   SEARCH
+================================ */
 
 function searchProducts() {
 
@@ -2241,43 +2572,29 @@ function searchProducts() {
             .trim();
 
 
-    const sections =
+    const products =
         document.querySelectorAll(
             "#hoodies .product, #tshirts .product"
         );
 
 
-    if (search === "") {
-
-        sections.forEach(
-            product => {
-
-                product.style.display =
-                    "";
-
-            }
-        );
-
-        return;
-    }
-
-
-    sections.forEach(
+    products.forEach(
         product => {
 
             const text =
                 product.innerText.toLowerCase();
 
 
-            if (text.includes(search)) {
+            if (
+                search === "" ||
+                text.includes(search)
+            ) {
 
-                product.style.display =
-                    "";
+                product.style.display = "";
 
             } else {
 
-                product.style.display =
-                    "none";
+                product.style.display = "none";
 
             }
 
@@ -2286,7 +2603,9 @@ function searchProducts() {
 }
 
 
-/* ESCAPE KEY */
+/* ================================
+   ESCAPE
+================================ */
 
 document.addEventListener(
     "keydown",
@@ -2304,7 +2623,11 @@ document.addEventListener(
 );
 
 
-/* START */
+/* ================================
+   START
+================================ */
+
+checkCookies();
 
 updateWhatsApp();
 
