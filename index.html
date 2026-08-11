@@ -2,22 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SUMS — Premium Streetwear</title>
 
-<meta
-name="description"
-content="SUMS Premium Streetwear from Port St Johns, Eastern Cape, South Africa."
->
+<meta name="description" content="SUMS — premium streetwear from Port St Johns, Eastern Cape. Move different.">
 
 <style>
-
-/* ================================
-   RESET
-================================ */
-
 * {
     margin: 0;
     padding: 0;
@@ -32,2463 +23,1438 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #ffffff;
     color: #111111;
-    overflow-x: hidden;
 }
 
-
-/* ================================
-   COOKIE NOTICE
-================================ */
-
-.cookie-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(5px);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.cookie-box {
-    width: 100%;
-    max-width: 520px;
-    background: #ffffff;
-    color: #111111;
-    padding: 35px;
-    border-radius: 2px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-}
-
-.cookie-box h2 {
-    font-size: 28px;
-    font-weight: 900;
-    letter-spacing: -1px;
-    margin-bottom: 15px;
-}
-
-.cookie-box p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #555555;
-    margin-bottom: 25px;
-}
-
-.cookie-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.cookie-button {
-    flex: 1;
-    border: none;
-    padding: 15px;
-    font-weight: 900;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.accept-cookies {
-    background: #111111;
-    color: #ffffff;
-}
-
-.decline-cookies {
-    background: #eeeeee;
-    color: #111111;
-}
-
-
-/* ================================
+/* =========================
    HEADER
-================================ */
+========================= */
 
 header {
-    min-height: 82px;
-    background: #111111;
-    border-bottom: 1px solid #333333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 82px;
+    background: #ffffff;
+    border-bottom: 1px solid #dddddd;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 8px 4%;
-
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 0 5%;
 }
 
+/* LOGO */
 
-/* ================================
-   LOGO
-================================ */
-
-.logo-area {
+.brand {
     display: flex;
     align-items: center;
     gap: 14px;
-
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
 }
 
-
-/*
-   WHITE BOX AROUND LOGO
-
-   This makes the logo visible even if
-   the logo PNG is white or black.
-*/
-
-.logo-box {
-    width: 62px;
-    height: 62px;
-
-    background: #ffffff;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-}
-
-.logo-box img {
-    width: 54px;
-    height: 54px;
-
+.brand img {
+    width: 48px;
+    height: 48px;
     object-fit: contain;
-
     display: block;
 }
 
 .brand-name {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 900;
-
-    letter-spacing: 5px;
-
-    color: #ffffff;
+    letter-spacing: 4px;
 }
 
-
-/* ================================
-   NAVIGATION
-================================ */
+/* NAVIGATION */
 
 nav {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 38px;
 }
 
 nav a {
-    color: #ffffff;
     text-decoration: none;
-
-    font-size: 12px;
-    font-weight: 900;
-
+    color: #000000;
+    font-size: 14px;
+    font-weight: 800;
     letter-spacing: 1px;
 }
 
 nav a:hover {
-    color: #cccccc;
+    opacity: 0.55;
 }
 
-
-/* ================================
-   HEADER RIGHT
-================================ */
+/* RIGHT SIDE */
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 22px;
 }
-
-
-/* SEARCH */
 
 .search-box {
     display: flex;
     align-items: center;
-
-    border: 1px solid #777777;
-
-    border-radius: 30px;
-
-    padding: 8px 14px;
-
-    width: 190px;
-
-    background: #ffffff;
-}
-
-.search-icon {
-    font-size: 18px;
-    margin-right: 8px;
-    color: #111111;
+    gap: 8px;
 }
 
 .search-box input {
+    width: 0;
+    opacity: 0;
     border: none;
+    border-bottom: 1px solid #000000;
     outline: none;
-
-    width: 100%;
-
-    font-size: 13px;
-
-    background: transparent;
-
-    color: #111111;
+    transition: 0.3s;
+    padding: 7px;
 }
 
-.search-box input::placeholder {
-    color: #777777;
+.search-box.active input {
+    width: 150px;
+    opacity: 1;
 }
 
-
-/* BAG */
-
-.bag-button {
+.search-button {
     border: none;
-    background: none;
-
+    background: transparent;
     cursor: pointer;
+    font-size: 23px;
+}
 
-    display: flex;
-    align-items: center;
-    gap: 7px;
-
-    font-size: 12px;
-    font-weight: 900;
-
+.cart-button {
+    border: none;
+    background: #000000;
     color: #ffffff;
+    padding: 10px 17px;
+    border-radius: 30px;
+    font-weight: 800;
+    cursor: pointer;
 }
 
-.bag-number {
-    width: 23px;
-    height: 23px;
-
-    border-radius: 50%;
-
-    background: #ffffff;
-    color: #111111;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 11px;
+.cart-button span {
+    margin-left: 5px;
 }
 
-
-/* ================================
+/* =========================
    HERO
-================================ */
+========================= */
 
 .hero {
-    min-height: 72vh;
-
-    background: #f2f2f2;
-
-    color: #111111;
+    min-height: 650px;
+    background: #000000;
+    color: #ffffff;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     text-align: center;
-
-    padding: 70px 20px;
+    padding: 60px 20px;
 }
 
 .hero-content {
-    max-width: 1200px;
+    max-width: 1100px;
 }
 
 .hero-small {
-    font-size: 12px;
-
-    font-weight: 900;
-
+    font-size: 13px;
+    font-weight: 800;
     letter-spacing: 7px;
-
     margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-size: clamp(65px, 13vw, 170px);
-
-    line-height: .82;
-
-    font-weight: 900;
-
-    letter-spacing: -8px;
+    font-size: clamp(70px, 13vw, 170px);
+    line-height: 0.82;
+    font-weight: 950;
+    letter-spacing: -7px;
 }
 
 .hero p {
-    font-size: 17px;
-
     margin-top: 35px;
-
-    color: #444444;
+    font-size: 19px;
+    color: #eeeeee;
 }
 
 .hero-button {
     display: inline-block;
-
-    margin-top: 30px;
-
-    padding: 17px 35px;
-
-    background: #111111;
-
-    color: #ffffff;
-
+    margin-top: 35px;
+    background: #ffffff;
+    color: #000000;
+    padding: 18px 35px;
     border-radius: 40px;
-
     text-decoration: none;
-
     font-weight: 900;
-
-    font-size: 13px;
 }
 
 .hero-button:hover {
-    background: #333333;
+    background: #dddddd;
 }
 
+/* =========================
+   SECTION
+========================= */
 
-/* ================================
-   CATEGORIES
-================================ */
-
-.categories {
-    padding: 18px;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 18px;
+section {
+    padding: 90px 5%;
 }
 
-.category {
-    min-height: 300px;
-
-    background: #111111;
-
-    color: #ffffff;
-
-    display: flex;
-
-    align-items: flex-end;
-
-    padding: 35px;
-
-    text-decoration: none;
-
-    position: relative;
+.section-heading {
+    margin-bottom: 45px;
 }
 
-.category:nth-child(2) {
-    background: #eeeeee;
-    color: #111111;
-}
-
-.category h2 {
-    font-size: clamp(40px, 5vw, 70px);
-
-    font-weight: 900;
-
+.section-heading h2 {
+    font-size: clamp(42px, 7vw, 80px);
+    font-weight: 950;
     letter-spacing: -3px;
 }
 
-.category span {
-    position: absolute;
-
-    top: 30px;
-    right: 30px;
-
-    font-size: 11px;
-
-    font-weight: 900;
+.section-heading p {
+    margin-top: 12px;
+    color: #666666;
+    font-size: 16px;
 }
 
+/* =========================
+   PRODUCT GRID
+========================= */
 
-/* ================================
-   SECTIONS
-================================ */
-
-.section {
-    padding: 90px 4%;
-}
-
-.section-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: end;
-
-    margin-bottom: 40px;
-}
-
-.section-header h2 {
-    font-size: clamp(45px, 6vw, 80px);
-
-    font-weight: 900;
-
-    letter-spacing: -4px;
-}
-
-.section-header p {
-    max-width: 380px;
-
-    font-size: 14px;
-
-    line-height: 1.6;
-
-    color: #555555;
-}
-
-
-/* ================================
-   PRODUCTS
-================================ */
-
-.products {
+.product-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
+    gap: 25px;
 }
 
 .product {
-    background: #ffffff;
+    background: #f4f4f4;
+    overflow: hidden;
 }
 
 .product-image {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 3px;
-
+    position: relative;
     background: #eeeeee;
-
+    aspect-ratio: 1 / 1.1;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .product-image img {
     width: 100%;
-
-    aspect-ratio: 1 / 1.15;
-
+    height: 100%;
     object-fit: cover;
-
     display: block;
-
-    cursor: zoom-in;
-
-    transition: transform .25s ease;
+    transition: opacity 0.3s, transform 0.4s;
 }
 
-.product-image img:hover {
-    transform: scale(1.025);
+.product-image:hover img {
+    transform: scale(1.04);
 }
-
-
-/* ================================
-   PRODUCT INFO
-================================ */
 
 .product-info {
-    padding: 18px 3px 5px;
+    background: #ffffff;
+    padding: 22px;
 }
 
-.product-name {
-    font-size: 17px;
-    font-weight: 900;
+.product-info h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
 }
 
-.product-colour {
+.product-info p {
     color: #666666;
-
-    margin-top: 6px;
-
-    font-size: 13px;
+    margin-bottom: 12px;
 }
 
-.product-price {
-    margin-top: 10px;
-
+.price {
     font-weight: 900;
+    font-size: 18px;
 }
 
+/* FRONT/BACK BUTTON */
 
-/* ================================
-   SIZE
-================================ */
+.view-button {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
 
-.size-label {
-    display: block;
+    background: #ffffff;
+    color: #000000;
+    border: none;
 
+    padding: 13px;
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+/* =========================
+   ADD TO CART
+========================= */
+
+.add-cart {
+    width: 100%;
     margin-top: 15px;
-    margin-bottom: 7px;
 
-    font-size: 11px;
+    background: #000000;
+    color: #ffffff;
+
+    border: none;
+    padding: 15px;
 
     font-weight: 900;
+    cursor: pointer;
+}
 
-    letter-spacing: 1px;
+.add-cart:hover {
+    background: #333333;
+}
+
+/* =========================
+   SIZES
+========================= */
+
+.size-area {
+    margin-top: 15px;
+}
+
+.size-area label {
+    font-size: 12px;
+    font-weight: 900;
+    display: block;
+    margin-bottom: 8px;
 }
 
 .size-select {
     width: 100%;
-
     padding: 12px;
-
-    border: 1px solid #bbbbbb;
-
+    border: 1px solid #cccccc;
     background: #ffffff;
-
-    color: #111111;
-
-    font-size: 13px;
-
-    cursor: pointer;
-
-    outline: none;
 }
 
+/* =========================
+   PREMIUM
+========================= */
 
-/* ================================
-   ADD TO BAG
-================================ */
+.premium {
+    background: #f2f2f2;
+}
 
-.add-button {
-    width: 100%;
-
-    margin-top: 12px;
-
-    border: none;
-
-    background: #111111;
-
+.premium-box {
+    background: #000000;
     color: #ffffff;
-
-    padding: 14px;
-
-    font-weight: 900;
-
-    cursor: pointer;
-
-    font-size: 12px;
-}
-
-.add-button:hover {
-    background: #333333;
-}
-
-
-/* ================================
-   IMAGE VIEWER
-================================ */
-
-.image-viewer {
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(255,255,255,.96);
-
-    z-index: 5000;
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 25px;
-
-    cursor: zoom-out;
-}
-
-.image-viewer.open {
-    display: flex;
-}
-
-.image-viewer img {
-    max-width: 95vw;
-
-    max-height: 90vh;
-
-    object-fit: contain;
-
-    background: #ffffff;
-
-    cursor: default;
-}
-
-.close-viewer {
-    position: absolute;
-
-    top: 18px;
-
-    right: 25px;
-
-    width: 48px;
-
-    height: 48px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: #111111;
-
-    color: #ffffff;
-
-    font-size: 30px;
-
-    cursor: pointer;
-}
-
-
-/* ================================
-   NEXT DROP
-================================ */
-
-.next-drop-section {
-    background: #111111;
-
-    color: #ffffff;
-}
-
-.next-drop-section .section-header p {
-    color: #bbbbbb;
-}
-
-.coming-soon {
-    aspect-ratio: 1 / 1.15;
+    min-height: 420px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #111111 25%,
-            #1d1d1d 25%,
-            #1d1d1d 50%,
-            #111111 50%,
-            #111111 75%,
-            #1d1d1d 75%
-        );
-
-    background-size: 25px 25px;
+    padding: 40px;
 }
 
-.coming-soon h3 {
-    font-size: 28px;
-
-    letter-spacing: 4px;
+.premium-box h2 {
+    font-size: clamp(45px, 8vw, 100px);
+    font-weight: 950;
 }
 
+.premium-box p {
+    margin-top: 20px;
+    color: #cccccc;
+    font-size: 18px;
+}
 
-/* ================================
+/* =========================
    ABOUT
-================================ */
+========================= */
 
 .about {
     background: #ffffff;
-
-    padding: 100px 8%;
 }
 
-.about-inner {
-    max-width: 1000px;
+.about-content {
+    max-width: 900px;
 }
 
 .about h2 {
-    font-size: clamp(55px, 9vw, 110px);
-
-    font-weight: 900;
-
-    letter-spacing: -5px;
-
-    margin-bottom: 35px;
+    font-size: clamp(45px, 8vw, 90px);
+    font-weight: 950;
+    margin-bottom: 30px;
 }
 
 .about p {
     font-size: 20px;
-
     line-height: 1.7;
-
-    max-width: 850px;
-
-    color: #333333;
+    color: #444444;
 }
 
-.about-small {
-    margin-top: 35px;
+/* =========================
+   CART PANEL
+========================= */
 
-    font-size: 12px !important;
-
-    letter-spacing: 2px;
-
-    font-weight: 900;
-}
-
-
-/* ================================
-   BAG
-================================ */
-
-.bag-panel {
+.cart-panel {
     position: fixed;
-
     top: 0;
+    right: -420px;
 
-    right: -430px;
-
-    width: 420px;
-
-    max-width: 95%;
-
+    width: min(420px, 100%);
     height: 100vh;
 
     background: #ffffff;
-
     z-index: 2000;
 
-    box-shadow: -5px 0 30px rgba(0,0,0,.15);
-
-    transition: right .3s ease;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.15);
 
     padding: 30px;
 
-    display: flex;
-
-    flex-direction: column;
+    transition: right 0.35s;
+    overflow-y: auto;
 }
 
-.bag-panel.open {
+.cart-panel.open {
     right: 0;
 }
 
-.bag-header {
+.cart-header {
     display: flex;
-
+    align-items: center;
     justify-content: space-between;
 
-    align-items: center;
-
-    padding-bottom: 20px;
-
-    border-bottom: 1px solid #dddddd;
+    margin-bottom: 30px;
 }
 
-.bag-header h2 {
+.cart-header h2 {
     font-size: 28px;
 }
 
-.close-bag {
-    border: none;
-
-    background: none;
-
-    font-size: 30px;
-
-    cursor: pointer;
-}
-
-.bag-items {
-    flex: 1;
-
-    overflow-y: auto;
-
-    padding-top: 20px;
-}
-
-.empty-bag {
-    color: #777777;
-
-    text-align: center;
-
-    margin-top: 50px;
-}
-
-.bag-item {
-    display: flex;
-
-    gap: 15px;
-
-    padding: 15px 0;
-
-    border-bottom: 1px solid #dddddd;
-}
-
-.bag-item img {
-    width: 80px;
-
-    height: 90px;
-
-    object-fit: cover;
-}
-
-.bag-item-info {
-    flex: 1;
-}
-
-.bag-item-info h3 {
-    font-size: 14px;
-}
-
-.bag-item-info p {
-    font-size: 13px;
-
-    margin-top: 6px;
-}
-
-.bag-item-size {
-    font-weight: 900;
-}
-
-.remove-item {
-    border: none;
-
-    background: none;
-
-    text-decoration: underline;
-
-    cursor: pointer;
-
-    margin-top: 8px;
-
-    font-size: 11px;
-}
-
-.bag-footer {
-    border-top: 1px solid #dddddd;
-
-    padding-top: 20px;
-}
-
-.total {
-    display: flex;
-
-    justify-content: space-between;
-
-    font-weight: 900;
-
-    font-size: 18px;
-}
-
-.whatsapp-order {
-    display: block;
-
-    text-align: center;
-
-    background: #111111;
-
+.close-cart {
+    background: #000000;
     color: #ffffff;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+}
 
-    text-decoration: none;
+.cart-item {
+    border-bottom: 1px solid #dddddd;
+    padding: 18px 0;
+}
 
+.cart-item strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.cart-total {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.checkout {
+    width: 100%;
+    margin-top: 20px;
     padding: 16px;
 
-    margin-top: 18px;
+    border: none;
+    background: #000000;
+    color: #ffffff;
 
     font-weight: 900;
+    cursor: pointer;
 }
 
+/* =========================
+   COOKIE NOTICE
+========================= */
 
-/* ================================
+.cookie {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+
+    max-width: 600px;
+
+    background: #000000;
+    color: #ffffff;
+
+    padding: 20px;
+    z-index: 3000;
+
+    display: none;
+}
+
+.cookie p {
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.cookie button {
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 11px 20px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+/* =========================
    FOOTER
-================================ */
+========================= */
 
 footer {
-    background: #f2f2f2;
-
-    color: #111111;
-
-    padding: 60px 4%;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr;
-
-    gap: 30px;
+    background: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 50px 20px;
 }
 
-footer h3 {
-    font-size: 17px;
-
-    margin-bottom: 12px;
-
-    letter-spacing: 2px;
+footer .footer-logo {
+    font-size: 30px;
+    font-weight: 950;
+    letter-spacing: 6px;
 }
 
 footer p {
+    margin-top: 15px;
+    color: #aaaaaa;
+}
+
+.copyright {
+    margin-top: 30px;
     font-size: 13px;
-
-    color: #555555;
-
-    line-height: 1.7;
+    color: #777777;
 }
 
-footer a {
-    color: #111111;
-
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-
-/* ================================
+/* =========================
    MOBILE
-================================ */
+========================= */
 
 @media (max-width: 800px) {
 
     header {
-        min-height: 76px;
-
-        padding: 7px 4%;
-
-        flex-wrap: wrap;
-
-        gap: 12px;
+        height: 70px;
+        padding: 0 18px;
     }
 
-    .logo-box {
-        width: 54px;
-        height: 54px;
-    }
-
-    .logo-box img {
-        width: 47px;
-        height: 47px;
+    .brand img {
+        width: 38px;
+        height: 38px;
     }
 
     .brand-name {
         font-size: 17px;
+        letter-spacing: 3px;
     }
 
     nav {
-        order: 3;
-
-        width: 100%;
-
-        justify-content: center;
-
-        gap: 18px;
-
-        overflow-x: auto;
+        display: none;
     }
 
-    nav a {
-        font-size: 11px;
-
-        white-space: nowrap;
+    .header-right {
+        gap: 10px;
     }
 
-    .search-box {
-        width: 130px;
+    .cart-button {
+        padding: 9px 13px;
     }
 
     .hero {
-        min-height: 65vh;
+        min-height: 560px;
     }
 
     .hero h1 {
         letter-spacing: -4px;
     }
 
-    .categories {
+    .product-grid {
         grid-template-columns: 1fr;
     }
 
-    .category {
-        min-height: 220px;
-    }
-
-    .section {
-        padding: 60px 4%;
-    }
-
-    .section-header {
-        display: block;
-    }
-
-    .section-header p {
-        margin-top: 15px;
-    }
-
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 10px;
-    }
-
-    .product-name {
-        font-size: 14px;
-    }
-
-    .about {
-        padding: 70px 6%;
-    }
-
-    .about p {
-        font-size: 17px;
-    }
-
-    footer {
-        grid-template-columns: 1fr;
-    }
-
-    .cookie-box {
-        padding: 25px;
-    }
-
-    .cookie-buttons {
-        flex-direction: column;
+    section {
+        padding: 65px 18px;
     }
 }
-
 </style>
 </head>
 
-
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
 
-<!-- ================================
-     COOKIE NOTICE
-================================ -->
+<header>
 
-<div
-    class="cookie-overlay"
-    id="cookieOverlay"
->
+    <a href="#" class="brand">
 
-    <div class="cookie-box">
+        <!-- ONLY THE NEW LOGO IS USED -->
+        <img src="sums-black-logo.png" alt="SUMS Logo">
 
-        <h2>
-            SUMS USES COOKIES.
-        </h2>
+        <span class="brand-name">SUMS</span>
+
+    </a>
+
+    <nav>
+        <a href="#available">AVAILABLE</a>
+        <a href="#premium">PREMIUM</a>
+        <a href="#about">ABOUT</a>
+    </nav>
+
+    <div class="header-right">
+
+        <div class="search-box" id="searchBox">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search SUMS..."
+                onkeyup="searchProducts()"
+            >
+
+            <button class="search-button" onclick="toggleSearch()">
+                ⌕
+            </button>
+        </div>
+
+        <button class="cart-button" onclick="openCart()">
+            CART <span id="cartCount">0</span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            SUMS CLOTHING
+        </div>
+
+        <h1>
+            MOVE<br>
+            DIFFERENT.
+        </h1>
 
         <p>
-            We use cookies to help the SUMS website
-            work properly and remember your preferences.
-            Choose whether you want to accept or decline
-            cookies before continuing.
+            Premium streetwear made for those who refuse to blend in.
         </p>
 
-        <div class="cookie-buttons">
+        <a href="#available" class="hero-button">
+            SHOP AVAILABLE
+        </a>
 
-            <button
-                class="cookie-button accept-cookies"
-                onclick="acceptCookies()"
-            >
-                ACCEPT COOKIES
-            </button>
+    </div>
 
-            <button
-                class="cookie-button decline-cookies"
-                onclick="declineCookies()"
+</section>
+
+
+<!-- =========================
+     AVAILABLE
+========================= -->
+
+<section id="available">
+
+    <div class="section-heading">
+
+        <h2>HOODIES</h2>
+
+        <p>
+            Clean silhouettes. Everyday comfort. SUMS made to stand out.
+        </p>
+
+    </div>
+
+    <div class="product-grid">
+
+
+        <!-- BROWN HOODIE -->
+
+        <div class="product">
+
+            <div
+                class="product-image"
+                onclick="openProduct(this)"
             >
-                DECLINE
-            </button>
+
+                <img
+                    class="product-photo"
+                    src="brown-hoodie.jpg"
+                    data-front="brown-hoodie.jpg"
+                    data-back="brown-hoodie-back.jpg"
+                    alt="SUMS Brown Hoodie"
+                >
+
+                <button
+                    class="view-button"
+                    onclick="event.stopPropagation(); openProduct(this.parentElement)"
+                >
+                    VIEW FRONT / BACK
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>SUMS Hoodie — Brown</h3>
+
+                <p>Premium streetwear hoodie</p>
+
+                <div class="price">R700</div>
+
+                <div class="size-area">
+
+                    <label>SIZE</label>
+
+                    <select class="size-select">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                    </select>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('SUMS Hoodie — Brown', 700, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- GREY HOODIE -->
+
+        <div class="product">
+
+            <div
+                class="product-image"
+                onclick="openProduct(this)"
+            >
+
+                <img
+                    class="product-photo"
+                    src="grey-hoodie.jpg"
+                    data-front="grey-hoodie.jpg"
+                    data-back="grey-hoodie-back.jpg"
+                    alt="SUMS Grey Hoodie"
+                >
+
+                <button
+                    class="view-button"
+                    onclick="event.stopPropagation(); openProduct(this.parentElement)"
+                >
+                    VIEW FRONT / BACK
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>SUMS Hoodie — Grey</h3>
+
+                <p>Premium streetwear hoodie</p>
+
+                <div class="price">R700</div>
+
+                <div class="size-area">
+
+                    <label>SIZE</label>
+
+                    <select class="size-select">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                    </select>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('SUMS Hoodie — Grey', 700, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- WHITE HOODIE -->
+
+        <div class="product">
+
+            <div
+                class="product-image"
+                onclick="openProduct(this)"
+            >
+
+                <img
+                    class="product-photo"
+                    src="white-hoodie.jpg"
+                    data-front="white-hoodie.jpg"
+                    data-back="white-hoodie-back.jpg"
+                    alt="SUMS White Hoodie"
+                >
+
+                <button
+                    class="view-button"
+                    onclick="event.stopPropagation(); openProduct(this.parentElement)"
+                >
+                    VIEW FRONT / BACK
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>SUMS Hoodie — White</h3>
+
+                <p>Premium streetwear hoodie</p>
+
+                <div class="price">R700</div>
+
+                <div class="size-area">
+
+                    <label>SIZE</label>
+
+                    <select class="size-select">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                    </select>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('SUMS Hoodie — White', 700, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
 
+    <!-- T-SHIRTS -->
 
+    <div class="section-heading" style="margin-top:100px;">
 
-<!-- ================================
-     HEADER
-================================ -->
+        <h2>T-SHIRTS</h2>
 
-<header>
-
-<a
-    href="#"
-    class="logo-area"
->
-
-    <div class="logo-box">
-
-        <img
-            src="./sums-logo.png"
-            alt="SUMS Logo"
-        >
+        <p>
+            Everyday essentials with the SUMS identity.
+        </p>
 
     </div>
 
-    <span class="brand-name">
-        SUMS
-    </span>
-
-</a>
+    <div class="product-grid">
 
 
-<nav>
+        <!-- GREY T-SHIRT -->
 
-    <a href="#hoodies">
-        HOODIES
-    </a>
+        <div class="product">
 
-    <a href="#tshirts">
-        T-SHIRTS
-    </a>
+            <div
+                class="product-image"
+                onclick="openProduct(this)"
+            >
 
-    <a href="#next-drop">
-        NEXT DROP
-    </a>
+                <img
+                    class="product-photo"
+                    src="grey-tshirt.jpg"
+                    data-front="grey-tshirt.jpg"
+                    data-back="grey-tshirt-back.jpg"
+                    alt="SUMS Grey T-Shirt"
+                >
 
-    <a href="#about">
-        ABOUT
-    </a>
+                <button
+                    class="view-button"
+                    onclick="event.stopPropagation(); openProduct(this.parentElement)"
+                >
+                    VIEW FRONT / BACK
+                </button>
 
-</nav>
+            </div>
+
+            <div class="product-info">
+
+                <h3>SUMS T-Shirt — Grey</h3>
+
+                <p>Premium SUMS T-shirt</p>
+
+                <div class="price">R400</div>
+
+                <div class="size-area">
+
+                    <label>SIZE</label>
+
+                    <select class="size-select">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                    </select>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('SUMS T-Shirt — Grey', 400, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </div>
 
 
-<div class="header-right">
+        <!-- NAVY T-SHIRT -->
 
-    <div class="search-box">
+        <div class="product">
 
-        <span class="search-icon">
-            ⌕
-        </span>
+            <div
+                class="product-image"
+                onclick="openProduct(this)"
+            >
 
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search"
-            oninput="searchProducts()"
-        >
+                <img
+                    class="product-photo"
+                    src="navy-tshirt.jpg"
+                    data-front="navy-tshirt.jpg"
+                    data-back="navy-tshirt-back.jpg"
+                    alt="SUMS Navy T-Shirt"
+                >
+
+                <button
+                    class="view-button"
+                    onclick="event.stopPropagation(); openProduct(this.parentElement)"
+                >
+                    VIEW FRONT / BACK
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>SUMS T-Shirt — Navy</h3>
+
+                <p>Premium SUMS T-shirt</p>
+
+                <div class="price">R400</div>
+
+                <div class="size-area">
+
+                    <label>SIZE</label>
+
+                    <select class="size-select">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                    </select>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('SUMS T-Shirt — Navy', 400, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SKY BLUE T-SHIRT -->
+
+        <div class="product">
+
+            <div
+                class="product-image"
+                onclick="openProduct(this)"
+            >
+
+                <img
+                    class="product-photo"
+                    src="skyblue-tshirt.jpg"
+                    data-front="skyblue-tshirt.jpg"
+                    data-back="skyblue-tshirt-back.jpg"
+                    alt="SUMS Sky Blue T-Shirt"
+                >
+
+                <button
+                    class="view-button"
+                    onclick="event.stopPropagation(); openProduct(this.parentElement)"
+                >
+                    VIEW FRONT / BACK
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>SUMS T-Shirt — Sky Blue</h3>
+
+                <p>Premium SUMS T-shirt</p>
+
+                <div class="price">R400</div>
+
+                <div class="size-area">
+
+                    <label>SIZE</label>
+
+                    <select class="size-select">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                    </select>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('SUMS T-Shirt — Sky Blue', 400, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
 
+</section>
+
+
+<!-- =========================
+     PREMIUM
+========================= -->
+
+<section class="premium" id="premium">
+
+    <div class="premium-box">
+
+        <div>
+
+            <h2>COMING SOON.</h2>
+
+            <p>
+                A new level of SUMS is on the way.
+                Stay ready for what comes next.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <div class="about-content">
+
+        <h2>ABOUT SUMS.</h2>
+
+        <p>
+            SUMS is a streetwear brand rooted in Port St Johns,
+            Eastern Cape. Built around movement, individuality and
+            a different way of seeing everyday style, SUMS brings
+            a fresh energy to streetwear.
+        </p>
+
+        <br>
+
+        <p>
+            From the coastline of the Eastern Cape to wherever the
+            next generation takes it, SUMS represents confidence,
+            creativity and the freedom to move differently.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<div class="cart-panel" id="cartPanel">
+
+    <div class="cart-header">
+
+        <h2>YOUR CART</h2>
+
+        <button
+            class="close-cart"
+            onclick="closeCart()"
+        >
+            ×
+        </button>
+
+    </div>
+
+    <div id="cartItems">
+
+        <p>Your cart is empty.</p>
+
+    </div>
+
+    <div class="cart-total">
+
+        TOTAL: R<span id="cartTotal">0</span>
+
+    </div>
 
     <button
-        class="bag-button"
-        onclick="openBag()"
+        class="checkout"
+        onclick="checkout()"
     >
-
-        BAG
-
-        <span
-            class="bag-number"
-            id="bagNumber"
-        >
-            0
-        </span>
-
+        ORDER VIA WHATSAPP
     </button>
 
 </div>
 
-</header>
 
+<!-- =========================
+     COOKIE
+========================= -->
 
-
-<!-- ================================
-     HERO
-================================ -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-    <div class="hero-small">
-        SUMS CLOTHING
-    </div>
-
-    <h1>
-        MOVE<br>
-        DIFFERENT.
-    </h1>
+<div class="cookie" id="cookieNotice">
 
     <p>
-        Premium streetwear for those
-        who move differently.
+        SUMS uses cookies to help improve your experience
+        on the website.
     </p>
 
-    <a
-        href="#hoodies"
-        class="hero-button"
-    >
-        SHOP SUMS
-    </a>
-
-</div>
-
-</section>
-
-
-
-<!-- ================================
-     CATEGORIES
-================================ -->
-
-<section class="categories">
-
-<a
-    href="#hoodies"
-    class="category"
->
-
-    <span>
-        SHOP NOW →
-    </span>
-
-    <h2>
-        HOODIES
-    </h2>
-
-</a>
-
-
-<a
-    href="#tshirts"
-    class="category"
->
-
-    <span>
-        SHOP NOW →
-    </span>
-
-    <h2>
-        T-SHIRTS
-    </h2>
-
-</a>
-
-</section>
-
-
-
-<!-- ================================
-     HOODIES
-================================ -->
-
-<section
-    class="section"
-    id="hoodies"
->
-
-<div class="section-header">
-
-    <h2>
-        HOODIES
-    </h2>
-
-    <p>
-        Clean silhouettes. Everyday comfort.
-        Designed to bring strong streetwear energy
-        to your everyday style.
-    </p>
+    <button onclick="acceptCookies()">
+        ACCEPT COOKIES
+    </button>
 
 </div>
 
 
-<div class="products">
-
-
-<!-- WHITE HOODIE -->
-
-<div class="product">
-
-<div class="product-image">
-
-<img
-    src="./white-hoodie.jpg"
-    alt="SUMS White Hoodie Front"
-    onclick="openViewer(this.src)"
->
-
-<img
-    src="./white-hoodie-back.jpg"
-    alt="SUMS White Hoodie Back"
-    onclick="openViewer(this.src)"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-name">
-    SUMS Hoodie
-</div>
-
-<div class="product-colour">
-    White
-</div>
-
-<div class="product-price">
-    R700
-</div>
-
-<label class="size-label">
-    SELECT SIZE
-</label>
-
-<select
-    class="size-select"
-    id="whiteHoodieSize"
->
-
-<option value="">
-    Choose a size
-</option>
-
-<option value="Small">
-    Small (S)
-</option>
-
-<option value="Medium">
-    Medium (M)
-</option>
-
-</select>
-
-<button
-    class="add-button"
-    onclick="addProductFromSelect(
-        'SUMS White Hoodie',
-        'White',
-        700,
-        './white-hoodie.jpg',
-        'whiteHoodieSize'
-    )"
->
-    ADD TO BAG
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- GREY HOODIE -->
-
-<div class="product">
-
-<div class="product-image">
-
-<img
-    src="./grey-hoodie.jpg"
-    alt="SUMS Grey Hoodie Front"
-    onclick="openViewer(this.src)"
->
-
-<img
-    src="./grey-hoodie-back.jpg"
-    alt="SUMS Grey Hoodie Back"
-    onclick="openViewer(this.src)"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-name">
-    SUMS Hoodie
-</div>
-
-<div class="product-colour">
-    Grey
-</div>
-
-<div class="product-price">
-    R700
-</div>
-
-<label class="size-label">
-    SELECT SIZE
-</label>
-
-<select
-    class="size-select"
-    id="greyHoodieSize"
->
-
-<option value="">
-    Choose a size
-</option>
-
-<option value="Small">
-    Small (S)
-</option>
-
-<option value="Medium">
-    Medium (M)
-</option>
-
-</select>
-
-<button
-    class="add-button"
-    onclick="addProductFromSelect(
-        'SUMS Grey Hoodie',
-        'Grey',
-        700,
-        './grey-hoodie.jpg',
-        'greyHoodieSize'
-    )"
->
-    ADD TO BAG
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- BROWN HOODIE -->
-
-<div class="product">
-
-<div class="product-image">
-
-<img
-    src="./brown-hoodie.jpg"
-    alt="SUMS Brown Hoodie Front"
-    onclick="openViewer(this.src)"
->
-
-<img
-    src="./brown-hoodie-back.jpg"
-    alt="SUMS Brown Hoodie Back"
-    onclick="openViewer(this.src)"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-name">
-    SUMS Hoodie
-</div>
-
-<div class="product-colour">
-    Brown
-</div>
-
-<div class="product-price">
-    R700
-</div>
-
-<label class="size-label">
-    SELECT SIZE
-</label>
-
-<select
-    class="size-select"
-    id="brownHoodieSize"
->
-
-<option value="">
-    Choose a size
-</option>
-
-<option value="Small">
-    Small (S)
-</option>
-
-<option value="Medium">
-    Medium (M)
-</option>
-
-</select>
-
-<button
-    class="add-button"
-    onclick="addProductFromSelect(
-        'SUMS Brown Hoodie',
-        'Brown',
-        700,
-        './brown-hoodie.jpg',
-        'brownHoodieSize'
-    )"
->
-    ADD TO BAG
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================================
-     T-SHIRTS
-================================ -->
-
-<section
-    class="section"
-    id="tshirts"
->
-
-<div class="section-header">
-
-    <h2>
-        T-SHIRTS
-    </h2>
-
-    <p>
-        Simple. Clean. SUMS.
-        Everyday pieces made to stand out.
-    </p>
-
-</div>
-
-
-<div class="products">
-
-
-<!-- GREY T-SHIRT -->
-
-<div class="product">
-
-<div class="product-image">
-
-<img
-    src="./grey-tshirt.jpg"
-    alt="SUMS Grey T-Shirt Front"
-    onclick="openViewer(this.src)"
->
-
-<img
-    src="./grey-tshirt-back.jpg"
-    alt="SUMS Grey T-Shirt Back"
-    onclick="openViewer(this.src)"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-name">
-    SUMS T-Shirt
-</div>
-
-<div class="product-colour">
-    Grey
-</div>
-
-<div class="product-price">
-    R400
-</div>
-
-<label class="size-label">
-    SELECT SIZE
-</label>
-
-<select
-    class="size-select"
-    id="greyTshirtSize"
->
-
-<option value="">
-    Choose a size
-</option>
-
-<option value="Small">
-    Small (S)
-</option>
-
-<option value="Medium">
-    Medium (M)
-</option>
-
-</select>
-
-<button
-    class="add-button"
-    onclick="addProductFromSelect(
-        'SUMS Grey T-Shirt',
-        'Grey',
-        400,
-        './grey-tshirt.jpg',
-        'greyTshirtSize'
-    )"
->
-    ADD TO BAG
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- NAVY T-SHIRT -->
-
-<div class="product">
-
-<div class="product-image">
-
-<img
-    src="./navy-tshirt.jpg"
-    alt="SUMS Navy T-Shirt Front"
-    onclick="openViewer(this.src)"
->
-
-<img
-    src="./navy-tshirt-back.jpg"
-    alt="SUMS Navy T-Shirt Back"
-    onclick="openViewer(this.src)"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-name">
-    SUMS T-Shirt
-</div>
-
-<div class="product-colour">
-    Navy
-</div>
-
-<div class="product-price">
-    R400
-</div>
-
-<label class="size-label">
-    SELECT SIZE
-</label>
-
-<select
-    class="size-select"
-    id="navyTshirtSize"
->
-
-<option value="">
-    Choose a size
-</option>
-
-<option value="Small">
-    Small (S)
-</option>
-
-<option value="Medium">
-    Medium (M)
-</option>
-
-</select>
-
-<button
-    class="add-button"
-    onclick="addProductFromSelect(
-        'SUMS Navy T-Shirt',
-        'Navy',
-        400,
-        './navy-tshirt.jpg',
-        'navyTshirtSize'
-    )"
->
-    ADD TO BAG
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- SKY BLUE T-SHIRT -->
-
-<div class="product">
-
-<div class="product-image">
-
-<img
-    src="./skyblue-tshirt.jpg"
-    alt="SUMS Sky Blue T-Shirt Front"
-    onclick="openViewer(this.src)"
->
-
-<img
-    src="./skyblue-tshirt-back.jpg"
-    alt="SUMS Sky Blue T-Shirt Back"
-    onclick="openViewer(this.src)"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-name">
-    SUMS T-Shirt
-</div>
-
-<div class="product-colour">
-    Sky Blue
-</div>
-
-<div class="product-price">
-    R400
-</div>
-
-<label class="size-label">
-    SELECT SIZE
-</label>
-
-<select
-    class="size-select"
-    id="skyblueTshirtSize"
->
-
-<option value="">
-    Choose a size
-</option>
-
-<option value="Small">
-    Small (S)
-</option>
-
-<option value="Medium">
-    Medium (M)
-</option>
-
-</select>
-
-<button
-    class="add-button"
-    onclick="addProductFromSelect(
-        'SUMS Sky Blue T-Shirt',
-        'Sky Blue',
-        400,
-        './skyblue-tshirt.jpg',
-        'skyblueTshirtSize'
-    )"
->
-    ADD TO BAG
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================================
-     NEXT DROP
-================================ -->
-
-<section
-    class="section next-drop-section"
-    id="next-drop"
->
-
-<div class="section-header">
-
-    <h2>
-        NEXT DROP
-    </h2>
-
-    <p>
-        Something new is on the way.
-        A new collection. A new chapter.
-        Stay ready.
-    </p>
-
-</div>
-
-
-<div class="products">
-
-
-<div class="product">
-
-<div class="coming-soon">
-
-<h3>
-    COMING SOON
-</h3>
-
-</div>
-
-</div>
-
-
-<div class="product">
-
-<div class="coming-soon">
-
-<h3>
-    COMING SOON
-</h3>
-
-</div>
-
-</div>
-
-
-<div class="product">
-
-<div class="coming-soon">
-
-<h3>
-    COMING SOON
-</h3>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- ================================
-     ABOUT
-================================ -->
-
-<section
-    class="about"
-    id="about"
->
-
-<div class="about-inner">
-
-<h2>
-    ABOUT SUMS.
-</h2>
-
-<p>
-    SUMS is a premium streetwear brand
-    from Port St Johns in the Eastern Cape,
-    South Africa.
-</p>
-
-<p style="margin-top:25px;">
-
-    Built around confidence, creativity and
-    the freedom to move differently, SUMS
-    brings a fresh streetwear identity from
-    a place with its own character and energy.
-
-</p>
-
-<p style="margin-top:25px;">
-
-    From everyday essentials to pieces that
-    stand apart, SUMS is about making clothing
-    feel personal. Clean designs, strong energy
-    and a mindset that says you don't have to
-    follow the crowd.
-
-</p>
-
-<p class="about-small">
-
-    PORT ST JOHNS · EASTERN CAPE · SOUTH AFRICA
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- ================================
-     IMAGE VIEWER
-================================ -->
-
-<div
-    class="image-viewer"
-    id="imageViewer"
-    onclick="closeViewer(event)"
->
-
-<button
-    class="close-viewer"
-    onclick="closeViewer(event)"
->
-    ×
-</button>
-
-<img
-    id="viewerImage"
-    src=""
-    alt="SUMS product"
-    onclick="event.stopPropagation()"
->
-
-</div>
-
-
-
-<!-- ================================
-     BAG
-================================ -->
-
-<div
-    class="bag-panel"
-    id="bagPanel"
->
-
-<div class="bag-header">
-
-<h2>
-    YOUR BAG
-</h2>
-
-<button
-    class="close-bag"
-    onclick="closeBag()"
->
-    ×
-</button>
-
-</div>
-
-
-<div
-    class="bag-items"
-    id="bagItems"
->
-
-<div class="empty-bag">
-    Your bag is empty.
-</div>
-
-</div>
-
-
-<div class="bag-footer">
-
-<div class="total">
-
-<span>
-    TOTAL
-</span>
-
-<span id="bagTotal">
-    R0
-</span>
-
-</div>
-
-
-<a
-    href="#"
-    class="whatsapp-order"
-    id="whatsappOrder"
-    target="_blank"
->
-    ORDER VIA WHATSAPP
-</a>
-
-</div>
-
-</div>
-
-
-
-<!-- ================================
+<!-- =========================
      FOOTER
-================================ -->
+========================= -->
 
 <footer>
 
-<div>
+    <div class="footer-logo">
+        SUMS
+    </div>
 
-<h3>
-    SUMS
-</h3>
+    <p>
+        Premium streetwear. Move different.
+    </p>
 
-<p>
-    Premium Streetwear
-</p>
-
-<p>
-    Port St Johns · Eastern Cape · South Africa
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-    CONTACT
-</h3>
-
-<p>
-    WhatsApp:
-    <a href="https://wa.me/27796265589">
-        079 626 5589
-    </a>
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-    QUICK LINKS
-</h3>
-
-<p>
-    <a href="#hoodies">
-        Hoodies
-    </a>
-</p>
-
-<p>
-    <a href="#tshirts">
-        T-Shirts
-    </a>
-</p>
-
-<p>
-    <a href="#next-drop">
-        Next Drop
-    </a>
-</p>
-
-<p>
-    <a href="#about">
-        About SUMS
-    </a>
-</p>
-
-</div>
+    <div class="copyright">
+        © 2026 SUMS. All rights reserved.
+    </div>
 
 </footer>
 
 
-
 <script>
 
-/* ================================
-   COOKIES
-================================ */
-
-function acceptCookies() {
-
-    localStorage.setItem(
-        "sumsCookies",
-        "accepted"
-    );
-
-    document
-        .getElementById("cookieOverlay")
-        .style.display = "none";
-}
-
-
-function declineCookies() {
-
-    localStorage.setItem(
-        "sumsCookies",
-        "declined"
-    );
-
-    document
-        .getElementById("cookieOverlay")
-        .style.display = "none";
-}
-
-
-function checkCookies() {
-
-    const choice =
-        localStorage.getItem("sumsCookies");
-
-    if (
-        choice === "accepted" ||
-        choice === "declined"
-    ) {
-
-        document
-            .getElementById("cookieOverlay")
-            .style.display = "none";
-    }
-}
-
-
-/* ================================
-   IMAGE VIEWER
-================================ */
-
-function openViewer(imageSource) {
-
-    const viewer =
-        document.getElementById("imageViewer");
-
-    const image =
-        document.getElementById("viewerImage");
-
-    image.src = imageSource;
-
-    viewer.classList.add("open");
-
-    document.body.style.overflow = "hidden";
-}
-
-
-function closeViewer(event) {
-
-    if (
-        event &&
-        event.target.id === "viewerImage"
-    ) {
-        return;
-    }
-
-    document
-        .getElementById("imageViewer")
-        .classList.remove("open");
-
-    document.body.style.overflow = "";
-}
-
-
-/* ================================
-   BAG
-================================ */
-
-let bag = [];
-
-
-function addProductFromSelect(
-    name,
-    colour,
-    price,
-    image,
-    selectId
-) {
-
-    const size =
-        document.getElementById(selectId).value;
-
-
-    if (!size) {
-
-        alert(
-            "Please choose a size before adding this item to your bag."
-        );
-
-        return;
-    }
-
-
-    bag.push({
-
-        name: name,
-
-        colour: colour,
-
-        size: size,
-
-        price: price,
-
-        image: image
-
-    });
-
-
-    updateBag();
-
-    openBag();
-}
-
-
-function updateBag() {
-
-    const items =
-        document.getElementById("bagItems");
-
-    const number =
-        document.getElementById("bagNumber");
-
-    const totalElement =
-        document.getElementById("bagTotal");
-
-
-    number.textContent =
-        bag.length;
-
-
-    if (bag.length === 0) {
-
-        items.innerHTML =
-            '<div class="empty-bag">Your bag is empty.</div>';
-
-        totalElement.textContent =
-            "R0";
-
-        updateWhatsApp();
-
-        return;
-    }
-
-
-    let total = 0;
-
-    items.innerHTML = "";
-
-
-    bag.forEach(
-        (item, index) => {
-
-            total += item.price;
-
-
-            const div =
-                document.createElement("div");
-
-            div.className =
-                "bag-item";
-
-
-            div.innerHTML = `
-
-                <img
-                    src="${item.image}"
-                    alt="${item.name}"
-                >
-
-                <div class="bag-item-info">
-
-                    <h3>
-                        ${item.name}
-                    </h3>
-
-                    <p>
-                        Colour: ${item.colour}
-                    </p>
-
-                    <p class="bag-item-size">
-                        Size: ${item.size}
-                    </p>
-
-                    <p>
-                        <strong>
-                            R${item.price}
-                        </strong>
-                    </p>
-
-                    <button
-                        class="remove-item"
-                        onclick="removeFromBag(${index})"
-                    >
-                        REMOVE
-                    </button>
-
-                </div>
-            `;
-
-
-            items.appendChild(div);
-
-        }
-    );
-
-
-    totalElement.textContent =
-        "R" + total;
-
-
-    updateWhatsApp();
-}
-
-
-function removeFromBag(index) {
-
-    bag.splice(index, 1);
-
-    updateBag();
-}
-
-
-function openBag() {
-
-    document
-        .getElementById("bagPanel")
-        .classList.add("open");
-}
-
-
-function closeBag() {
-
-    document
-        .getElementById("bagPanel")
-        .classList.remove("open");
-}
-
-
-/* ================================
-   WHATSAPP ORDER
-================================ */
-
-function updateWhatsApp() {
-
-    let message =
-        "Hi SUMS! I would like to order:%0A%0A";
-
-    let total = 0;
-
-
-    if (bag.length === 0) {
-
-        message =
-            "Hi SUMS! I would like to enquire about your clothing.";
-
-    } else {
-
-        bag.forEach(
-            (item, index) => {
-
-                message +=
-                    (index + 1) +
-                    ". " +
-                    item.name +
-                    "%0A" +
-                    "Colour: " +
-                    item.colour +
-                    "%0A" +
-                    "Size: " +
-                    item.size +
-                    "%0A" +
-                    "Price: R" +
-                    item.price +
-                    "%0A%0A";
-
-                total += item.price;
-            }
-        );
-
-
-        message +=
-            "Total: R" +
-            total;
-    }
-
-
-    document
-        .getElementById("whatsappOrder")
-        .href =
-        "https://wa.me/27796265589?text=" +
-        message;
-}
-
-
-/* ================================
+/* =========================
    SEARCH
-================================ */
+========================= */
+
+function toggleSearch() {
+
+    const box = document.getElementById("searchBox");
+
+    box.classList.toggle("active");
+
+    if (box.classList.contains("active")) {
+        document.getElementById("searchInput").focus();
+    }
+
+}
 
 function searchProducts() {
 
     const search =
         document
-            .getElementById("searchInput")
-            .value
-            .toLowerCase()
-            .trim();
-
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
 
     const products =
-        document.querySelectorAll(
-            "#hoodies .product, #tshirts .product"
-        );
+        document.querySelectorAll(".product");
 
+    products.forEach(product => {
 
-    products.forEach(
-        product => {
+        const text =
+            product.innerText.toLowerCase();
 
-            const text =
-                product.innerText.toLowerCase();
+        product.style.display =
+            text.includes(search)
+            ? ""
+            : "none";
 
+    });
 
-            if (
-                search === "" ||
-                text.includes(search)
-            ) {
-
-                product.style.display = "";
-
-            } else {
-
-                product.style.display = "none";
-
-            }
-
-        }
-    );
 }
 
 
-/* ================================
-   ESCAPE KEY
-================================ */
+/* =========================
+   FRONT / BACK
+========================= */
 
-document.addEventListener(
-    "keydown",
-    function(event) {
+function openProduct(container) {
 
-        if (event.key === "Escape") {
+    const image =
+        container.querySelector(".product-photo");
 
-            closeBag();
+    const front =
+        image.dataset.front;
 
-            closeViewer();
+    const back =
+        image.dataset.back;
 
-        }
+    if (!image.dataset.showingBack) {
+
+        image.src = back;
+        image.dataset.showingBack = "true";
+
+    } else {
+
+        image.src = front;
+        image.dataset.showingBack = "";
 
     }
-);
+
+}
 
 
-/* ================================
-   START
-================================ */
+/* =========================
+   CART
+========================= */
 
-checkCookies();
+let cart = [];
 
-updateWhatsApp();
+function addToCart(name, price, button) {
+
+    const product =
+        button.closest(".product");
+
+    const size =
+        product.querySelector(".size-select").value;
+
+    cart.push({
+        name: name,
+        price: price,
+        size: size
+    });
+
+    updateCart();
+
+    openCart();
+
+}
+
+
+function updateCart() {
+
+    const items =
+        document.getElementById("cartItems");
+
+    const count =
+        document.getElementById("cartCount");
+
+    const total =
+        document.getElementById("cartTotal");
+
+    count.textContent = cart.length;
+
+    if (cart.length === 0) {
+
+        items.innerHTML =
+            "<p>Your cart is empty.</p>";
+
+        total.textContent = "0";
+
+        return;
+
+    }
+
+    let html = "";
+    let totalPrice = 0;
+
+    cart.forEach((item, index) => {
+
+        totalPrice += item.price;
+
+        html += `
+            <div class="cart-item">
+
+                <strong>${item.name}</strong>
+
+                <div>Size: ${item.size}</div>
+
+                <div>R${item.price}</div>
+
+                <button
+                    onclick="removeFromCart(${index})"
+                    style="
+                        margin-top:8px;
+                        border:none;
+                        background:none;
+                        text-decoration:underline;
+                        cursor:pointer;
+                    "
+                >
+                    Remove
+                </button>
+
+            </div>
+        `;
+
+    });
+
+    items.innerHTML = html;
+
+    total.textContent = totalPrice;
+
+}
+
+
+function removeFromCart(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+}
+
+
+function openCart() {
+
+    document
+        .getElementById("cartPanel")
+        .classList.add("open");
+
+}
+
+
+function closeCart() {
+
+    document
+        .getElementById("cartPanel")
+        .classList.remove("open");
+
+}
+
+
+/* =========================
+   WHATSAPP ORDER
+========================= */
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+    let message =
+        "Hello SUMS! I would like to place an order:%0A%0A";
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        message +=
+            "• " +
+            item.name +
+            " — Size: " +
+            item.size +
+            " — R" +
+            item.price +
+            "%0A";
+
+        total += item.price;
+
+    });
+
+    message +=
+        "%0ATotal: R" +
+        total;
+
+    /*
+      Replace the number below with your SUMS
+      WhatsApp business/contact number.
+    */
+
+    const phone =
+        "27XXXXXXXXX";
+
+    window.open(
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        message,
+        "_blank"
+    );
+
+}
+
+
+/* =========================
+   COOKIES
+========================= */
+
+function acceptCookies() {
+
+    localStorage.setItem(
+        "sumsCookiesAccepted",
+        "yes"
+    );
+
+    document
+        .getElementById("cookieNotice")
+        .style.display = "none";
+
+}
+
+
+if (
+    localStorage.getItem(
+        "sumsCookiesAccepted"
+    ) !== "yes"
+) {
+
+    document
+        .getElementById("cookieNotice")
+        .style.display = "block";
+
+}
 
 </script>
 
