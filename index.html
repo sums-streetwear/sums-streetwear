@@ -11,10 +11,6 @@
 
     <style>
 
-        /* =========================
-           RESET
-        ========================= */
-
         * {
             margin: 0;
             padding: 0;
@@ -126,13 +122,11 @@
 
             background:
                 linear-gradient(
-                    rgba(0, 0, 0, 0.48),
-                    rgba(0, 0, 0, 0.48)
-                ),
-                url("images/hero.jpg");
-
-            background-size: cover;
-            background-position: center;
+                    135deg,
+                    #111111,
+                    #333333,
+                    #000000
+                );
 
             display: flex;
             align-items: center;
@@ -258,6 +252,7 @@
             justify-content: center;
 
             overflow: hidden;
+            background: #f1f1f1;
         }
 
         .product-image img {
@@ -265,33 +260,12 @@
             height: 100%;
             object-fit: cover;
             display: block;
+
+            transition: transform 0.4s ease;
         }
 
-        .placeholder {
-            font-size: 18px;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-
-        .white {
-            background: #f1f1f1;
-        }
-
-        .grey {
-            background: #c9c9c9;
-        }
-
-        .brown {
-            background: #735b4b;
-        }
-
-        .skyblue {
-            background: #91cee7;
-        }
-
-        .navy {
-            background: #17283c;
-            color: white;
+        .product:hover .product-image img {
+            transform: scale(1.03);
         }
 
         .product-info {
@@ -524,7 +498,7 @@
 
 
         /* =========================
-           CART OVERLAY
+           CART
         ========================= */
 
         .cart-overlay {
@@ -876,7 +850,6 @@
             .statement p {
                 letter-spacing: -3px;
             }
-
         }
 
     </style>
@@ -897,16 +870,35 @@
     </div>
 
     <div class="nav-links">
-        <a href="#available">AVAILABLE</a>
-        <a href="#premium">PREMIUM</a>
-        <a href="#about">ABOUT</a>
+
+        <a href="#available">
+            AVAILABLE
+        </a>
+
+        <a href="#premium">
+            PREMIUM
+        </a>
+
+        <a href="#about">
+            ABOUT
+        </a>
+
     </div>
 
     <div class="nav-icons">
 
-        <button class="cart-button" onclick="openCart()">
+        <button
+            class="cart-button"
+            onclick="openCart()">
+
             BAG
-            <span class="bag-count" id="bagCount">0</span>
+
+            <span
+                class="bag-count"
+                id="bagCount">
+                0
+            </span>
+
         </button>
 
     </div>
@@ -932,11 +924,16 @@
         </h1>
 
         <p>
-            Premium streetwear made for those who refuse to blend in.
+            Premium streetwear made for those
+            who refuse to blend in.
         </p>
 
-        <a href="#available" class="hero-button">
+        <a
+            href="#available"
+            class="hero-button">
+
             SHOP AVAILABLE
+
         </a>
 
     </div>
@@ -948,7 +945,9 @@
      AVAILABLE
 ========================= -->
 
-<section class="section" id="available">
+<section
+    class="section"
+    id="available">
 
     <div class="section-header">
 
@@ -966,9 +965,11 @@
         </div>
 
         <p class="section-description">
+
             Discover the first SUMS collection.
-            Clean silhouettes, premium energy and
-            everyday streetwear.
+            Clean silhouettes, premium energy
+            and everyday streetwear.
+
         </p>
 
     </div>
@@ -988,9 +989,11 @@
         <div class="product">
 
             <div class="product-image">
+
                 <img
-                    src="images/white-hoodie.jpg"
+                    src="white-hoodie.jpg"
                     alt="SUMS White Hoodie">
+
             </div>
 
             <div class="product-info">
@@ -1011,8 +1014,14 @@
 
                     <button
                         class="add-button"
-                        onclick="addToBag('SUMS Essential Hoodie', 'White', 800)">
+                        onclick="addToBag(
+                            'SUMS Essential Hoodie',
+                            'White',
+                            800
+                        )">
+
                         ADD TO BAG
+
                     </button>
 
                 </div>
@@ -1027,9 +1036,11 @@
         <div class="product">
 
             <div class="product-image">
+
                 <img
-                    src="images/grey-hoodie.jpg"
+                    src="grey-hoodie.jpg"
                     alt="SUMS Grey Hoodie">
+
             </div>
 
             <div class="product-info">
@@ -1050,8 +1061,14 @@
 
                     <button
                         class="add-button"
-                        onclick="addToBag('SUMS Essential Hoodie', 'Grey', 800)">
+                        onclick="addToBag(
+                            'SUMS Essential Hoodie',
+                            'Grey',
+                            800
+                        )">
+
                         ADD TO BAG
+
                     </button>
 
                 </div>
@@ -1066,9 +1083,11 @@
         <div class="product">
 
             <div class="product-image">
+
                 <img
-                    src="images/brown-hoodie.jpg"
+                    src="brown-hoodie.jpg"
                     alt="SUMS Brown Hoodie">
+
             </div>
 
             <div class="product-info">
@@ -1089,8 +1108,14 @@
 
                     <button
                         class="add-button"
-                        onclick="addToBag('SUMS Essential Hoodie', 'Brown', 800)">
+                        onclick="addToBag(
+                            'SUMS Essential Hoodie',
+                            'Brown',
+                            800
+                        )">
+
                         ADD TO BAG
+
                     </button>
 
                 </div>
@@ -1116,9 +1141,11 @@
         <div class="product">
 
             <div class="product-image">
+
                 <img
-                    src="images/grey-tshirt.jpg"
+                    src="grey-tshirt.jpg"
                     alt="SUMS Grey T-Shirt">
+
             </div>
 
             <div class="product-info">
@@ -1139,8 +1166,14 @@
 
                     <button
                         class="add-button"
-                        onclick="addToBag('SUMS Essential T-Shirt', 'Grey', 400)">
+                        onclick="addToBag(
+                            'SUMS Essential T-Shirt',
+                            'Grey',
+                            400
+                        )">
+
                         ADD TO BAG
+
                     </button>
 
                 </div>
@@ -1155,9 +1188,11 @@
         <div class="product">
 
             <div class="product-image">
+
                 <img
-                    src="images/navy-tshirt.jpg"
+                    src="navy-tshirt.jpg"
                     alt="SUMS Navy T-Shirt">
+
             </div>
 
             <div class="product-info">
@@ -1178,8 +1213,14 @@
 
                     <button
                         class="add-button"
-                        onclick="addToBag('SUMS Essential T-Shirt', 'Navy', 400)">
+                        onclick="addToBag(
+                            'SUMS Essential T-Shirt',
+                            'Navy',
+                            400
+                        )">
+
                         ADD TO BAG
+
                     </button>
 
                 </div>
@@ -1194,9 +1235,11 @@
         <div class="product">
 
             <div class="product-image">
+
                 <img
-                    src="images/skyblue-tshirt.jpg"
+                    src="skyblue-tshirt.jpg"
                     alt="SUMS Sky Blue T-Shirt">
+
             </div>
 
             <div class="product-info">
@@ -1217,8 +1260,14 @@
 
                     <button
                         class="add-button"
-                        onclick="addToBag('SUMS Essential T-Shirt', 'Sky Blue', 400)">
+                        onclick="addToBag(
+                            'SUMS Essential T-Shirt',
+                            'Sky Blue',
+                            400
+                        )">
+
                         ADD TO BAG
+
                     </button>
 
                 </div>
@@ -1236,7 +1285,9 @@
      PREMIUM
 ========================= -->
 
-<section class="section premium" id="premium">
+<section
+    class="section premium"
+    id="premium">
 
     <div class="section-header">
 
@@ -1254,15 +1305,18 @@
         </div>
 
         <p class="section-description">
-            A premium collection is being built behind
-            the scenes. No previews. No spoilers.
-            Just wait.
+
+            A premium collection is being built
+            behind the scenes. No previews.
+            No spoilers. Just wait.
+
         </p>
 
     </div>
 
 
     <div class="coming-soon-grid">
+
 
         <div class="coming-soon">
 
@@ -1335,25 +1389,29 @@
 
 
 <!-- =========================
-     BRAND STATEMENT
+     STATEMENT
 ========================= -->
 
 <section class="statement">
 
     <p>
+
         NOT JUST CLOTHES.
         A DIFFERENT WAY
         OF MOVING.
+
     </p>
 
 </section>
 
 
 <!-- =========================
-     ABOUT SUMS
+     ABOUT
 ========================= -->
 
-<section class="section about" id="about">
+<section
+    class="section about"
+    id="about">
 
     <div class="about-content">
 
@@ -1367,14 +1425,17 @@
         </h2>
 
         <p class="about-text">
+
             SUMS is a streetwear brand from
             Port St Johns, Eastern Cape —
             built around individuality,
             confidence and a different way
             of seeing everyday style.
+
         </p>
 
         <p class="about-small">
+
             From the coastal energy of Port St Johns
             comes a brand with its own direction.
             SUMS blends clean design with modern
@@ -1393,6 +1454,7 @@
 
             Born in the Eastern Cape.
             Made for everywhere.
+
         </p>
 
     </div>
@@ -1414,9 +1476,12 @@
 
         <div class="footer-links">
 
+
             <div class="footer-column">
 
-                <h3>SHOP</h3>
+                <h3>
+                    SHOP
+                </h3>
 
                 <a href="#available">
                     Available
@@ -1431,15 +1496,22 @@
 
             <div class="footer-column">
 
-                <h3>CONTACT</h3>
+                <h3>
+                    CONTACT
+                </h3>
 
-                <a href="https://wa.me/27796265589"
-                   target="_blank">
+                <a
+                    href="https://wa.me/27796265589"
+                    target="_blank">
+
                     WhatsApp
+
                 </a>
 
                 <a href="tel:+27796265589">
+
                     079 626 5589
+
                 </a>
 
             </div>
@@ -1447,7 +1519,9 @@
 
             <div class="footer-column">
 
-                <h3>DISCOVER</h3>
+                <h3>
+                    DISCOVER
+                </h3>
 
                 <a href="#about">
                     About SUMS
@@ -1455,24 +1529,32 @@
 
             </div>
 
+
         </div>
 
     </div>
 
+
     <div class="copyright">
-        © 2026 SUMS CLOTHING. ALL RIGHTS RESERVED.
+
+        © 2026 SUMS CLOTHING.
+        ALL RIGHTS RESERVED.
+
     </div>
 
 </footer>
 
 
 <!-- =========================
-     SHOPPING BAG
+     CART
 ========================= -->
 
-<div class="cart-overlay" id="cartOverlay">
+<div
+    class="cart-overlay"
+    id="cartOverlay">
 
     <div class="cart">
+
 
         <div class="cart-header">
 
@@ -1483,7 +1565,9 @@
             <button
                 class="close-cart"
                 onclick="closeCart()">
+
                 ×
+
             </button>
 
         </div>
@@ -1513,7 +1597,9 @@
             <button
                 class="checkout-button"
                 onclick="openCheckout()">
+
                 CHECKOUT
+
             </button>
 
         </div>
@@ -1527,26 +1613,34 @@
      CHECKOUT
 ========================= -->
 
-<div class="checkout" id="checkout">
+<div
+    class="checkout"
+    id="checkout">
 
     <div class="checkout-box">
+
 
         <button
             class="close-checkout"
             onclick="closeCheckout()">
+
             ×
+
         </button>
+
 
         <h2>
             CHECKOUT
         </h2>
 
         <p>
-            Complete your details and send your order to SUMS.
+            Complete your details and send
+            your order to SUMS.
         </p>
 
 
         <form id="checkoutForm">
+
 
             <div class="form-group">
 
@@ -1621,8 +1715,11 @@
             <button
                 type="submit"
                 class="place-order">
+
                 PLACE ORDER ON WHATSAPP
+
             </button>
+
 
         </form>
 
@@ -1640,10 +1737,6 @@
     let cart = [];
 
 
-    /* =========================
-       ADD TO BAG
-    ========================= */
-
     function addToBag(name, colour, price) {
 
         const existingItem = cart.find(
@@ -1651,6 +1744,7 @@
                 item.name === name &&
                 item.colour === colour
         );
+
 
         if (existingItem) {
 
@@ -1667,15 +1761,12 @@
 
         }
 
-        updateCart();
 
+        updateCart();
         openCart();
+
     }
 
-
-    /* =========================
-       UPDATE CART
-    ========================= */
 
     function updateCart() {
 
@@ -1688,7 +1779,9 @@
         const bagCount =
             document.getElementById("bagCount");
 
+
         cartItems.innerHTML = "";
+
 
         let total = 0;
         let itemCount = 0;
@@ -1709,6 +1802,7 @@
 
             const itemTotal =
                 item.price * item.quantity;
+
 
             total += itemTotal;
             itemCount += item.quantity;
@@ -1735,7 +1829,9 @@
                         <button
                             class="remove-item"
                             onclick="removeItem(${index})">
+
                             REMOVE
+
                         </button>
 
                     </div>
@@ -1746,7 +1842,9 @@
                         <button
                             class="quantity-button"
                             onclick="changeQuantity(${index}, -1)">
+
                             −
+
                         </button>
 
                         <span>
@@ -1756,7 +1854,9 @@
                         <button
                             class="quantity-button"
                             onclick="changeQuantity(${index}, 1)">
+
                             +
+
                         </button>
 
                         <strong>
@@ -1766,6 +1866,7 @@
                     </div>
 
                 </div>
+
             `;
 
         });
@@ -1777,20 +1878,17 @@
         bagCount.textContent =
             itemCount;
 
-
-        document.getElementById("checkoutTotal").textContent =
-            `R${total}`;
+        document.getElementById(
+            "checkoutTotal"
+        ).textContent = `R${total}`;
 
     }
 
 
-    /* =========================
-       CHANGE QUANTITY
-    ========================= */
-
     function changeQuantity(index, change) {
 
         cart[index].quantity += change;
+
 
         if (cart[index].quantity <= 0) {
 
@@ -1798,25 +1896,20 @@
 
         }
 
+
         updateCart();
+
     }
 
-
-    /* =========================
-       REMOVE ITEM
-    ========================= */
 
     function removeItem(index) {
 
         cart.splice(index, 1);
 
         updateCart();
+
     }
 
-
-    /* =========================
-       OPEN CART
-    ========================= */
 
     function openCart() {
 
@@ -1824,13 +1917,12 @@
             .getElementById("cartOverlay")
             .classList.add("active");
 
-        document.body.classList.add("cart-open");
+        document
+            .body
+            .classList.add("cart-open");
+
     }
 
-
-    /* =========================
-       CLOSE CART
-    ========================= */
 
     function closeCart() {
 
@@ -1838,13 +1930,12 @@
             .getElementById("cartOverlay")
             .classList.remove("active");
 
-        document.body.classList.remove("cart-open");
+        document
+            .body
+            .classList.remove("cart-open");
+
     }
 
-
-    /* =========================
-       OPEN CHECKOUT
-    ========================= */
 
     function openCheckout() {
 
@@ -1853,7 +1944,9 @@
             alert("Your bag is empty.");
 
             return;
+
         }
+
 
         document
             .getElementById("checkout")
@@ -1861,10 +1954,6 @@
 
     }
 
-
-    /* =========================
-       CLOSE CHECKOUT
-    ========================= */
 
     function closeCheckout() {
 
@@ -1875,115 +1964,125 @@
     }
 
 
-    /* =========================
-       PLACE ORDER
-    ========================= */
-
     document
         .getElementById("checkoutForm")
-        .addEventListener("submit", function(event) {
+        .addEventListener(
+            "submit",
+            function(event) {
 
-            event.preventDefault();
-
-
-            const name =
-                document.getElementById("customerName").value;
-
-            const phone =
-                document.getElementById("customerPhone").value;
-
-            const address =
-                document.getElementById("customerAddress").value;
-
-            const note =
-                document.getElementById("customerNote").value;
+                event.preventDefault();
 
 
-            let message =
-                "Hello SUMS! I would like to place an order.%0A%0A";
+                const name =
+                    document.getElementById(
+                        "customerName"
+                    ).value;
 
 
-            message +=
-                "*CUSTOMER DETAILS*%0A";
-
-            message +=
-                "Name: " +
-                encodeURIComponent(name) +
-                "%0A";
-
-            message +=
-                "Phone: " +
-                encodeURIComponent(phone) +
-                "%0A";
-
-            message +=
-                "Delivery / Collection: " +
-                encodeURIComponent(address) +
-                "%0A";
+                const phone =
+                    document.getElementById(
+                        "customerPhone"
+                    ).value;
 
 
-            if (note.trim() !== "") {
+                const address =
+                    document.getElementById(
+                        "customerAddress"
+                    ).value;
+
+
+                const note =
+                    document.getElementById(
+                        "customerNote"
+                    ).value;
+
+
+                let message =
+                    "Hello SUMS! I would like to place an order.%0A%0A";
+
 
                 message +=
-                    "Note: " +
-                    encodeURIComponent(note) +
+                    "*CUSTOMER DETAILS*%0A";
+
+
+                message +=
+                    "Name: " +
+                    encodeURIComponent(name) +
                     "%0A";
+
+
+                message +=
+                    "Phone: " +
+                    encodeURIComponent(phone) +
+                    "%0A";
+
+
+                message +=
+                    "Delivery / Collection: " +
+                    encodeURIComponent(address) +
+                    "%0A";
+
+
+                if (note.trim() !== "") {
+
+                    message +=
+                        "Note: " +
+                        encodeURIComponent(note) +
+                        "%0A";
+
+                }
+
+
+                message +=
+                    "%0A*ORDER*%0A";
+
+
+                let total = 0;
+
+
+                cart.forEach(item => {
+
+                    const itemTotal =
+                        item.price * item.quantity;
+
+
+                    total += itemTotal;
+
+
+                    message +=
+                        encodeURIComponent(
+                            item.quantity +
+                            " × " +
+                            item.name +
+                            " — " +
+                            item.colour +
+                            " — R" +
+                            itemTotal
+                        ) +
+                        "%0A";
+
+                });
+
+
+                message +=
+                    "%0A*TOTAL: R" +
+                    total +
+                    "*";
+
+
+                const whatsappURL =
+                    "https://wa.me/27796265589?text=" +
+                    message;
+
+
+                window.open(
+                    whatsappURL,
+                    "_blank"
+                );
 
             }
+        );
 
-
-            message +=
-                "%0A*ORDER*%0A";
-
-
-            let total = 0;
-
-
-            cart.forEach(item => {
-
-                const itemTotal =
-                    item.price * item.quantity;
-
-                total += itemTotal;
-
-
-                message +=
-                    encodeURIComponent(
-                        item.quantity +
-                        " × " +
-                        item.name +
-                        " — " +
-                        item.colour +
-                        " — R" +
-                        itemTotal
-                    ) +
-                    "%0A";
-
-            });
-
-
-            message +=
-                "%0A*TOTAL: R" +
-                total +
-                "*";
-
-
-            const whatsappURL =
-                "https://wa.me/27796265589?text=" +
-                message;
-
-
-            window.open(
-                whatsappURL,
-                "_blank"
-            );
-
-        });
-
-
-    /* =========================
-       INITIAL CART
-    ========================= */
 
     updateCart();
 
