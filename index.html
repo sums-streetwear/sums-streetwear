@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SUMS — Premium Streetwear</title>
+
+    <meta name="description"
+        content="SUMS — Premium streetwear for those who move different. Shop our latest collection and discover what's coming next.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #111111;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            height: 76px;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.5;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 22px;
+            font-size: 21px;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 650px;
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+                ),
+                url("images/hero.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-small {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(60px, 12vw, 150px);
+            line-height: 0.85;
+            font-weight: 900;
+            letter-spacing: -7px;
+        }
+
+        .hero p {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 35px;
+            background: white;
+            color: black;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .hero-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           SECTION HEADINGS
+        ========================= */
+
+        .section {
+            padding: 90px 5%;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: clamp(40px, 6vw, 72px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            font-weight: 900;
+        }
+
+        .section-description {
+            max-width: 350px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .category-title {
+            font-size: 28px;
+            margin: 55px 0 25px;
+            font-weight: 800;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .product {
+            background: #f2f2f2;
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Temporary product image placeholders */
+
+        .placeholder {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #777;
+        }
+
+        .white {
+            background: #eeeeee;
+        }
+
+        .grey {
+            background: #c5c5c5;
+        }
+
+        .brown {
+            background: #765c4c;
+        }
+
+        .skyblue {
+            background: #8ecde8;
+        }
+
+        .navy {
+            background: #17283d;
+        }
+
+        .product-info {
+            background: white;
+            padding: 20px 4px 25px;
+        }
+
+        .product-name {
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .product-colour {
+            color: #777;
+            margin-top: 6px;
+            font-size: 14px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .order-button {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .order-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           PREMIUM SECTION
+        ========================= */
+
+        .premium {
+            background: #0b0b0b;
+            color: white;
+        }
+
+        .premium .section-description {
+            color: #aaa;
+        }
+
+        .coming-soon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .coming-soon {
+            height: 520px;
+            background: #151515;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border: 1px solid #333;
+            border-radius: 50%;
+        }
+
+        .coming-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .coming-number {
+            font-size: 13px;
+            letter-spacing: 4px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .coming-title {
+            font-size: 35px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .coming-subtitle {
+            margin-top: 12px;
+            color: #777;
+        }
+
+        /* =========================
+           BRAND STATEMENT
+        ========================= */
+
+        .statement {
+            padding: 130px 5%;
+            text-align: center;
+        }
+
+        .statement p {
+            max-width: 950px;
+            margin: auto;
+            font-size: clamp(35px, 6vw, 75px);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -4px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+
+        .footer-brand {
+            font-size: 40px;
+            font-weight: 900;
+            letter-spacing: -3px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 13px;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #aaa;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 25px;
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                height: 65px;
+            }
+
+            .brand {
+                font-size: 25px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .section {
+                padding: 65px 5%;
+            }
+
+            .section-header {
+                display: block;
+            }
+
+            .section-description {
+                margin-top: 20px;
+            }
+
+            .products,
+            .coming-soon-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 430px;
+            }
+
+            .coming-soon {
+                height: 430px;
+            }
+
+            .footer-top {
+                display: block;
+            }
+
+            .footer-links {
+                margin-top: 40px;
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav>
+
+        <div class="brand">
+            SUMS
+        </div>
+
+        <div class="nav-links">
+            <a href="#available">AVAILABLE</a>
+            <a href="#premium">PREMIUM</a>
+            <a href="#about">ABOUT</a>
+        </div>
+
+        <div class="nav-icons">
+            <span>⌕</span>
+            <span>♡</span>
+            <span>☰</span>
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                SUMS CLOTHING
+            </div>
+
+            <h1>
+                MOVE<br>
+                DIFFERENT.
+            </h1>
+
+            <p>
+                Premium streetwear made for those who refuse to blend in.
+            </p>
+
+            <a href="#available" class="hero-button">
+                SHOP AVAILABLE
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         AVAILABLE COLLECTION
+    ========================== -->
+
+    <section class="section" id="available">
+
+        <div class="section-header">
+
+            <div>
+                <div class="section-label">
+                    SUMS / 001
+                </div>
+
+                <h2 class="section-title">
+                    AVAILABLE<br>
+                    NOW.
+                </h2>
+            </div>
+
+            <p class="section-description">
+                Discover the first SUMS collection.
+                Clean silhouettes, premium energy and
+                everyday streetwear.
+            </p>
+
+        </div>
+
+
+        <!-- HOODIES -->
+
+        <h3 class="category-title">
+            HOODIES
+        </h3>
+
+        <div class="products">
+
+            <!-- WHITE HOODIE -->
+
+            <div class="product">
+
+                <div class="product-image white">
+                    <div class="placeholder">
+                        SUMS HOODIE
+                    </div>
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        SUMS Essential Hoodie
+                    </div>
+
+                    <div class="product-colour">
+                        White
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            R800
+                        </div>
+
+                        <a
+                            class="order-button"
+                            href="https://wa.me/27796265589?text=Hi%20SUMS,%20I%20would%20like%20to%20order%20the%20White%20SUMS%20Hoodie."
+                            target="_blank">
+                            ORDER
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GREY HOODIE -->
+
+            <div class="product">
+
+                <div class="product-image grey">
+                    <div class="placeholder">
+                        SUMS HOODIE
+                    </div>
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        SUMS Essential Hoodie
+                    </div>
+
+                    <div class="product-colour">
+                        Grey
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            R800
+                        </div>
+
+                        <a
+                            class="order-button"
+                            href="https://wa.me/27796265589?text=Hi%20SUMS,%20I%20would%20like%20to%20order%20the%20Grey%20SUMS%20Hoodie."
+                            target="_blank">
+                            ORDER
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BROWN HOODIE -->
+
+            <div class="product">
+
+                <div class="product-image brown">
+                    <div class="placeholder">
+                        SUMS HOODIE
+                    </div>
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        SUMS Essential Hoodie
+                    </div>
+
+                    <div class="product-colour">
+                        Brown
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            R800
+                        </div>
+
+                        <a
+                            class="order-button"
+                            href="https://wa.me/27796265589?text=Hi%20SUMS,%20I%20would%20like%20to%20order%20the%20Brown%20SUMS%20Hoodie."
+                            target="_blank">
+                            ORDER
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- T-SHIRTS -->
+
+        <h3 class="category-title">
+            T-SHIRTS
+        </h3>
+
+        <div class="products">
+
+            <!-- GREY T-SHIRT -->
+
+            <div class="product">
+
+                <div class="product-image grey">
+                    <div class="placeholder">
+                        SUMS T-SHIRT
+                    </div>
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        SUMS Essential T-Shirt
+                    </div>
+
+                    <div class="product-colour">
+                        Grey
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            R400
+                        </div>
+
+                        <a
+                            class="order-button"
+                            href="https://wa.me/27796265589?text=Hi%20SUMS,%20I%20would%20like%20to%20order%20the%20Grey%20SUMS%20T-Shirt."
+                            target="_blank">
+                            ORDER
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SKY BLUE T-SHIRT -->
+
+            <div class="product">
+
+                <div class="product-image skyblue">
+                    <div class="placeholder">
+                        SUMS T-SHIRT
+                    </div>
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        SUMS Essential T-Shirt
+                    </div>
+
+                    <div class="product-colour">
+                        Sky Blue
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            R400
+                        </div>
+
+                        <a
+                            class="order-button"
+                            href="https://wa.me/27796265589?text=Hi%20SUMS,%20I%20would%20like%20to%20order%20the%20Sky%20Blue%20SUMS%20T-Shirt."
+                            target="_blank">
+                            ORDER
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVY T-SHIRT -->
+
+            <div class="product">
+
+                <div class="product-image navy">
+                    <div class="placeholder">
+                        SUMS T-SHIRT
+                    </div>
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-name">
+                        SUMS Essential T-Shirt
+                    </div>
+
+                    <div class="product-colour">
+                        Navy
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            R400
+                        </div>
+
+                        <a
+                            class="order-button"
+                            href="https://wa.me/27796265589?text=Hi%20SUMS,%20I%20would%20like%20to%20order%20the%20Navy%20SUMS%20T-Shirt."
+                            target="_blank">
+                            ORDER
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PREMIUM COMING SOON
+    ========================== -->
+
+    <section class="section premium" id="premium">
+
+        <div class="section-header">
+
+            <div>
+
+                <div class="section-label">
+                    SUMS / PREMIUM
+                </div>
+
+                <h2 class="section-title">
+                    SOMETHING<br>
+                    BIGGER.
+                </h2>
+
+            </div>
+
+            <p class="section-description">
+                A premium collection is being built behind
+                the scenes. No previews. No spoilers.
+                Just wait.
+            </p>
+
+        </div>
+
+
+        <div class="coming-soon-grid">
+
+            <div class="coming-soon">
+
+                <div class="coming-content">
+
+                    <div class="coming-number">
+                        01
+                    </div>
+
+                    <div class="coming-title">
+                        COMING<br>SOON
+                    </div>
+
+                    <div class="coming-subtitle">
+                        PREMIUM SUMS
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="coming-soon">
+
+                <div class="coming-content">
+
+                    <div class="coming-number">
+                        02
+                    </div>
+
+                    <div class="coming-title">
+                        COMING<br>SOON
+                    </div>
+
+                    <div class="coming-subtitle">
+                        PREMIUM SUMS
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="coming-soon">
+
+                <div class="coming-content">
+
+                    <div class="coming-number">
+                        03
+                    </div>
+
+                    <div class="coming-title">
+                        COMING<br>SOON
+                    </div>
+
+                    <div class="coming-subtitle">
+                        PREMIUM SUMS
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         BRAND STATEMENT
+    ========================== -->
+
+    <section class="statement" id="about">
+
+        <p>
+            NOT JUST CLOTHES.
+            A DIFFERENT WAY
+            OF MOVING.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+                SUMS
+            </div>
+
+            <div class="footer-links">
+
+                <div class="footer-column">
+
+                    <h3>SHOP</h3>
+
+                    <a href="#available">
+                        Available
+                    </a>
+
+                    <a href="#premium">
+                        Premium
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>CONTACT</h3>
+
+                    <a
+                        href="https://wa.me/27796265589"
+                        target="_blank">
+                        WhatsApp
+                    </a>
+
+                    <a href="tel:+27796265589">
+                        079 626 5589
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 SUMS CLOTHING. ALL RIGHTS RESERVED.
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
