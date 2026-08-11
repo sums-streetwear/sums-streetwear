@@ -6,7 +6,7 @@
 
 <title>SUMS — Premium Streetwear</title>
 
-<meta name="description" content="SUMS — premium streetwear from Port St Johns, Eastern Cape. Move different.">
+<meta name="description" content="SUMS — premium streetwear from Port St Johns, Eastern Cape.">
 
 <style>
 * {
@@ -59,6 +59,7 @@ header {
     height: 48px;
     object-fit: contain;
     display: block;
+    background: #ffffff;
 }
 
 .brand-name {
@@ -593,7 +594,7 @@ footer p {
 
     <a href="#" class="brand">
 
-        <!-- ONLY THE NEW LOGO IS USED -->
+        <!-- NEW BLACK SUMS LOGO ONLY -->
         <img src="sums-black-logo.png" alt="SUMS Logo">
 
         <span class="brand-name">SUMS</span>
@@ -609,6 +610,7 @@ footer p {
     <div class="header-right">
 
         <div class="search-box" id="searchBox">
+
             <input
                 type="text"
                 id="searchInput"
@@ -616,13 +618,22 @@ footer p {
                 onkeyup="searchProducts()"
             >
 
-            <button class="search-button" onclick="toggleSearch()">
+            <button
+                class="search-button"
+                onclick="toggleSearch()"
+                aria-label="Search"
+            >
                 ⌕
             </button>
+
         </div>
 
-        <button class="cart-button" onclick="openCart()">
-            CART <span id="cartCount">0</span>
+        <!-- CART -->
+        <button
+            class="cart-button"
+            onclick="openCart()"
+        >
+            🛍 CART <span id="cartCount">0</span>
         </button>
 
     </div>
@@ -1077,18 +1088,11 @@ footer p {
         <h2>ABOUT SUMS.</h2>
 
         <p>
-            SUMS is a streetwear brand rooted in Port St Johns,
-            Eastern Cape. Built around movement, individuality and
-            a different way of seeing everyday style, SUMS brings
-            a fresh energy to streetwear.
-        </p>
-
-        <br>
-
-        <p>
-            From the coastline of the Eastern Cape to wherever the
-            next generation takes it, SUMS represents confidence,
-            creativity and the freedom to move differently.
+            SUMS is a streetwear brand from Port St Johns, Eastern Cape.
+            Inspired by the energy, culture and creativity of the region,
+            SUMS brings a fresh approach to everyday streetwear. From the
+            Eastern Cape to wherever the journey goes, SUMS is about
+            movement, confidence and making every look count.
         </p>
 
     </div>
@@ -1408,12 +1412,11 @@ function checkout() {
         total;
 
     /*
-      Replace the number below with your SUMS
-      WhatsApp business/contact number.
+       Replace this with your actual SUMS
+       WhatsApp number when you're ready.
     */
 
-    const phone =
-        "27XXXXXXXXX";
+    const phone = "27XXXXXXXXX";
 
     window.open(
         "https://wa.me/" +
