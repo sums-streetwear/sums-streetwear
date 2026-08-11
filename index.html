@@ -64,17 +64,30 @@
         .brand {
             display: flex;
             align-items: center;
+            gap: 10px;
+
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 2px;
         }
 
         .brand img {
-            width: 48px;
-            height: 48px;
+            width: 55px;
+            height: 55px;
 
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
+
             display: block;
 
-            /* Turns the white logo black for the white navbar */
             filter: invert(1);
+
+            border-radius: 2px;
+        }
+
+        .brand span {
+            display: block;
+            color: #111111;
         }
 
         .nav-links {
@@ -940,9 +953,14 @@
                 height: 65px;
             }
 
+            .brand {
+                font-size: 19px;
+                gap: 7px;
+            }
+
             .brand img {
-                width: 42px;
-                height: 42px;
+                width: 48px;
+                height: 48px;
             }
 
             .nav-links {
@@ -1017,6 +1035,10 @@
         <img
             src="sums-logo-transparent.png"
             alt="SUMS">
+
+        <span>
+            SUMS
+        </span>
 
     </div>
 
@@ -1130,8 +1152,6 @@
     </div>
 
 
-    <!-- HOODIES -->
-
     <h3 class="category-title">
         HOODIES
     </h3>
@@ -1139,8 +1159,6 @@
 
     <div class="products">
 
-
-        <!-- WHITE HOODIE -->
 
         <div class="product">
 
@@ -1187,8 +1205,6 @@
         </div>
 
 
-        <!-- GREY HOODIE -->
-
         <div class="product">
 
             <div class="product-image">
@@ -1233,8 +1249,6 @@
 
         </div>
 
-
-        <!-- BROWN HOODIE -->
 
         <div class="product">
 
@@ -1283,8 +1297,6 @@
     </div>
 
 
-    <!-- T-SHIRTS -->
-
     <h3 class="category-title">
         T-SHIRTS
     </h3>
@@ -1292,8 +1304,6 @@
 
     <div class="products">
 
-
-        <!-- GREY T-SHIRT -->
 
         <div class="product">
 
@@ -1340,8 +1350,6 @@
         </div>
 
 
-        <!-- NAVY T-SHIRT -->
-
         <div class="product">
 
             <div class="product-image">
@@ -1386,8 +1394,6 @@
 
         </div>
 
-
-        <!-- SKY BLUE T-SHIRT -->
 
         <div class="product">
 
