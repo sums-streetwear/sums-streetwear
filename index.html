@@ -6,9 +6,14 @@
 
 <title>SUMS — Premium Streetwear</title>
 
-<meta name="description" content="SUMS Premium Streetwear from Port St Johns, Eastern Cape, South Africa.">
+<meta name="description"
+content="SUMS Premium Streetwear from Port St Johns, Eastern Cape, South Africa.">
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 * {
     margin: 0;
@@ -32,7 +37,7 @@ body {
 ========================= */
 
 header {
-    height: 78px;
+    min-height: 78px;
     background: white;
     border-bottom: 1px solid #ddd;
 
@@ -40,7 +45,7 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 4%;
+    padding: 10px 4%;
 
     position: sticky;
     top: 0;
@@ -60,10 +65,12 @@ header {
 }
 
 .logo-area img {
-    width: 48px;
-    height: 48px;
+    width: 58px;
+    height: 58px;
 
     object-fit: contain;
+
+    display: block;
 }
 
 .brand-name {
@@ -73,12 +80,12 @@ header {
 }
 
 
-/* NAVIGATION */
+/* NAV */
 
 nav {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 30px;
 }
 
 nav a {
@@ -96,7 +103,7 @@ nav a:hover {
 }
 
 
-/* HEADER RIGHT */
+/* RIGHT SIDE */
 
 .header-right {
     display: flex;
@@ -232,13 +239,9 @@ nav a:hover {
     font-weight: 900;
 }
 
-.hero-button:hover {
-    transform: scale(1.03);
-}
-
 
 /* =========================
-   CATEGORY CARDS
+   CATEGORY
 ========================= */
 
 .categories {
@@ -264,8 +267,6 @@ nav a:hover {
     text-decoration: none;
 
     position: relative;
-
-    overflow: hidden;
 }
 
 .category:nth-child(2) {
@@ -288,13 +289,12 @@ nav a:hover {
     right: 30px;
 
     font-size: 12px;
-
     font-weight: 900;
 }
 
 
 /* =========================
-   GENERAL SECTIONS
+   SECTIONS
 ========================= */
 
 .section {
@@ -346,8 +346,7 @@ nav a:hover {
 
 /*
    FRONT + BACK
-   BOTH ARE AUTOMATICALLY
-   VISIBLE
+   BOTH ALWAYS VISIBLE
 */
 
 .product-image {
@@ -367,15 +366,15 @@ nav a:hover {
 
     aspect-ratio: 1 / 1.15;
 
-    height: 100%;
-
     object-fit: cover;
 
     display: block;
+
+    background: #f3f3f3;
 }
 
 
-/* PRODUCT INFORMATION */
+/* PRODUCT DETAILS */
 
 .product-info {
     padding: 18px 4px 5px;
@@ -383,7 +382,6 @@ nav a:hover {
 
 .product-name {
     font-size: 17px;
-
     font-weight: 900;
 }
 
@@ -517,35 +515,16 @@ nav a:hover {
 
 
 /* =========================
-   SEARCH RESULTS
-========================= */
-
-.search-results {
-    display: none;
-
-    padding: 40px 4%;
-
-    background: #f5f5f5;
-}
-
-.search-results h2 {
-    margin-bottom: 25px;
-}
-
-
-/* =========================
-   BAG PANEL
+   BAG
 ========================= */
 
 .bag-panel {
     position: fixed;
 
     top: 0;
-
     right: -430px;
 
     width: 420px;
-
     max-width: 95%;
 
     height: 100vh;
@@ -561,7 +540,6 @@ nav a:hover {
     padding: 30px;
 
     display: flex;
-
     flex-direction: column;
 }
 
@@ -573,7 +551,6 @@ nav a:hover {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 
     padding-bottom: 20px;
@@ -623,7 +600,6 @@ nav a:hover {
 
 .bag-item img {
     width: 80px;
-
     height: 90px;
 
     object-fit: cover;
@@ -693,7 +669,7 @@ nav a:hover {
 
 
 /* =========================
-   FOOTER
+   FOOTER / CONTACT
 ========================= */
 
 footer {
@@ -701,19 +677,39 @@ footer {
 
     color: white;
 
-    padding: 40px 4%;
+    padding: 55px 4%;
 
-    display: flex;
+    display: grid;
 
-    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 30px;
+}
+
+footer h3 {
+    font-size: 18px;
+
+    margin-bottom: 12px;
+
+    letter-spacing: 2px;
 }
 
 footer p {
-    font-size: 12px;
+    font-size: 13px;
 
-    color: #aaa;
+    color: #bbb;
 
-    margin-top: 7px;
+    line-height: 1.7;
+}
+
+footer a {
+    color: white;
+
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 
@@ -726,13 +722,16 @@ footer p {
     header {
         min-height: 70px;
 
-        height: auto;
-
-        padding: 12px 4%;
+        padding: 10px 4%;
 
         flex-wrap: wrap;
 
         gap: 12px;
+    }
+
+    .logo-area img {
+        width: 48px;
+        height: 48px;
     }
 
     .brand-name {
@@ -777,12 +776,6 @@ footer p {
         min-height: 220px;
     }
 
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 10px;
-    }
-
     .section {
         padding: 55px 4%;
     }
@@ -793,6 +786,12 @@ footer p {
 
     .section-header p {
         margin-top: 15px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
     }
 
     .product-name {
@@ -808,11 +807,7 @@ footer p {
     }
 
     footer {
-        display: block;
-    }
-
-    footer div + div {
-        margin-top: 15px;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -831,14 +826,9 @@ footer p {
         font-size: 11px;
     }
 
-    .products {
-        grid-template-columns: 1fr 1fr;
-    }
-
     .product-image {
         gap: 2px;
     }
-
 }
 
 </style>
@@ -856,7 +846,12 @@ footer p {
 
 <a href="#" class="logo-area">
 
-    <!-- YOUR SUMS LOGO -->
+    <!--
+       IMPORTANT:
+       Your logo file must be named:
+
+       sums-logo.png
+    -->
 
     <img
         src="sums-logo.png"
@@ -949,7 +944,8 @@ footer p {
     </h1>
 
     <p>
-        Premium streetwear made for those who refuse to blend in.
+        Premium streetwear made for those
+        who refuse to blend in.
     </p>
 
     <a
@@ -966,7 +962,7 @@ footer p {
 
 
 <!-- =========================
-     CATEGORIES
+     CATEGORY
 ========================= -->
 
 <section class="categories">
@@ -1007,28 +1003,6 @@ footer p {
 
 
 <!-- =========================
-     SEARCH RESULTS
-========================= -->
-
-<section
-    class="search-results"
-    id="searchResults"
->
-
-    <h2>
-        SEARCH RESULTS
-    </h2>
-
-    <div
-        class="products"
-        id="searchProducts"
-    ></div>
-
-</section>
-
-
-
-<!-- =========================
      HOODIES
 ========================= -->
 
@@ -1040,11 +1014,9 @@ footer p {
 <div class="section-header">
 
     <div>
-
         <h2>
             HOODIES
         </h2>
-
     </div>
 
     <p>
@@ -1058,15 +1030,9 @@ footer p {
 <div class="products">
 
 
-
 <!-- WHITE HOODIE -->
 
-<div
-    class="product"
-    data-name="SUMS White Hoodie"
-    data-type="hoodie"
-    data-colour="white"
->
+<div class="product">
 
 <div class="product-image">
 
@@ -1081,7 +1047,6 @@ footer p {
     >
 
 </div>
-
 
 <div class="product-info">
 
@@ -1117,12 +1082,7 @@ footer p {
 
 <!-- GREY HOODIE -->
 
-<div
-    class="product"
-    data-name="SUMS Grey Hoodie"
-    data-type="hoodie"
-    data-colour="grey"
->
+<div class="product">
 
 <div class="product-image">
 
@@ -1137,7 +1097,6 @@ footer p {
     >
 
 </div>
-
 
 <div class="product-info">
 
@@ -1173,12 +1132,7 @@ footer p {
 
 <!-- BROWN HOODIE -->
 
-<div
-    class="product"
-    data-name="SUMS Brown Hoodie"
-    data-type="hoodie"
-    data-colour="brown"
->
+<div class="product">
 
 <div class="product-image">
 
@@ -1193,7 +1147,6 @@ footer p {
     >
 
 </div>
-
 
 <div class="product-info">
 
@@ -1244,11 +1197,9 @@ footer p {
 <div class="section-header">
 
     <div>
-
         <h2>
             T-SHIRTS
         </h2>
-
     </div>
 
     <p>
@@ -1262,15 +1213,9 @@ footer p {
 <div class="products">
 
 
-
 <!-- GREY T-SHIRT -->
 
-<div
-    class="product"
-    data-name="SUMS Grey T-Shirt"
-    data-type="tshirt"
-    data-colour="grey"
->
+<div class="product">
 
 <div class="product-image">
 
@@ -1285,7 +1230,6 @@ footer p {
     >
 
 </div>
-
 
 <div class="product-info">
 
@@ -1321,12 +1265,7 @@ footer p {
 
 <!-- NAVY T-SHIRT -->
 
-<div
-    class="product"
-    data-name="SUMS Navy T-Shirt"
-    data-type="tshirt"
-    data-colour="navy"
->
+<div class="product">
 
 <div class="product-image">
 
@@ -1341,7 +1280,6 @@ footer p {
     >
 
 </div>
-
 
 <div class="product-info">
 
@@ -1377,12 +1315,7 @@ footer p {
 
 <!-- SKY BLUE T-SHIRT -->
 
-<div
-    class="product"
-    data-name="SUMS Sky Blue T-Shirt"
-    data-type="tshirt"
-    data-colour="skyblue"
->
+<div class="product">
 
 <div class="product-image">
 
@@ -1397,7 +1330,6 @@ footer p {
     >
 
 </div>
-
 
 <div class="product-info">
 
@@ -1448,11 +1380,9 @@ footer p {
 <div class="section-header">
 
     <div>
-
         <h2>
             PREMIUM
         </h2>
-
     </div>
 
     <p>
@@ -1527,13 +1457,11 @@ footer p {
         ABOUT SUMS.
     </h2>
 
-
     <p>
-        SUMS is a premium streetwear brand from
-        Port St Johns in the Eastern Cape,
+        SUMS is a premium streetwear brand
+        from Port St Johns in the Eastern Cape,
         South Africa.
     </p>
-
 
     <p style="margin-top:25px;">
 
@@ -1544,7 +1472,6 @@ footer p {
 
     </p>
 
-
     <p style="margin-top:25px;">
 
         From everyday essentials to pieces that
@@ -1554,7 +1481,6 @@ footer p {
         follow the crowd.
 
     </p>
-
 
     <p class="about-small">
 
@@ -1569,7 +1495,7 @@ footer p {
 
 
 <!-- =========================
-     BAG PANEL
+     BAG
 ========================= -->
 
 <div
@@ -1577,13 +1503,11 @@ footer p {
     id="bagPanel"
 >
 
-
 <div class="bag-header">
 
     <h2>
         YOUR BAG
     </h2>
-
 
     <button
         class="close-bag"
@@ -1645,12 +1569,16 @@ footer p {
 
 <div>
 
-    <strong>
+    <h3>
         SUMS
-    </strong>
+    </h3>
 
     <p>
         Premium Streetwear
+    </p>
+
+    <p>
+        Port St Johns · Eastern Cape · South Africa
     </p>
 
 </div>
@@ -1658,8 +1586,52 @@ footer p {
 
 <div>
 
+    <h3>
+        CONTACT
+    </h3>
+
     <p>
-        Port St Johns · Eastern Cape · South Africa
+        WhatsApp:
+        <a href="https://wa.me/27796265589">
+            079 626 5589
+        </a>
+    </p>
+
+    <p>
+        Tap the number to contact SUMS on WhatsApp.
+    </p>
+
+</div>
+
+
+<div>
+
+    <h3>
+        QUICK LINKS
+    </h3>
+
+    <p>
+        <a href="#hoodies">
+            Hoodies
+        </a>
+    </p>
+
+    <p>
+        <a href="#tshirts">
+            T-Shirts
+        </a>
+    </p>
+
+    <p>
+        <a href="#premium">
+            Premium
+        </a>
+    </p>
+
+    <p>
+        <a href="#about">
+            About SUMS
+        </a>
     </p>
 
 </div>
@@ -1670,9 +1642,8 @@ footer p {
 
 <script>
 
-
 /* =========================
-   BAG
+   BAG SYSTEM
 ========================= */
 
 let bag = [];
@@ -1686,48 +1657,31 @@ function addToBag(
 ) {
 
     bag.push({
-
         name: name,
-
         colour: colour,
-
         price: price,
-
         image: image
-
     });
-
 
     updateBag();
 
     openBag();
-
 }
-
 
 
 function updateBag() {
 
     const bagItems =
-        document.getElementById(
-            "bagItems"
-        );
-
+        document.getElementById("bagItems");
 
     const bagNumber =
-        document.getElementById(
-            "bagNumber"
-        );
-
+        document.getElementById("bagNumber");
 
     const bagTotal =
-        document.getElementById(
-            "bagTotal"
-        );
+        document.getElementById("bagTotal");
 
 
-    bagNumber.textContent =
-        bag.length;
+    bagNumber.textContent = bag.length;
 
 
     if (bag.length === 0) {
@@ -1735,18 +1689,15 @@ function updateBag() {
         bagItems.innerHTML =
             '<div class="empty-bag">Your bag is empty.</div>';
 
-        bagTotal.textContent =
-            "R0";
+        bagTotal.textContent = "R0";
 
         updateWhatsApp();
 
         return;
-
     }
 
 
     let total = 0;
-
 
     bagItems.innerHTML = "";
 
@@ -1758,13 +1709,10 @@ function updateBag() {
 
 
             const div =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
 
-            div.className =
-                "bag-item";
+            div.className = "bag-item";
 
 
             div.innerHTML = `
@@ -1802,33 +1750,24 @@ function updateBag() {
             `;
 
 
-            bagItems.appendChild(
-                div
-            );
+            bagItems.appendChild(div);
 
         }
     );
 
 
-    bagTotal.textContent =
-        "R" + total;
-
+    bagTotal.textContent = "R" + total;
 
     updateWhatsApp();
-
 }
 
 
 
 function removeFromBag(index) {
 
-    bag.splice(
-        index,
-        1
-    );
+    bag.splice(index, 1);
 
     updateBag();
-
 }
 
 
@@ -1836,13 +1775,8 @@ function removeFromBag(index) {
 function openBag() {
 
     document
-        .getElementById(
-            "bagPanel"
-        )
-        .classList.add(
-            "open"
-        );
-
+        .getElementById("bagPanel")
+        .classList.add("open");
 }
 
 
@@ -1850,19 +1784,13 @@ function openBag() {
 function closeBag() {
 
     document
-        .getElementById(
-            "bagPanel"
-        )
-        .classList.remove(
-            "open"
-        );
-
+        .getElementById("bagPanel")
+        .classList.remove("open");
 }
 
 
-
 /* =========================
-   WHATSAPP
+   WHATSAPP ORDER
 ========================= */
 
 function updateWhatsApp() {
@@ -1874,36 +1802,44 @@ function updateWhatsApp() {
     let total = 0;
 
 
-    bag.forEach(
-        (item, index) => {
+    if (bag.length === 0) {
 
-            message +=
-                (index + 1) +
-                ". " +
-                item.name +
-                " - " +
-                item.colour +
-                " - R" +
-                item.price +
-                "%0A";
+        message =
+            "Hi SUMS! I would like to enquire about your clothing.";
+
+    } else {
+
+        bag.forEach(
+            (item, index) => {
+
+                message +=
+                    (index + 1) +
+                    ". " +
+                    item.name +
+                    " - " +
+                    item.colour +
+                    " - R" +
+                    item.price +
+                    "%0A";
+
+                total += item.price;
+
+            }
+        );
 
 
-            total += item.price;
-
-        }
-    );
-
-
-    message +=
-        "%0ATotal: R" +
-        total;
+        message +=
+            "%0ATotal: R" +
+            total;
+    }
 
 
     /*
-       YOUR WHATSAPP NUMBER
+       SUMS WHATSAPP NUMBER
+
        079 626 5589
 
-       International format:
+       International:
        27796265589
     */
 
@@ -1912,17 +1848,13 @@ function updateWhatsApp() {
 
 
     document
-        .getElementById(
-            "whatsappOrder"
-        )
+        .getElementById("whatsappOrder")
         .href =
         "https://wa.me/" +
         phone +
         "?text=" +
         message;
-
 }
-
 
 
 /* =========================
@@ -1933,105 +1865,50 @@ function searchProducts() {
 
     const search =
         document
-        .getElementById(
-            "searchInput"
-        )
-        .value
-        .toLowerCase()
-        .trim();
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
 
 
-    const results =
-        document.getElementById(
-            "searchResults"
-        );
-
-
-    const container =
-        document.getElementById(
-            "searchProducts"
+    const sections =
+        document.querySelectorAll(
+            "#hoodies .product, #tshirts .product"
         );
 
 
     if (search === "") {
 
-        results.style.display =
-            "none";
+        sections.forEach(
+            product => {
+                product.style.display = "";
+            }
+        );
 
         return;
-
     }
 
 
-    results.style.display =
-        "block";
-
-
-    container.innerHTML =
-        "";
-
-
-    const products =
-        document.querySelectorAll(
-            ".section:not(.premium-section) .product"
-        );
-
-
-    let found = 0;
-
-
-    products.forEach(
+    sections.forEach(
         product => {
 
-            const name =
-                product.dataset.name
-                .toLowerCase();
+            const text =
+                product.innerText.toLowerCase();
 
 
-            const type =
-                product.dataset.type
-                .toLowerCase();
+            if (text.includes(search)) {
 
+                product.style.display = "";
 
-            const colour =
-                product.dataset.colour
-                .toLowerCase();
+            } else {
 
-
-            if (
-                name.includes(search) ||
-                type.includes(search) ||
-                colour.includes(search)
-            ) {
-
-                const copy =
-                    product.cloneNode(
-                        true
-                    );
-
-
-                container.appendChild(
-                    copy
-                );
-
-
-                found++;
+                product.style.display = "none";
 
             }
 
         }
     );
-
-
-    if (found === 0) {
-
-        container.innerHTML =
-            "<p>No SUMS products found.</p>";
-
-    }
-
 }
-
 
 
 /* =========================
@@ -2042,10 +1919,7 @@ document.addEventListener(
     "keydown",
     function(event) {
 
-        if (
-            event.key ===
-            "Escape"
-        ) {
+        if (event.key === "Escape") {
 
             closeBag();
 
@@ -2053,6 +1927,13 @@ document.addEventListener(
 
     }
 );
+
+
+/* =========================
+   START WHATSAPP
+========================= */
+
+updateWhatsApp();
 
 </script>
 
