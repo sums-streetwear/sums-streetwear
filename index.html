@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SUMS — Premium Streetwear</title>
 
 <meta
-    name="description"
-    content="SUMS Premium Streetwear from Port St Johns, Eastern Cape, South Africa."
+name="description"
+content="SUMS Premium Streetwear from Port St Johns, Eastern Cape, South Africa."
 >
 
 <style>
@@ -34,113 +30,73 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-
     background: #ffffff;
-
     color: #111111;
-
     overflow-x: hidden;
 }
 
 
 /* ================================
-   COOKIE SCREEN
+   COOKIE NOTICE
 ================================ */
 
 .cookie-overlay {
-
     position: fixed;
-
     inset: 0;
-
     background: rgba(0,0,0,0.55);
-
     backdrop-filter: blur(5px);
-
     z-index: 9999;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     padding: 20px;
 }
 
 .cookie-box {
-
     width: 100%;
-
     max-width: 520px;
-
     background: #ffffff;
-
     color: #111111;
-
     padding: 35px;
-
     border-radius: 2px;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.25);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
 }
 
 .cookie-box h2 {
-
     font-size: 28px;
-
     font-weight: 900;
-
     letter-spacing: -1px;
-
     margin-bottom: 15px;
 }
 
 .cookie-box p {
-
     font-size: 14px;
-
     line-height: 1.6;
-
     color: #555555;
-
     margin-bottom: 25px;
 }
 
 .cookie-buttons {
-
     display: flex;
-
     gap: 10px;
 }
 
 .cookie-button {
-
     flex: 1;
-
     border: none;
-
     padding: 15px;
-
     font-weight: 900;
-
     cursor: pointer;
-
     font-size: 13px;
 }
 
 .accept-cookies {
-
     background: #111111;
-
     color: #ffffff;
 }
 
 .decline-cookies {
-
     background: #eeeeee;
-
     color: #111111;
 }
 
@@ -150,49 +106,59 @@ body {
 ================================ */
 
 header {
-
-    min-height: 76px;
-
-    background: #ffffff;
-
-    border-bottom: 1px solid #e5e5e5;
+    min-height: 82px;
+    background: #111111;
+    border-bottom: 1px solid #333333;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     padding: 8px 4%;
 
     position: sticky;
-
     top: 0;
-
     z-index: 1000;
 }
 
 
-/* LOGO */
+/* ================================
+   LOGO
+================================ */
 
 .logo-area {
-
     display: flex;
-
     align-items: center;
-
-    gap: 12px;
+    gap: 14px;
 
     text-decoration: none;
-
-    color: #111111;
+    color: #ffffff;
 }
 
-.logo-area img {
 
-    width: 58px;
+/*
+   WHITE BOX AROUND LOGO
 
-    height: 58px;
+   This makes the logo visible even if
+   the logo PNG is white or black.
+*/
+
+.logo-box {
+    width: 62px;
+    height: 62px;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.logo-box img {
+    width: 54px;
+    height: 54px;
 
     object-fit: contain;
 
@@ -200,53 +166,47 @@ header {
 }
 
 .brand-name {
-
-    font-size: 22px;
-
+    font-size: 23px;
     font-weight: 900;
 
     letter-spacing: 5px;
+
+    color: #ffffff;
 }
 
 
-/* NAVIGATION */
+/* ================================
+   NAVIGATION
+================================ */
 
 nav {
-
     display: flex;
-
     align-items: center;
-
     gap: 30px;
 }
 
 nav a {
-
-    color: #111111;
-
+    color: #ffffff;
     text-decoration: none;
 
     font-size: 12px;
-
     font-weight: 900;
 
     letter-spacing: 1px;
 }
 
 nav a:hover {
-
-    text-decoration: underline;
+    color: #cccccc;
 }
 
 
-/* HEADER RIGHT */
+/* ================================
+   HEADER RIGHT
+================================ */
 
 .header-right {
-
     display: flex;
-
     align-items: center;
-
     gap: 18px;
 }
 
@@ -254,31 +214,28 @@ nav a:hover {
 /* SEARCH */
 
 .search-box {
-
     display: flex;
-
     align-items: center;
 
-    border: 1px solid #111111;
+    border: 1px solid #777777;
 
     border-radius: 30px;
 
     padding: 8px 14px;
 
     width: 190px;
+
+    background: #ffffff;
 }
 
 .search-icon {
-
     font-size: 18px;
-
     margin-right: 8px;
+    color: #111111;
 }
 
 .search-box input {
-
     border: none;
-
     outline: none;
 
     width: 100%;
@@ -291,7 +248,6 @@ nav a:hover {
 }
 
 .search-box input::placeholder {
-
     color: #777777;
 }
 
@@ -299,42 +255,32 @@ nav a:hover {
 /* BAG */
 
 .bag-button {
-
     border: none;
-
     background: none;
 
     cursor: pointer;
 
     display: flex;
-
     align-items: center;
-
     gap: 7px;
 
     font-size: 12px;
-
     font-weight: 900;
 
-    color: #111111;
+    color: #ffffff;
 }
 
 .bag-number {
-
     width: 23px;
-
     height: 23px;
 
     border-radius: 50%;
 
-    background: #111111;
-
-    color: #ffffff;
+    background: #ffffff;
+    color: #111111;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     font-size: 11px;
@@ -346,7 +292,6 @@ nav a:hover {
 ================================ */
 
 .hero {
-
     min-height: 72vh;
 
     background: #f2f2f2;
@@ -354,9 +299,7 @@ nav a:hover {
     color: #111111;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
@@ -365,12 +308,10 @@ nav a:hover {
 }
 
 .hero-content {
-
     max-width: 1200px;
 }
 
 .hero-small {
-
     font-size: 12px;
 
     font-weight: 900;
@@ -381,7 +322,6 @@ nav a:hover {
 }
 
 .hero h1 {
-
     font-size: clamp(65px, 13vw, 170px);
 
     line-height: .82;
@@ -392,7 +332,6 @@ nav a:hover {
 }
 
 .hero p {
-
     font-size: 17px;
 
     margin-top: 35px;
@@ -401,7 +340,6 @@ nav a:hover {
 }
 
 .hero-button {
-
     display: inline-block;
 
     margin-top: 30px;
@@ -422,17 +360,15 @@ nav a:hover {
 }
 
 .hero-button:hover {
-
     background: #333333;
 }
 
 
 /* ================================
-   CATEGORY
+   CATEGORIES
 ================================ */
 
 .categories {
-
     padding: 18px;
 
     display: grid;
@@ -443,7 +379,6 @@ nav a:hover {
 }
 
 .category {
-
     min-height: 300px;
 
     background: #111111;
@@ -462,14 +397,11 @@ nav a:hover {
 }
 
 .category:nth-child(2) {
-
     background: #eeeeee;
-
     color: #111111;
 }
 
 .category h2 {
-
     font-size: clamp(40px, 5vw, 70px);
 
     font-weight: 900;
@@ -478,11 +410,9 @@ nav a:hover {
 }
 
 .category span {
-
     position: absolute;
 
     top: 30px;
-
     right: 30px;
 
     font-size: 11px;
@@ -496,12 +426,10 @@ nav a:hover {
 ================================ */
 
 .section {
-
     padding: 90px 4%;
 }
 
 .section-header {
-
     display: flex;
 
     justify-content: space-between;
@@ -512,7 +440,6 @@ nav a:hover {
 }
 
 .section-header h2 {
-
     font-size: clamp(45px, 6vw, 80px);
 
     font-weight: 900;
@@ -521,7 +448,6 @@ nav a:hover {
 }
 
 .section-header p {
-
     max-width: 380px;
 
     font-size: 14px;
@@ -537,7 +463,6 @@ nav a:hover {
 ================================ */
 
 .products {
-
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -546,15 +471,10 @@ nav a:hover {
 }
 
 .product {
-
     background: #ffffff;
 }
 
-
-/* PRODUCT IMAGES */
-
 .product-image {
-
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -567,7 +487,6 @@ nav a:hover {
 }
 
 .product-image img {
-
     width: 100%;
 
     aspect-ratio: 1 / 1.15;
@@ -578,32 +497,28 @@ nav a:hover {
 
     cursor: zoom-in;
 
-    transition:
-        transform .25s ease;
+    transition: transform .25s ease;
 }
 
 .product-image img:hover {
-
     transform: scale(1.025);
 }
 
 
-/* PRODUCT INFO */
+/* ================================
+   PRODUCT INFO
+================================ */
 
 .product-info {
-
     padding: 18px 3px 5px;
 }
 
 .product-name {
-
     font-size: 17px;
-
     font-weight: 900;
 }
 
 .product-colour {
-
     color: #666666;
 
     margin-top: 6px;
@@ -612,21 +527,20 @@ nav a:hover {
 }
 
 .product-price {
-
     margin-top: 10px;
 
     font-weight: 900;
 }
 
 
-/* SIZE */
+/* ================================
+   SIZE
+================================ */
 
 .size-label {
-
     display: block;
 
     margin-top: 15px;
-
     margin-bottom: 7px;
 
     font-size: 11px;
@@ -637,7 +551,6 @@ nav a:hover {
 }
 
 .size-select {
-
     width: 100%;
 
     padding: 12px;
@@ -656,10 +569,11 @@ nav a:hover {
 }
 
 
-/* ADD */
+/* ================================
+   ADD TO BAG
+================================ */
 
 .add-button {
-
     width: 100%;
 
     margin-top: 12px;
@@ -680,7 +594,6 @@ nav a:hover {
 }
 
 .add-button:hover {
-
     background: #333333;
 }
 
@@ -690,7 +603,6 @@ nav a:hover {
 ================================ */
 
 .image-viewer {
-
     position: fixed;
 
     inset: 0;
@@ -711,12 +623,10 @@ nav a:hover {
 }
 
 .image-viewer.open {
-
     display: flex;
 }
 
 .image-viewer img {
-
     max-width: 95vw;
 
     max-height: 90vh;
@@ -729,7 +639,6 @@ nav a:hover {
 }
 
 .close-viewer {
-
     position: absolute;
 
     top: 18px;
@@ -755,23 +664,20 @@ nav a:hover {
 
 
 /* ================================
-   PREMIUM
+   NEXT DROP
 ================================ */
 
-.premium-section {
-
+.next-drop-section {
     background: #111111;
 
     color: #ffffff;
 }
 
-.premium-section .section-header p {
-
+.next-drop-section .section-header p {
     color: #bbbbbb;
 }
 
 .coming-soon {
-
     aspect-ratio: 1 / 1.15;
 
     display: flex;
@@ -797,7 +703,6 @@ nav a:hover {
 }
 
 .coming-soon h3 {
-
     font-size: 28px;
 
     letter-spacing: 4px;
@@ -809,19 +714,16 @@ nav a:hover {
 ================================ */
 
 .about {
-
     background: #ffffff;
 
     padding: 100px 8%;
 }
 
 .about-inner {
-
     max-width: 1000px;
 }
 
 .about h2 {
-
     font-size: clamp(55px, 9vw, 110px);
 
     font-weight: 900;
@@ -832,7 +734,6 @@ nav a:hover {
 }
 
 .about p {
-
     font-size: 20px;
 
     line-height: 1.7;
@@ -843,7 +744,6 @@ nav a:hover {
 }
 
 .about-small {
-
     margin-top: 35px;
 
     font-size: 12px !important;
@@ -859,7 +759,6 @@ nav a:hover {
 ================================ */
 
 .bag-panel {
-
     position: fixed;
 
     top: 0;
@@ -876,8 +775,7 @@ nav a:hover {
 
     z-index: 2000;
 
-    box-shadow:
-        -5px 0 30px rgba(0,0,0,.15);
+    box-shadow: -5px 0 30px rgba(0,0,0,.15);
 
     transition: right .3s ease;
 
@@ -889,12 +787,10 @@ nav a:hover {
 }
 
 .bag-panel.open {
-
     right: 0;
 }
 
 .bag-header {
-
     display: flex;
 
     justify-content: space-between;
@@ -907,12 +803,10 @@ nav a:hover {
 }
 
 .bag-header h2 {
-
     font-size: 28px;
 }
 
 .close-bag {
-
     border: none;
 
     background: none;
@@ -923,7 +817,6 @@ nav a:hover {
 }
 
 .bag-items {
-
     flex: 1;
 
     overflow-y: auto;
@@ -932,7 +825,6 @@ nav a:hover {
 }
 
 .empty-bag {
-
     color: #777777;
 
     text-align: center;
@@ -941,7 +833,6 @@ nav a:hover {
 }
 
 .bag-item {
-
     display: flex;
 
     gap: 15px;
@@ -952,7 +843,6 @@ nav a:hover {
 }
 
 .bag-item img {
-
     width: 80px;
 
     height: 90px;
@@ -961,29 +851,24 @@ nav a:hover {
 }
 
 .bag-item-info {
-
     flex: 1;
 }
 
 .bag-item-info h3 {
-
     font-size: 14px;
 }
 
 .bag-item-info p {
-
     font-size: 13px;
 
     margin-top: 6px;
 }
 
 .bag-item-size {
-
     font-weight: 900;
 }
 
 .remove-item {
-
     border: none;
 
     background: none;
@@ -998,14 +883,12 @@ nav a:hover {
 }
 
 .bag-footer {
-
     border-top: 1px solid #dddddd;
 
     padding-top: 20px;
 }
 
 .total {
-
     display: flex;
 
     justify-content: space-between;
@@ -1016,7 +899,6 @@ nav a:hover {
 }
 
 .whatsapp-order {
-
     display: block;
 
     text-align: center;
@@ -1040,7 +922,6 @@ nav a:hover {
 ================================ */
 
 footer {
-
     background: #f2f2f2;
 
     color: #111111;
@@ -1055,7 +936,6 @@ footer {
 }
 
 footer h3 {
-
     font-size: 17px;
 
     margin-bottom: 12px;
@@ -1064,7 +944,6 @@ footer h3 {
 }
 
 footer p {
-
     font-size: 13px;
 
     color: #555555;
@@ -1073,14 +952,12 @@ footer p {
 }
 
 footer a {
-
     color: #111111;
 
     text-decoration: none;
 }
 
 footer a:hover {
-
     text-decoration: underline;
 }
 
@@ -1092,8 +969,7 @@ footer a:hover {
 @media (max-width: 800px) {
 
     header {
-
-        min-height: 70px;
+        min-height: 76px;
 
         padding: 7px 4%;
 
@@ -1102,20 +978,21 @@ footer a:hover {
         gap: 12px;
     }
 
-    .logo-area img {
+    .logo-box {
+        width: 54px;
+        height: 54px;
+    }
 
-        width: 55px;
-
-        height: 55px;
+    .logo-box img {
+        width: 47px;
+        height: 47px;
     }
 
     .brand-name {
-
         font-size: 17px;
     }
 
     nav {
-
         order: 3;
 
         width: 100%;
@@ -1128,92 +1005,75 @@ footer a:hover {
     }
 
     nav a {
-
         font-size: 11px;
 
         white-space: nowrap;
     }
 
     .search-box {
-
         width: 130px;
     }
 
     .hero {
-
         min-height: 65vh;
     }
 
     .hero h1 {
-
         letter-spacing: -4px;
     }
 
     .categories {
-
         grid-template-columns: 1fr;
     }
 
     .category {
-
         min-height: 220px;
     }
 
     .section {
-
         padding: 60px 4%;
     }
 
     .section-header {
-
         display: block;
     }
 
     .section-header p {
-
         margin-top: 15px;
     }
 
     .products {
-
         grid-template-columns: repeat(2, 1fr);
 
         gap: 10px;
     }
 
     .product-name {
-
         font-size: 14px;
     }
 
     .about {
-
         padding: 70px 6%;
     }
 
     .about p {
-
         font-size: 17px;
     }
 
     footer {
-
         grid-template-columns: 1fr;
     }
 
     .cookie-box {
-
         padding: 25px;
     }
 
     .cookie-buttons {
-
         flex-direction: column;
     }
 }
 
 </style>
-
 </head>
 
 
@@ -1277,10 +1137,14 @@ footer a:hover {
     class="logo-area"
 >
 
-    <img
-        src="./sums-logo.png"
-        alt="SUMS Logo"
-    >
+    <div class="logo-box">
+
+        <img
+            src="./sums-logo.png"
+            alt="SUMS Logo"
+        >
+
+    </div>
 
     <span class="brand-name">
         SUMS
@@ -1299,8 +1163,8 @@ footer a:hover {
         T-SHIRTS
     </a>
 
-    <a href="#premium">
-        PREMIUM
+    <a href="#next-drop">
+        NEXT DROP
     </a>
 
     <a href="#about">
@@ -1368,8 +1232,8 @@ footer a:hover {
     </h1>
 
     <p>
-        Premium streetwear made for those
-        who refuse to blend in.
+        Premium streetwear for those
+        who move differently.
     </p>
 
     <a
@@ -1453,7 +1317,7 @@ footer a:hover {
 <div class="products">
 
 
-<!-- WHITE -->
+<!-- WHITE HOODIE -->
 
 <div class="product">
 
@@ -1529,7 +1393,7 @@ footer a:hover {
 
 
 
-<!-- GREY -->
+<!-- GREY HOODIE -->
 
 <div class="product">
 
@@ -1605,7 +1469,7 @@ footer a:hover {
 
 
 
-<!-- BROWN -->
+<!-- BROWN HOODIE -->
 
 <div class="product">
 
@@ -1679,7 +1543,6 @@ footer a:hover {
 
 </div>
 
-
 </div>
 
 </section>
@@ -1712,7 +1575,7 @@ footer a:hover {
 <div class="products">
 
 
-<!-- GREY -->
+<!-- GREY T-SHIRT -->
 
 <div class="product">
 
@@ -1788,7 +1651,7 @@ footer a:hover {
 
 
 
-<!-- NAVY -->
+<!-- NAVY T-SHIRT -->
 
 <div class="product">
 
@@ -1864,7 +1727,7 @@ footer a:hover {
 
 
 
-<!-- SKY BLUE -->
+<!-- SKY BLUE T-SHIRT -->
 
 <div class="product">
 
@@ -1938,7 +1801,6 @@ footer a:hover {
 
 </div>
 
-
 </div>
 
 </section>
@@ -1946,23 +1808,23 @@ footer a:hover {
 
 
 <!-- ================================
-     PREMIUM
+     NEXT DROP
 ================================ -->
 
 <section
-    class="section premium-section"
-    id="premium"
+    class="section next-drop-section"
+    id="next-drop"
 >
 
 <div class="section-header">
 
     <h2>
-        PREMIUM
+        NEXT DROP
     </h2>
 
     <p>
-        Something elevated is on the way.
-        A new SUMS experience is coming soon.
+        Something new is on the way.
+        A new collection. A new chapter.
         Stay ready.
     </p>
 
@@ -2222,8 +2084,8 @@ footer a:hover {
 </p>
 
 <p>
-    <a href="#premium">
-        Premium
+    <a href="#next-drop">
+        Next Drop
     </a>
 </p>
 
@@ -2284,9 +2146,7 @@ function checkCookies() {
         document
             .getElementById("cookieOverlay")
             .style.display = "none";
-
     }
-
 }
 
 
@@ -2316,7 +2176,6 @@ function closeViewer(event) {
         event &&
         event.target.id === "viewerImage"
     ) {
-
         return;
     }
 
@@ -2503,7 +2362,7 @@ function closeBag() {
 
 
 /* ================================
-   WHATSAPP
+   WHATSAPP ORDER
 ================================ */
 
 function updateWhatsApp() {
@@ -2604,7 +2463,7 @@ function searchProducts() {
 
 
 /* ================================
-   ESCAPE
+   ESCAPE KEY
 ================================ */
 
 document.addEventListener(
@@ -2632,7 +2491,6 @@ checkCookies();
 updateWhatsApp();
 
 </script>
-
 
 </body>
 </html>
