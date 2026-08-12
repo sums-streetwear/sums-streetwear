@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SUMS — Premium Streetwear</title>
 
-<meta name="description"
-content="SUMS — South African streetwear representing culture, movement and ambition.">
+<meta name="description" content="SUMS is a South African streetwear brand representing culture, movement and ambition.">
 
 <style>
-
-/* =====================================
-   RESET
-===================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -32,596 +25,447 @@ body {
     color: #111;
 }
 
-
-/* =====================================
+/* =========================
    HEADER
-===================================== */
+========================= */
 
 header {
     position: sticky;
     top: 0;
-    z-index: 2000;
-
-    height: 82px;
-
+    z-index: 1000;
+    height: 78px;
     background: #fff;
-
     border-bottom: 1px solid #ddd;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 0 5%;
 }
 
 .brand {
-    position: relative;
-
-    height: 62px;
-    min-width: 150px;
-
     display: flex;
     align-items: center;
-    justify-content: center;
-
+    gap: 12px;
     text-decoration: none;
     color: #000;
+    min-width: 150px;
 }
 
-.brand-name {
-    font-size: 23px;
-    font-weight: 950;
+/* LOGO DOES NOT COVER SUMS */
 
-    letter-spacing: 5px;
-
-    position: relative;
-    z-index: 3;
-}
-
-
-/* =====================================
-   SPINNING S LOGO
-===================================== */
-
-.logo-orbit {
-    position: absolute;
-
-    width: 48px;
-    height: 48px;
-
-    left: -3px;
-
+.logo-box {
+    width: 45px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     perspective: 500px;
-
-    z-index: 4;
 }
 
-.logo-orbit img {
-    width: 45px;
-    height: 45px;
-
+.logo-box img {
+    width: 38px;
+    height: 38px;
     object-fit: contain;
-
-    animation: logoSpin 3.5s linear infinite;
-
+    display: block;
+    animation: logoFlip 4s ease-in-out infinite;
     transform-style: preserve-3d;
 }
 
-@keyframes logoSpin {
-
-    0% {
+/* A simple two-sided rotation */
+@keyframes logoFlip {
+    0%, 35% {
         transform: rotateY(0deg);
     }
 
-    50% {
+    50%, 65% {
         transform: rotateY(180deg);
     }
 
-    100% {
+    80%, 100% {
         transform: rotateY(360deg);
     }
-
 }
 
-
-/* =====================================
-   NAVIGATION
-===================================== */
-
-nav {
-    display: flex;
-    gap: 28px;
-}
-
-nav a {
-    text-decoration: none;
-
-    color: #000;
-
-    font-size: 12px;
-
+.brand-name {
+    font-size: 21px;
     font-weight: 900;
+    letter-spacing: 3px;
+    color: #000;
+    white-space: nowrap;
+}
 
+.nav {
+    display: flex;
+    gap: 34px;
+    align-items: center;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #111;
+    font-size: 13px;
+    font-weight: 800;
     letter-spacing: 1px;
 }
 
-nav a:hover {
-    opacity: .5;
+.nav a:hover {
+    opacity: .55;
 }
-
-
-/* =====================================
-   HEADER RIGHT
-===================================== */
 
 .header-right {
     display: flex;
-
     align-items: center;
-
-    gap: 12px;
+    gap: 18px;
 }
-
 
 /* SEARCH */
 
-.search-box {
-    display: flex;
-
-    align-items: center;
+.search-wrap {
+    position: relative;
 }
 
-.search-box input {
-    width: 0;
-
-    opacity: 0;
-
+.search {
+    width: 150px;
     border: none;
-
-    border-bottom: 1px solid #000;
-
+    border-bottom: 1px solid #111;
     outline: none;
-
-    padding: 7px;
-
-    transition: .3s;
-}
-
-.search-box.active input {
-    width: 145px;
-
-    opacity: 1;
-}
-
-.search-button {
-    border: none;
-
+    padding: 8px 3px;
+    font-size: 13px;
     background: transparent;
-
-    font-size: 22px;
-
-    cursor: pointer;
 }
 
+.search::placeholder {
+    color: #555;
+}
 
-/* CART */
+/* CART + BAG */
 
 .cart-button {
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    background: #000;
-
-    color: #fff;
-
     border: none;
-
-    padding: 11px 16px;
-
-    border-radius: 30px;
-
-    font-weight: 900;
-
+    background: transparent;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #111;
+    font-size: 12px;
+    font-weight: 800;
 }
 
 .cart-icon {
-    font-size: 17px;
+    font-size: 21px;
 }
 
+.bag-icon {
+    font-size: 19px;
+}
 
-/* =====================================
+.cart-count {
+    background: #111;
+    color: #fff;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}
+
+/* =========================
    HERO
-===================================== */
+========================= */
 
 .hero {
-    min-height: 560px;
-
-    background: #000;
-
+    min-height: calc(100vh - 78px);
+    background: #111;
     color: #fff;
-
     display: flex;
-
+    flex-direction: column;
     align-items: center;
-
     justify-content: center;
-
     text-align: center;
-
-    padding: 60px 20px;
-}
-
-.hero-content {
-    max-width: 1100px;
+    padding: 50px 20px;
 }
 
 .hero-small {
     font-size: 13px;
-
-    font-weight: 900;
-
     letter-spacing: 7px;
-
+    font-weight: 700;
     margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-size: clamp(65px, 13vw, 160px);
-
+    font-size: clamp(65px, 12vw, 160px);
     line-height: .82;
-
     font-weight: 950;
-
     letter-spacing: -7px;
 }
 
 .hero p {
     margin-top: 35px;
-
-    color: #ddd;
-
     font-size: 18px;
+    max-width: 600px;
 }
 
-
-/* =====================================
-   CATEGORY SELECTOR
-===================================== */
-
-.categories {
-    padding: 25px 5%;
-}
-
-.category-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 15px;
-}
-
-.category-card {
-    min-height: 240px;
-
-    background: #000;
-
-    color: #fff;
-
-    text-decoration: none;
-
+.hero-buttons {
+    margin-top: 35px;
     display: flex;
-
-    align-items: center;
-
+    gap: 12px;
+    flex-wrap: wrap;
     justify-content: center;
+}
 
+.hero-btn {
+    border: 1px solid #fff;
+    background: #fff;
+    color: #111;
+    padding: 16px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+}
+
+.hero-btn.dark {
+    background: transparent;
+    color: #fff;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   SHOP CHOICES
+========================= */
+
+.shop-choice {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: #111;
+}
+
+.choice {
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     position: relative;
-
     overflow: hidden;
 }
 
-.category-card:nth-child(2) {
+.choice:first-child {
     background: #eee;
-
-    color: #000;
+    color: #111;
 }
 
-.category-card h2 {
-    font-size: clamp(40px, 6vw, 75px);
+.choice:last-child {
+    background: #ddd;
+    color: #111;
+}
 
+.choice-content {
+    text-align: center;
+}
+
+.choice h2 {
+    font-size: clamp(42px, 6vw, 75px);
     font-weight: 950;
-
     letter-spacing: -3px;
 }
 
-.category-card span {
-    position: absolute;
-
-    bottom: 20px;
-
-    left: 25px;
-
-    font-size: 11px;
-
-    font-weight: 900;
-
+.choice p {
+    margin-top: 10px;
+    font-size: 13px;
     letter-spacing: 2px;
+    font-weight: 700;
 }
 
+.choice:hover h2 {
+    transform: scale(1.04);
+}
 
-/* =====================================
-   PRODUCT SECTIONS
-===================================== */
+/* =========================
+   GENERAL SECTIONS
+========================= */
 
 section {
-    padding: 90px 5%;
+    scroll-margin-top: 80px;
 }
 
-.section-heading {
-    margin-bottom: 40px;
+.section-header {
+    padding: 75px 6% 35px;
 }
 
-.section-heading h2 {
-    font-size: clamp(50px, 8vw, 95px);
+.section-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
 
+.section-title {
+    font-size: clamp(40px, 7vw, 80px);
     font-weight: 950;
-
     letter-spacing: -4px;
 }
 
-.section-heading p {
-    color: #666;
+/* =========================
+   PRODUCT
+========================= */
 
-    margin-top: 10px;
-}
-
-
-/* =====================================
-   SINGLE PRODUCT DISPLAY
-===================================== */
-
-.single-product {
-    display: grid;
-
-    grid-template-columns: minmax(0, 1.3fr) minmax(300px, .7fr);
-
-    gap: 55px;
-
-    align-items: center;
-}
-
-
-/* =====================================
-   PRODUCT IMAGE
-===================================== */
-
-.product-display {
-    background: #f2f2f2;
-
-    position: relative;
-
-    aspect-ratio: 1 / 1;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    overflow: hidden;
-}
-
-.product-image {
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: contain;
-
-    padding: 30px;
-
-    cursor: zoom-in;
-
-    transition: transform .35s, filter .35s;
-}
-
-
-/*
-   The selected colour is applied
-   through the filter system.
-*/
-
-.product-image.zoomed {
-    transform: scale(1.8);
-
-    cursor: zoom-out;
-}
-
-
-/* =====================================
-   PRODUCT CONTROLS
-===================================== */
-
-.image-controls {
-    position: absolute;
-
-    bottom: 20px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    display: flex;
-
-    gap: 8px;
-
-    z-index: 5;
-}
-
-.image-controls button {
+.product-section {
+    padding-bottom: 90px;
     background: #fff;
-
-    color: #000;
-
-    border: none;
-
-    padding: 12px 16px;
-
-    font-weight: 900;
-
-    cursor: pointer;
-
-    box-shadow: 0 3px 12px rgba(0,0,0,.15);
 }
 
-.image-controls button:hover {
-    background: #000;
-
-    color: #fff;
+.product {
+    margin: 0 6%;
+    border-top: 1px solid #111;
+    padding-top: 35px;
 }
 
-
-/* =====================================
-   PRODUCT DETAILS
-===================================== */
-
-.product-details h3 {
-    font-size: 34px;
-
-    font-weight: 950;
-
-    margin-bottom: 12px;
-}
-
-.product-details .description {
-    color: #666;
-
-    line-height: 1.6;
-
+.product-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
     margin-bottom: 25px;
 }
 
-.product-price {
-    font-size: 25px;
-
-    font-weight: 950;
-
-    margin-bottom: 30px;
+.product-name {
+    font-size: 30px;
+    font-weight: 900;
 }
 
+.product-price {
+    font-size: 20px;
+    font-weight: 800;
+}
 
-/* =====================================
-   COLOURS
-===================================== */
+.product-description {
+    margin-top: 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* FRONT + BACK */
+
+.product-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.image-box {
+    position: relative;
+    background: #f1f1f1;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.image-box img {
+    width: 100%;
+    height: min(70vh, 650px);
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+}
+
+.image-box:hover img {
+    transform: scale(1.025);
+}
+
+.image-label {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: #fff;
+    color: #111;
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* PRODUCT OPTIONS */
+
+.product-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    margin-top: 30px;
+}
 
 .option-title {
-    font-size: 11px;
-
-    font-weight: 950;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 12px;
-}
-
-.colour-options {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 9px;
-
-    margin-bottom: 28px;
-}
-
-.colour-button {
-    border: 1px solid #ccc;
-
-    background: #fff;
-
-    padding: 10px 14px;
-
-    cursor: pointer;
-
-    font-weight: 800;
-
     font-size: 12px;
-}
-
-.colour-button.active {
-    background: #000;
-
-    color: #fff;
-
-    border-color: #000;
-}
-
-
-/* =====================================
-   SIZES
-===================================== */
-
-.size-options {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-
-    margin-bottom: 30px;
-}
-
-.size-button {
-    width: 55px;
-
-    height: 45px;
-
-    background: #fff;
-
-    border: 1px solid #ccc;
-
     font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 13px;
+}
 
+/* COLOURS */
+
+.colors {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.color-btn {
+    border: 1px solid #aaa;
+    background: #fff;
+    padding: 10px 15px;
     cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 2px;
 }
 
-.size-button.active {
-    background: #000;
-
+.color-btn.active {
+    background: #111;
     color: #fff;
-
-    border-color: #000;
+    border-color: #111;
 }
 
+/* SIZES */
 
-/* =====================================
-   ADD CART
-===================================== */
+.sizes {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.size-btn {
+    width: 50px;
+    height: 42px;
+    border: 1px solid #aaa;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.size-btn.active {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+/* ADD TO CART */
 
 .add-cart {
+    margin-top: 30px;
     width: 100%;
-
-    padding: 17px;
-
-    background: #000;
-
+    background: #111;
     color: #fff;
-
     border: none;
-
-    font-weight: 950;
-
+    padding: 18px;
     cursor: pointer;
-
+    font-size: 13px;
+    font-weight: 900;
     letter-spacing: 1px;
 }
 
@@ -629,409 +473,507 @@ section {
     background: #333;
 }
 
+/* =========================
+   COMING SOON
+========================= */
 
-/* =====================================
-   PREMIUM
-===================================== */
-
-.premium {
-    background: #f1f1f1;
-}
-
-.premium-box {
-    background: #000;
-
+.coming-soon {
+    background: #111;
     color: #fff;
-
-    padding: 90px 7%;
-
-    text-align: center;
+    padding-bottom: 90px;
 }
 
-.premium-box h2 {
-    font-size: clamp(45px, 8vw, 90px);
-
-    font-weight: 950;
-
-    letter-spacing: -3px;
+.coming-soon .section-header {
+    padding-top: 75px;
 }
 
-.premium-box p {
-    color: #ccc;
-
-    margin-top: 20px;
+.coming-soon .section-label {
+    color: #aaa;
 }
 
+.founder-product {
+    margin: 0 6%;
+}
 
-/* =====================================
+.founder-title {
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.founder-subtitle {
+    color: #aaa;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* =========================
    ABOUT
-===================================== */
+========================= */
 
 .about {
-    background: #fff;
+    padding: 100px 6%;
+    background: #f4f4f4;
 }
 
-.about-content {
-    max-width: 950px;
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
 }
 
 .about h2 {
-    font-size: clamp(50px, 8vw, 90px);
-
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: .9;
     font-weight: 950;
-
-    margin-bottom: 30px;
+    letter-spacing: -4px;
 }
 
-.about p {
-    font-size: 21px;
-
-    line-height: 1.7;
-
-    color: #333;
+.about-text {
+    font-size: 22px;
+    line-height: 1.5;
+    max-width: 650px;
 }
 
+/* =========================
+   CONTACT
+========================= */
 
-/* =====================================
-   CART
-===================================== */
-
-.cart-panel {
-    position: fixed;
-
-    top: 0;
-
-    right: -430px;
-
-    width: min(430px, 100%);
-
-    height: 100vh;
-
+.contact {
     background: #fff;
+    padding: 90px 6%;
+    border-top: 1px solid #ddd;
+}
 
-    z-index: 5000;
+.contact h2 {
+    font-size: clamp(45px, 7vw, 80px);
+    font-weight: 950;
+    letter-spacing: -4px;
+}
 
-    padding: 30px;
+.contact p {
+    margin-top: 18px;
+    font-size: 17px;
+}
 
-    box-shadow: -5px 0 25px rgba(0,0,0,.2);
+.whatsapp {
+    display: inline-block;
+    margin-top: 25px;
+    background: #111;
+    color: #fff;
+    padding: 16px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 800;
+}
 
-    transition: right .35s;
+/* =========================
+   FOOTER
+========================= */
 
+footer {
+    background: #111;
+    color: #fff;
+    padding: 55px 6% 25px;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    font-size: 28px;
+    font-weight: 950;
+    letter-spacing: 5px;
+}
+
+.footer-contact {
+    line-height: 1.8;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: #888;
+    font-size: 12px;
+}
+
+/* =========================
+   ZOOM MODAL
+========================= */
+
+.zoom-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.92);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.zoom-modal.show {
+    display: flex;
+}
+
+.zoom-modal img {
+    max-width: 94vw;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.close-zoom {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #fff;
+    font-size: 40px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* =========================
+   CART DRAWER
+========================= */
+
+.cart-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 2000;
+}
+
+.cart-overlay.show {
+    display: block;
+}
+
+.cart-drawer {
+    position: fixed;
+    right: -450px;
+    top: 0;
+    width: min(430px, 92vw);
+    height: 100vh;
+    background: #fff;
+    z-index: 2100;
+    transition: right .3s ease;
+    padding: 25px;
     overflow-y: auto;
 }
 
-.cart-panel.open {
+.cart-drawer.show {
     right: 0;
 }
 
 .cart-header {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
-    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
 }
 
 .cart-header h2 {
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .close-cart {
-    width: 38px;
-
-    height: 38px;
-
     border: none;
-
-    background: #000;
-
-    color: #fff;
-
-    border-radius: 50%;
-
+    background: none;
+    font-size: 28px;
     cursor: pointer;
 }
 
 .cart-item {
+    display: grid;
+    grid-template-columns: 95px 1fr;
+    gap: 15px;
+    padding: 20px 0;
     border-bottom: 1px solid #ddd;
+}
 
-    padding: 18px 0;
+.cart-item img {
+    width: 95px;
+    height: 115px;
+    object-fit: cover;
+    background: #eee;
+}
 
-    line-height: 1.6;
+.cart-item-name {
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.cart-item-info {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.remove-item {
+    margin-top: 8px;
+    border: none;
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 11px;
 }
 
 .cart-total {
-    font-size: 22px;
-
-    font-weight: 950;
-
-    margin-top: 25px;
-}
-
-.checkout {
-    width: 100%;
-
-    background: #000;
-
-    color: #fff;
-
-    border: none;
-
-    padding: 16px;
-
-    margin-top: 20px;
-
-    font-weight: 950;
-
-    cursor: pointer;
-}
-
-
-/* =====================================
-   COOKIE
-===================================== */
-
-.cookie {
-    position: fixed;
-
-    left: 20px;
-
-    bottom: 20px;
-
-    max-width: 600px;
-
-    background: #000;
-
-    color: #fff;
-
-    padding: 20px;
-
-    z-index: 6000;
-
-    display: none;
-}
-
-.cookie p {
-    line-height: 1.5;
-
-    margin-bottom: 15px;
-}
-
-.cookie button {
-    border: none;
-
-    background: #fff;
-
-    color: #000;
-
-    padding: 11px 20px;
-
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
     font-weight: 900;
-
-    cursor: pointer;
+    font-size: 18px;
 }
 
-
-/* =====================================
-   FOOTER
-===================================== */
-
-footer {
-    background: #000;
-
-    color: #fff;
-
+.whatsapp-order {
+    width: 100%;
+    display: block;
     text-align: center;
-
-    padding: 50px 20px;
+    padding: 17px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 900;
 }
 
-.footer-logo {
-    font-size: 30px;
-
-    font-weight: 950;
-
-    letter-spacing: 6px;
-}
-
-footer p {
-    color: #aaa;
-
-    margin-top: 15px;
-}
-
-.copyright {
+.empty-cart {
+    padding: 50px 0;
+    text-align: center;
     color: #777;
+}
 
-    margin-top: 30px;
+/* =========================
+   SEARCH RESULTS
+========================= */
 
+.search-message {
+    display: none;
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    color: #fff;
+    padding: 12px 20px;
+    z-index: 1500;
     font-size: 13px;
 }
 
+/* =========================
+   COOKIE NOTICE
+========================= */
 
-/* =====================================
+.cookie-box {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: 550px;
+    background: #111;
+    color: #fff;
+    padding: 20px;
+    z-index: 4000;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+}
+
+.cookie-box p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.cookie-buttons button {
+    border: 1px solid #fff;
+    padding: 10px 18px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.accept-cookies {
+    background: #fff;
+    color: #111;
+}
+
+.decline-cookies {
+    background: transparent;
+    color: #fff;
+}
+
+/* =========================
    MOBILE
-===================================== */
+========================= */
 
-@media (max-width: 850px) {
+@media (max-width: 800px) {
 
     header {
-        padding: 0 15px;
-
         height: 70px;
-    }
-
-    nav {
-        display: none;
+        padding: 0 18px;
     }
 
     .brand {
-        min-width: 125px;
+        min-width: auto;
     }
 
     .brand-name {
-        font-size: 18px;
+        font-size: 17px;
+        letter-spacing: 2px;
     }
 
-    .logo-orbit {
-        left: -3px;
+    .logo-box {
+        width: 38px;
+        height: 38px;
+    }
+
+    .logo-box img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .search {
+        width: 75px;
     }
 
     .header-right {
-        gap: 6px;
+        gap: 10px;
     }
 
-    .cart-button {
-        padding: 9px 11px;
-    }
-
-    .category-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .category-card {
-        min-height: 190px;
-    }
-
-    section {
-        padding: 65px 18px;
-    }
-
-    .single-product {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-    }
-
-    .product-display {
-        aspect-ratio: 1 / 1.1;
-    }
-
-    .product-details h3 {
-        font-size: 28px;
+    .hero {
+        min-height: 80vh;
     }
 
     .hero h1 {
+        font-size: 62px;
         letter-spacing: -4px;
     }
 
-    .search-box.active input {
-        width: 110px;
+    .hero p {
+        font-size: 15px;
+    }
+
+    .shop-choice {
+        grid-template-columns: 1fr;
+    }
+
+    .choice {
+        min-height: 220px;
+    }
+
+    .section-header {
+        padding: 55px 5% 25px;
+    }
+
+    .product {
+        margin: 0 5%;
+    }
+
+    .product-images {
+        grid-template-columns: 1fr;
+    }
+
+    .image-box img {
+        height: auto;
+        max-height: 600px;
+        object-fit: contain;
+    }
+
+    .product-options {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .product-top {
+        flex-direction: column;
+    }
+
+    .about {
+        padding: 70px 5%;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-text {
+        font-size: 18px;
+    }
+
+    .contact {
+        padding: 70px 5%;
+    }
+
+    .cart-drawer {
+        width: 94vw;
     }
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================
+<!-- =========================
      HEADER
-===================================== -->
+========================= -->
 
 <header>
 
-    <a href="#" class="brand">
+    <a href="#top" class="brand">
 
-        <span class="logo-orbit">
+        <div class="logo-box">
+            <img src="sums-black-logo.png" alt="SUMS Logo">
+        </div>
 
-            <img
-                src="sums-black-logo.png"
-                alt="SUMS Logo"
-            >
-
-        </span>
-
-        <span class="brand-name">
-            SUMS
-        </span>
+        <span class="brand-name">SUMS</span>
 
     </a>
 
-
-    <nav>
-
-        <a href="#hoodies">
-            HOODIES
-        </a>
-
-        <a href="#tshirts">
-            T-SHIRTS
-        </a>
-
-        <a href="#premium">
-            COMING SOON
-        </a>
-
-        <a href="#about">
-            ABOUT
-        </a>
-
+    <nav class="nav">
+        <a href="#available">AVAILABLE</a>
+        <a href="#premium">PREMIUM</a>
+        <a href="#about">ABOUT</a>
     </nav>
-
 
     <div class="header-right">
 
-        <div
-            class="search-box"
-            id="searchBox"
-        >
-
+        <div class="search-wrap">
             <input
+                class="search"
                 id="searchInput"
-                type="text"
-                placeholder="Search SUMS..."
-                onkeyup="searchPage()"
+                type="search"
+                placeholder="Search"
+                autocomplete="off"
             >
-
-            <button
-                class="search-button"
-                onclick="toggleSearch()"
-            >
-                ⌕
-            </button>
-
         </div>
 
+        <button class="cart-button" onclick="openCart()">
 
-        <button
-            class="cart-button"
-            onclick="openCart()"
-        >
+            <span class="cart-icon">🛒</span>
 
-            <span class="cart-icon">
-                🛍️
-            </span>
+            <span>CART</span>
 
-            CART
+            <span class="cart-count" id="cartCount">0</span>
 
-            <span id="cartCount">
-                0
-            </span>
+            <span class="bag-icon">👜</span>
 
         </button>
 
@@ -1040,650 +982,480 @@ footer p {
 </header>
 
 
-<!-- =====================================
+<!-- =========================
      HERO
-===================================== -->
+========================= -->
+
+<main id="top">
 
 <section class="hero">
 
-    <div class="hero-content">
+    <div class="hero-small">S U M S &nbsp; C L O T H I N G</div>
 
-        <div class="hero-small">
-            SUMS CLOTHING
-        </div>
+    <h1>MOVE<br>DIFFERENT.</h1>
 
-        <h1>
-            MOVE<br>
-            DIFFERENT.
-        </h1>
+    <p>
+        Premium streetwear made for those who refuse to blend in.
+    </p>
 
-        <p>
-            Premium streetwear made for those who refuse to blend in.
-        </p>
+    <div class="hero-buttons">
 
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     CATEGORY CHOICE
-===================================== -->
-
-<div class="categories">
-
-    <div class="category-grid">
-
-        <a
-            href="#hoodies"
-            class="category-card"
-        >
-
-            <h2>
-                HOODIES
-            </h2>
-
-            <span>
-                SHOP HOODIES →
-            </span>
-
+        <a href="#available" class="hero-btn">
+            SHOP AVAILABLE
         </a>
 
-
-        <a
-            href="#tshirts"
-            class="category-card"
-        >
-
-            <h2>
-                T-SHIRTS
-            </h2>
-
-            <span>
-                SHOP T-SHIRTS →
-            </span>
-
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================
-     HOODIES
-===================================== -->
-
-<section id="hoodies">
-
-    <div class="section-heading">
-
-        <h2>
-            HOODIES
-        </h2>
-
-        <p>
-            Clean streetwear made for everyday movement.
-        </p>
-
-    </div>
-
-
-    <div class="single-product">
-
-
-        <div class="product-display">
-
-            <img
-                id="hoodieImage"
-                class="product-image"
-                src="hoodie-white-front.jpg"
-                alt="SUMS Hoodie"
-                onclick="zoomImage('hoodieImage')"
-            >
-
-
-            <div class="image-controls">
-
-                <button onclick="hoodieFront()">
-                    FRONT
-                </button>
-
-                <button onclick="hoodieBack()">
-                    BACK
-                </button>
-
-                <button onclick="zoomImage('hoodieImage')">
-                    ZOOM
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="product-details">
-
-            <h3>
-                SUMS Hoodie
-            </h3>
-
-            <p class="description">
-                Premium SUMS streetwear hoodie.
-            </p>
-
-            <div class="product-price">
-                R700
-            </div>
-
-
-            <div class="option-title">
-                COLOUR
-            </div>
-
-            <div class="colour-options">
-
-                <button
-                    class="colour-button active"
-                    onclick="selectHoodieColour('White', this)"
-                >
-                    White
-                </button>
-
-                <button
-                    class="colour-button"
-                    onclick="selectHoodieColour('Black', this)"
-                >
-                    Black
-                </button>
-
-                <button
-                    class="colour-button"
-                    onclick="selectHoodieColour('Grey', this)"
-                >
-                    Grey
-                </button>
-
-                <button
-                    class="colour-button"
-                    onclick="selectHoodieColour('Brown', this)"
-                >
-                    Brown
-                </button>
-
-                <button
-                    class="colour-button"
-                    onclick="selectHoodieColour('Navy', this)"
-                >
-                    Navy
-                </button>
-
-                <button
-                    class="colour-button"
-                    onclick="selectHoodieColour('Red', this)"
-                >
-                    Red
-                </button>
-
-            </div>
-
-
-            <div class="option-title">
-                SIZE
-            </div>
-
-            <div class="size-options">
-
-                <button
-                    class="size-button"
-                    onclick="selectSize(this, 'XS')"
-                >
-                    XS
-                </button>
-
-                <button
-                    class="size-button active"
-                    onclick="selectSize(this, 'S')"
-                >
-                    S
-                </button>
-
-                <button
-                    class="size-button"
-                    onclick="selectSize(this, 'M')"
-                >
-                    M
-                </button>
-
-                <button
-                    class="size-button"
-                    onclick="selectSize(this, 'L')"
-                >
-                    L
-                </button>
-
-                <button
-                    class="size-button"
-                    onclick="selectSize(this, 'XL')"
-                >
-                    XL
-                </button>
-
-                <button
-                    class="size-button"
-                    onclick="selectSize(this, 'XXL')"
-                >
-                    XXL
-                </button>
-
-            </div>
-
-
-            <button
-                class="add-cart"
-                onclick="addProductToCart('SUMS Hoodie', 700, selectedHoodieColour, selectedSize)"
-            >
-                ADD TO CART
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     T-SHIRTS
-===================================== -->
-
-<section id="tshirts">
-
-    <div class="section-heading">
-
-        <h2>
-            T-SHIRTS
-        </h2>
-
-        <p>
-            Everyday essentials with the SUMS identity.
-        </p>
-
-    </div>
-
-
-    <div class="single-product">
-
-
-        <div class="product-display">
-
-            <img
-                id="tshirtImage"
-                class="product-image"
-                src="tshirt-skyblue-front.jpeg"
-                alt="SUMS T-Shirt"
-                onclick="zoomImage('tshirtImage')"
-            >
-
-
-            <div class="image-controls">
-
-                <button onclick="tshirtFront()">
-                    FRONT
-                </button>
-
-                <button onclick="tshirtBack()">
-                    BACK
-                </button>
-
-                <button onclick="zoomImage('tshirtImage')">
-                    ZOOM
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="product-details">
-
-            <h3>
-                SUMS T-Shirt
-            </h3>
-
-            <p class="description">
-                Premium SUMS everyday streetwear.
-            </p>
-
-            <div class="product-price">
-                R400
-            </div>
-
-
-            <div class="option-title">
-                COLOUR
-            </div>
-
-            <div class="colour-options">
-
-                <button
-                    class="colour-button active"
-                    onclick="selectTshirtColour('Sky Blue', this)"
-                >
-                    Sky Blue
-                </button>
-
-                <button
-                    class="colour-button"
-                    onclick="selectTshirtColour('Grey', this)"
-                >
-                    Grey
-                </button>
-
-                <button
-                    class="colour-button"
-                    onclick="selectTshirtColour('Navy', this)"
-                >
-                    Navy
-                </button>
-
-                <button
-                    class="colour-button"
-                    onclick="selectTshirtColour('Black', this)"
-                >
-                    Black
-                </button>
-
-                <button
-                    class="colour-button"
-                    onclick="selectTshirtColour('White', this)"
-                >
-                    White
-                </button>
-
-                <button
-                    class="colour-button"
-                    onclick="selectTshirtColour('Red', this)"
-                >
-                    Red
-                </button>
-
-            </div>
-
-
-            <div class="option-title">
-                SIZE
-            </div>
-
-            <div class="size-options">
-
-                <button
-                    class="size-button"
-                    onclick="selectSize(this, 'XS')"
-                >
-                    XS
-                </button>
-
-                <button
-                    class="size-button active"
-                    onclick="selectSize(this, 'S')"
-                >
-                    S
-                </button>
-
-                <button
-                    class="size-button"
-                    onclick="selectSize(this, 'M')"
-                >
-                    M
-                </button>
-
-                <button
-                    class="size-button"
-                    onclick="selectSize(this, 'L')"
-                >
-                    L
-                </button>
-
-                <button
-                    class="size-button"
-                    onclick="selectSize(this, 'XL')"
-                >
-                    XL
-                </button>
-
-                <button
-                    class="size-button"
-                    onclick="selectSize(this, 'XXL')"
-                >
-                    XXL
-                </button>
-
-            </div>
-
-
-            <button
-                class="add-cart"
-                onclick="addProductToCart('SUMS T-Shirt', 400, selectedTshirtColour, selectedSize)"
-            >
-                ADD TO CART
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     COMING SOON
-===================================== -->
-
-<section
-    class="premium"
-    id="premium"
->
-
-    <div class="section-heading">
-
-        <h2>
+        <a href="#premium" class="hero-btn dark">
             COMING SOON
-        </h2>
-
-        <p>
-            The next chapter of SUMS is coming.
-        </p>
+        </a>
 
     </div>
 
-
-    <div class="premium-box">
-
-        <div style="width:100%;">
-
-            <h2>
-                SUMS HOODIE-5120
-                FOUNDER EDITION
-            </h2>
+</section>
 
 
-            <p>
-                A premium SUMS edition is on the way.
-            </p>
+<!-- =========================
+     TWO SIDES
+========================= -->
+
+<section class="shop-choice">
+
+    <a href="#hoodies" class="choice">
+        <div class="choice-content">
+            <h2>HOODIES</h2>
+            <p>EXPLORE COLLECTION</p>
+        </div>
+    </a>
+
+    <a href="#tshirts" class="choice">
+        <div class="choice-content">
+            <h2>T-SHIRTS</h2>
+            <p>EXPLORE COLLECTION</p>
+        </div>
+    </a>
+
+</section>
 
 
-            <div
-                class="single-product"
-                style="
-                    margin-top:50px;
-                    text-align:left;
-                "
-            >
+<!-- =========================
+     AVAILABLE
+========================= -->
+
+<section id="available" class="product-section">
+
+    <div class="section-header">
+        <div class="section-label">AVAILABLE NOW</div>
+        <h2 class="section-title">THE COLLECTION.</h2>
+    </div>
 
 
-                <div class="product-display">
+    <!-- HOODIE -->
 
-                    <img
-                        id="founderImage"
-                        class="product-image"
-                        src="founder-hoodie-front.jpg"
-                        alt="SUMS Hoodie-5120 Founder Edition"
-                        onclick="zoomImage('founderImage')"
-                    >
+    <div id="hoodies" class="product searchable-product" data-search="hoodie sums streetwear">
+
+        <div class="product-top">
+
+            <div>
+                <div class="product-name">SUMS HOODIE</div>
+
+                <div class="product-description">
+                    Premium streetwear hoodie.
+                </div>
+            </div>
+
+            <div class="product-price">R700</div>
+
+        </div>
 
 
-                    <div class="image-controls">
+        <div class="product-images">
 
-                        <button onclick="founderFront()">
-                            FRONT
-                        </button>
+            <div class="image-box" onclick="zoomImage('hoodieFront')">
 
-                        <button onclick="founderBack()">
-                            BACK
-                        </button>
+                <img
+                    id="hoodieFront"
+                    src="white-hoodie.jpg"
+                    alt="SUMS Hoodie Front"
+                >
 
-                        <button onclick="zoomImage('founderImage')">
-                            ZOOM
-                        </button>
+                <div class="image-label">FRONT — TAP TO ZOOM</div>
 
-                    </div>
+            </div>
+
+            <div class="image-box" onclick="zoomImage('hoodieBack')">
+
+                <img
+                    id="hoodieBack"
+                    src="white-hoodie-back.jpg"
+                    alt="SUMS Hoodie Back"
+                >
+
+                <div class="image-label">BACK — TAP TO ZOOM</div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-options">
+
+            <div>
+
+                <div class="option-title">COLOUR</div>
+
+                <div class="colors">
+
+                    <button class="color-btn active"
+                        onclick="changeHoodie('white', this)">
+                        WHITE
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeHoodie('grey', this)">
+                        GREY
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeHoodie('brown', this)">
+                        BROWN
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeHoodie('black', this)">
+                        BLACK
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeHoodie('navy', this)">
+                        NAVY
+                    </button>
 
                 </div>
 
+            </div>
 
-                <div
-                    class="product-details"
-                    style="color:#fff;"
+
+            <div>
+
+                <div class="option-title">SIZE</div>
+
+                <div class="sizes">
+
+                    <button class="size-btn"
+                        onclick="selectSize('hoodie','XS',this)">
+                        XS
+                    </button>
+
+                    <button class="size-btn active"
+                        onclick="selectSize('hoodie','S',this)">
+                        S
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('hoodie','M',this)">
+                        M
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('hoodie','L',this)">
+                        L
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('hoodie','XL',this)">
+                        XL
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('hoodie','XXL',this)">
+                        XXL
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="add-cart" onclick="addHoodieToCart()">
+            ADD TO CART
+        </button>
+
+    </div>
+
+
+    <!-- T-SHIRT -->
+
+    <div
+        id="tshirts"
+        class="product searchable-product"
+        data-search="tshirt t-shirt sums streetwear"
+        style="margin-top:100px;"
+    >
+
+        <div class="product-top">
+
+            <div>
+                <div class="product-name">SUMS T-SHIRT</div>
+
+                <div class="product-description">
+                    Premium everyday streetwear.
+                </div>
+            </div>
+
+            <div class="product-price">R400</div>
+
+        </div>
+
+
+        <div class="product-images">
+
+            <div class="image-box" onclick="zoomImage('shirtFront')">
+
+                <img
+                    id="shirtFront"
+                    src="grey-tshirt.jpg"
+                    alt="SUMS T-Shirt Front"
                 >
 
-                    <h3>
-                        FOUNDER EDITION
-                    </h3>
+                <div class="image-label">FRONT — TAP TO ZOOM</div>
+
+            </div>
+
+            <div class="image-box" onclick="zoomImage('shirtBack')">
+
+                <img
+                    id="shirtBack"
+                    src="grey-tshirt-back.jpg"
+                    alt="SUMS T-Shirt Back"
+                >
+
+                <div class="image-label">BACK — TAP TO ZOOM</div>
+
+            </div>
+
+        </div>
 
 
-                    <p
-                        class="description"
-                        style="color:#bbb;"
-                    >
-                        Premium SUMS streetwear.
-                        Coming soon.
-                    </p>
+        <div class="product-options">
+
+            <div>
+
+                <div class="option-title">COLOUR</div>
+
+                <div class="colors">
+
+                    <button class="color-btn active"
+                        onclick="changeShirt('grey', this)">
+                        GREY
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeShirt('skyblue', this)">
+                        SKY BLUE
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeShirt('navy', this)">
+                        NAVY
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeShirt('black', this)">
+                        BLACK
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeShirt('white', this)">
+                        WHITE
+                    </button>
+
+                </div>
+
+            </div>
 
 
-                    <div class="option-title">
-                        COLOUR
-                    </div>
+            <div>
+
+                <div class="option-title">SIZE</div>
+
+                <div class="sizes">
+
+                    <button class="size-btn"
+                        onclick="selectSize('shirt','XS',this)">
+                        XS
+                    </button>
+
+                    <button class="size-btn active"
+                        onclick="selectSize('shirt','S',this)">
+                        S
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('shirt','M',this)">
+                        M
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('shirt','L',this)">
+                        L
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('shirt','XL',this)">
+                        XL
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('shirt','XXL',this)">
+                        XXL
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
 
 
-                    <div class="colour-options">
+        <button class="add-cart" onclick="addShirtToCart()">
+            ADD TO CART
+        </button>
 
-                        <button
-                            class="colour-button active"
-                            onclick="selectFounderColour('White', this)"
-                        >
-                            White
-                        </button>
+    </div>
 
-                        <button
-                            class="colour-button"
-                            onclick="selectFounderColour('Black', this)"
-                        >
-                            Black
-                        </button>
-
-                        <button
-                            class="colour-button"
-                            onclick="selectFounderColour('Grey', this)"
-                        >
-                            Grey
-                        </button>
-
-                        <button
-                            class="colour-button"
-                            onclick="selectFounderColour('Brown', this)"
-                        >
-                            Brown
-                        </button>
-
-                        <button
-                            class="colour-button"
-                            onclick="selectFounderColour('Navy', this)"
-                        >
-                            Navy
-                        </button>
-
-                        <button
-                            class="colour-button"
-                            onclick="selectFounderColour('Red', this)"
-                        >
-                            Red
-                        </button>
-
-                    </div>
+</section>
 
 
-                    <div class="option-title">
-                        SIZE
-                    </div>
+<!-- =========================
+     PREMIUM / COMING SOON
+========================= -->
+
+<section id="premium" class="coming-soon searchable-product" data-search="premium founder hoodie coming soon">
+
+    <div class="section-header">
+
+        <div class="section-label">COMING SOON</div>
+
+        <h2 class="section-title">
+            PREMIUM.
+        </h2>
+
+    </div>
 
 
-                    <div class="size-options">
+    <div class="founder-product">
 
-                        <button
-                            class="size-button"
-                            onclick="selectSize(this, 'XS')"
-                        >
-                            XS
-                        </button>
+        <div class="founder-title">
+            SUMS HOODIE-5120 FOUNDER EDITION
+        </div>
 
-                        <button
-                            class="size-button active"
-                            onclick="selectSize(this, 'S')"
-                        >
-                            S
-                        </button>
-
-                        <button
-                            class="size-button"
-                            onclick="selectSize(this, 'M')"
-                        >
-                            M
-                        </button>
-
-                        <button
-                            class="size-button"
-                            onclick="selectSize(this, 'L')"
-                        >
-                            L
-                        </button>
-
-                        <button
-                            class="size-button"
-                            onclick="selectSize(this, 'XL')"
-                        >
-                            XL
-                        </button>
-
-                        <button
-                            class="size-button"
-                            onclick="selectSize(this, 'XXL')"
-                        >
-                            XXL
-                        </button>
-
-                    </div>
+        <div class="founder-subtitle">
+            A new SUMS chapter is coming.
+        </div>
 
 
-                    <button
-                        class="add-cart"
-                        style="
-                            background:#fff;
-                            color:#000;
-                        "
-                        onclick="alert('The Founder Edition is coming soon.')"
-                    >
-                        COMING SOON
+        <div class="product-images">
+
+            <div class="image-box" onclick="zoomImage('founderFront')">
+
+                <img
+                    id="founderFront"
+                    src="founder-hoodie-front.jpg"
+                    alt="SUMS Founder Edition Front"
+                >
+
+                <div class="image-label">FRONT — TAP TO ZOOM</div>
+
+            </div>
+
+            <div class="image-box" onclick="zoomImage('founderBack')">
+
+                <img
+                    id="founderBack"
+                    src="founder-hoodie-back.jpg"
+                    alt="SUMS Founder Edition Back"
+                >
+
+                <div class="image-label">BACK — TAP TO ZOOM</div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-options">
+
+            <div>
+
+                <div class="option-title">COLOUR</div>
+
+                <div class="colors">
+
+                    <button class="color-btn active"
+                        onclick="changeFounder('black', this)">
+                        BLACK
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeFounder('white', this)">
+                        WHITE
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeFounder('grey', this)">
+                        GREY
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeFounder('brown', this)">
+                        BROWN
+                    </button>
+
+                    <button class="color-btn"
+                        onclick="changeFounder('navy', this)">
+                        NAVY
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="option-title">SIZE</div>
+
+                <div class="sizes">
+
+                    <button class="size-btn"
+                        onclick="selectSize('founder','XS',this)">
+                        XS
+                    </button>
+
+                    <button class="size-btn active"
+                        onclick="selectSize('founder','S',this)">
+                        S
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('founder','M',this)">
+                        M
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('founder','L',this)">
+                        L
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('founder','XL',this)">
+                        XL
+                    </button>
+
+                    <button class="size-btn"
+                        onclick="selectSize('founder','XXL',this)">
+                        XXL
                     </button>
 
                 </div>
@@ -1697,756 +1469,740 @@ footer p {
 </section>
 
 
-<!-- =====================================
+<!-- =========================
      ABOUT
-===================================== -->
+========================= -->
 
-<section
-    class="about"
-    id="about"
->
+<section id="about" class="about">
 
-    <div class="about-content">
+    <div class="about-grid">
 
-        <h2>
-            ABOUT SUMS.
-        </h2>
+        <h2>ABOUT<br>SUMS.</h2>
 
-        <p>
+        <div class="about-text">
             SUMS is a South African streetwear brand representing culture, movement and ambition.Born from the wild coast.Build for those who create their own legacy
-        </p>
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =====================================
-     CART
-===================================== -->
+<!-- =========================
+     CONTACT
+========================= -->
 
-<div
-    class="cart-panel"
-    id="cartPanel"
->
+<section class="contact">
 
-    <div class="cart-header">
-
-        <h2>
-            YOUR CART
-        </h2>
-
-        <button
-            class="close-cart"
-            onclick="closeCart()"
-        >
-            ×
-        </button>
-
-    </div>
-
-
-    <div id="cartItems">
-
-        <p>
-            Your cart is empty.
-        </p>
-
-    </div>
-
-
-    <div class="cart-total">
-
-        TOTAL: R<span id="cartTotal">0</span>
-
-    </div>
-
-
-    <button
-        class="checkout"
-        onclick="checkoutWhatsApp()"
-    >
-        ORDER VIA WHATSAPP
-    </button>
-
-</div>
-
-
-<!-- =====================================
-     COOKIE
-===================================== -->
-
-<div
-    class="cookie"
-    id="cookieNotice"
->
+    <h2>CONTACT.</h2>
 
     <p>
-        SUMS uses cookies to help improve your
-        experience on the website.
+        Questions, orders or enquiries?
     </p>
 
-    <button onclick="acceptCookies()">
-        ACCEPT COOKIES
-    </button>
+    <a
+        class="whatsapp"
+        href="https://wa.me/27796265589"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        WHATSAPP — 079 626 5589
+    </a>
 
-</div>
+</section>
+
+</main>
 
 
-<!-- =====================================
+<!-- =========================
      FOOTER
-===================================== -->
+========================= -->
 
 <footer>
 
-    <div class="footer-logo">
-        SUMS
+    <div class="footer-main">
+
+        <div>
+
+            <div class="footer-logo">SUMS</div>
+
+            <div class="footer-contact">
+                Premium Streetwear<br>
+                South Africa
+            </div>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            WhatsApp: 079 626 5589<br>
+            Available for enquiries and orders
+
+        </div>
+
     </div>
 
-    <p>
-        Premium streetwear. Move different.
-    </p>
 
-    <div class="copyright">
+    <div class="footer-bottom">
+
         © 2026 SUMS. All rights reserved.
+
     </div>
 
 </footer>
 
 
+<!-- =========================
+     ZOOM
+========================= -->
+
+<div id="zoomModal" class="zoom-modal">
+
+    <button class="close-zoom" onclick="closeZoom()">
+        ×
+    </button>
+
+    <img id="zoomImage" src="" alt="Product preview">
+
+</div>
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+
+<div id="cartDrawer" class="cart-drawer">
+
+    <div class="cart-header">
+
+        <h2>YOUR CART</h2>
+
+        <button class="close-cart" onclick="closeCart()">
+            ×
+        </button>
+
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div id="cartTotal" class="cart-total">
+        <span>TOTAL</span>
+        <span>R0</span>
+    </div>
+
+    <a
+        id="whatsappOrder"
+        class="whatsapp-order"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        ORDER VIA WHATSAPP
+    </a>
+
+</div>
+
+
+<!-- =========================
+     SEARCH MESSAGE
+========================= -->
+
+<div id="searchMessage" class="search-message"></div>
+
+
+<!-- =========================
+     COOKIES
+========================= -->
+
+<div id="cookieBox" class="cookie-box">
+
+    <p>
+        We use cookies to improve your experience on the SUMS website.
+        By continuing, you agree to our use of cookies.
+    </p>
+
+    <div class="cookie-buttons">
+
+        <button
+            class="accept-cookies"
+            onclick="acceptCookies()"
+        >
+            ACCEPT
+        </button>
+
+        <button
+            class="decline-cookies"
+            onclick="declineCookies()"
+        >
+            CLOSE
+        </button>
+
+    </div>
+
+</div>
+
+
 <script>
 
-/* =====================================
-   IMAGE FILES
-=====================================
+/* =========================
+   PRODUCT STATE
+========================= */
 
-   ONLY ONE FRONT + ONE BACK IMAGE
-   IS REQUIRED FOR EACH PRODUCT.
+let hoodieColor = "white";
+let hoodieSize = "S";
 
-===================================== */
+let shirtColor = "grey";
+let shirtSize = "S";
 
-const hoodieFrontImage =
-    "hoodie-white-front.jpg";
-
-const hoodieBackImage =
-    "hoodie-white-back.jpg";
-
-
-const tshirtFrontImage =
-    "tshirt-skyblue-front.jpeg";
-
-const tshirtBackImage =
-    "tshirt-skyblue-back.jpeg";
-
-
-const founderFrontImage =
-    "founder-hoodie-front.jpg";
-
-const founderBackImage =
-    "founder-hoodie-back.jpg";
-
-
-/* =====================================
-   CURRENT OPTIONS
-===================================== */
-
-let selectedHoodieColour = "White";
-
-let selectedTshirtColour = "Sky Blue";
-
-let selectedFounderColour = "White";
-
-let selectedSize = "S";
-
-
-let hoodieSide = "front";
-
-let tshirtSide = "front";
-
-let founderSide = "front";
-
+let founderColor = "black";
+let founderSize = "S";
 
 let cart = [];
 
 
-/* =====================================
-   SEARCH
-===================================== */
+/* =========================
+   IMAGE COLOUR FILTERS
+   Allows additional colours
+   without uploading pictures
+========================= */
 
-function toggleSearch() {
+const filters = {
 
-    document
-        .getElementById("searchBox")
-        .classList.toggle("active");
+    white: "none",
 
-}
+    grey: "grayscale(1) brightness(.85)",
+
+    brown: "sepia(.65) saturate(1.4) hue-rotate(345deg) brightness(.75)",
+
+    black: "brightness(.25) contrast(1.2)",
+
+    navy: "hue-rotate(175deg) saturate(1.5) brightness(.55)",
+
+    skyblue: "hue-rotate(155deg) saturate(1.35) brightness(1.05)"
+};
 
 
-function searchPage() {
+/* =========================
+   CHANGE HOODIE
+========================= */
 
-    const search =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase();
+function changeHoodie(color, button) {
 
-    const text =
-        document
-        .body
-        .innerText
-        .toLowerCase();
+    hoodieColor = color;
 
-    if (search && !text.includes(search)) {
+    document.querySelectorAll('#hoodies .color-btn')
+        .forEach(btn => btn.classList.remove('active'));
 
-        alert(
-            "No matching SUMS item found."
-        );
+    button.classList.add('active');
 
+    const front = document.getElementById("hoodieFront");
+    const back = document.getElementById("hoodieBack");
+
+    if (color === "white") {
+
+        front.src = "white-hoodie.jpg";
+        back.src = "white-hoodie-back.jpg";
+
+    } else if (color === "grey") {
+
+        front.src = "grey-hoodie.jpg";
+        back.src = "grey-hoodie-back.jpg";
+
+    } else if (color === "brown") {
+
+        front.src = "brown-hoodie.jpg";
+        back.src = "brown-hoodie-back.jpg";
+
+    } else {
+
+        /*
+        For colours without separate uploaded pictures,
+        the existing hoodie picture is recoloured visually.
+        */
+
+        front.src = "white-hoodie.jpg";
+        back.src = "white-hoodie-back.jpg";
     }
 
+    front.style.filter = filters[color] || "none";
+    back.style.filter = filters[color] || "none";
 }
 
 
-/* =====================================
-   COLOUR FILTERS
-===================================== */
+/* =========================
+   CHANGE T-SHIRT
+========================= */
 
-function getColourFilter(colour) {
+function changeShirt(color, button) {
 
-    const filters = {
+    shirtColor = color;
 
-        "White":
-            "brightness(1.08) saturate(.1)",
+    document.querySelectorAll('#tshirts .color-btn')
+        .forEach(btn => btn.classList.remove('active'));
 
-        "Black":
-            "brightness(.28) saturate(.4)",
+    button.classList.add('active');
 
-        "Grey":
-            "grayscale(.75) brightness(.85)",
+    const front = document.getElementById("shirtFront");
+    const back = document.getElementById("shirtBack");
 
-        "Brown":
-            "sepia(.65) saturate(1.5) hue-rotate(345deg) brightness(.82)",
+    if (color === "grey") {
 
-        "Navy":
-            "sepia(.4) saturate(2.5) hue-rotate(180deg) brightness(.55)",
+        front.src = "grey-tshirt.jpg";
+        back.src = "grey-tshirt-back.jpg";
 
-        "Red":
-            "sepia(.8) saturate(4) hue-rotate(315deg) brightness(.85)",
+    } else if (color === "skyblue") {
 
-        "Sky Blue":
-            "sepia(.15) saturate(2.2) hue-rotate(155deg) brightness(1.05)"
+        front.src = "skyblue-tshirt.jpg";
+        back.src = "skyblue-tshirt-back.jpg";
 
-    };
+    } else if (color === "navy") {
 
-    return filters[colour] ||
-           "none";
+        front.src = "navy-tshirt.jpg";
+        back.src = "navy-tshirt-back.jpg";
 
+    } else {
+
+        front.src = "grey-tshirt.jpg";
+        back.src = "grey-tshirt-back.jpg";
+    }
+
+    front.style.filter = filters[color] || "none";
+    back.style.filter = filters[color] || "none";
 }
 
 
-/* =====================================
-   HOODIE COLOUR
-===================================== */
+/* =========================
+   CHANGE FOUNDER HOODIE
+========================= */
 
-function selectHoodieColour(colour, button) {
+function changeFounder(color, button) {
 
-    selectedHoodieColour =
-        colour;
+    founderColor = color;
 
-    document
-        .querySelectorAll("#hoodies .colour-button")
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
+    document.querySelectorAll('#premium .color-btn')
+        .forEach(btn => btn.classList.remove('active'));
 
-    button.classList.add("active");
+    button.classList.add('active');
 
-    document
-        .getElementById("hoodieImage")
-        .style.filter =
-            getColourFilter(colour);
+    const front = document.getElementById("founderFront");
+    const back = document.getElementById("founderBack");
 
+    front.style.filter = filters[color] || "none";
+    back.style.filter = filters[color] || "none";
 }
 
 
-/* =====================================
-   T-SHIRT COLOUR
-===================================== */
-
-function selectTshirtColour(colour, button) {
-
-    selectedTshirtColour =
-        colour;
-
-    document
-        .querySelectorAll("#tshirts .colour-button")
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-    button.classList.add("active");
-
-    document
-        .getElementById("tshirtImage")
-        .style.filter =
-            getColourFilter(colour);
-
-}
-
-
-/* =====================================
-   FOUNDER COLOUR
-===================================== */
-
-function selectFounderColour(colour, button) {
-
-    selectedFounderColour =
-        colour;
-
-    document
-        .querySelectorAll("#premium .colour-button")
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-    button.classList.add("active");
-
-    document
-        .getElementById("founderImage")
-        .style.filter =
-            getColourFilter(colour);
-
-}
-
-
-/* =====================================
+/* =========================
    SIZE
-===================================== */
+========================= */
 
-function selectSize(button, size) {
+function selectSize(product, size, button) {
 
-    selectedSize = size;
+    const container = button.closest(".product");
 
-    const group =
-        button.parentElement;
-
-    group
-        .querySelectorAll(".size-button")
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
+    container.querySelectorAll(".size-btn")
+        .forEach(btn => btn.classList.remove("active"));
 
     button.classList.add("active");
 
+    if (product === "hoodie") {
+        hoodieSize = size;
+    }
+
+    if (product === "shirt") {
+        shirtSize = size;
+    }
+
+    if (product === "founder") {
+        founderSize = size;
+    }
 }
 
 
-/* =====================================
-   HOODIE FRONT
-===================================== */
+/* =========================
+   ADD HOODIE
+========================= */
 
-function hoodieFront() {
+function addHoodieToCart() {
 
-    hoodieSide = "front";
+    let image = "white-hoodie.jpg";
 
-    const image =
-        document.getElementById("hoodieImage");
+    if (hoodieColor === "grey") {
+        image = "grey-hoodie.jpg";
+    }
 
-    image.src =
-        hoodieFrontImage;
-
-    image.style.filter =
-        getColourFilter(selectedHoodieColour);
-
-}
-
-
-/* =====================================
-   HOODIE BACK
-===================================== */
-
-function hoodieBack() {
-
-    hoodieSide = "back";
-
-    const image =
-        document.getElementById("hoodieImage");
-
-    image.src =
-        hoodieBackImage;
-
-    image.style.filter =
-        getColourFilter(selectedHoodieColour);
-
-}
-
-
-/* =====================================
-   T-SHIRT FRONT
-===================================== */
-
-function tshirtFront() {
-
-    tshirtSide = "front";
-
-    const image =
-        document.getElementById("tshirtImage");
-
-    image.src =
-        tshirtFrontImage;
-
-    image.style.filter =
-        getColourFilter(selectedTshirtColour);
-
-}
-
-
-/* =====================================
-   T-SHIRT BACK
-===================================== */
-
-function tshirtBack() {
-
-    tshirtSide = "back";
-
-    const image =
-        document.getElementById("tshirtImage");
-
-    image.src =
-        tshirtBackImage;
-
-    image.style.filter =
-        getColourFilter(selectedTshirtColour);
-
-}
-
-
-/* =====================================
-   FOUNDER FRONT
-===================================== */
-
-function founderFront() {
-
-    founderSide = "front";
-
-    const image =
-        document.getElementById("founderImage");
-
-    image.src =
-        founderFrontImage;
-
-    image.style.filter =
-        getColourFilter(selectedFounderColour);
-
-}
-
-
-/* =====================================
-   FOUNDER BACK
-===================================== */
-
-function founderBack() {
-
-    founderSide = "back";
-
-    const image =
-        document.getElementById("founderImage");
-
-    image.src =
-        founderBackImage;
-
-    image.style.filter =
-        getColourFilter(selectedFounderColour);
-
-}
-
-
-/* =====================================
-   ZOOM
-===================================== */
-
-function zoomImage(id) {
-
-    document
-        .getElementById(id)
-        .classList.toggle("zoomed");
-
-}
-
-
-/* =====================================
-   ADD TO CART
-===================================== */
-
-function addProductToCart(
-    name,
-    price,
-    colour,
-    size
-) {
+    if (hoodieColor === "brown") {
+        image = "brown-hoodie.jpg";
+    }
 
     cart.push({
 
-        name: name,
+        name: "SUMS Hoodie",
 
-        price: price,
+        price: 700,
 
-        colour: colour,
+        color: hoodieColor.toUpperCase(),
 
-        size: size
+        size: hoodieSize,
+
+        image: image
 
     });
 
     updateCart();
 
     openCart();
-
 }
 
 
-/* =====================================
-   UPDATE CART
-===================================== */
+/* =========================
+   ADD T-SHIRT
+========================= */
+
+function addShirtToCart() {
+
+    let image = "grey-tshirt.jpg";
+
+    if (shirtColor === "skyblue") {
+        image = "skyblue-tshirt.jpg";
+    }
+
+    if (shirtColor === "navy") {
+        image = "navy-tshirt.jpg";
+    }
+
+    cart.push({
+
+        name: "SUMS T-Shirt",
+
+        price: 400,
+
+        color: shirtColor.toUpperCase(),
+
+        size: shirtSize,
+
+        image: image
+
+    });
+
+    updateCart();
+
+    openCart();
+}
+
+
+/* =========================
+   CART
+========================= */
 
 function updateCart() {
 
-    const items =
-        document.getElementById("cartItems");
+    const cartItems = document.getElementById("cartItems");
 
-    const count =
-        document.getElementById("cartCount");
+    const count = document.getElementById("cartCount");
 
-    const total =
-        document.getElementById("cartTotal");
-
-
-    count.textContent =
-        cart.length;
-
+    count.textContent = cart.length;
 
     if (cart.length === 0) {
 
-        items.innerHTML =
-            "<p>Your cart is empty.</p>";
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                YOUR CART IS EMPTY.
+            </div>
+        `;
 
-        total.textContent =
-            "0";
+        document.getElementById("cartTotal").innerHTML = `
+            <span>TOTAL</span>
+            <span>R0</span>
+        `;
+
+        document.getElementById("whatsappOrder").href = "#";
 
         return;
-
     }
 
 
-    let html = "";
+    let total = 0;
 
-    let totalPrice = 0;
-
-
-    cart.forEach(
-        (item, index) => {
-
-            totalPrice +=
-                item.price;
+    cartItems.innerHTML = "";
 
 
-            html += `
+    cart.forEach((item, index) => {
 
-                <div class="cart-item">
+        total += item.price;
 
-                    <strong>
+        cartItems.innerHTML += `
+
+            <div class="cart-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+                <div>
+
+                    <div class="cart-item-name">
                         ${item.name}
-                    </strong>
-
-                    <div>
-                        Colour: ${item.colour}
                     </div>
 
-                    <div>
-                        Size: ${item.size}
-                    </div>
+                    <div class="cart-item-info">
 
-                    <div>
-                        R${item.price}
+                        Colour: ${item.color}<br>
+
+                        Size: ${item.size}<br>
+
+                        Price: R${item.price}
+
                     </div>
 
                     <button
+                        class="remove-item"
                         onclick="removeCartItem(${index})"
-                        style="
-                            margin-top:8px;
-                            background:none;
-                            border:none;
-                            text-decoration:underline;
-                            cursor:pointer;
-                        "
                     >
-                        Remove
+                        REMOVE
                     </button>
 
                 </div>
 
-            `;
+            </div>
 
-        }
-    );
+        `;
+    });
 
 
-    items.innerHTML =
-        html;
+    document.getElementById("cartTotal").innerHTML = `
+        <span>TOTAL</span>
+        <span>R${total}</span>
+    `;
 
-    total.textContent =
-        totalPrice;
 
+    createWhatsAppLink();
 }
 
 
-/* =====================================
+/* =========================
    REMOVE CART ITEM
-===================================== */
+========================= */
 
 function removeCartItem(index) {
 
     cart.splice(index, 1);
 
     updateCart();
-
 }
 
 
-/* =====================================
-   OPEN CART
-===================================== */
-
-function openCart() {
-
-    document
-        .getElementById("cartPanel")
-        .classList.add("open");
-
-}
-
-
-/* =====================================
-   CLOSE CART
-===================================== */
-
-function closeCart() {
-
-    document
-        .getElementById("cartPanel")
-        .classList.remove("open");
-
-}
-
-
-/* =====================================
+/* =========================
    WHATSAPP ORDER
-===================================== */
+========================= */
 
-function checkoutWhatsApp() {
+function createWhatsAppLink() {
 
-    if (cart.length === 0) {
-
-        alert(
-            "Your cart is empty."
-        );
-
-        return;
-
-    }
-
-
-    let message =
-        "Hello SUMS! I would like to place an order:%0A%0A";
-
+    let message = "Hello SUMS, I would like to place an order:%0A%0A";
 
     let total = 0;
 
+    cart.forEach((item, index) => {
 
-    cart.forEach(item => {
+        total += item.price;
 
         message +=
-            "Item: " +
-            item.name +
-            "%0A" +
+            `${index + 1}. ${item.name}%0A` +
+            `Colour: ${item.color}%0A` +
+            `Size: ${item.size}%0A` +
+            `Price: R${item.price}%0A%0A`;
+    });
 
-            "Colour: " +
-            item.colour +
-            "%0A" +
+    message += `Total: R${total}`;
 
-            "Size: " +
-            item.size +
-            "%0A" +
-
-            "Price: R" +
-            item.price +
-            "%0A%0A";
+    document.getElementById("whatsappOrder").href =
+        "https://wa.me/27796265589?text=" + message;
+}
 
 
-        total +=
-            item.price;
+/* =========================
+   OPEN CART
+========================= */
+
+function openCart() {
+
+    document.getElementById("cartOverlay")
+        .classList.add("show");
+
+    document.getElementById("cartDrawer")
+        .classList.add("show");
+}
+
+
+/* =========================
+   CLOSE CART
+========================= */
+
+function closeCart() {
+
+    document.getElementById("cartOverlay")
+        .classList.remove("show");
+
+    document.getElementById("cartDrawer")
+        .classList.remove("show");
+}
+
+
+/* =========================
+   ZOOM
+========================= */
+
+function zoomImage(id) {
+
+    const image = document.getElementById(id);
+
+    document.getElementById("zoomImage").src =
+        image.src;
+
+    document.getElementById("zoomImage").style.filter =
+        image.style.filter;
+
+    document.getElementById("zoomModal")
+        .classList.add("show");
+}
+
+
+function closeZoom() {
+
+    document.getElementById("zoomModal")
+        .classList.remove("show");
+}
+
+
+/* Close zoom by clicking background */
+
+document.getElementById("zoomModal")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closeZoom();
+        }
 
     });
 
 
-    message +=
-        "Total: R" +
-        total;
+/* =========================
+   SEARCH
+========================= */
+
+document.getElementById("searchInput")
+    .addEventListener("input", function() {
+
+        const search = this.value
+            .toLowerCase()
+            .trim();
+
+        const products =
+            document.querySelectorAll(".searchable-product");
+
+        let found = false;
+
+        products.forEach(product => {
+
+            const text =
+                product.dataset.search || "";
+
+            if (
+                search === "" ||
+                text.includes(search)
+            ) {
+
+                product.style.display = "";
+
+                if (search !== "") {
+                    found = true;
+                }
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+        const message =
+            document.getElementById("searchMessage");
+
+        if (search !== "" && !found) {
+
+            message.textContent =
+                "No SUMS products found.";
+
+            message.style.display = "block";
+
+        } else {
+
+            message.style.display = "none";
+
+        }
+
+    });
 
 
-    /*
-       South African WhatsApp format:
-       0796265589 becomes 27796265589
-    */
-
-    const phone =
-        "27796265589";
-
-
-    window.open(
-
-        "https://wa.me/" +
-        phone +
-        "?text=" +
-        message,
-
-        "_blank"
-
-    );
-
-}
-
-
-/* =====================================
+/* =========================
    COOKIES
-===================================== */
+========================= */
 
 function acceptCookies() {
 
     localStorage.setItem(
-        "sumsCookiesAccepted",
-        "yes"
+        "sumsCookies",
+        "accepted"
     );
 
-    document
-        .getElementById("cookieNotice")
-        .style.display =
-            "none";
+    document.getElementById("cookieBox")
+        .style.display = "none";
+}
 
+
+function declineCookies() {
+
+    document.getElementById("cookieBox")
+        .style.display = "none";
 }
 
 
 if (
-    localStorage.getItem(
-        "sumsCookiesAccepted"
-    ) !== "yes"
+    localStorage.getItem("sumsCookies") ===
+    "accepted"
 ) {
 
-    document
-        .getElementById("cookieNotice")
-        .style.display =
-            "block";
-
+    document.getElementById("cookieBox")
+        .style.display = "none";
 }
+
+
+/* =========================
+   ESCAPE KEY
+========================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeZoom();
+        closeCart();
+
+    }
+
+});
+
+
+/* =========================
+   START CART
+========================= */
+
+updateCart();
 
 </script>
 
