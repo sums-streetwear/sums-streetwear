@@ -6,7 +6,23 @@
 
 <title>SUMS — Premium Streetwear</title>
 
+<!-- Preload product images so colour changes happen faster -->
+<link rel="preload" as="image" href="white-hoodie.jpg">
+<link rel="preload" as="image" href="white-hoodie-back.jpg">
+<link rel="preload" as="image" href="grey-hoodie.jpg">
+<link rel="preload" as="image" href="grey-hoodie-back.jpg">
+<link rel="preload" as="image" href="brown-hoodie.jpg">
+<link rel="preload" as="image" href="brown-hoodie-back.jpg">
+
+<link rel="preload" as="image" href="grey-tshirt.jpg">
+<link rel="preload" as="image" href="grey-tshirt-back.jpg">
+<link rel="preload" as="image" href="skyblue-tshirt.jpg">
+<link rel="preload" as="image" href="skyblue-tshirt-back.jpg">
+<link rel="preload" as="image" href="navy-tshirt.jpg">
+<link rel="preload" as="image" href="navy-tshirt-back.jpg">
+
 <style>
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +30,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
 body {
@@ -26,7 +42,7 @@ body {
 /* ================= HEADER ================= */
 
 header {
-    height: 78px;
+    height: 76px;
     background: #fff;
     border-bottom: 1px solid #ddd;
 
@@ -41,21 +57,19 @@ header {
     z-index: 1000;
 }
 
-/* SUMS LOGO + NAME */
-
 .brand {
     display: flex;
     align-items: center;
-    gap: 12px;
-    text-decoration: none;
+    gap: 11px;
+
     color: #000;
+    text-decoration: none;
 }
 
 .brand img {
     width: 43px;
     height: 43px;
     object-fit: contain;
-    background: #fff;
 }
 
 .brand span {
@@ -64,23 +78,19 @@ header {
     letter-spacing: 2px;
 }
 
-/* NAVIGATION */
-
 .nav {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 25px;
 }
 
-.nav a {
-    text-decoration: none;
-    color: #111;
+.nav-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
     font-size: 14px;
-    font-weight: 600;
-}
-
-.nav a:hover {
-    opacity: .55;
+    font-weight: 700;
 }
 
 .search {
@@ -95,109 +105,64 @@ header {
 
 .cart-count {
     position: absolute;
+
     top: -8px;
     right: -10px;
-
-    background: #000;
-    color: #fff;
 
     width: 18px;
     height: 18px;
 
+    background: #000;
+    color: #fff;
+
     border-radius: 50%;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     font-size: 11px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.menu {
-    font-size: 27px;
+/* ================= MAIN SCREENS ================= */
+
+.screen {
+    display: none;
 }
 
-/* ================= HERO ================= */
+.screen.active {
+    display: block;
+}
 
-.hero {
-    min-height: 70vh;
+/* ================= COLLECTION CHOICE ================= */
 
-    background:
-        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-        url("founder-hoodie-front.jpg");
-
-    background-size: cover;
-    background-position: center;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.collection-intro {
     text-align: center;
-    color: white;
+
+    padding: 55px 20px 30px;
 }
 
-.hero-content {
-    max-width: 700px;
-    padding: 30px;
-}
-
-.hero h1 {
-    font-size: clamp(45px, 8vw, 90px);
+.collection-intro h1 {
+    font-size: clamp(40px, 7vw, 72px);
     font-weight: 900;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
 }
 
-.hero p {
-    font-size: 20px;
-    margin: 15px 0 30px;
-}
-
-.hero-button {
-    display: inline-block;
-
-    background: white;
-    color: black;
-
-    padding: 15px 28px;
-
-    border-radius: 30px;
-
-    text-decoration: none;
-
-    font-weight: 700;
-}
-
-/* ================= CATEGORY CHOICES ================= */
-
-.category-title {
-    text-align: center;
-    padding: 55px 20px 25px;
-}
-
-.category-title h2 {
-    font-size: 36px;
-    font-weight: 900;
-}
-
-.category-title p {
-    margin-top: 8px;
+.collection-intro p {
+    margin-top: 12px;
     color: #666;
 }
 
-/*
-   TWO LARGE OPTIONS
-*/
-
-.categories {
+.collection-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     gap: 18px;
 
     padding: 0 25px 70px;
 }
 
-.category-card {
+.collection-card {
     height: 62vh;
     min-height: 430px;
 
@@ -207,137 +172,168 @@ header {
 
     cursor: pointer;
 
-    text-decoration: none;
-    color: white;
+    border: none;
 
-    display: flex;
-    align-items: flex-end;
+    background: #eee;
+
+    text-align: left;
 }
 
-.category-card img {
-    position: absolute;
-
+.collection-card img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
-    transition: transform .5s ease;
+    display: block;
+
+    transition: transform .35s ease;
 }
 
-.category-card:hover img {
-    transform: scale(1.04);
+.collection-card:hover img {
+    transform: scale(1.03);
 }
 
-.category-overlay {
-    position: relative;
-    z-index: 2;
+.collection-overlay {
+    position: absolute;
 
-    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
     padding: 35px;
+
+    color: #fff;
 
     background:
         linear-gradient(
             transparent,
-            rgba(0,0,0,.75)
+            rgba(0,0,0,.8)
         );
 }
 
-.category-overlay h3 {
-    font-size: 42px;
+.collection-overlay h2 {
+    font-size: 44px;
     font-weight: 900;
 }
 
-.category-overlay p {
-    margin-top: 8px;
-    font-size: 16px;
+.collection-overlay p {
+    margin-top: 7px;
 }
 
-.shop-link {
+.shop-button {
     display: inline-block;
 
     margin-top: 18px;
 
-    background: white;
-    color: black;
+    background: #fff;
+    color: #000;
 
     padding: 12px 22px;
 
     border-radius: 25px;
 
-    font-weight: 700;
+    font-weight: 800;
 }
 
-/* ================= PRODUCT SECTION ================= */
+/* ================= PRODUCT SCREEN ================= */
 
-.product-section {
-    padding: 80px 25px;
+.product-screen {
     max-width: 1300px;
     margin: auto;
+
+    padding: 35px 25px 80px;
 }
 
-.product-heading {
+.back-button {
+    border: none;
+    background: #f2f2f2;
+
+    padding: 12px 20px;
+
+    border-radius: 25px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-bottom: 30px;
+}
+
+.product-title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
-.product-heading h2 {
-    font-size: 45px;
+.product-title h1 {
+    font-size: clamp(40px, 7vw, 65px);
     font-weight: 900;
 }
 
-.product-heading p {
+.product-title p {
     color: #666;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
-/* PRODUCT */
-
-.product {
+.product-layout {
     display: grid;
-    grid-template-columns: 1.3fr .7fr;
-    gap: 50px;
+
+    grid-template-columns: 1.25fr .75fr;
+
+    gap: 45px;
 
     align-items: start;
 }
 
-/* TWO IMAGES */
+/* ================= FRONT + BACK ================= */
 
 .product-images {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+
+    gap: 14px;
 }
 
 .product-image {
-    background: #f4f4f4;
+    background: #f3f3f3;
+
     cursor: zoom-in;
+
     overflow: hidden;
 }
 
 .product-image img {
     width: 100%;
+
     display: block;
 
-    transition: transform .4s ease;
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    transition: transform .25s ease;
 }
 
 .product-image:hover img {
-    transform: scale(1.03);
+    transform: scale(1.025);
 }
 
 .image-label {
     text-align: center;
-    padding: 10px;
+
+    background: #fff;
+
+    padding: 9px;
+
     font-size: 12px;
-    font-weight: 700;
-    background: white;
+
+    font-weight: 800;
 }
 
-/* PRODUCT DETAILS */
+/* ================= DETAILS ================= */
 
-.product-details h3 {
+.product-details h2 {
     font-size: 32px;
     font-weight: 900;
 }
@@ -345,32 +341,36 @@ header {
 .price {
     font-size: 22px;
     font-weight: 700;
-    margin: 12px 0 30px;
+
+    margin: 10px 0 28px;
 }
 
-/* COLOURS */
-
 .option-title {
-    font-weight: 800;
-    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 900;
+
+    margin-bottom: 11px;
 }
 
 .colours {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
-    margin-bottom: 30px;
+
+    gap: 8px;
+
+    margin-bottom: 28px;
 }
 
 .colour-btn {
-    padding: 11px 17px;
+    background: #fff;
 
     border: 1px solid #bbb;
-    background: white;
+
+    padding: 11px 16px;
 
     cursor: pointer;
 
-    font-weight: 600;
+    font-weight: 700;
 
     border-radius: 4px;
 }
@@ -378,25 +378,25 @@ header {
 .colour-btn.active {
     background: #000;
     color: #fff;
+
     border-color: #000;
 }
 
-/* SIZES */
-
 .sizes {
     display: flex;
-    gap: 8px;
     flex-wrap: wrap;
 
-    margin-bottom: 30px;
+    gap: 7px;
+
+    margin-bottom: 28px;
 }
 
 .size-btn {
-    min-width: 52px;
+    min-width: 50px;
 
-    padding: 12px;
+    padding: 12px 10px;
 
-    background: white;
+    background: #fff;
 
     border: 1px solid #bbb;
 
@@ -406,44 +406,59 @@ header {
 }
 
 .size-btn.active {
-    background: black;
-    color: white;
-    border-color: black;
-}
+    background: #000;
+    color: #fff;
 
-/* ADD TO CART */
+    border-color: #000;
+}
 
 .add-cart {
     width: 100%;
+
+    border: none;
 
     padding: 17px;
 
     background: #000;
     color: #fff;
 
-    border: none;
-
-    font-size: 16px;
-    font-weight: 800;
-
     cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 900;
 }
 
 .add-cart:hover {
-    background: #333;
+    background: #222;
 }
 
 /* ================= COMING SOON ================= */
 
 .coming-soon {
-    margin-top: 40px;
-
-    min-height: 500px;
+    margin-top: 20px;
 
     background: #111;
-    color: white;
+    color: #fff;
 
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 600px;
+}
+
+.coming-image {
+    width: 100%;
+    height: 600px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.coming-text {
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -452,14 +467,17 @@ header {
     padding: 40px;
 }
 
-.coming-soon h2 {
-    font-size: clamp(40px, 7vw, 75px);
+.coming-text h2 {
+    font-size: clamp(38px, 6vw, 70px);
     font-weight: 900;
 }
 
-.coming-soon p {
+.coming-text p {
     margin-top: 15px;
-    font-size: 18px;
+
+    color: #ccc;
+
+    font-size: 17px;
 }
 
 /* ================= CART ================= */
@@ -468,24 +486,24 @@ header {
     position: fixed;
 
     top: 0;
-    right: -420px;
+    right: -430px;
 
-    width: 400px;
-    max-width: 90%;
+    width: 410px;
+    max-width: 92%;
 
     height: 100vh;
 
-    background: white;
+    background: #fff;
 
-    z-index: 3000;
+    z-index: 4000;
 
-    box-shadow: -5px 0 25px rgba(0,0,0,.15);
+    box-shadow: -5px 0 25px rgba(0,0,0,.18);
 
-    padding: 30px;
-
-    transition: right .3s ease;
+    padding: 28px;
 
     overflow-y: auto;
+
+    transition: right .25s ease;
 }
 
 .cart-panel.open {
@@ -494,20 +512,23 @@ header {
 
 .cart-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
 }
 
 .close-cart {
-    font-size: 25px;
+    font-size: 30px;
+
     cursor: pointer;
 }
 
 .cart-item {
     display: flex;
-    gap: 15px;
+
+    gap: 14px;
 
     padding: 15px 0;
 
@@ -515,7 +536,7 @@ header {
 }
 
 .cart-item img {
-    width: 80px;
+    width: 82px;
     height: 100px;
 
     object-fit: cover;
@@ -527,6 +548,7 @@ header {
 
 .cart-item-info p {
     font-size: 13px;
+
     color: #555;
 
     margin-top: 4px;
@@ -537,30 +559,30 @@ header {
 
     margin-top: 25px;
 
-    padding: 15px;
+    padding: 16px;
 
-    background: #111;
-    color: white;
+    background: #000;
+    color: #fff;
 
     text-align: center;
 
     text-decoration: none;
 
-    font-weight: 800;
+    font-weight: 900;
 }
 
-/* ================= IMAGE ZOOM ================= */
+/* ================= LIGHTBOX ================= */
 
 .lightbox {
+    display: none;
+
     position: fixed;
 
     inset: 0;
 
-    background: rgba(0,0,0,.9);
+    background: rgba(0,0,0,.92);
 
     z-index: 5000;
-
-    display: none;
 
     align-items: center;
     justify-content: center;
@@ -577,19 +599,17 @@ header {
     max-height: 90vh;
 
     object-fit: contain;
-
-    cursor: zoom-in;
 }
 
 .close-lightbox {
     position: absolute;
 
-    top: 20px;
-    right: 30px;
+    top: 15px;
+    right: 25px;
 
-    color: white;
+    color: #fff;
 
-    font-size: 40px;
+    font-size: 42px;
 
     cursor: pointer;
 }
@@ -602,34 +622,39 @@ footer {
     text-align: center;
 
     padding: 50px 20px;
-
-    margin-top: 70px;
 }
 
 footer h3 {
     font-size: 25px;
+
     letter-spacing: 2px;
 }
 
 footer p {
-    margin-top: 12px;
     color: #555;
+
+    margin-top: 10px;
 }
 
 .copyright {
-    margin-top: 25px;
+    margin-top: 22px;
+
     font-size: 13px;
 }
 
 /* ================= MOBILE ================= */
 
-@media (max-width: 800px) {
+@media(max-width:800px) {
 
     header {
-        padding: 0 18px;
+        padding: 0 16px;
     }
 
-    .nav a {
+    .nav {
+        gap: 16px;
+    }
+
+    .nav-button {
         display: none;
     }
 
@@ -637,41 +662,50 @@ footer p {
         font-size: 20px;
     }
 
-    .categories {
+    .collection-grid {
         grid-template-columns: 1fr;
+
         padding: 0 15px 50px;
     }
 
-    .category-card {
-        height: 55vh;
+    .collection-card {
+        height: 52vh;
         min-height: 350px;
     }
 
-    .category-overlay h3 {
-        font-size: 34px;
+    .collection-overlay h2 {
+        font-size: 36px;
     }
 
-    .product {
+    .product-screen {
+        padding: 25px 15px 60px;
+    }
+
+    .product-layout {
         grid-template-columns: 1fr;
-        gap: 30px;
+
+        gap: 28px;
     }
 
     .product-images {
         grid-template-columns: 1fr 1fr;
     }
 
-    .product-section {
-        padding: 60px 15px;
+    .coming-soon {
+        grid-template-columns: 1fr;
+
+        min-height: auto;
     }
 
-    .product-heading h2 {
-        font-size: 36px;
+    .coming-image {
+        height: 430px;
     }
 
-    .hero {
-        min-height: 60vh;
+    .coming-text {
+        min-height: 300px;
     }
 }
+
 </style>
 </head>
 
@@ -681,10 +715,9 @@ footer p {
 
 <header>
 
-<a href="#" class="brand">
+<a href="#" class="brand" onclick="showCollections(); return false;">
 
-    <!-- YOUR NEW BLACK SUMS LOGO -->
-    <img src="sums-black-logo.png" alt="SUMS Logo">
+    <img src="sums-black-logo.png" alt="SUMS">
 
     <span>SUMS</span>
 
@@ -692,9 +725,17 @@ footer p {
 
 <nav class="nav">
 
-    <a href="#hoodies">Hoodies</a>
+    <button
+        class="nav-button"
+        onclick="showHoodies()">
+        HOODIES
+    </button>
 
-    <a href="#tshirts">T-Shirts</a>
+    <button
+        class="nav-button"
+        onclick="showTshirts()">
+        T-SHIRTS
+    </button>
 
     <span class="search">⌕</span>
 
@@ -703,412 +744,498 @@ footer p {
         <span class="cart-count" id="cartCount">0</span>
     </div>
 
-    <span class="menu">☰</span>
-
 </nav>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =====================================================
+     COLLECTION SCREEN
+===================================================== -->
 
-<section class="hero">
+<main id="collectionsScreen" class="screen active">
 
-<div class="hero-content">
+<section class="collection-intro">
 
     <h1>SUMS</h1>
 
-    <p>Premium streetwear made for those who refuse to blend in.</p>
-
-    <a href="#collections" class="hero-button">
-        Shop Collection
-    </a>
-
-</div>
+    <p>
+        Premium streetwear made for those who refuse to blend in.
+    </p>
 
 </section>
 
 
-<!-- ================= CATEGORY SELECTION ================= -->
-
-<section id="collections">
-
-<div class="category-title">
-
-    <h2>SHOP SUMS</h2>
-
-    <p>Choose your collection.</p>
-
-</div>
-
-
-<div class="categories">
+<div class="collection-grid">
 
     <!-- HOODIES -->
 
-    <a href="#hoodies" class="category-card">
+    <button
+        class="collection-card"
+        onclick="showHoodies()">
 
         <img
             src="white-hoodie.jpg"
-            alt="SUMS Hoodie"
+            alt="SUMS Hoodies"
+            loading="eager"
         >
 
-        <div class="category-overlay">
+        <div class="collection-overlay">
 
-            <h3>HOODIES</h3>
+            <h2>HOODIES</h2>
 
-            <p>Premium everyday streetwear.</p>
+            <p>
+                Explore the SUMS hoodie collection.
+            </p>
 
-            <span class="shop-link">
-                Shop Hoodies
+            <span class="shop-button">
+                SHOP HOODIES
             </span>
 
         </div>
 
-    </a>
+    </button>
 
 
     <!-- T-SHIRTS -->
 
-    <a href="#tshirts" class="category-card">
+    <button
+        class="collection-card"
+        onclick="showTshirts()">
 
         <img
             src="grey-tshirt.jpg"
-            alt="SUMS T-Shirt"
+            alt="SUMS T-Shirts"
+            loading="eager"
         >
 
-        <div class="category-overlay">
+        <div class="collection-overlay">
 
-            <h3>T-SHIRTS</h3>
+            <h2>T-SHIRTS</h2>
 
-            <p>Clean essentials by SUMS.</p>
+            <p>
+                Explore the SUMS T-shirt collection.
+            </p>
 
-            <span class="shop-link">
-                Shop T-Shirts
+            <span class="shop-button">
+                SHOP T-SHIRTS
             </span>
 
         </div>
 
-    </a>
-
-</div>
-
-</section>
-
-
-<!-- ================= HOODIES ================= -->
-
-<section class="product-section" id="hoodies">
-
-<div class="product-heading">
-
-    <h2>HOODIES</h2>
-
-    <p>Premium SUMS streetwear.</p>
-
-</div>
-
-
-<div class="product">
-
-<div class="product-images">
-
-    <div class="product-image" onclick="zoomImage('hoodieFront')">
-
-        <img
-            id="hoodieFront"
-            src="white-hoodie.jpg"
-            alt="SUMS Hoodie Front"
-        >
-
-        <div class="image-label">
-            FRONT
-        </div>
-
-    </div>
-
-
-    <div class="product-image" onclick="zoomImage('hoodieBack')">
-
-        <img
-            id="hoodieBack"
-            src="white-hoodie-back.jpg"
-            alt="SUMS Hoodie Back"
-        >
-
-        <div class="image-label">
-            BACK
-        </div>
-
-    </div>
-
-</div>
-
-
-<div class="product-details">
-
-    <h3>SUMS Hoodie</h3>
-
-    <div class="price">
-        R700
-    </div>
-
-
-    <div class="option-title">
-        COLOUR
-    </div>
-
-    <div class="colours">
-
-        <button
-            class="colour-btn active"
-            onclick="changeHoodie('white', this)">
-            White
-        </button>
-
-        <button
-            class="colour-btn"
-            onclick="changeHoodie('grey', this)">
-            Grey
-        </button>
-
-        <button
-            class="colour-btn"
-            onclick="changeHoodie('brown', this)">
-            Brown
-        </button>
-
-    </div>
-
-
-    <div class="option-title">
-        SIZE
-    </div>
-
-    <div class="sizes">
-
-        <button class="size-btn" onclick="selectSize(this)">
-            XS
-        </button>
-
-        <button class="size-btn" onclick="selectSize(this)">
-            S
-        </button>
-
-        <button class="size-btn active" onclick="selectSize(this)">
-            M
-        </button>
-
-        <button class="size-btn" onclick="selectSize(this)">
-            L
-        </button>
-
-        <button class="size-btn" onclick="selectSize(this)">
-            XL
-        </button>
-
-        <button class="size-btn" onclick="selectSize(this)">
-            XXL
-        </button>
-
-    </div>
-
-
-    <button
-        class="add-cart"
-        onclick="addToCart('SUMS Hoodie', 700, hoodieColour, hoodieSize, document.getElementById('hoodieFront').src)">
-        ADD TO CART
     </button>
 
 </div>
 
-</div>
 
-</section>
-
-
-<!-- ================= T-SHIRTS ================= -->
-
-<section class="product-section" id="tshirts">
-
-<div class="product-heading">
-
-    <h2>T-SHIRTS</h2>
-
-    <p>Premium SUMS essentials.</p>
-
-</div>
-
-
-<div class="product">
-
-<div class="product-images">
-
-    <div class="product-image" onclick="zoomImage('tshirtFront')">
-
-        <img
-            id="tshirtFront"
-            src="grey-tshirt.jpg"
-            alt="SUMS T-Shirt Front"
-        >
-
-        <div class="image-label">
-            FRONT
-        </div>
-
-    </div>
-
-
-    <div class="product-image" onclick="zoomImage('tshirtBack')">
-
-        <img
-            id="tshirtBack"
-            src="grey-tshirt-back.jpg"
-            alt="SUMS T-Shirt Back"
-        >
-
-        <div class="image-label">
-            BACK
-        </div>
-
-    </div>
-
-</div>
-
-
-<div class="product-details">
-
-    <h3>SUMS T-Shirt</h3>
-
-    <div class="price">
-        R400
-    </div>
-
-
-    <div class="option-title">
-        COLOUR
-    </div>
-
-    <div class="colours">
-
-        <button
-            class="colour-btn active"
-            onclick="changeTshirt('grey', this)">
-            Grey
-        </button>
-
-        <button
-            class="colour-btn"
-            onclick="changeTshirt('skyblue', this)">
-            Sky Blue
-        </button>
-
-        <button
-            class="colour-btn"
-            onclick="changeTshirt('navy', this)">
-            Navy
-        </button>
-
-    </div>
-
-
-    <div class="option-title">
-        SIZE
-    </div>
-
-    <div class="sizes">
-
-        <button class="size-btn" onclick="selectSize(this)">
-            XS
-        </button>
-
-        <button class="size-btn" onclick="selectSize(this)">
-            S
-        </button>
-
-        <button class="size-btn active" onclick="selectSize(this)">
-            M
-        </button>
-
-        <button class="size-btn" onclick="selectSize(this)">
-            L
-        </button>
-
-        <button class="size-btn" onclick="selectSize(this)">
-            XL
-        </button>
-
-        <button class="size-btn" onclick="selectSize(this)">
-            XXL
-        </button>
-
-    </div>
-
-
-    <button
-        class="add-cart"
-        onclick="addToCart('SUMS T-Shirt', 400, tshirtColour, tshirtSize, document.getElementById('tshirtFront').src)">
-        ADD TO CART
-    </button>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= COMING SOON ================= -->
+<!-- COMING SOON -->
 
 <section class="coming-soon">
 
-<div>
+    <img
+        class="coming-image"
+        src="founder-hoodie-front.jpg"
+        alt="SUMS Hoodie-5120 Founder Edition"
+        loading="lazy"
+    >
 
-    <h2>PREMIUM<br>COMING SOON</h2>
+    <div class="coming-text">
 
-    <p>
-        A new SUMS collection is on the way.
-    </p>
+        <div>
 
-</div>
+            <h2>
+                SUMS HOODIE-5120
+                <br>
+                FOUNDER EDITION
+            </h2>
+
+            <p>
+                Premium SUMS collection coming soon.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
+
+</main>
+
+
+<!-- =====================================================
+     HOODIE SCREEN
+===================================================== -->
+
+<main
+    id="hoodieScreen"
+    class="screen">
+
+<section class="product-screen">
+
+    <button
+        class="back-button"
+        onclick="showCollections()">
+
+        ← Back to Collections
+
+    </button>
+
+
+    <div class="product-title">
+
+        <h1>HOODIES</h1>
+
+        <p>
+            Choose your colour and size.
+        </p>
+
+    </div>
+
+
+    <div class="product-layout">
+
+        <div class="product-images">
+
+            <div
+                class="product-image"
+                onclick="zoomImage('hoodieFront')">
+
+                <img
+                    id="hoodieFront"
+                    src="white-hoodie.jpg"
+                    alt="SUMS Hoodie Front"
+                >
+
+                <div class="image-label">
+                    FRONT
+                </div>
+
+            </div>
+
+
+            <div
+                class="product-image"
+                onclick="zoomImage('hoodieBack')">
+
+                <img
+                    id="hoodieBack"
+                    src="white-hoodie-back.jpg"
+                    alt="SUMS Hoodie Back"
+                >
+
+                <div class="image-label">
+                    BACK
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-details">
+
+            <h2>SUMS Hoodie</h2>
+
+            <div class="price">
+                R700
+            </div>
+
+
+            <div class="option-title">
+                COLOUR
+            </div>
+
+            <div class="colours">
+
+                <button
+                    class="colour-btn active"
+                    onclick="changeHoodie('white',this)">
+                    WHITE
+                </button>
+
+                <button
+                    class="colour-btn"
+                    onclick="changeHoodie('grey',this)">
+                    GREY
+                </button>
+
+                <button
+                    class="colour-btn"
+                    onclick="changeHoodie('brown',this)">
+                    BROWN
+                </button>
+
+            </div>
+
+
+            <div class="option-title">
+                SIZE
+            </div>
+
+            <div class="sizes">
+
+                <button
+                    class="size-btn"
+                    onclick="chooseHoodieSize(this)">
+                    XS
+                </button>
+
+                <button
+                    class="size-btn"
+                    onclick="chooseHoodieSize(this)">
+                    S
+                </button>
+
+                <button
+                    class="size-btn active"
+                    onclick="chooseHoodieSize(this)">
+                    M
+                </button>
+
+                <button
+                    class="size-btn"
+                    onclick="chooseHoodieSize(this)">
+                    L
+                </button>
+
+                <button
+                    class="size-btn"
+                    onclick="chooseHoodieSize(this)">
+                    XL
+                </button>
+
+                <button
+                    class="size-btn"
+                    onclick="chooseHoodieSize(this)">
+                    XXL
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addHoodie()">
+
+                ADD TO CART
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     T-SHIRT SCREEN
+===================================================== -->
+
+<main
+    id="tshirtScreen"
+    class="screen">
+
+<section class="product-screen">
+
+    <button
+        class="back-button"
+        onclick="showCollections()">
+
+        ← Back to Collections
+
+    </button>
+
+
+    <div class="product-title">
+
+        <h1>T-SHIRTS</h1>
+
+        <p>
+            Choose your colour and size.
+        </p>
+
+    </div>
+
+
+    <div class="product-layout">
+
+        <div class="product-images">
+
+            <div
+                class="product-image"
+                onclick="zoomImage('tshirtFront')">
+
+                <img
+                    id="tshirtFront"
+                    src="grey-tshirt.jpg"
+                    alt="SUMS T-Shirt Front"
+                >
+
+                <div class="image-label">
+                    FRONT
+                </div>
+
+            </div>
+
+
+            <div
+                class="product-image"
+                onclick="zoomImage('tshirtBack')">
+
+                <img
+                    id="tshirtBack"
+                    src="grey-tshirt-back.jpg"
+                    alt="SUMS T-Shirt Back"
+                >
+
+                <div class="image-label">
+                    BACK
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-details">
+
+            <h2>SUMS T-Shirt</h2>
+
+            <div class="price">
+                R400
+            </div>
+
+
+            <div class="option-title">
+                COLOUR
+            </div>
+
+            <div class="colours">
+
+                <button
+                    class="colour-btn active"
+                    onclick="changeTshirt('grey',this)">
+                    GREY
+                </button>
+
+                <button
+                    class="colour-btn"
+                    onclick="changeTshirt('skyblue',this)">
+                    SKY BLUE
+                </button>
+
+                <button
+                    class="colour-btn"
+                    onclick="changeTshirt('navy',this)">
+                    NAVY
+                </button>
+
+            </div>
+
+
+            <div class="option-title">
+                SIZE
+            </div>
+
+            <div class="sizes">
+
+                <button
+                    class="size-btn"
+                    onclick="chooseTshirtSize(this)">
+                    XS
+                </button>
+
+                <button
+                    class="size-btn"
+                    onclick="chooseTshirtSize(this)">
+                    S
+                </button>
+
+                <button
+                    class="size-btn active"
+                    onclick="chooseTshirtSize(this)">
+                    M
+                </button>
+
+                <button
+                    class="size-btn"
+                    onclick="chooseTshirtSize(this)">
+                    L
+                </button>
+
+                <button
+                    class="size-btn"
+                    onclick="chooseTshirtSize(this)">
+                    XL
+                </button>
+
+                <button
+                    class="size-btn"
+                    onclick="chooseTshirtSize(this)">
+                    XXL
+                </button>
+
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addTshirt()">
+
+                ADD TO CART
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
 
 
 <!-- ================= CART ================= -->
 
-<div class="cart-panel" id="cartPanel">
+<div
+    class="cart-panel"
+    id="cartPanel">
 
-<div class="cart-header">
+    <div class="cart-header">
 
-    <h2>Your Cart</h2>
+        <h2>Your Cart</h2>
 
-    <span
-        class="close-cart"
-        onclick="closeCart()">
-        ×
-    </span>
+        <span
+            class="close-cart"
+            onclick="closeCart()">
 
-</div>
+            ×
 
+        </span>
 
-<div id="cartItems">
-
-    <p>Your cart is empty.</p>
-
-</div>
+    </div>
 
 
-<a
-    class="whatsapp-order"
-    id="whatsappOrder"
-    href="#"
-    target="_blank"
-    style="display:none;">
+    <div id="cartItems">
 
-    ORDER VIA WHATSAPP
+        <p>Your cart is empty.</p>
 
-</a>
+    </div>
+
+
+    <a
+        id="whatsappOrder"
+        class="whatsapp-order"
+        href="#"
+        target="_blank"
+        style="display:none;">
+
+        ORDER VIA WHATSAPP
+
+    </a>
 
 </div>
 
@@ -1146,12 +1273,8 @@ South African streetwear.
 WhatsApp: 079 626 5589
 </p>
 
-<p>
-Contact us to place your order.
-</p>
-
 <div class="copyright">
-    © 2026 SUMS. All rights reserved.
+© 2026 SUMS. All rights reserved.
 </div>
 
 </footer>
@@ -1159,24 +1282,126 @@ Contact us to place your order.
 
 <script>
 
-/* ================= HOODIE COLOURS ================= */
+/* =====================================================
+   FAST IMAGE PRELOADING
+===================================================== */
+
+const imageFiles = [
+
+    "white-hoodie.jpg",
+    "white-hoodie-back.jpg",
+
+    "grey-hoodie.jpg",
+    "grey-hoodie-back.jpg",
+
+    "brown-hoodie.jpg",
+    "brown-hoodie-back.jpg",
+
+    "grey-tshirt.jpg",
+    "grey-tshirt-back.jpg",
+
+    "skyblue-tshirt.jpg",
+    "skyblue-tshirt-back.jpg",
+
+    "navy-tshirt.jpg",
+    "navy-tshirt-back.jpg",
+
+    "founder-hoodie-front.jpg",
+    "founder-hoodie-back.jpg"
+
+];
+
+imageFiles.forEach(file => {
+
+    const img = new Image();
+
+    img.src = file;
+
+});
+
+
+/* =====================================================
+   SCREEN SWITCHING
+===================================================== */
+
+function hideAllScreens() {
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
+
+            screen.classList.remove("active");
+
+        });
+
+}
+
+
+function showCollections() {
+
+    hideAllScreens();
+
+    document
+        .getElementById("collectionsScreen")
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+
+function showHoodies() {
+
+    hideAllScreens();
+
+    document
+        .getElementById("hoodieScreen")
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+
+function showTshirts() {
+
+    hideAllScreens();
+
+    document
+        .getElementById("tshirtScreen")
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   HOODIE COLOURS
+===================================================== */
 
 let hoodieColour = "White";
+
 let hoodieSize = "M";
 
-function changeHoodie(colour, button) {
+
+function changeHoodie(colour,button) {
 
     hoodieColour =
         colour.charAt(0).toUpperCase() +
         colour.slice(1);
 
-    document.querySelectorAll(
-        '#hoodies .colour-btn'
-    ).forEach(btn => {
-        btn.classList.remove('active');
-    });
 
-    button.classList.add('active');
+    document
+        .querySelectorAll("#hoodieScreen .colour-btn")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    button.classList.add("active");
 
 
     const front =
@@ -1189,20 +1414,25 @@ function changeHoodie(colour, button) {
     if (colour === "white") {
 
         front.src = "white-hoodie.jpg";
+
         back.src = "white-hoodie-back.jpg";
 
     }
 
+
     if (colour === "grey") {
 
         front.src = "grey-hoodie.jpg";
+
         back.src = "grey-hoodie-back.jpg";
 
     }
 
+
     if (colour === "brown") {
 
         front.src = "brown-hoodie.jpg";
+
         back.src = "brown-hoodie-back.jpg";
 
     }
@@ -1210,24 +1440,34 @@ function changeHoodie(colour, button) {
 }
 
 
-/* ================= T-SHIRT COLOURS ================= */
+/* =====================================================
+   T-SHIRT COLOURS
+===================================================== */
 
 let tshirtColour = "Grey";
+
 let tshirtSize = "M";
 
-function changeTshirt(colour, button) {
+
+function changeTshirt(colour,button) {
 
     tshirtColour =
-        colour.charAt(0).toUpperCase() +
-        colour.slice(1);
+        colour === "skyblue"
+        ? "Sky Blue"
+        : colour.charAt(0).toUpperCase() +
+          colour.slice(1);
 
-    document.querySelectorAll(
-        '#tshirts .colour-btn'
-    ).forEach(btn => {
-        btn.classList.remove('active');
-    });
 
-    button.classList.add('active');
+    document
+        .querySelectorAll("#tshirtScreen .colour-btn")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    button.classList.add("active");
 
 
     const front =
@@ -1240,20 +1480,25 @@ function changeTshirt(colour, button) {
     if (colour === "grey") {
 
         front.src = "grey-tshirt.jpg";
+
         back.src = "grey-tshirt-back.jpg";
 
     }
 
+
     if (colour === "skyblue") {
 
         front.src = "skyblue-tshirt.jpg";
+
         back.src = "skyblue-tshirt-back.jpg";
 
     }
 
+
     if (colour === "navy") {
 
         front.src = "navy-tshirt.jpg";
+
         back.src = "navy-tshirt-back.jpg";
 
     }
@@ -1261,90 +1506,106 @@ function changeTshirt(colour, button) {
 }
 
 
-/* ================= SIZES ================= */
+/* =====================================================
+   SIZES
+===================================================== */
 
-function selectSize(button) {
+function chooseHoodieSize(button) {
 
-    const section =
-        button.closest(".product-section");
-
-    section
-        .querySelectorAll(".size-btn")
+    document
+        .querySelectorAll("#hoodieScreen .size-btn")
         .forEach(btn => {
+
             btn.classList.remove("active");
+
         });
+
 
     button.classList.add("active");
 
-
-    const selectedSize =
+    hoodieSize =
         button.innerText.trim();
 
+}
 
-    if (section.id === "hoodies") {
-        hoodieSize = selectedSize;
-    }
 
-    if (section.id === "tshirts") {
-        tshirtSize = selectedSize;
-    }
+function chooseTshirtSize(button) {
+
+    document
+        .querySelectorAll("#tshirtScreen .size-btn")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    button.classList.add("active");
+
+    tshirtSize =
+        button.innerText.trim();
 
 }
 
 
-/* ================= IMAGE ZOOM ================= */
-
-function zoomImage(id) {
-
-    const image =
-        document.getElementById(id);
-
-    document.getElementById(
-        "lightboxImage"
-    ).src = image.src;
-
-    document.getElementById(
-        "lightbox"
-    ).classList.add("open");
-
-}
-
-
-function closeLightbox() {
-
-    document.getElementById(
-        "lightbox"
-    ).classList.remove("open");
-
-}
-
-
-/* ================= CART ================= */
+/* =====================================================
+   CART
+===================================================== */
 
 let cart = [];
 
 
-function addToCart(
-    name,
-    price,
-    colour,
-    size,
-    image
-) {
+function addHoodie() {
 
-    cart.push({
-        name,
-        price,
-        colour,
-        size,
-        image
+    addToCart({
+
+        name: "SUMS Hoodie",
+
+        price: 700,
+
+        colour: hoodieColour,
+
+        size: hoodieSize,
+
+        image:
+            document.getElementById(
+                "hoodieFront"
+            ).src
+
     });
 
+}
+
+
+function addTshirt() {
+
+    addToCart({
+
+        name: "SUMS T-Shirt",
+
+        price: 400,
+
+        colour: tshirtColour,
+
+        size: tshirtSize,
+
+        image:
+            document.getElementById(
+                "tshirtFront"
+            ).src
+
+    });
+
+}
+
+
+function addToCart(item) {
+
+    cart.push(item);
 
     document.getElementById(
         "cartCount"
     ).innerText = cart.length;
-
 
     renderCart();
 
@@ -1356,10 +1617,14 @@ function addToCart(
 function renderCart() {
 
     const container =
-        document.getElementById("cartItems");
+        document.getElementById(
+            "cartItems"
+        );
 
     const whatsapp =
-        document.getElementById("whatsappOrder");
+        document.getElementById(
+            "whatsappOrder"
+        );
 
 
     if (cart.length === 0) {
@@ -1382,7 +1647,7 @@ function renderCart() {
         "Hello SUMS, I would like to order:%0A%0A";
 
 
-    cart.forEach((item, index) => {
+    cart.forEach((item,index) => {
 
         container.innerHTML += `
 
@@ -1419,15 +1684,13 @@ function renderCart() {
 
 
         message +=
-            `${index + 1}. ${item.name} - ` +
-            `${item.colour} - Size ${item.size} - ` +
+            `${index + 1}. ` +
+            `${item.name} | ` +
+            `${item.colour} | ` +
+            `Size ${item.size} | ` +
             `R${item.price}%0A`;
 
     });
-
-
-    message +=
-        "%0APlease confirm my order.";
 
 
     whatsapp.href =
@@ -1455,6 +1718,37 @@ function closeCart() {
     document
         .getElementById("cartPanel")
         .classList.remove("open");
+
+}
+
+
+/* =====================================================
+   ZOOM
+===================================================== */
+
+function zoomImage(id) {
+
+    const image =
+        document.getElementById(id);
+
+
+    document.getElementById(
+        "lightboxImage"
+    ).src = image.src;
+
+
+    document.getElementById(
+        "lightbox"
+    ).classList.add("open");
+
+}
+
+
+function closeLightbox() {
+
+    document.getElementById(
+        "lightbox"
+    ).classList.remove("open");
 
 }
 
