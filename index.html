@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SUMS — Streetwear</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>SUMS — Premium Streetwear</title>
+
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
     margin: 0;
@@ -27,14 +38,16 @@ body {
 
 
 /* =====================================================
-   LOADING SCREEN — 5 SECONDS
+   LOADING SCREEN
 ===================================================== */
 
 #loader {
     position: fixed;
     inset: 0;
+
     background: #000;
     color: #fff;
+
     z-index: 10000;
 
     display: flex;
@@ -42,8 +55,8 @@ body {
     justify-content: center;
 
     transition:
-        opacity .7s ease,
-        visibility .7s ease;
+        opacity .5s ease,
+        visibility .5s ease;
 }
 
 #loader.hide {
@@ -59,6 +72,7 @@ body {
 .loader-logo {
     width: 90px;
     height: 90px;
+
     object-fit: contain;
 
     animation:
@@ -67,8 +81,10 @@ body {
 
 .loader-name {
     margin-top: 20px;
+
     font-size: 34px;
     font-weight: 900;
+
     letter-spacing: 7px;
 
     animation:
@@ -78,7 +94,9 @@ body {
 .loader-line {
     width: 130px;
     height: 2px;
+
     background: #fff;
+
     margin: 22px auto 0;
 
     transform-origin: center;
@@ -90,15 +108,21 @@ body {
 @keyframes loaderSpin {
 
     0% {
-        transform: rotateY(0deg) scale(.85);
+        transform:
+            rotateY(0deg)
+            scale(.85);
     }
 
     50% {
-        transform: rotateY(180deg) scale(1);
+        transform:
+            rotateY(180deg)
+            scale(1);
     }
 
     100% {
-        transform: rotateY(360deg) scale(.85);
+        transform:
+            rotateY(360deg)
+            scale(.85);
     }
 
 }
@@ -139,7 +163,9 @@ body {
 
 header {
     height: 78px;
+
     background: #fff;
+
     border-bottom: 1px solid #ddd;
 
     display: flex;
@@ -157,15 +183,18 @@ header {
 .brand {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
     color: #000;
+
     text-decoration: none;
 }
 
 .brand-logo {
     width: 44px;
     height: 44px;
+
     object-fit: contain;
 
     animation:
@@ -196,7 +225,9 @@ header {
 
 .brand-name {
     font-size: 25px;
+
     font-weight: 900;
+
     letter-spacing: 2px;
 }
 
@@ -208,16 +239,29 @@ header {
 .nav {
     display: flex;
     align-items: center;
+
     gap: 24px;
 }
 
 .nav-button {
     border: none;
+
     background: transparent;
+
     cursor: pointer;
 
     font-size: 13px;
+
     font-weight: 800;
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+.nav-button:hover {
+    opacity: .55;
+    transform: translateY(-1px);
 }
 
 .search {
@@ -226,7 +270,9 @@ header {
 
 .cart {
     position: relative;
+
     font-size: 23px;
+
     cursor: pointer;
 }
 
@@ -262,6 +308,33 @@ header {
 
 .screen.active {
     display: block;
+
+    animation:
+        pageFlip .65s ease both;
+}
+
+@keyframes pageFlip {
+
+    0% {
+        opacity: 0;
+        transform:
+            perspective(1400px)
+            rotateY(-90deg);
+        transform-origin: center right;
+    }
+
+    55% {
+        opacity: .7;
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            perspective(1400px)
+            rotateY(0deg);
+        transform-origin: center center;
+    }
+
 }
 
 
@@ -273,6 +346,7 @@ header {
     min-height: 82vh;
 
     position: relative;
+
     overflow: hidden;
 
     display: flex;
@@ -306,7 +380,8 @@ header {
         translate(-50%, -50%)
         scale(1.8);
 
-    font-size: clamp(100px, 25vw, 320px);
+    font-size:
+        clamp(100px, 25vw, 320px);
 
     font-weight: 900;
 
@@ -327,7 +402,9 @@ header {
     width: 500px;
     height: 500px;
 
-    border: 1px solid rgba(255,255,255,.08);
+    border:
+        1px solid
+        rgba(255,255,255,.08);
 
     border-radius: 50%;
 
@@ -340,11 +417,15 @@ header {
 @keyframes heroCircle {
 
     from {
-        transform: rotate(0deg) scale(1);
+        transform:
+            rotate(0deg)
+            scale(1);
     }
 
     to {
-        transform: rotate(360deg) scale(1.2);
+        transform:
+            rotate(360deg)
+            scale(1.2);
     }
 
 }
@@ -353,6 +434,7 @@ header {
     max-width: 950px;
 
     position: relative;
+
     z-index: 2;
 
     animation:
@@ -374,7 +456,8 @@ header {
 }
 
 .hero h1 {
-    font-size: clamp(70px, 15vw, 180px);
+    font-size:
+        clamp(70px, 15vw, 180px);
 
     font-weight: 900;
 
@@ -388,7 +471,8 @@ header {
 .hero-tagline {
     margin-top: 30px;
 
-    font-size: clamp(18px, 3vw, 28px);
+    font-size:
+        clamp(18px, 3vw, 28px);
 
     font-weight: 700;
 
@@ -422,6 +506,7 @@ header {
 
 .hero-button:hover {
     transform: translateY(-4px);
+
     background: #ddd;
 }
 
@@ -432,84 +517,70 @@ header {
 
 .collection-intro {
     text-align: center;
-    padding: 70px 20px 35px;
+
+    padding:
+        70px 20px 35px;
 }
 
 .collection-intro h2 {
-    font-size: clamp(38px, 6vw, 65px);
+    font-size:
+        clamp(38px, 6vw, 65px);
+
     font-weight: 900;
 }
 
 .collection-intro p {
     margin-top: 10px;
+
     color: #666;
 }
 
 .collection-grid {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 18px;
 
-    padding: 0 25px 80px;
+    padding:
+        0 25px 80px;
 }
 
 .collection-card {
     height: 62vh;
+
     min-height: 430px;
 
     position: relative;
+
     overflow: hidden;
 
     cursor: pointer;
 
     border: none;
+
     padding: 0;
 
     background: #eee;
 
-    /* FLIP */
-    perspective: 1200px;
-}
-
-.collection-card-inner {
-    width: 100%;
-    height: 100%;
-
-    position: relative;
-
     transform-style: preserve-3d;
-
-    transition:
-        transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
-.collection-card:hover .collection-card-inner {
-    transform: rotateY(180deg);
-}
-
-.collection-front,
-.collection-back {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    backface-visibility: hidden;
-
-    -webkit-backface-visibility: hidden;
-}
-
-.collection-front img {
+.collection-card img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
     display: block;
+
+    transition:
+        transform .35s ease;
+}
+
+.collection-card:hover img {
+    transform: scale(1.03);
 }
 
 .collection-overlay {
@@ -534,6 +605,7 @@ header {
 
 .collection-overlay h3 {
     font-size: 45px;
+
     font-weight: 900;
 }
 
@@ -547,6 +619,7 @@ header {
     margin-top: 18px;
 
     background: #fff;
+
     color: #000;
 
     padding: 12px 22px;
@@ -554,53 +627,6 @@ header {
     border-radius: 25px;
 
     font-weight: 800;
-}
-
-
-/* FLIP BACK */
-
-.collection-back {
-    background: #111;
-
-    color: #fff;
-
-    transform: rotateY(180deg);
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 35px;
-}
-
-.flip-content h3 {
-    font-size: 48px;
-    font-weight: 900;
-}
-
-.flip-content p {
-    margin-top: 15px;
-    color: #bbb;
-}
-
-.flip-shop {
-    margin-top: 25px;
-
-    border: none;
-
-    background: #fff;
-    color: #000;
-
-    padding: 15px 28px;
-
-    border-radius: 30px;
-
-    font-weight: 900;
-
-    cursor: pointer;
 }
 
 
@@ -613,7 +639,8 @@ header {
 
     margin: auto;
 
-    padding: 35px 25px 80px;
+    padding:
+        35px 25px 80px;
 }
 
 .back-button {
@@ -639,7 +666,8 @@ header {
 }
 
 .product-title h1 {
-    font-size: clamp(45px, 7vw, 70px);
+    font-size:
+        clamp(45px, 7vw, 70px);
 
     font-weight: 900;
 }
@@ -653,7 +681,8 @@ header {
 .product-layout {
     display: grid;
 
-    grid-template-columns: 1.25fr .75fr;
+    grid-template-columns:
+        1.25fr .75fr;
 
     gap: 45px;
 
@@ -668,7 +697,8 @@ header {
 .product-images {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 14px;
 }
@@ -690,7 +720,8 @@ header {
 
     display: block;
 
-    transition: transform .25s ease;
+    transition:
+        transform .25s ease;
 }
 
 .product-image:hover img {
@@ -725,7 +756,8 @@ header {
 
     font-weight: 800;
 
-    margin: 10px 0 28px;
+    margin:
+        10px 0 28px;
 }
 
 .option-title {
@@ -749,7 +781,8 @@ header {
 .colour-btn {
     background: #fff;
 
-    border: 1px solid #bbb;
+    border:
+        1px solid #bbb;
 
     padding: 11px 16px;
 
@@ -785,7 +818,8 @@ header {
 
     background: #fff;
 
-    border: 1px solid #bbb;
+    border:
+        1px solid #bbb;
 
     cursor: pointer;
 
@@ -830,7 +864,7 @@ header {
 
 
 /* =====================================================
-   FOUNDER
+   FOUNDER EDITION
 ===================================================== */
 
 .founder-section {
@@ -842,7 +876,8 @@ header {
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     min-height: 620px;
 }
@@ -870,7 +905,8 @@ header {
 }
 
 .founder-content h2 {
-    font-size: clamp(38px, 5vw, 65px);
+    font-size:
+        clamp(38px, 5vw, 65px);
 
     line-height: .95;
 
@@ -925,9 +961,11 @@ header {
     position: fixed;
 
     top: 0;
+
     right: -430px;
 
     width: 410px;
+
     max-width: 92%;
 
     height: 100vh;
@@ -937,13 +975,15 @@ header {
     z-index: 4000;
 
     box-shadow:
-        -5px 0 25px rgba(0,0,0,.18);
+        -5px 0 25px
+        rgba(0,0,0,.18);
 
     padding: 28px;
 
     overflow-y: auto;
 
-    transition: right .25s ease;
+    transition:
+        right .25s ease;
 }
 
 .cart-panel.open {
@@ -973,7 +1013,8 @@ header {
 
     padding: 18px 0;
 
-    border-bottom: 1px solid #ddd;
+    border-bottom:
+        1px solid #ddd;
 }
 
 .cart-item img {
@@ -1002,6 +1043,11 @@ header {
     margin-top: 4px;
 }
 
+
+/* =====================================================
+   QUANTITY
+===================================================== */
+
 .quantity-row {
     display: flex;
 
@@ -1016,7 +1062,8 @@ header {
     width: 28px;
     height: 28px;
 
-    border: 1px solid #bbb;
+    border:
+        1px solid #bbb;
 
     background: #fff;
 
@@ -1041,6 +1088,11 @@ header {
     font-weight: 800;
 }
 
+
+/* =====================================================
+   REMOVE
+===================================================== */
+
 .remove-item {
     margin-top: 10px;
 
@@ -1063,12 +1115,18 @@ header {
     color: #000;
 }
 
+
+/* =====================================================
+   CART SUMMARY
+===================================================== */
+
 .cart-summary {
     margin-top: 25px;
 
     padding-top: 20px;
 
-    border-top: 2px solid #000;
+    border-top:
+        2px solid #000;
 }
 
 .cart-total-row {
@@ -1089,6 +1147,11 @@ header {
     letter-spacing: 1px;
 }
 
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
 .whatsapp-order {
     display: block;
 
@@ -1106,6 +1169,11 @@ header {
 
     font-weight: 900;
 }
+
+
+/* =====================================================
+   EMPTY CART
+===================================================== */
 
 .empty-cart {
     text-align: center;
@@ -1127,7 +1195,7 @@ header {
 
 
 /* =====================================================
-   ZOOM
+   LIGHTBOX
 ===================================================== */
 
 .lightbox {
@@ -1137,7 +1205,8 @@ header {
 
     inset: 0;
 
-    background: rgba(0,0,0,.92);
+    background:
+        rgba(0,0,0,.92);
 
     z-index: 5000;
 
@@ -1164,6 +1233,7 @@ header {
     position: absolute;
 
     top: 15px;
+
     right: 25px;
 
     color: #fff;
@@ -1216,12 +1286,11 @@ footer p {
     }
 
     .nav {
-        gap: 14px;
+        gap: 12px;
     }
 
     .nav-button {
-        display: block;
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .brand-name {
@@ -1231,6 +1300,14 @@ footer p {
     .brand-logo {
         width: 40px;
         height: 40px;
+    }
+
+    .search {
+        font-size: 21px;
+    }
+
+    .cart {
+        font-size: 21px;
     }
 
     .hero {
@@ -1275,7 +1352,8 @@ footer p {
     }
 
     .product-images {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
     .founder-section {
@@ -1291,7 +1369,8 @@ footer p {
     }
 
     .about {
-        padding: 65px 20px;
+        padding:
+            65px 20px;
     }
 
     .about h2 {
@@ -1316,7 +1395,46 @@ footer p {
 
 }
 
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media(max-width:450px) {
+
+    header {
+        height: 70px;
+    }
+
+    .brand {
+        gap: 5px;
+    }
+
+    .brand-name {
+        font-size: 17px;
+    }
+
+    .brand-logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    .nav {
+        gap: 8px;
+    }
+
+    .nav-button {
+        font-size: 8px;
+    }
+
+    .search {
+        display: none;
+    }
+
+}
+
 </style>
+
 </head>
 
 
@@ -1325,7 +1443,7 @@ footer p {
 
 <!-- =====================================================
      LOADING SCREEN
-     EXACTLY 5 SECONDS
+     2 SECONDS
 ===================================================== -->
 
 <div id="loader">
@@ -1351,7 +1469,6 @@ footer p {
 
 <!-- =====================================================
      HEADER
-     HOME / HOODIES / T-SHIRTS / ABOUT
 ===================================================== -->
 
 <header>
@@ -1377,6 +1494,9 @@ footer p {
 
 <nav class="nav">
 
+
+    <!-- HOME -->
+
     <button
         class="nav-button"
         onclick="showHome()"
@@ -1384,12 +1504,8 @@ footer p {
         HOME
     </button>
 
-    <button
-        class="nav-button"
-        onclick="showHoodies()"
-    >
-        HOODIES
-    </button>
+
+    <!-- T-SHIRTS -->
 
     <button
         class="nav-button"
@@ -1398,6 +1514,19 @@ footer p {
         T-SHIRTS
     </button>
 
+
+    <!-- HOODIES -->
+
+    <button
+        class="nav-button"
+        onclick="showHoodies()"
+    >
+        HOODIES
+    </button>
+
+
+    <!-- ABOUT -->
+
     <button
         class="nav-button"
         onclick="showAbout()"
@@ -1405,9 +1534,15 @@ footer p {
         ABOUT
     </button>
 
+
+    <!-- SEARCH -->
+
     <span class="search">
         ⌕
     </span>
+
+
+    <!-- CART -->
 
     <div
         class="cart"
@@ -1444,17 +1579,26 @@ footer p {
 
     <div class="hero-content">
 
-        <!-- REMOVED SOUTH AFRICAN STREETWEAR -->
+
+        <!-- REMOVED:
+             SOUTH AFRICAN STREETWEAR
+        -->
+
 
         <h1>
             SUMS
         </h1>
 
+
         <div class="hero-tagline">
             BORN FROM THE WILD COAST.
         </div>
 
-        <!-- REMOVED PREMIUM STREETWEAR PARAGRAPH -->
+
+        <!-- REMOVED:
+             PREMIUM STREETWEAR PARAGRAPH
+        -->
+
 
         <button
             class="hero-button"
@@ -1487,138 +1631,66 @@ footer p {
 <div class="collection-grid">
 
 
-<!-- =====================================================
-     HOODIE FLIP CARD
-===================================================== -->
+    <!-- HOODIES -->
 
-<button
-    class="collection-card"
-    onclick="showHoodies()"
->
-
-<div class="collection-card-inner">
-
-
-<div class="collection-front">
-
-    <img
-        src="white-hoodie.jpg"
-        alt="SUMS Hoodies"
+    <button
+        class="collection-card"
+        onclick="showHoodies()"
     >
 
-    <div class="collection-overlay">
-
-        <h3>
-            HOODIES
-        </h3>
-
-        <p>
-            Explore the SUMS hoodie collection.
-        </p>
-
-        <span class="shop-button">
-            SHOP HOODIES
-        </span>
-
-    </div>
-
-</div>
-
-
-<div class="collection-back">
-
-    <div class="flip-content">
-
-        <h3>
-            HOODIES
-        </h3>
-
-        <p>
-            Discover the SUMS hoodie collection.
-        </p>
-
-        <button
-            class="flip-shop"
-            onclick="event.stopPropagation(); showHoodies();"
+        <img
+            src="white-hoodie.jpg"
+            alt="SUMS Hoodies"
         >
-            SHOP NOW
-        </button>
 
-    </div>
+        <div class="collection-overlay">
 
-</div>
+            <h3>
+                HOODIES
+            </h3>
 
+            <p>
+                Explore the SUMS hoodie collection.
+            </p>
 
-</div>
+            <span class="shop-button">
+                SHOP HOODIES
+            </span>
 
-</button>
+        </div>
 
-
-<!-- =====================================================
-     T-SHIRT FLIP CARD
-===================================================== -->
-
-<button
-    class="collection-card"
-    onclick="showTshirts()"
->
-
-<div class="collection-card-inner">
+    </button>
 
 
-<div class="collection-front">
+    <!-- T-SHIRTS -->
 
-    <img
-        src="grey-tshirt.jpg"
-        alt="SUMS T-Shirts"
+    <button
+        class="collection-card"
+        onclick="showTshirts()"
     >
 
-    <div class="collection-overlay">
-
-        <h3>
-            T-SHIRTS
-        </h3>
-
-        <p>
-            Explore the SUMS T-shirt collection.
-        </p>
-
-        <span class="shop-button">
-            SHOP T-SHIRTS
-        </span>
-
-    </div>
-
-</div>
-
-
-<div class="collection-back">
-
-    <div class="flip-content">
-
-        <h3>
-            T-SHIRTS
-        </h3>
-
-        <p>
-            Discover the SUMS T-shirt collection.
-        </p>
-
-        <button
-            class="flip-shop"
-            onclick="event.stopPropagation(); showTshirts();"
+        <img
+            src="grey-tshirt.jpg"
+            alt="SUMS T-Shirts"
         >
-            SHOP NOW
-        </button>
 
-    </div>
+        <div class="collection-overlay">
 
-</div>
+            <h3>
+                T-SHIRTS
+            </h3>
 
+            <p>
+                Explore the SUMS T-shirt collection.
+            </p>
 
-</div>
+            <span class="shop-button">
+                SHOP T-SHIRTS
+            </span>
 
-</button>
+        </div>
+
+    </button>
 
 
 </div>
@@ -1779,12 +1851,14 @@ footer p {
 
 <div class="colours">
 
+
 <button
     class="colour-btn active"
     onclick="changeHoodie('white',this)"
 >
     WHITE
 </button>
+
 
 <button
     class="colour-btn"
@@ -1793,12 +1867,14 @@ footer p {
     GREY
 </button>
 
+
 <button
     class="colour-btn"
     onclick="changeHoodie('brown',this)"
 >
     BROWN
 </button>
+
 
 </div>
 
@@ -1810,35 +1886,54 @@ footer p {
 
 <div class="sizes">
 
-<button class="size-btn"
-onclick="chooseHoodieSize(this)">
-XS
+
+<button
+    class="size-btn"
+    onclick="chooseHoodieSize(this)"
+>
+    XS
 </button>
 
-<button class="size-btn"
-onclick="chooseHoodieSize(this)">
-S
+
+<button
+    class="size-btn"
+    onclick="chooseHoodieSize(this)"
+>
+    S
 </button>
 
-<button class="size-btn active"
-onclick="chooseHoodieSize(this)">
-M
+
+<button
+    class="size-btn active"
+    onclick="chooseHoodieSize(this)"
+>
+    M
 </button>
 
-<button class="size-btn"
-onclick="chooseHoodieSize(this)">
-L
+
+<button
+    class="size-btn"
+    onclick="chooseHoodieSize(this)"
+>
+    L
 </button>
 
-<button class="size-btn"
-onclick="chooseHoodieSize(this)">
-XL
+
+<button
+    class="size-btn"
+    onclick="chooseHoodieSize(this)"
+>
+    XL
 </button>
 
-<button class="size-btn"
-onclick="chooseHoodieSize(this)">
-XXL
+
+<button
+    class="size-btn"
+    onclick="chooseHoodieSize(this)"
+>
+    XXL
 </button>
+
 
 </div>
 
@@ -1956,12 +2051,14 @@ XXL
 
 <div class="colours">
 
+
 <button
     class="colour-btn active"
     onclick="changeTshirt('grey',this)"
 >
     GREY
 </button>
+
 
 <button
     class="colour-btn"
@@ -1970,12 +2067,14 @@ XXL
     SKY BLUE
 </button>
 
+
 <button
     class="colour-btn"
     onclick="changeTshirt('navy',this)"
 >
     NAVY
 </button>
+
 
 </div>
 
@@ -1987,35 +2086,54 @@ XXL
 
 <div class="sizes">
 
-<button class="size-btn"
-onclick="chooseTshirtSize(this)">
-XS
+
+<button
+    class="size-btn"
+    onclick="chooseTshirtSize(this)"
+>
+    XS
 </button>
 
-<button class="size-btn"
-onclick="chooseTshirtSize(this)">
-S
+
+<button
+    class="size-btn"
+    onclick="chooseTshirtSize(this)"
+>
+    S
 </button>
 
-<button class="size-btn active"
-onclick="chooseTshirtSize(this)">
-M
+
+<button
+    class="size-btn active"
+    onclick="chooseTshirtSize(this)"
+>
+    M
 </button>
 
-<button class="size-btn"
-onclick="chooseTshirtSize(this)">
-L
+
+<button
+    class="size-btn"
+    onclick="chooseTshirtSize(this)"
+>
+    L
 </button>
 
-<button class="size-btn"
-onclick="chooseTshirtSize(this)">
-XL
+
+<button
+    class="size-btn"
+    onclick="chooseTshirtSize(this)"
+>
+    XL
 </button>
 
-<button class="size-btn"
-onclick="chooseTshirtSize(this)">
-XXL
+
+<button
+    class="size-btn"
+    onclick="chooseTshirtSize(this)"
+>
+    XXL
 </button>
+
 
 </div>
 
@@ -2031,6 +2149,33 @@ XXL
 </div>
 
 </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     ABOUT SCREEN
+===================================================== -->
+
+<main
+    id="aboutScreen"
+    class="screen"
+>
+
+<section class="about">
+
+    <h2>
+        ABOUT SUMS
+    </h2>
+
+    <p>
+        SUMS is a South African streetwear brand
+        representing culture, movement and ambition.
+        Born from the wild coast. Built for those who
+        create their own legacy
+    </p>
 
 </section>
 
@@ -2167,7 +2312,8 @@ XXL
 
 
 /* =====================================================
-   LOADING SCREEN — 5 SECONDS
+   LOADING SCREEN
+   EXACTLY 2 SECONDS
 ===================================================== */
 
 window.addEventListener(
@@ -2182,7 +2328,7 @@ window.addEventListener(
                     .classList.add("hide");
 
             },
-            5000
+            2000
         );
 
     }
@@ -2242,33 +2388,16 @@ function showCollections() {
                 });
 
         },
-        0
+        50
     );
 
 }
 
 
-function showAbout() {
-
-    showHome();
-
-    setTimeout(
-        () => {
-
-            document
-                .getElementById(
-                    "aboutSection"
-                )
-                .scrollIntoView({
-                    behavior: "smooth"
-                });
-
-        },
-        0
-    );
-
-}
-
+/* =====================================================
+   HOODIES
+   FLIP TRANSITION
+===================================================== */
 
 function showHoodies() {
 
@@ -2285,6 +2414,11 @@ function showHoodies() {
 
 }
 
+
+/* =====================================================
+   T-SHIRTS
+   FLIP TRANSITION
+===================================================== */
 
 function showTshirts() {
 
@@ -2303,10 +2437,31 @@ function showTshirts() {
 
 
 /* =====================================================
+   ABOUT
+===================================================== */
+
+function showAbout() {
+
+    hideScreens();
+
+    document
+        .getElementById("aboutScreen")
+        .classList.add("active");
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+/* =====================================================
    HOODIE COLOURS
 ===================================================== */
 
 let hoodieColour = "White";
+
 let hoodieSize = "M";
 
 
@@ -2351,7 +2506,9 @@ function changeHoodie(
         );
 
 
-    if (colour === "white") {
+    if (
+        colour === "white"
+    ) {
 
         front.src =
             "white-hoodie.jpg";
@@ -2362,7 +2519,9 @@ function changeHoodie(
     }
 
 
-    if (colour === "grey") {
+    if (
+        colour === "grey"
+    ) {
 
         front.src =
             "grey-hoodie.jpg";
@@ -2373,7 +2532,9 @@ function changeHoodie(
     }
 
 
-    if (colour === "brown") {
+    if (
+        colour === "brown"
+    ) {
 
         front.src =
             "brown-hoodie.jpg";
@@ -2391,6 +2552,7 @@ function changeHoodie(
 ===================================================== */
 
 let tshirtColour = "Grey";
+
 let tshirtSize = "M";
 
 
@@ -2437,7 +2599,9 @@ function changeTshirt(
         );
 
 
-    if (colour === "grey") {
+    if (
+        colour === "grey"
+    ) {
 
         front.src =
             "grey-tshirt.jpg";
@@ -2448,7 +2612,9 @@ function changeTshirt(
     }
 
 
-    if (colour === "skyblue") {
+    if (
+        colour === "skyblue"
+    ) {
 
         front.src =
             "skyblue-tshirt.jpg";
@@ -2459,7 +2625,9 @@ function changeTshirt(
     }
 
 
-    if (colour === "navy") {
+    if (
+        colour === "navy"
+    ) {
 
         front.src =
             "navy-tshirt.jpg";
@@ -2543,6 +2711,10 @@ function chooseTshirtSize(
 let cart = [];
 
 
+/* =====================================================
+   ADD HOODIE
+===================================================== */
+
 function addHoodie() {
 
     addToCart({
@@ -2571,6 +2743,10 @@ function addHoodie() {
 }
 
 
+/* =====================================================
+   ADD T-SHIRT
+===================================================== */
+
 function addTshirt() {
 
     addToCart({
@@ -2598,6 +2774,10 @@ function addTshirt() {
 
 }
 
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
 
 function addToCart(item) {
 
@@ -2632,6 +2812,10 @@ function addToCart(item) {
 }
 
 
+/* =====================================================
+   CART COUNT
+===================================================== */
+
 function updateCartCount() {
 
     const totalQuantity =
@@ -2639,7 +2823,8 @@ function updateCartCount() {
             (
                 total,
                 item
-            ) => total + item.quantity,
+            ) =>
+                total + item.quantity,
             0
         );
 
@@ -2654,6 +2839,10 @@ function updateCartCount() {
 }
 
 
+/* =====================================================
+   INCREASE
+===================================================== */
+
 function increaseQuantity(
     index
 ) {
@@ -2666,6 +2855,10 @@ function increaseQuantity(
 
 }
 
+
+/* =====================================================
+   DECREASE
+===================================================== */
 
 function decreaseQuantity(
     index
@@ -2692,6 +2885,10 @@ function decreaseQuantity(
 
 }
 
+
+/* =====================================================
+   REMOVE
+===================================================== */
 
 function removeItem(
     index
@@ -2761,8 +2958,10 @@ function renderCart() {
         summary.style.display =
             "none";
 
+
         whatsapp.style.display =
             "none";
+
 
         return;
 
@@ -2824,6 +3023,7 @@ function renderCart() {
                             each
                         </p>
 
+
                         <div
                             class="quantity-row"
                         >
@@ -2835,11 +3035,13 @@ function renderCart() {
                                 −
                             </button>
 
+
                             <span
                                 class="quantity-number"
                             >
                                 ${item.quantity}
                             </span>
+
 
                             <button
                                 class="quantity-btn"
@@ -2849,6 +3051,7 @@ function renderCart() {
                             </button>
 
                         </div>
+
 
                         <button
                             class="remove-item"
@@ -2876,6 +3079,8 @@ function renderCart() {
     );
 
 
+    /* TOTAL */
+
     totalDisplay.innerText =
         "R" + total;
 
@@ -2883,6 +3088,8 @@ function renderCart() {
     summary.style.display =
         "block";
 
+
+    /* WHATSAPP */
 
     message +=
         `%0ATotal: R${total}`;
@@ -2900,7 +3107,7 @@ function renderCart() {
 
 
 /* =====================================================
-   CART OPEN / CLOSE
+   OPEN CART
 ===================================================== */
 
 function openCart() {
@@ -2915,6 +3122,10 @@ function openCart() {
 
 }
 
+
+/* =====================================================
+   CLOSE CART
+===================================================== */
 
 function closeCart() {
 
@@ -2974,7 +3185,30 @@ function closeLightbox() {
 
 }
 
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeLightbox();
+
+            closeCart();
+
+        }
+
+    }
+);
+
 </script>
+
 
 </body>
 </html>
