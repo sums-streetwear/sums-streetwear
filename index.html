@@ -21,6 +21,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #fff;
     color: #111;
+    overflow-x: hidden;
 }
 
 /* ================= HEADER ================= */
@@ -29,10 +30,13 @@ header {
     height: 78px;
     background: #fff;
     border-bottom: 1px solid #ddd;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 35px;
+
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -42,6 +46,7 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
+
     color: #000;
     text-decoration: none;
 }
@@ -49,12 +54,16 @@ header {
 .brand-logo {
     width: 44px;
     height: 44px;
+
     object-fit: contain;
+
     animation: logoRotate 3s ease-in-out infinite;
+
     transform-style: preserve-3d;
 }
 
 @keyframes logoRotate {
+
     0% {
         transform: rotateY(0deg);
     }
@@ -70,6 +79,7 @@ header {
     100% {
         transform: rotateY(360deg);
     }
+
 }
 
 .brand-name {
@@ -78,18 +88,50 @@ header {
     letter-spacing: 2px;
 }
 
+/* ================= NAV ================= */
+
 .nav {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 20px;
 }
 
 .nav-button {
     border: none;
     background: transparent;
+
     cursor: pointer;
-    font-size: 13px;
+
+    font-size: 12px;
     font-weight: 800;
+
+    position: relative;
+
+    padding: 8px 2px;
+}
+
+.nav-button::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+
+    background: #000;
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition: transform .25s ease;
+}
+
+.nav-button:hover::after {
+    transform: scaleX(1);
 }
 
 .search {
@@ -98,22 +140,30 @@ header {
 
 .cart {
     position: relative;
+
     font-size: 23px;
+
     cursor: pointer;
 }
 
 .cart-count {
     position: absolute;
+
     top: -8px;
     right: -10px;
+
     width: 18px;
     height: 18px;
+
     background: #000;
     color: #fff;
+
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 10px;
 }
 
@@ -127,15 +177,55 @@ header {
     display: block;
 }
 
+/* ================= FLIP TRANSITION ================= */
+
+.flip-container {
+    perspective: 1600px;
+}
+
+.screen.flip-in {
+    animation: screenFlipIn .65s cubic-bezier(.2,.8,.2,1);
+    transform-origin: center center;
+    backface-visibility: hidden;
+}
+
+@keyframes screenFlipIn {
+
+    0% {
+        opacity: 0;
+        transform:
+            perspective(1600px)
+            rotateY(-90deg)
+            scale(.96);
+    }
+
+    45% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            perspective(1600px)
+            rotateY(0deg)
+            scale(1);
+    }
+
+}
+
 /* ================= HERO ================= */
 
 .hero {
     min-height: 72vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     padding: 60px 20px;
+
     background: #f5f5f5;
 }
 
@@ -145,26 +235,38 @@ header {
 
 .hero h1 {
     font-size: clamp(55px, 10vw, 110px);
+
     font-weight: 900;
+
     letter-spacing: -5px;
+
     line-height: .9;
 }
 
 .hero p {
     margin-top: 25px;
+
     font-size: 18px;
+
     color: #444;
 }
 
 .hero-button {
     margin-top: 30px;
+
     display: inline-block;
+
     padding: 15px 30px;
+
     background: #000;
     color: #fff;
+
     border-radius: 30px;
+
     font-weight: 800;
+
     cursor: pointer;
+
     border: none;
 }
 
@@ -172,42 +274,58 @@ header {
 
 .collection-intro {
     text-align: center;
+
     padding: 70px 20px 35px;
 }
 
 .collection-intro h2 {
     font-size: clamp(38px, 6vw, 65px);
+
     font-weight: 900;
 }
 
 .collection-intro p {
     margin-top: 10px;
+
     color: #666;
 }
 
 .collection-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 18px;
+
     padding: 0 25px 80px;
 }
 
 .collection-card {
     height: 62vh;
+
     min-height: 430px;
+
     position: relative;
+
     overflow: hidden;
+
     cursor: pointer;
+
     border: none;
+
     padding: 0;
+
     background: #eee;
 }
 
 .collection-card img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     display: block;
+
     transition: transform .35s ease;
 }
 
@@ -217,20 +335,27 @@ header {
 
 .collection-overlay {
     position: absolute;
+
     left: 0;
     right: 0;
     bottom: 0;
+
     padding: 35px;
+
     text-align: left;
+
     color: #fff;
-    background: linear-gradient(
-        transparent,
-        rgba(0,0,0,.85)
-    );
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.85)
+        );
 }
 
 .collection-overlay h3 {
     font-size: 45px;
+
     font-weight: 900;
 }
 
@@ -240,11 +365,16 @@ header {
 
 .shop-button {
     display: inline-block;
+
     margin-top: 18px;
+
     background: #fff;
     color: #000;
+
     padding: 12px 22px;
+
     border-radius: 25px;
+
     font-weight: 800;
 }
 
@@ -252,39 +382,53 @@ header {
 
 .product-screen {
     max-width: 1300px;
+
     margin: auto;
+
     padding: 35px 25px 80px;
 }
 
 .back-button {
     border: none;
+
     background: #f1f1f1;
+
     padding: 12px 20px;
+
     border-radius: 25px;
+
     font-weight: 800;
+
     cursor: pointer;
+
     margin-bottom: 30px;
 }
 
 .product-title {
     text-align: center;
+
     margin-bottom: 35px;
 }
 
 .product-title h1 {
     font-size: clamp(45px, 7vw, 70px);
+
     font-weight: 900;
 }
 
 .product-title p {
     color: #666;
+
     margin-top: 8px;
 }
 
 .product-layout {
     display: grid;
+
     grid-template-columns: 1.25fr .75fr;
+
     gap: 45px;
+
     align-items: start;
 }
 
@@ -292,21 +436,29 @@ header {
 
 .product-images {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 14px;
 }
 
 .product-image {
     background: #f3f3f3;
+
     overflow: hidden;
+
     cursor: zoom-in;
 }
 
 .product-image img {
     width: 100%;
+
     aspect-ratio: 4 / 5;
+
     object-fit: cover;
+
     display: block;
+
     transition: transform .25s ease;
 }
 
@@ -316,9 +468,13 @@ header {
 
 .image-label {
     background: #fff;
+
     padding: 9px;
+
     text-align: center;
+
     font-size: 12px;
+
     font-weight: 800;
 }
 
@@ -326,73 +482,105 @@ header {
 
 .product-details h2 {
     font-size: 32px;
+
     font-weight: 900;
 }
 
 .price {
     font-size: 22px;
+
     font-weight: 800;
+
     margin: 10px 0 28px;
 }
 
 .option-title {
     font-size: 13px;
+
     font-weight: 900;
+
     margin-bottom: 11px;
 }
 
 .colours {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 8px;
+
     margin-bottom: 28px;
 }
 
 .colour-btn {
     background: #fff;
+
     border: 1px solid #bbb;
+
     padding: 11px 16px;
+
     cursor: pointer;
+
     font-weight: 700;
+
     border-radius: 4px;
 }
 
 .colour-btn.active {
     background: #000;
+
     color: #fff;
+
     border-color: #000;
 }
 
 .sizes {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 7px;
+
     margin-bottom: 28px;
 }
 
 .size-btn {
     min-width: 50px;
+
     padding: 12px 10px;
+
     background: #fff;
+
     border: 1px solid #bbb;
+
     cursor: pointer;
+
     font-weight: 700;
 }
 
 .size-btn.active {
     background: #000;
+
     color: #fff;
+
     border-color: #000;
 }
 
 .add-cart {
     width: 100%;
+
     padding: 17px;
+
     border: none;
+
     background: #000;
+
     color: #fff;
+
     cursor: pointer;
+
     font-size: 15px;
+
     font-weight: 900;
 }
 
@@ -400,37 +588,53 @@ header {
 
 .founder-section {
     background: #111;
+
     color: #fff;
+
     margin-top: 30px;
+
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     min-height: 620px;
 }
 
 .founder-image {
     width: 100%;
+
     height: 620px;
+
     object-fit: cover;
+
     display: block;
 }
 
 .founder-content {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 50px;
+
     text-align: center;
 }
 
 .founder-content h2 {
     font-size: clamp(38px, 5vw, 65px);
+
     line-height: .95;
+
     font-weight: 900;
 }
 
 .founder-content p {
     margin-top: 20px;
+
     color: #ccc;
+
     font-size: 17px;
 }
 
@@ -438,20 +642,27 @@ header {
 
 .about {
     padding: 90px 25px;
+
     max-width: 1000px;
+
     margin: auto;
+
     text-align: center;
 }
 
 .about h2 {
     font-size: 45px;
+
     font-weight: 900;
+
     margin-bottom: 25px;
 }
 
 .about p {
     font-size: 20px;
+
     line-height: 1.7;
+
     color: #333;
 }
 
@@ -459,16 +670,28 @@ header {
 
 .cart-panel {
     position: fixed;
+
     top: 0;
+
     right: -430px;
+
     width: 410px;
+
     max-width: 92%;
+
     height: 100vh;
+
     background: #fff;
+
     z-index: 4000;
-    box-shadow: -5px 0 25px rgba(0,0,0,.18);
+
+    box-shadow:
+        -5px 0 25px rgba(0,0,0,.18);
+
     padding: 28px;
+
     overflow-y: auto;
+
     transition: right .25s ease;
 }
 
@@ -478,26 +701,35 @@ header {
 
 .cart-header {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     margin-bottom: 25px;
 }
 
 .close-cart {
     font-size: 30px;
+
     cursor: pointer;
 }
 
 .cart-item {
     display: flex;
+
     gap: 14px;
+
     padding: 15px 0;
+
     border-bottom: 1px solid #ddd;
 }
 
 .cart-item img {
     width: 82px;
+
     height: 100px;
+
     object-fit: cover;
 }
 
@@ -507,18 +739,27 @@ header {
 
 .cart-item-info p {
     font-size: 13px;
+
     color: #555;
+
     margin-top: 4px;
 }
 
 .whatsapp-order {
     display: block;
+
     margin-top: 25px;
+
     padding: 16px;
+
     background: #000;
+
     color: #fff;
+
     text-align: center;
+
     text-decoration: none;
+
     font-weight: 900;
 }
 
@@ -526,12 +767,19 @@ header {
 
 .lightbox {
     display: none;
+
     position: fixed;
+
     inset: 0;
+
     background: rgba(0,0,0,.92);
+
     z-index: 5000;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 20px;
 }
 
@@ -541,16 +789,23 @@ header {
 
 .lightbox img {
     max-width: 95%;
+
     max-height: 90vh;
+
     object-fit: contain;
 }
 
 .close-lightbox {
     position: absolute;
+
     top: 15px;
+
     right: 25px;
+
     color: #fff;
+
     font-size: 42px;
+
     cursor: pointer;
 }
 
@@ -558,22 +813,27 @@ header {
 
 footer {
     background: #f5f5f5;
+
     text-align: center;
+
     padding: 55px 20px;
 }
 
 footer h3 {
     font-size: 27px;
+
     letter-spacing: 2px;
 }
 
 footer p {
     margin-top: 10px;
+
     color: #555;
 }
 
 .copyright {
     margin-top: 25px;
+
     font-size: 13px;
 }
 
@@ -586,10 +846,14 @@ footer p {
     }
 
     .nav {
-        gap: 14px;
+        gap: 11px;
     }
 
     .nav-button {
+        font-size: 10px;
+    }
+
+    .search {
         display: none;
     }
 
@@ -608,11 +872,14 @@ footer p {
 
     .collection-grid {
         grid-template-columns: 1fr;
-        padding: 0 15px 60px;
+
+        padding:
+            0 15px 60px;
     }
 
     .collection-card {
         height: 52vh;
+
         min-height: 350px;
     }
 
@@ -621,11 +888,13 @@ footer p {
     }
 
     .product-screen {
-        padding: 25px 15px 60px;
+        padding:
+            25px 15px 60px;
     }
 
     .product-layout {
         grid-template-columns: 1fr;
+
         gap: 28px;
     }
 
@@ -668,7 +937,11 @@ footer p {
 
 <header>
 
-<a href="#" class="brand" onclick="showHome(); return false;">
+<a
+    href="#"
+    class="brand"
+    onclick="showHome(); return false;"
+>
 
     <img
         class="brand-logo"
@@ -684,16 +957,36 @@ footer p {
 
 <nav class="nav">
 
+    <!-- ADDED: HOME -->
     <button
         class="nav-button"
-        onclick="showHoodies()">
+        onclick="showHome()"
+    >
+        HOME
+    </button>
+
+    <!-- ADDED: T-SHIRTS -->
+    <button
+        class="nav-button"
+        onclick="showTshirts()"
+    >
+        T-SHIRTS
+    </button>
+
+    <!-- EXISTING: HOODIES -->
+    <button
+        class="nav-button"
+        onclick="showHoodies()"
+    >
         HOODIES
     </button>
 
+    <!-- ADDED: ABOUT -->
     <button
         class="nav-button"
-        onclick="showTshirts()">
-        T-SHIRTS
+        onclick="showAbout()"
+    >
+        ABOUT
     </button>
 
     <span class="search">
@@ -702,13 +995,15 @@ footer p {
 
     <div
         class="cart"
-        onclick="openCart()">
+        onclick="openCart()"
+    >
 
         🛒
 
         <span
             class="cart-count"
-            id="cartCount">
+            id="cartCount"
+        >
             0
         </span>
 
@@ -725,8 +1020,8 @@ footer p {
 
 <main
     id="homeScreen"
-    class="screen active">
-
+    class="screen active"
+>
 
 <section class="hero">
 
@@ -742,10 +1037,9 @@ footer p {
 
         <button
             class="hero-button"
-            onclick="showCollections()">
-
+            onclick="showCollections()"
+        >
             EXPLORE SUMS
-
         </button>
 
     </div>
@@ -755,7 +1049,8 @@ footer p {
 
 <section
     id="collections"
-    class="collection-intro">
+    class="collection-intro"
+>
 
     <h2>
         SHOP SUMS
@@ -770,10 +1065,10 @@ footer p {
 
 <div class="collection-grid">
 
-
     <button
         class="collection-card"
-        onclick="showHoodies()">
+        onclick="showHoodies()"
+    >
 
         <img
             src="white-hoodie.jpg"
@@ -801,7 +1096,8 @@ footer p {
 
     <button
         class="collection-card"
-        onclick="showTshirts()">
+        onclick="showTshirts()"
+    >
 
         <img
             src="grey-tshirt.jpg"
@@ -857,19 +1153,6 @@ footer p {
 
 </section>
 
-
-<section class="about">
-
-    <h2>
-        ABOUT SUMS
-    </h2>
-
-    <p>
-        SUMS is a South African streetwear brand representing culture, movement and ambition. Born from the wild coast. Built for those who create their own legacy
-    </p>
-
-</section>
-
 </main>
 
 
@@ -879,16 +1162,16 @@ footer p {
 
 <main
     id="hoodieScreen"
-    class="screen">
+    class="screen"
+>
 
 <section class="product-screen">
 
 <button
     class="back-button"
-    onclick="showHome()">
-
+    onclick="showHome()"
+>
     ← Back to SUMS
-
 </button>
 
 
@@ -910,130 +1193,142 @@ footer p {
 
 <div class="product-images">
 
-
-<div
-    class="product-image"
-    onclick="zoomImage('hoodieFront')">
-
-    <img
-        id="hoodieFront"
-        src="white-hoodie.jpg"
-        alt="SUMS Hoodie Front"
+    <div
+        class="product-image"
+        onclick="zoomImage('hoodieFront')"
     >
 
-    <div class="image-label">
-        FRONT
+        <img
+            id="hoodieFront"
+            src="white-hoodie.jpg"
+            alt="SUMS Hoodie Front"
+        >
+
+        <div class="image-label">
+            FRONT
+        </div>
+
     </div>
 
-</div>
 
-
-<div
-    class="product-image"
-    onclick="zoomImage('hoodieBack')">
-
-    <img
-        id="hoodieBack"
-        src="white-hoodie-back.jpg"
-        alt="SUMS Hoodie Back"
+    <div
+        class="product-image"
+        onclick="zoomImage('hoodieBack')"
     >
 
-    <div class="image-label">
-        BACK
+        <img
+            id="hoodieBack"
+            src="white-hoodie-back.jpg"
+            alt="SUMS Hoodie Back"
+        >
+
+        <div class="image-label">
+            BACK
+        </div>
+
     </div>
-
-</div>
-
 
 </div>
 
 
 <div class="product-details">
 
-<h2>
-    SUMS Hoodie
-</h2>
+    <h2>
+        SUMS Hoodie
+    </h2>
 
-<div class="price">
-    R700
-</div>
-
-
-<div class="option-title">
-    COLOUR
-</div>
+    <div class="price">
+        R700
+    </div>
 
 
-<div class="colours">
+    <div class="option-title">
+        COLOUR
+    </div>
 
-<button
-    class="colour-btn active"
-    onclick="changeHoodie('white',this)">
-    WHITE
-</button>
+    <div class="colours">
 
-<button
-    class="colour-btn"
-    onclick="changeHoodie('grey',this)">
-    GREY
-</button>
+        <button
+            class="colour-btn active"
+            onclick="changeHoodie('white',this)"
+        >
+            WHITE
+        </button>
 
-<button
-    class="colour-btn"
-    onclick="changeHoodie('brown',this)">
-    BROWN
-</button>
+        <button
+            class="colour-btn"
+            onclick="changeHoodie('grey',this)"
+        >
+            GREY
+        </button>
 
-</div>
+        <button
+            class="colour-btn"
+            onclick="changeHoodie('brown',this)"
+        >
+            BROWN
+        </button>
 
-
-<div class="option-title">
-    SIZE
-</div>
-
-
-<div class="sizes">
-
-<button class="size-btn"
-    onclick="chooseHoodieSize(this)">
-    XS
-</button>
-
-<button class="size-btn"
-    onclick="chooseHoodieSize(this)">
-    S
-</button>
-
-<button class="size-btn active"
-    onclick="chooseHoodieSize(this)">
-    M
-</button>
-
-<button class="size-btn"
-    onclick="chooseHoodieSize(this)">
-    L
-</button>
-
-<button class="size-btn"
-    onclick="chooseHoodieSize(this)">
-    XL
-</button>
-
-<button class="size-btn"
-    onclick="chooseHoodieSize(this)">
-    XXL
-</button>
-
-</div>
+    </div>
 
 
-<button
-    class="add-cart"
-    onclick="addHoodie()">
+    <div class="option-title">
+        SIZE
+    </div>
 
-    ADD TO CART
+    <div class="sizes">
 
-</button>
+        <button
+            class="size-btn"
+            onclick="chooseHoodieSize(this)"
+        >
+            XS
+        </button>
+
+        <button
+            class="size-btn"
+            onclick="chooseHoodieSize(this)"
+        >
+            S
+        </button>
+
+        <button
+            class="size-btn active"
+            onclick="chooseHoodieSize(this)"
+        >
+            M
+        </button>
+
+        <button
+            class="size-btn"
+            onclick="chooseHoodieSize(this)"
+        >
+            L
+        </button>
+
+        <button
+            class="size-btn"
+            onclick="chooseHoodieSize(this)"
+        >
+            XL
+        </button>
+
+        <button
+            class="size-btn"
+            onclick="chooseHoodieSize(this)"
+        >
+            XXL
+        </button>
+
+    </div>
+
+
+    <button
+        class="add-cart"
+        onclick="addHoodie()"
+    >
+        ADD TO CART
+    </button>
 
 </div>
 
@@ -1050,16 +1345,16 @@ footer p {
 
 <main
     id="tshirtScreen"
-    class="screen">
+    class="screen"
+>
 
 <section class="product-screen">
 
 <button
     class="back-button"
-    onclick="showHome()">
-
+    onclick="showHome()"
+>
     ← Back to SUMS
-
 </button>
 
 
@@ -1081,134 +1376,173 @@ footer p {
 
 <div class="product-images">
 
-
-<div
-    class="product-image"
-    onclick="zoomImage('tshirtFront')">
-
-    <img
-        id="tshirtFront"
-        src="grey-tshirt.jpg"
-        alt="SUMS T-Shirt Front"
+    <div
+        class="product-image"
+        onclick="zoomImage('tshirtFront')"
     >
 
-    <div class="image-label">
-        FRONT
+        <img
+            id="tshirtFront"
+            src="grey-tshirt.jpg"
+            alt="SUMS T-Shirt Front"
+        >
+
+        <div class="image-label">
+            FRONT
+        </div>
+
     </div>
 
-</div>
 
-
-<div
-    class="product-image"
-    onclick="zoomImage('tshirtBack')">
-
-    <img
-        id="tshirtBack"
-        src="grey-tshirt-back.jpg"
-        alt="SUMS T-Shirt Back"
+    <div
+        class="product-image"
+        onclick="zoomImage('tshirtBack')"
     >
 
-    <div class="image-label">
-        BACK
+        <img
+            id="tshirtBack"
+            src="grey-tshirt-back.jpg"
+            alt="SUMS T-Shirt Back"
+        >
+
+        <div class="image-label">
+            BACK
+        </div>
+
     </div>
-
-</div>
-
 
 </div>
 
 
 <div class="product-details">
 
-<h2>
-    SUMS T-Shirt
-</h2>
+    <h2>
+        SUMS T-Shirt
+    </h2>
 
-<div class="price">
-    R400
+    <div class="price">
+        R400
+    </div>
+
+
+    <div class="option-title">
+        COLOUR
+    </div>
+
+    <div class="colours">
+
+        <button
+            class="colour-btn active"
+            onclick="changeTshirt('grey',this)"
+        >
+            GREY
+        </button>
+
+        <button
+            class="colour-btn"
+            onclick="changeTshirt('skyblue',this)"
+        >
+            SKY BLUE
+        </button>
+
+        <button
+            class="colour-btn"
+            onclick="changeTshirt('navy',this)"
+        >
+            NAVY
+        </button>
+
+    </div>
+
+
+    <div class="option-title">
+        SIZE
+    </div>
+
+    <div class="sizes">
+
+        <button
+            class="size-btn"
+            onclick="chooseTshirtSize(this)"
+        >
+            XS
+        </button>
+
+        <button
+            class="size-btn"
+            onclick="chooseTshirtSize(this)"
+        >
+            S
+        </button>
+
+        <button
+            class="size-btn active"
+            onclick="chooseTshirtSize(this)"
+        >
+            M
+        </button>
+
+        <button
+            class="size-btn"
+            onclick="chooseTshirtSize(this)"
+        >
+            L
+        </button>
+
+        <button
+            class="size-btn"
+            onclick="chooseTshirtSize(this)"
+        >
+            XL
+        </button>
+
+        <button
+            class="size-btn"
+            onclick="chooseTshirtSize(this)"
+        >
+            XXL
+        </button>
+
+    </div>
+
+
+    <button
+        class="add-cart"
+        onclick="addTshirt()"
+    >
+        ADD TO CART
+    </button>
+
 </div>
 
-
-<div class="option-title">
-    COLOUR
 </div>
 
+</section>
 
-<div class="colours">
-
-<button
-    class="colour-btn active"
-    onclick="changeTshirt('grey',this)">
-    GREY
-</button>
-
-<button
-    class="colour-btn"
-    onclick="changeTshirt('skyblue',this)">
-    SKY BLUE
-</button>
-
-<button
-    class="colour-btn"
-    onclick="changeTshirt('navy',this)">
-    NAVY
-</button>
-
-</div>
+</main>
 
 
-<div class="option-title">
-    SIZE
-</div>
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
+<main
+    id="aboutScreen"
+    class="screen"
+>
 
-<div class="sizes">
+<section class="about">
 
-<button class="size-btn"
-    onclick="chooseTshirtSize(this)">
-    XS
-</button>
+    <h2>
+        ABOUT SUMS
+    </h2>
 
-<button class="size-btn"
-    onclick="chooseTshirtSize(this)">
-    S
-</button>
-
-<button class="size-btn active"
-    onclick="chooseTshirtSize(this)">
-    M
-</button>
-
-<button class="size-btn"
-    onclick="chooseTshirtSize(this)">
-    L
-</button>
-
-<button class="size-btn"
-    onclick="chooseTshirtSize(this)">
-    XL
-</button>
-
-<button class="size-btn"
-    onclick="chooseTshirtSize(this)">
-    XXL
-</button>
-
-</div>
-
-
-<button
-    class="add-cart"
-    onclick="addTshirt()">
-
-    ADD TO CART
-
-</button>
-
-</div>
-
-</div>
+    <p>
+        SUMS is a South African streetwear brand
+        representing culture, movement and ambition.
+        Born from the wild coast. Built for those who
+        create their own legacy
+    </p>
 
 </section>
 
@@ -1221,30 +1555,30 @@ footer p {
 
 <div
     class="cart-panel"
-    id="cartPanel">
+    id="cartPanel"
+>
 
 <div class="cart-header">
 
-<h2>
-    Your Cart
-</h2>
+    <h2>
+        Your Cart
+    </h2>
 
-<span
-    class="close-cart"
-    onclick="closeCart()">
-
-    ×
-
-</span>
+    <span
+        class="close-cart"
+        onclick="closeCart()"
+    >
+        ×
+    </span>
 
 </div>
 
 
 <div id="cartItems">
 
-<p>
-    Your cart is empty.
-</p>
+    <p>
+        Your cart is empty.
+    </p>
 
 </div>
 
@@ -1254,10 +1588,9 @@ footer p {
     class="whatsapp-order"
     href="#"
     target="_blank"
-    style="display:none;">
-
+    style="display:none;"
+>
     ORDER VIA WHATSAPP
-
 </a>
 
 </div>
@@ -1270,7 +1603,8 @@ footer p {
 <div
     class="lightbox"
     id="lightbox"
-    onclick="closeLightbox()">
+    onclick="closeLightbox()"
+>
 
 <span class="close-lightbox">
     ×
@@ -1279,7 +1613,8 @@ footer p {
 <img
     id="lightboxImage"
     src=""
-    alt="SUMS Product">
+    alt="SUMS Product"
+>
 
 </div>
 
@@ -1328,18 +1663,44 @@ function hideScreens() {
 }
 
 
-function showHome() {
+function flipTo(screenId) {
 
     hideScreens();
 
-    document
-        .getElementById("homeScreen")
-        .classList.add("active");
+    const screen =
+        document.getElementById(screenId);
+
+    screen.classList.add("active");
+
+    /*
+       Flip animation
+    */
+
+    screen.classList.remove("flip-in");
+
+    void screen.offsetWidth;
+
+    screen.classList.add("flip-in");
 
     window.scrollTo(0,0);
 
 }
 
+
+/* =====================================================
+   HOME
+===================================================== */
+
+function showHome() {
+
+    flipTo("homeScreen");
+
+}
+
+
+/* =====================================================
+   COLLECTIONS
+===================================================== */
 
 function showCollections() {
 
@@ -1353,33 +1714,40 @@ function showCollections() {
                 behavior: "auto"
             });
 
-    }, 0);
+    }, 50);
 
 }
 
+
+/* =====================================================
+   HOODIES
+===================================================== */
 
 function showHoodies() {
 
-    hideScreens();
-
-    document
-        .getElementById("hoodieScreen")
-        .classList.add("active");
-
-    window.scrollTo(0,0);
+    flipTo("hoodieScreen");
 
 }
 
 
+/* =====================================================
+   T-SHIRTS
+===================================================== */
+
 function showTshirts() {
 
-    hideScreens();
+    flipTo("tshirtScreen");
 
-    document
-        .getElementById("tshirtScreen")
-        .classList.add("active");
+}
 
-    window.scrollTo(0,0);
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+function showAbout() {
+
+    flipTo("aboutScreen");
 
 }
 
@@ -1389,10 +1757,14 @@ function showTshirts() {
 ===================================================== */
 
 let hoodieColour = "White";
+
 let hoodieSize = "M";
 
 
-function changeHoodie(colour, button) {
+function changeHoodie(
+    colour,
+    button
+) {
 
     hoodieColour =
         colour.charAt(0).toUpperCase() +
@@ -1405,12 +1777,16 @@ function changeHoodie(colour, button) {
         )
         .forEach(btn => {
 
-            btn.classList.remove("active");
+            btn.classList.remove(
+                "active"
+            );
 
         });
 
 
-    button.classList.add("active");
+    button.classList.add(
+        "active"
+    );
 
 
     const front =
@@ -1464,10 +1840,14 @@ function changeHoodie(colour, button) {
 ===================================================== */
 
 let tshirtColour = "Grey";
+
 let tshirtSize = "M";
 
 
-function changeTshirt(colour, button) {
+function changeTshirt(
+    colour,
+    button
+) {
 
     tshirtColour =
         colour === "skyblue"
@@ -1482,12 +1862,16 @@ function changeTshirt(colour, button) {
         )
         .forEach(btn => {
 
-            btn.classList.remove("active");
+            btn.classList.remove(
+                "active"
+            );
 
         });
 
 
-    button.classList.add("active");
+    button.classList.add(
+        "active"
+    );
 
 
     const front =
@@ -1540,7 +1924,9 @@ function changeTshirt(colour, button) {
    SIZES
 ===================================================== */
 
-function chooseHoodieSize(button) {
+function chooseHoodieSize(
+    button
+) {
 
     document
         .querySelectorAll(
@@ -1548,12 +1934,17 @@ function chooseHoodieSize(button) {
         )
         .forEach(btn => {
 
-            btn.classList.remove("active");
+            btn.classList.remove(
+                "active"
+            );
 
         });
 
 
-    button.classList.add("active");
+    button.classList.add(
+        "active"
+    );
+
 
     hoodieSize =
         button.innerText.trim();
@@ -1561,7 +1952,9 @@ function chooseHoodieSize(button) {
 }
 
 
-function chooseTshirtSize(button) {
+function chooseTshirtSize(
+    button
+) {
 
     document
         .querySelectorAll(
@@ -1569,12 +1962,17 @@ function chooseTshirtSize(button) {
         )
         .forEach(btn => {
 
-            btn.classList.remove("active");
+            btn.classList.remove(
+                "active"
+            );
 
         });
 
 
-    button.classList.add("active");
+    button.classList.add(
+        "active"
+    );
+
 
     tshirtSize =
         button.innerText.trim();
@@ -1593,18 +1991,24 @@ function addHoodie() {
 
     addToCart({
 
-        name: "SUMS Hoodie",
+        name:
+            "SUMS Hoodie",
 
-        price: 700,
+        price:
+            700,
 
-        colour: hoodieColour,
+        colour:
+            hoodieColour,
 
-        size: hoodieSize,
+        size:
+            hoodieSize,
 
         image:
-            document.getElementById(
-                "hoodieFront"
-            ).src
+            document
+                .getElementById(
+                    "hoodieFront"
+                )
+                .src
 
     });
 
@@ -1615,18 +2019,24 @@ function addTshirt() {
 
     addToCart({
 
-        name: "SUMS T-Shirt",
+        name:
+            "SUMS T-Shirt",
 
-        price: 400,
+        price:
+            400,
 
-        colour: tshirtColour,
+        colour:
+            tshirtColour,
 
-        size: tshirtSize,
+        size:
+            tshirtSize,
 
         image:
-            document.getElementById(
-                "tshirtFront"
-            ).src
+            document
+                .getElementById(
+                    "tshirtFront"
+                )
+                .src
 
     });
 
@@ -1637,9 +2047,14 @@ function addToCart(item) {
 
     cart.push(item);
 
-    document.getElementById(
-        "cartCount"
-    ).innerText = cart.length;
+
+    document
+        .getElementById(
+            "cartCount"
+        )
+        .innerText =
+        cart.length;
+
 
     renderCart();
 
@@ -1661,7 +2076,9 @@ function renderCart() {
         );
 
 
-    if (cart.length === 0) {
+    if (
+        cart.length === 0
+    ) {
 
         container.innerHTML =
             "<p>Your cart is empty.</p>";
@@ -1674,57 +2091,62 @@ function renderCart() {
     }
 
 
-    container.innerHTML = "";
+    container.innerHTML =
+        "";
 
 
     let message =
         "Hello SUMS, I would like to order:%0A%0A";
 
 
-    cart.forEach((item, index) => {
+    cart.forEach(
+        (item,index) => {
 
-        container.innerHTML += `
+            container.innerHTML += `
 
-            <div class="cart-item">
+                <div class="cart-item">
 
-                <img
-                    src="${item.image}"
-                    alt="${item.name}"
-                >
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
 
-                <div class="cart-item-info">
+                    <div class="cart-item-info">
 
-                    <h4>
-                        ${item.name}
-                    </h4>
+                        <h4>
+                            ${item.name}
+                        </h4>
 
-                    <p>
-                        Colour: ${item.colour}
-                    </p>
+                        <p>
+                            Colour:
+                            ${item.colour}
+                        </p>
 
-                    <p>
-                        Size: ${item.size}
-                    </p>
+                        <p>
+                            Size:
+                            ${item.size}
+                        </p>
 
-                    <p>
-                        R${item.price}
-                    </p>
+                        <p>
+                            R${item.price}
+                        </p>
+
+                    </div>
 
                 </div>
 
-            </div>
-
-        `;
+            `;
 
 
-        message +=
-            `${index + 1}. ` +
-            `${item.name} | ` +
-            `${item.colour} | ` +
-            `Size ${item.size} | ` +
-            `R${item.price}%0A`;
+            message +=
+                `${index + 1}. ` +
+                `${item.name} | ` +
+                `${item.colour} | ` +
+                `Size ${item.size} | ` +
+                `R${item.price}%0A`;
 
-    });
+        }
+    );
 
 
     whatsapp.href =
@@ -1741,8 +2163,12 @@ function renderCart() {
 function openCart() {
 
     document
-        .getElementById("cartPanel")
-        .classList.add("open");
+        .getElementById(
+            "cartPanel"
+        )
+        .classList.add(
+            "open"
+        );
 
 }
 
@@ -1750,8 +2176,12 @@ function openCart() {
 function closeCart() {
 
     document
-        .getElementById("cartPanel")
-        .classList.remove("open");
+        .getElementById(
+            "cartPanel"
+        )
+        .classList.remove(
+            "open"
+        );
 
 }
 
@@ -1763,26 +2193,39 @@ function closeCart() {
 function zoomImage(id) {
 
     const image =
-        document.getElementById(id);
+        document.getElementById(
+            id
+        );
 
 
-    document.getElementById(
-        "lightboxImage"
-    ).src = image.src;
+    document
+        .getElementById(
+            "lightboxImage"
+        )
+        .src =
+        image.src;
 
 
-    document.getElementById(
-        "lightbox"
-    ).classList.add("open");
+    document
+        .getElementById(
+            "lightbox"
+        )
+        .classList.add(
+            "open"
+        );
 
 }
 
 
 function closeLightbox() {
 
-    document.getElementById(
-        "lightbox"
-    ).classList.remove("open");
+    document
+        .getElementById(
+            "lightbox"
+        )
+        .classList.remove(
+            "open"
+        );
 
 }
 
