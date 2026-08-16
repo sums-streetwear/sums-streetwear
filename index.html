@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SUMS — Premium Streetwear</title>
+<title>SUMS — Streetwear</title>
 
 <style>
 
@@ -35,7 +35,6 @@ body {
     inset: 0;
     background: #000;
     color: #fff;
-
     z-index: 10000;
 
     display: flex;
@@ -60,7 +59,6 @@ body {
 .loader-logo {
     width: 90px;
     height: 90px;
-
     object-fit: contain;
 
     animation:
@@ -69,26 +67,24 @@ body {
 
 .loader-name {
     margin-top: 20px;
-
     font-size: 34px;
     font-weight: 900;
-
     letter-spacing: 7px;
 
-    animation: loaderPulse 1.5s ease-in-out infinite;
+    animation:
+        loaderPulse 1.5s ease-in-out infinite;
 }
 
 .loader-line {
     width: 130px;
     height: 2px;
-
     background: #fff;
-
     margin: 22px auto 0;
 
     transform-origin: center;
 
-    animation: loaderLine 1.5s ease-in-out infinite;
+    animation:
+        loaderLine 1.5s ease-in-out infinite;
 }
 
 @keyframes loaderSpin {
@@ -143,9 +139,7 @@ body {
 
 header {
     height: 78px;
-
     background: #fff;
-
     border-bottom: 1px solid #ddd;
 
     display: flex;
@@ -163,18 +157,15 @@ header {
 .brand {
     display: flex;
     align-items: center;
-
     gap: 10px;
 
     color: #000;
-
     text-decoration: none;
 }
 
 .brand-logo {
     width: 44px;
     height: 44px;
-
     object-fit: contain;
 
     animation:
@@ -205,9 +196,7 @@ header {
 
 .brand-name {
     font-size: 25px;
-
     font-weight: 900;
-
     letter-spacing: 2px;
 }
 
@@ -219,19 +208,15 @@ header {
 .nav {
     display: flex;
     align-items: center;
-
     gap: 24px;
 }
 
 .nav-button {
     border: none;
-
     background: transparent;
-
     cursor: pointer;
 
     font-size: 13px;
-
     font-weight: 800;
 }
 
@@ -241,9 +226,7 @@ header {
 
 .cart {
     position: relative;
-
     font-size: 23px;
-
     cursor: pointer;
 }
 
@@ -290,7 +273,6 @@ header {
     min-height: 82vh;
 
     position: relative;
-
     overflow: hidden;
 
     display: flex;
@@ -371,7 +353,6 @@ header {
     max-width: 950px;
 
     position: relative;
-
     z-index: 2;
 
     animation:
@@ -390,18 +371,6 @@ header {
         transform: translateY(0);
     }
 
-}
-
-.hero-small {
-    font-size: 12px;
-
-    font-weight: 900;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 22px;
-
-    opacity: .7;
 }
 
 .hero h1 {
@@ -424,18 +393,6 @@ header {
     font-weight: 700;
 
     letter-spacing: 1px;
-}
-
-.hero p {
-    margin: 17px auto 0;
-
-    max-width: 600px;
-
-    font-size: 15px;
-
-    color: #aaa;
-
-    line-height: 1.6;
 }
 
 .hero-button {
@@ -465,7 +422,6 @@ header {
 
 .hero-button:hover {
     transform: translateY(-4px);
-
     background: #ddd;
 }
 
@@ -476,19 +432,16 @@ header {
 
 .collection-intro {
     text-align: center;
-
     padding: 70px 20px 35px;
 }
 
 .collection-intro h2 {
     font-size: clamp(38px, 6vw, 65px);
-
     font-weight: 900;
 }
 
 .collection-intro p {
     margin-top: 10px;
-
     color: #666;
 }
 
@@ -504,35 +457,59 @@ header {
 
 .collection-card {
     height: 62vh;
-
     min-height: 430px;
 
     position: relative;
-
     overflow: hidden;
 
     cursor: pointer;
 
     border: none;
-
     padding: 0;
 
     background: #eee;
+
+    /* FLIP */
+    perspective: 1200px;
 }
 
-.collection-card img {
+.collection-card-inner {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.collection-card:hover .collection-card-inner {
+    transform: rotateY(180deg);
+}
+
+.collection-front,
+.collection-back {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility: hidden;
+}
+
+.collection-front img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
     display: block;
-
-    transition: transform .35s ease;
-}
-
-.collection-card:hover img {
-    transform: scale(1.03);
 }
 
 .collection-overlay {
@@ -557,7 +534,6 @@ header {
 
 .collection-overlay h3 {
     font-size: 45px;
-
     font-weight: 900;
 }
 
@@ -571,7 +547,6 @@ header {
     margin-top: 18px;
 
     background: #fff;
-
     color: #000;
 
     padding: 12px 22px;
@@ -579,6 +554,53 @@ header {
     border-radius: 25px;
 
     font-weight: 800;
+}
+
+
+/* FLIP BACK */
+
+.collection-back {
+    background: #111;
+
+    color: #fff;
+
+    transform: rotateY(180deg);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 35px;
+}
+
+.flip-content h3 {
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.flip-content p {
+    margin-top: 15px;
+    color: #bbb;
+}
+
+.flip-shop {
+    margin-top: 25px;
+
+    border: none;
+
+    background: #fff;
+    color: #000;
+
+    padding: 15px 28px;
+
+    border-radius: 30px;
+
+    font-weight: 900;
+
+    cursor: pointer;
 }
 
 
@@ -808,7 +830,7 @@ header {
 
 
 /* =====================================================
-   FOUNDER EDITION
+   FOUNDER
 ===================================================== */
 
 .founder-section {
@@ -903,11 +925,9 @@ header {
     position: fixed;
 
     top: 0;
-
     right: -430px;
 
     width: 410px;
-
     max-width: 92%;
 
     height: 100vh;
@@ -982,9 +1002,6 @@ header {
     margin-top: 4px;
 }
 
-
-/* QUANTITY CONTROLS */
-
 .quantity-row {
     display: flex;
 
@@ -1010,7 +1027,9 @@ header {
     font-weight: 700;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 }
 
@@ -1021,9 +1040,6 @@ header {
 
     font-weight: 800;
 }
-
-
-/* REMOVE BUTTON */
 
 .remove-item {
     margin-top: 10px;
@@ -1046,9 +1062,6 @@ header {
 .remove-item:hover {
     color: #000;
 }
-
-
-/* TOTAL */
 
 .cart-summary {
     margin-top: 25px;
@@ -1076,9 +1089,6 @@ header {
     letter-spacing: 1px;
 }
 
-
-/* WHATSAPP */
-
 .whatsapp-order {
     display: block;
 
@@ -1096,11 +1106,6 @@ header {
 
     font-weight: 900;
 }
-
-
-/* =====================================================
-   EMPTY CART
-===================================================== */
 
 .empty-cart {
     text-align: center;
@@ -1159,7 +1164,6 @@ header {
     position: absolute;
 
     top: 15px;
-
     right: 25px;
 
     color: #fff;
@@ -1216,7 +1220,8 @@ footer p {
     }
 
     .nav-button {
-        display: none;
+        display: block;
+        font-size: 11px;
     }
 
     .brand-name {
@@ -1320,6 +1325,7 @@ footer p {
 
 <!-- =====================================================
      LOADING SCREEN
+     EXACTLY 5 SECONDS
 ===================================================== -->
 
 <div id="loader">
@@ -1345,6 +1351,7 @@ footer p {
 
 <!-- =====================================================
      HEADER
+     HOME / HOODIES / T-SHIRTS / ABOUT
 ===================================================== -->
 
 <header>
@@ -1372,6 +1379,13 @@ footer p {
 
     <button
         class="nav-button"
+        onclick="showHome()"
+    >
+        HOME
+    </button>
+
+    <button
+        class="nav-button"
         onclick="showHoodies()"
     >
         HOODIES
@@ -1382,6 +1396,13 @@ footer p {
         onclick="showTshirts()"
     >
         T-SHIRTS
+    </button>
+
+    <button
+        class="nav-button"
+        onclick="showAbout()"
+    >
+        ABOUT
     </button>
 
     <span class="search">
@@ -1423,9 +1444,7 @@ footer p {
 
     <div class="hero-content">
 
-        <div class="hero-small">
-            SOUTH AFRICAN STREETWEAR
-        </div>
+        <!-- REMOVED SOUTH AFRICAN STREETWEAR -->
 
         <h1>
             SUMS
@@ -1435,11 +1454,7 @@ footer p {
             BORN FROM THE WILD COAST.
         </div>
 
-        <p>
-            Premium streetwear for those who create
-            their own identity, their own movement,
-            and their own legacy.
-        </p>
+        <!-- REMOVED PREMIUM STREETWEAR PARAGRAPH -->
 
         <button
             class="hero-button"
@@ -1472,66 +1487,146 @@ footer p {
 <div class="collection-grid">
 
 
-    <button
-        class="collection-card"
-        onclick="showHoodies()"
+<!-- =====================================================
+     HOODIE FLIP CARD
+===================================================== -->
+
+<button
+    class="collection-card"
+    onclick="showHoodies()"
+>
+
+<div class="collection-card-inner">
+
+
+<div class="collection-front">
+
+    <img
+        src="white-hoodie.jpg"
+        alt="SUMS Hoodies"
     >
 
-        <img
-            src="white-hoodie.jpg"
-            alt="SUMS Hoodies"
+    <div class="collection-overlay">
+
+        <h3>
+            HOODIES
+        </h3>
+
+        <p>
+            Explore the SUMS hoodie collection.
+        </p>
+
+        <span class="shop-button">
+            SHOP HOODIES
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="collection-back">
+
+    <div class="flip-content">
+
+        <h3>
+            HOODIES
+        </h3>
+
+        <p>
+            Discover the SUMS hoodie collection.
+        </p>
+
+        <button
+            class="flip-shop"
+            onclick="event.stopPropagation(); showHoodies();"
         >
+            SHOP NOW
+        </button>
 
-        <div class="collection-overlay">
+    </div>
 
-            <h3>
-                HOODIES
-            </h3>
-
-            <p>
-                Explore the SUMS hoodie collection.
-            </p>
-
-            <span class="shop-button">
-                SHOP HOODIES
-            </span>
-
-        </div>
-
-    </button>
-
-
-    <button
-        class="collection-card"
-        onclick="showTshirts()"
-    >
-
-        <img
-            src="grey-tshirt.jpg"
-            alt="SUMS T-Shirts"
-        >
-
-        <div class="collection-overlay">
-
-            <h3>
-                T-SHIRTS
-            </h3>
-
-            <p>
-                Explore the SUMS T-shirt collection.
-            </p>
-
-            <span class="shop-button">
-                SHOP T-SHIRTS
-            </span>
-
-        </div>
-
-    </button>
+</div>
 
 
 </div>
 
+</button>
+
+
+<!-- =====================================================
+     T-SHIRT FLIP CARD
+===================================================== -->
+
+<button
+    class="collection-card"
+    onclick="showTshirts()"
+>
+
+<div class="collection-card-inner">
+
+
+<div class="collection-front">
+
+    <img
+        src="grey-tshirt.jpg"
+        alt="SUMS T-Shirts"
+    >
+
+    <div class="collection-overlay">
+
+        <h3>
+            T-SHIRTS
+        </h3>
+
+        <p>
+            Explore the SUMS T-shirt collection.
+        </p>
+
+        <span class="shop-button">
+            SHOP T-SHIRTS
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="collection-back">
+
+    <div class="flip-content">
+
+        <h3>
+            T-SHIRTS
+        </h3>
+
+        <p>
+            Discover the SUMS T-shirt collection.
+        </p>
+
+        <button
+            class="flip-shop"
+            onclick="event.stopPropagation(); showTshirts();"
+        >
+            SHOP NOW
+        </button>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</button>
+
+
+</div>
+
+
+<!-- =====================================================
+     FOUNDER
+===================================================== -->
 
 <section class="founder-section">
 
@@ -1562,7 +1657,14 @@ footer p {
 </section>
 
 
-<section class="about">
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    id="aboutSection"
+    class="about"
+>
 
     <h2>
         ABOUT SUMS
@@ -1677,14 +1779,12 @@ footer p {
 
 <div class="colours">
 
-
 <button
     class="colour-btn active"
     onclick="changeHoodie('white',this)"
 >
     WHITE
 </button>
-
 
 <button
     class="colour-btn"
@@ -1693,14 +1793,12 @@ footer p {
     GREY
 </button>
 
-
 <button
     class="colour-btn"
     onclick="changeHoodie('brown',this)"
 >
     BROWN
 </button>
-
 
 </div>
 
@@ -1712,54 +1810,35 @@ footer p {
 
 <div class="sizes">
 
-
-<button
-    class="size-btn"
-    onclick="chooseHoodieSize(this)"
->
-    XS
+<button class="size-btn"
+onclick="chooseHoodieSize(this)">
+XS
 </button>
 
-
-<button
-    class="size-btn"
-    onclick="chooseHoodieSize(this)"
->
-    S
+<button class="size-btn"
+onclick="chooseHoodieSize(this)">
+S
 </button>
 
-
-<button
-    class="size-btn active"
-    onclick="chooseHoodieSize(this)"
->
-    M
+<button class="size-btn active"
+onclick="chooseHoodieSize(this)">
+M
 </button>
 
-
-<button
-    class="size-btn"
-    onclick="chooseHoodieSize(this)"
->
-    L
+<button class="size-btn"
+onclick="chooseHoodieSize(this)">
+L
 </button>
 
-
-<button
-    class="size-btn"
-    onclick="chooseHoodieSize(this)"
->
-    XL
+<button class="size-btn"
+onclick="chooseHoodieSize(this)">
+XL
 </button>
 
-
-<button
-    class="size-btn"
-    onclick="chooseHoodieSize(this)"
->
-    XXL
+<button class="size-btn"
+onclick="chooseHoodieSize(this)">
+XXL
 </button>
-
 
 </div>
 
@@ -1877,14 +1956,12 @@ footer p {
 
 <div class="colours">
 
-
 <button
     class="colour-btn active"
     onclick="changeTshirt('grey',this)"
 >
     GREY
 </button>
-
 
 <button
     class="colour-btn"
@@ -1893,14 +1970,12 @@ footer p {
     SKY BLUE
 </button>
 
-
 <button
     class="colour-btn"
     onclick="changeTshirt('navy',this)"
 >
     NAVY
 </button>
-
 
 </div>
 
@@ -1912,54 +1987,35 @@ footer p {
 
 <div class="sizes">
 
-
-<button
-    class="size-btn"
-    onclick="chooseTshirtSize(this)"
->
-    XS
+<button class="size-btn"
+onclick="chooseTshirtSize(this)">
+XS
 </button>
 
-
-<button
-    class="size-btn"
-    onclick="chooseTshirtSize(this)"
->
-    S
+<button class="size-btn"
+onclick="chooseTshirtSize(this)">
+S
 </button>
 
-
-<button
-    class="size-btn active"
-    onclick="chooseTshirtSize(this)"
->
-    M
+<button class="size-btn active"
+onclick="chooseTshirtSize(this)">
+M
 </button>
 
-
-<button
-    class="size-btn"
-    onclick="chooseTshirtSize(this)"
->
-    L
+<button class="size-btn"
+onclick="chooseTshirtSize(this)">
+L
 </button>
 
-
-<button
-    class="size-btn"
-    onclick="chooseTshirtSize(this)"
->
-    XL
+<button class="size-btn"
+onclick="chooseTshirtSize(this)">
+XL
 </button>
 
-
-<button
-    class="size-btn"
-    onclick="chooseTshirtSize(this)"
->
-    XXL
+<button class="size-btn"
+onclick="chooseTshirtSize(this)">
+XXL
 </button>
-
 
 </div>
 
@@ -2192,6 +2248,28 @@ function showCollections() {
 }
 
 
+function showAbout() {
+
+    showHome();
+
+    setTimeout(
+        () => {
+
+            document
+                .getElementById(
+                    "aboutSection"
+                )
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        },
+        0
+    );
+
+}
+
+
 function showHoodies() {
 
     hideScreens();
@@ -2229,7 +2307,6 @@ function showTshirts() {
 ===================================================== */
 
 let hoodieColour = "White";
-
 let hoodieSize = "M";
 
 
@@ -2274,9 +2351,7 @@ function changeHoodie(
         );
 
 
-    if (
-        colour === "white"
-    ) {
+    if (colour === "white") {
 
         front.src =
             "white-hoodie.jpg";
@@ -2287,9 +2362,7 @@ function changeHoodie(
     }
 
 
-    if (
-        colour === "grey"
-    ) {
+    if (colour === "grey") {
 
         front.src =
             "grey-hoodie.jpg";
@@ -2300,9 +2373,7 @@ function changeHoodie(
     }
 
 
-    if (
-        colour === "brown"
-    ) {
+    if (colour === "brown") {
 
         front.src =
             "brown-hoodie.jpg";
@@ -2320,7 +2391,6 @@ function changeHoodie(
 ===================================================== */
 
 let tshirtColour = "Grey";
-
 let tshirtSize = "M";
 
 
@@ -2367,9 +2437,7 @@ function changeTshirt(
         );
 
 
-    if (
-        colour === "grey"
-    ) {
+    if (colour === "grey") {
 
         front.src =
             "grey-tshirt.jpg";
@@ -2380,9 +2448,7 @@ function changeTshirt(
     }
 
 
-    if (
-        colour === "skyblue"
-    ) {
+    if (colour === "skyblue") {
 
         front.src =
             "skyblue-tshirt.jpg";
@@ -2393,9 +2459,7 @@ function changeTshirt(
     }
 
 
-    if (
-        colour === "navy"
-    ) {
+    if (colour === "navy") {
 
         front.src =
             "navy-tshirt.jpg";
@@ -2479,8 +2543,6 @@ function chooseTshirtSize(
 let cart = [];
 
 
-/* ADD HOODIE */
-
 function addHoodie() {
 
     addToCart({
@@ -2509,8 +2571,6 @@ function addHoodie() {
 }
 
 
-/* ADD T-SHIRT */
-
 function addTshirt() {
 
     addToCart({
@@ -2538,8 +2598,6 @@ function addTshirt() {
 
 }
 
-
-/* ADD TO CART */
 
 function addToCart(item) {
 
@@ -2574,8 +2632,6 @@ function addToCart(item) {
 }
 
 
-/* CART COUNT */
-
 function updateCartCount() {
 
     const totalQuantity =
@@ -2598,8 +2654,6 @@ function updateCartCount() {
 }
 
 
-/* INCREASE */
-
 function increaseQuantity(
     index
 ) {
@@ -2612,8 +2666,6 @@ function increaseQuantity(
 
 }
 
-
-/* DECREASE */
 
 function decreaseQuantity(
     index
@@ -2640,8 +2692,6 @@ function decreaseQuantity(
 
 }
 
-
-/* REMOVE */
 
 function removeItem(
     index
@@ -2711,10 +2761,8 @@ function renderCart() {
         summary.style.display =
             "none";
 
-
         whatsapp.style.display =
             "none";
-
 
         return;
 
@@ -2776,7 +2824,6 @@ function renderCart() {
                             each
                         </p>
 
-
                         <div
                             class="quantity-row"
                         >
@@ -2788,13 +2835,11 @@ function renderCart() {
                                 −
                             </button>
 
-
                             <span
                                 class="quantity-number"
                             >
                                 ${item.quantity}
                             </span>
-
 
                             <button
                                 class="quantity-btn"
@@ -2804,7 +2849,6 @@ function renderCart() {
                             </button>
 
                         </div>
-
 
                         <button
                             class="remove-item"
@@ -2856,7 +2900,7 @@ function renderCart() {
 
 
 /* =====================================================
-   OPEN CART
+   CART OPEN / CLOSE
 ===================================================== */
 
 function openCart() {
@@ -2871,10 +2915,6 @@ function openCart() {
 
 }
 
-
-/* =====================================================
-   CLOSE CART
-===================================================== */
 
 function closeCart() {
 
