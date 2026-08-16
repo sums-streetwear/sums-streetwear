@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SUMS — Streetwear</title>
+<title>SUMS — Premium Streetwear</title>
 
 <style>
 
@@ -27,7 +27,7 @@ body {
 
 
 /* =====================================================
-   LOADING SCREEN
+   LOADING SCREEN — 5 SECONDS
 ===================================================== */
 
 #loader {
@@ -35,6 +35,7 @@ body {
     inset: 0;
     background: #000;
     color: #fff;
+
     z-index: 10000;
 
     display: flex;
@@ -59,6 +60,7 @@ body {
 .loader-logo {
     width: 90px;
     height: 90px;
+
     object-fit: contain;
 
     animation:
@@ -67,24 +69,26 @@ body {
 
 .loader-name {
     margin-top: 20px;
+
     font-size: 34px;
     font-weight: 900;
+
     letter-spacing: 7px;
 
-    animation:
-        loaderPulse 1.5s ease-in-out infinite;
+    animation: loaderPulse 1.5s ease-in-out infinite;
 }
 
 .loader-line {
     width: 130px;
     height: 2px;
+
     background: #fff;
+
     margin: 22px auto 0;
 
     transform-origin: center;
 
-    animation:
-        loaderLine 1.5s ease-in-out infinite;
+    animation: loaderLine 1.5s ease-in-out infinite;
 }
 
 @keyframes loaderSpin {
@@ -139,7 +143,9 @@ body {
 
 header {
     height: 78px;
+
     background: #fff;
+
     border-bottom: 1px solid #ddd;
 
     display: flex;
@@ -157,15 +163,18 @@ header {
 .brand {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
     color: #000;
+
     text-decoration: none;
 }
 
 .brand-logo {
     width: 44px;
     height: 44px;
+
     object-fit: contain;
 
     animation:
@@ -196,7 +205,9 @@ header {
 
 .brand-name {
     font-size: 25px;
+
     font-weight: 900;
+
     letter-spacing: 2px;
 }
 
@@ -208,30 +219,31 @@ header {
 .nav {
     display: flex;
     align-items: center;
+
     gap: 24px;
 }
 
 .nav-button {
     border: none;
+
     background: transparent;
+
     cursor: pointer;
 
     font-size: 13px;
-    font-weight: 800;
-}
 
-.nav-button:hover {
-    opacity: .55;
+    font-weight: 800;
 }
 
 .search {
     font-size: 24px;
-    cursor: pointer;
 }
 
 .cart {
     position: relative;
+
     font-size: 23px;
+
     cursor: pointer;
 }
 
@@ -278,6 +290,7 @@ header {
     min-height: 82vh;
 
     position: relative;
+
     overflow: hidden;
 
     display: flex;
@@ -379,6 +392,18 @@ header {
 
 }
 
+.hero-small {
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 22px;
+
+    opacity: .7;
+}
+
 .hero h1 {
     font-size: clamp(70px, 15vw, 180px);
 
@@ -399,6 +424,18 @@ header {
     font-weight: 700;
 
     letter-spacing: 1px;
+}
+
+.hero p {
+    margin: 17px auto 0;
+
+    max-width: 600px;
+
+    font-size: 15px;
+
+    color: #aaa;
+
+    line-height: 1.6;
 }
 
 .hero-button {
@@ -428,6 +465,7 @@ header {
 
 .hero-button:hover {
     transform: translateY(-4px);
+
     background: #ddd;
 }
 
@@ -444,11 +482,13 @@ header {
 
 .collection-intro h2 {
     font-size: clamp(38px, 6vw, 65px);
+
     font-weight: 900;
 }
 
 .collection-intro p {
     margin-top: 10px;
+
     color: #666;
 }
 
@@ -517,6 +557,7 @@ header {
 
 .collection-overlay h3 {
     font-size: 45px;
+
     font-weight: 900;
 }
 
@@ -942,9 +983,7 @@ header {
 }
 
 
-/* =====================================================
-   QUANTITY
-===================================================== */
+/* QUANTITY CONTROLS */
 
 .quantity-row {
     display: flex;
@@ -971,9 +1010,7 @@ header {
     font-weight: 700;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 }
 
@@ -986,9 +1023,7 @@ header {
 }
 
 
-/* =====================================================
-   REMOVE
-===================================================== */
+/* REMOVE BUTTON */
 
 .remove-item {
     margin-top: 10px;
@@ -1013,9 +1048,7 @@ header {
 }
 
 
-/* =====================================================
-   TOTAL
-===================================================== */
+/* TOTAL */
 
 .cart-summary {
     margin-top: 25px;
@@ -1044,9 +1077,7 @@ header {
 }
 
 
-/* =====================================================
-   WHATSAPP
-===================================================== */
+/* WHATSAPP */
 
 .whatsapp-order {
     display: block;
@@ -1280,28 +1311,6 @@ footer p {
 
 }
 
-
-/* =====================================================
-   MOBILE NAVIGATION
-===================================================== */
-
-@media(max-width:800px) {
-
-    header {
-        height: auto;
-        min-height: 78px;
-    }
-
-    .nav {
-        gap: 12px;
-    }
-
-    .mobile-home {
-        display: none;
-    }
-
-}
-
 </style>
 </head>
 
@@ -1310,7 +1319,7 @@ footer p {
 
 
 <!-- =====================================================
-     LOADING SCREEN — 10 SECONDS
+     LOADING SCREEN
 ===================================================== -->
 
 <div id="loader">
@@ -1363,20 +1372,6 @@ footer p {
 
     <button
         class="nav-button"
-        onclick="showHome()"
-    >
-        HOME
-    </button>
-
-    <button
-        class="nav-button"
-        onclick="showTshirts()"
-    >
-        T-SHIRTS
-    </button>
-
-    <button
-        class="nav-button"
         onclick="showHoodies()"
     >
         HOODIES
@@ -1384,9 +1379,9 @@ footer p {
 
     <button
         class="nav-button"
-        onclick="showAbout()"
+        onclick="showTshirts()"
     >
-        ABOUT
+        T-SHIRTS
     </button>
 
     <span class="search">
@@ -1428,6 +1423,10 @@ footer p {
 
     <div class="hero-content">
 
+        <div class="hero-small">
+            SOUTH AFRICAN STREETWEAR
+        </div>
+
         <h1>
             SUMS
         </h1>
@@ -1435,6 +1434,12 @@ footer p {
         <div class="hero-tagline">
             BORN FROM THE WILD COAST.
         </div>
+
+        <p>
+            Premium streetwear for those who create
+            their own identity, their own movement,
+            and their own legacy.
+        </p>
 
         <button
             class="hero-button"
@@ -1557,10 +1562,7 @@ footer p {
 </section>
 
 
-<section
-    id="aboutSection"
-    class="about"
->
+<section class="about">
 
     <h2>
         ABOUT SUMS
@@ -1570,7 +1572,7 @@ footer p {
         SUMS is a South African streetwear brand
         representing culture, movement and ambition.
         Born from the wild coast. Built for those who
-        create their own legacy.
+        create their own legacy
     </p>
 
 </section>
@@ -2109,7 +2111,7 @@ footer p {
 
 
 /* =====================================================
-   LOADING SCREEN — 10 SECONDS
+   LOADING SCREEN — 5 SECONDS
 ===================================================== */
 
 window.addEventListener(
@@ -2124,7 +2126,7 @@ window.addEventListener(
                     .classList.add("hide");
 
             },
-            10000
+            5000
         );
 
     }
@@ -2178,28 +2180,6 @@ function showCollections() {
             document
                 .getElementById(
                     "collections"
-                )
-                .scrollIntoView({
-                    behavior: "auto"
-                });
-
-        },
-        0
-    );
-
-}
-
-
-function showAbout() {
-
-    showHome();
-
-    setTimeout(
-        () => {
-
-            document
-                .getElementById(
-                    "aboutSection"
                 )
                 .scrollIntoView({
                     behavior: "auto"
@@ -2796,6 +2776,7 @@ function renderCart() {
                             each
                         </p>
 
+
                         <div
                             class="quantity-row"
                         >
@@ -2807,11 +2788,13 @@ function renderCart() {
                                 −
                             </button>
 
+
                             <span
                                 class="quantity-number"
                             >
                                 ${item.quantity}
                             </span>
+
 
                             <button
                                 class="quantity-btn"
@@ -2821,6 +2804,7 @@ function renderCart() {
                             </button>
 
                         </div>
+
 
                         <button
                             class="remove-item"
