@@ -575,6 +575,12 @@ header {
     text-align: left;
 }
 
+/* NON-CLICKABLE COMING SOON CARD */
+
+.collection-card.coming-soon {
+    cursor: default;
+}
+
 .collection-card img {
     width: 100%;
     height: 100%;
@@ -589,6 +595,12 @@ header {
 
 .collection-card:hover img {
     transform: scale(1.03);
+}
+
+/* Prevent hover zoom on coming-soon card */
+
+.collection-card.coming-soon:hover img {
+    transform: none;
 }
 
 .collection-overlay {
@@ -1600,13 +1612,14 @@ footer p {
 
 <!-- =====================================================
      COLLECTION GRID
-     FOUNDER EDITION REMOVED / HIDDEN
 ===================================================== -->
 
 <div class="collection-grid">
 
 
-    <!-- HOODIES -->
+    <!-- =================================================
+         HOODIES
+    ================================================= -->
 
     <button
         class="collection-card"
@@ -1637,7 +1650,9 @@ footer p {
     </button>
 
 
-    <!-- T-SHIRTS -->
+    <!-- =================================================
+         T-SHIRTS
+    ================================================= -->
 
     <button
         class="collection-card"
@@ -1699,6 +1714,39 @@ footer p {
         </div>
 
     </button>
+
+
+    <!-- =================================================
+         FOUNDER HOODIE — COMING SOON
+         
+         IMPORTANT:
+         VISIBLE BUT NOT CLICKABLE
+         NO onclick
+         NO shop button
+    ================================================= -->
+
+    <div
+        class="collection-card coming-soon"
+    >
+
+        <img
+            src="founder-hoodie-front.jpg"
+            alt="SUMS Hoodie-5120 Founder Edition"
+        >
+
+        <div class="collection-overlay">
+
+            <h3>
+                HOODIE-5120
+            </h3>
+
+            <p>
+                FOUNDER EDITION — COMING SOON.
+            </p>
+
+        </div>
+
+    </div>
 
 
 </div>
@@ -2435,7 +2483,9 @@ footer p {
 <div class="social-links">
 
 
-<!-- WHATSAPP -->
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
 
 <a
     class="social-link"
@@ -2457,7 +2507,9 @@ footer p {
 </a>
 
 
-<!-- TIKTOK -->
+<!-- =====================================================
+     TIKTOK
+===================================================== -->
 
 <a
     class="social-link"
@@ -2479,7 +2531,9 @@ footer p {
 </a>
 
 
-<!-- INSTAGRAM -->
+<!-- =====================================================
+     INSTAGRAM
+===================================================== -->
 
 <a
     class="social-link"
@@ -2501,7 +2555,9 @@ footer p {
 </a>
 
 
-<!-- FACEBOOK -->
+<!-- =====================================================
+     FACEBOOK
+===================================================== -->
 
 <a
     class="social-link"
@@ -2516,7 +2572,7 @@ footer p {
     aria-hidden="true"
 >
 
-    <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.005 10.125 11.923v-8.432H7.078v-3.491h3.047V9.412c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.973h-1.514c-1.491 0-1.956.929-1.956 1.883v2.264h3.328l-.532 3.491h-2.796v8.432C19.612 23.078 24 18.092 24 12.073z"/>
+    <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.43H7.08v-3.5h3.05V9.41c0-3.03 1.79-4.7 4.55-4.7 1.32 0 2.7.24 2.7.24v2.99h-1.52c-1.5 0-1.97.94-1.97 1.9v2.23h3.35l-.54 3.5h-2.81V24C19.61 23.09 24 18.09 24 12.07z"/>
 
 </svg>
 
@@ -3441,8 +3497,6 @@ function renderCart() {
         }
     );
 
-
-    /* TOTAL */
 
     totalDisplay.innerText =
         "R" + total.toFixed(2);
