@@ -1,215 +1,2600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUMS — Premium Streetwear</title>
+
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:auto;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+    color:#111;
+    overflow-x:hidden;
+}
+
+/* =====================================================
+   LOADING SCREEN — MOVING LOGO FOR 3 SECONDS
+===================================================== */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#000;
+    color:#fff;
+    z-index:10000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:opacity .5s ease,visibility .5s ease;
+}
+
+#loader.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.loader-content{
+    text-align:center;
+}
+
+.loader-logo{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+    animation:loaderSpin 1.8s ease-in-out infinite;
+}
+
+.loader-name{
+    margin-top:20px;
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:7px;
+    animation:loaderPulse 1.5s ease-in-out infinite;
+}
+
+.loader-line{
+    width:130px;
+    height:2px;
+    background:#fff;
+    margin:22px auto 0;
+    transform-origin:center;
+    animation:loaderLine 1.5s ease-in-out infinite;
+}
+
+@keyframes loaderSpin{
+    0%{
+        transform:rotateY(0deg) scale(.85);
+    }
+    50%{
+        transform:rotateY(180deg) scale(1);
+    }
+    100%{
+        transform:rotateY(360deg) scale(.85);
+    }
+}
+
+@keyframes loaderPulse{
+    0%,100%{opacity:.45;}
+    50%{opacity:1;}
+}
+
+@keyframes loaderLine{
+    0%{transform:scaleX(.2);}
+    50%{transform:scaleX(1);}
+    100%{transform:scaleX(.2);}
+}
 
 /* =====================================================
    HEADER
-   SUMS LOGO + NAME LEFT
-   NAVIGATION RIGHT
+   LOGO LEFT — SUMS BELOW LOGO
+   NAV RIGHT
 ===================================================== */
 
-header {
-    height: 78px;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 35px;
-
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+header{
+    min-height:90px;
+    background:#fff;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:8px 35px;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
+.header-brand{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    cursor:pointer;
+    min-width:72px;
+}
+
+.header-brand img{
+    width:38px;
+    height:38px;
+    object-fit:contain;
+    display:block;
+}
+
+.header-brand-name{
+    margin-top:3px;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px;
+    line-height:1;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:24px;
+    flex:1;
+    margin-left:25px;
+}
+
+.nav-button{
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:800;
+    transition:opacity .2s ease,transform .2s ease;
+}
+
+.nav-button:hover{
+    opacity:.55;
+    transform:translateY(-1px);
+}
+
+.search{
+    font-size:24px;
+    cursor:pointer;
+    line-height:1;
+}
+
+.cart{
+    position:relative;
+    font-size:23px;
+    cursor:pointer;
+    line-height:1;
+}
+
+.cart-count{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    width:18px;
+    height:18px;
+    background:#000;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10px;
+}
 
 /* =====================================================
-   SUMS BRAND — LEFT
+   SCREENS
 ===================================================== */
 
-.header-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    cursor: pointer;
-
-    flex-shrink: 0;
+.screen{
+    display:none;
 }
 
-.header-logo {
-    width: 42px;
-    height: 42px;
-
-    object-fit: contain;
-
-    display: block;
+.screen.active{
+    display:block;
+    animation:pageFlip .65s ease both;
 }
 
-.header-brand-name {
-    font-size: 21px;
-    font-weight: 900;
-
-    letter-spacing: 3px;
-
-    color: #111;
+@keyframes pageFlip{
+    0%{
+        opacity:0;
+        transform:perspective(1400px) rotateY(-90deg);
+        transform-origin:center right;
+    }
+    55%{opacity:.7;}
+    100%{
+        opacity:1;
+        transform:perspective(1400px) rotateY(0deg);
+        transform-origin:center center;
+    }
 }
-
 
 /* =====================================================
-   NAVIGATION — RIGHT
+   HERO
 ===================================================== */
 
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    gap: 24px;
+.hero{
+    min-height:82vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:70px 20px;
+    background:radial-gradient(circle at center,#292929 0%,#111 42%,#000 100%);
+    color:#fff;
 }
 
-.nav-button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-
-    font-size: 13px;
-    font-weight: 800;
-
-    color: #111;
-
-    transition:
-        opacity .2s ease,
-        transform .2s ease;
+.hero::before{
+    content:"SUMS";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) scale(1.8);
+    font-size:clamp(100px,25vw,320px);
+    font-weight:900;
+    letter-spacing:-15px;
+    color:rgba(255,255,255,.025);
+    white-space:nowrap;
+    pointer-events:none;
 }
 
-.nav-button:hover {
-    opacity: .55;
-    transform: translateY(-1px);
+.hero::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    animation:heroCircle 12s linear infinite;
+    pointer-events:none;
 }
 
-.search {
-    font-size: 24px;
-    cursor: pointer;
-
-    line-height: 1;
-
-    color: #111;
+@keyframes heroCircle{
+    from{
+        transform:rotate(0deg) scale(1);
+    }
+    to{
+        transform:rotate(360deg) scale(1.2);
+    }
 }
 
-.cart {
-    position: relative;
-
-    font-size: 23px;
-    cursor: pointer;
-
-    line-height: 1;
-
-    color: #111;
+.hero-content{
+    max-width:950px;
+    position:relative;
+    z-index:2;
+    animation:heroReveal 1s ease both;
 }
 
-.cart-count {
-    position: absolute;
-
-    top: -8px;
-    right: -10px;
-
-    width: 18px;
-    height: 18px;
-
-    background: #000;
-    color: #fff;
-
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 10px;
+@keyframes heroReveal{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
+.hero h1{
+    font-size:clamp(70px,15vw,180px);
+    font-weight:900;
+    letter-spacing:-10px;
+    line-height:.78;
+    text-transform:uppercase;
+}
+
+.hero-tagline{
+    margin-top:30px;
+    font-size:clamp(18px,3vw,28px);
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.hero-button{
+    margin-top:35px;
+    display:inline-block;
+    padding:16px 34px;
+    background:#fff;
+    color:#000;
+    border-radius:30px;
+    font-weight:900;
+    cursor:pointer;
+    border:none;
+    transition:transform .25s ease,background .25s ease,color .25s ease;
+}
+
+.hero-button:hover{
+    transform:translateY(-4px);
+    background:#ddd;
+}
 
 /* =====================================================
-   MOBILE HEADER
+   COLLECTION
 ===================================================== */
 
-@media(max-width:800px) {
-
-    header {
-        padding: 0 16px;
-
-        overflow-x: auto;
-
-        justify-content: space-between;
-    }
-
-    .header-brand {
-        gap: 8px;
-    }
-
-    .header-logo {
-        width: 36px;
-        height: 36px;
-    }
-
-    .header-brand-name {
-        font-size: 17px;
-        letter-spacing: 2px;
-    }
-
-    .nav {
-        gap: 16px;
-
-        min-width: max-content;
-    }
-
-    .nav-button {
-        font-size: 10px;
-    }
-
-    .search {
-        font-size: 21px;
-    }
-
-    .cart {
-        font-size: 21px;
-    }
+.collection-intro{
+    text-align:center;
+    padding:70px 20px 35px;
 }
 
+.collection-intro h2{
+    font-size:clamp(38px,6vw,65px);
+    font-weight:900;
+}
+
+.collection-intro p{
+    margin-top:10px;
+    color:#666;
+}
+
+.collection-nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    padding:0 20px 35px;
+}
+
+.collection-nav button{
+    border:1px solid #111;
+    background:#fff;
+    color:#111;
+    padding:12px 22px;
+    border-radius:25px;
+    font-weight:900;
+    cursor:pointer;
+    transition:background .2s ease,color .2s ease,transform .2s ease;
+}
+
+.collection-nav button:hover{
+    transform:translateY(-2px);
+}
+
+.collection-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    padding:0 25px 80px;
+}
+
+.collection-card{
+    height:62vh;
+    min-height:430px;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    border:none;
+    padding:0;
+    background:#eee;
+    transform-style:preserve-3d;
+}
+
+.collection-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .35s ease;
+}
+
+.collection-card:hover img{
+    transform:scale(1.03);
+}
+
+.collection-overlay{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:35px;
+    text-align:left;
+    color:#fff;
+    background:linear-gradient(transparent,rgba(0,0,0,.85));
+}
+
+.collection-overlay h3{
+    font-size:42px;
+    font-weight:900;
+}
+
+.collection-overlay p{
+    margin-top:7px;
+}
+
+.shop-button{
+    display:inline-block;
+    margin-top:18px;
+    background:#fff;
+    color:#000;
+    padding:12px 22px;
+    border-radius:25px;
+    font-weight:800;
+}
 
 /* =====================================================
-   VERY SMALL PHONES
+   PRODUCT SCREEN
 ===================================================== */
 
-@media(max-width:450px) {
-
-    header {
-        height: 70px;
-    }
-
-    .header-logo {
-        width: 32px;
-        height: 32px;
-    }
-
-    .header-brand-name {
-        font-size: 15px;
-        letter-spacing: 1.5px;
-    }
-
-    .nav {
-        gap: 13px;
-    }
-
-    .nav-button {
-        font-size: 8px;
-    }
-
-    .search {
-        display: none;
-    }
-
+.product-screen{
+    max-width:1300px;
+    margin:auto;
+    padding:35px 25px 80px;
 }
 
+.back-button{
+    border:none;
+    background:#f1f1f1;
+    padding:12px 20px;
+    border-radius:25px;
+    font-weight:800;
+    cursor:pointer;
+    margin-bottom:30px;
+}
+
+.product-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.product-title h1{
+    font-size:clamp(45px,7vw,70px);
+    font-weight:900;
+}
+
+.product-title p{
+    color:#666;
+    margin-top:8px;
+}
+
+.product-layout{
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    gap:45px;
+    align-items:start;
+}
+
+.product-images{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.product-image{
+    background:#f3f3f3;
+    overflow:hidden;
+    cursor:zoom-in;
+}
+
+.product-image img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    display:block;
+    transition:transform .25s ease;
+}
+
+.product-image:hover img{
+    transform:scale(1.03);
+}
+
+.image-label{
+    background:#fff;
+    padding:9px;
+    text-align:center;
+    font-size:12px;
+    font-weight:800;
+}
+
+.product-details h2{
+    font-size:32px;
+    font-weight:900;
+}
+
+.price{
+    font-size:22px;
+    font-weight:800;
+    margin:10px 0 28px;
+}
+
+.option-title{
+    font-size:13px;
+    font-weight:900;
+    margin-bottom:11px;
+}
+
+.colours{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:28px;
+}
+
+.colour-btn{
+    background:#fff;
+    border:1px solid #bbb;
+    padding:11px 16px;
+    cursor:pointer;
+    font-weight:700;
+    border-radius:4px;
+}
+
+.colour-btn.active{
+    background:#000;
+    color:#fff;
+    border-color:#000;
+}
+
+.sizes{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-bottom:28px;
+}
+
+.size-btn{
+    min-width:50px;
+    padding:12px 10px;
+    background:#fff;
+    border:1px solid #bbb;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.size-btn.active{
+    background:#000;
+    color:#fff;
+    border-color:#000;
+}
+
+.add-cart{
+    width:100%;
+    padding:17px;
+    border:none;
+    background:#000;
+    color:#fff;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:900;
+    transition:transform .2s ease,opacity .2s ease;
+}
+
+.add-cart:hover{
+    transform:translateY(-2px);
+    opacity:.85;
+}
+
+/* =====================================================
+   FOUNDER EDITION — NOT CLICKABLE
+===================================================== */
+
+.founder-section{
+    background:#111;
+    color:#fff;
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:620px;
+}
+
+.founder-image{
+    width:100%;
+    height:620px;
+    object-fit:cover;
+    display:block;
+}
+
+.founder-content{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:50px;
+    text-align:center;
+}
+
+.founder-content h2{
+    font-size:clamp(38px,5vw,65px);
+    line-height:.95;
+    font-weight:900;
+}
+
+.founder-content p{
+    margin-top:20px;
+    color:#ccc;
+    font-size:17px;
+}
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about{
+    padding:90px 25px;
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+}
+
+.about h2{
+    font-size:45px;
+    font-weight:900;
+    margin-bottom:25px;
+}
+
+.about p{
+    font-size:20px;
+    line-height:1.7;
+    color:#333;
+}
+
+/* =====================================================
+   CART
+===================================================== */
+
+.cart-panel{
+    position:fixed;
+    top:0;
+    right:-430px;
+    width:410px;
+    max-width:92%;
+    height:100vh;
+    background:#fff;
+    z-index:4000;
+    box-shadow:-5px 0 25px rgba(0,0,0,.18);
+    padding:28px;
+    overflow-y:auto;
+    transition:right .25s ease;
+}
+
+.cart-panel.open{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+.close-cart{
+    font-size:30px;
+    cursor:pointer;
+}
+
+.cart-item{
+    display:flex;
+    gap:14px;
+    padding:18px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.cart-item img{
+    width:82px;
+    height:100px;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+.cart-item-info{
+    flex:1;
+}
+
+.cart-item-info h4{
+    margin-bottom:8px;
+}
+
+.cart-item-info p{
+    font-size:13px;
+    color:#555;
+    margin-top:4px;
+}
+
+.quantity-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
+}
+
+.quantity-btn{
+    width:28px;
+    height:28px;
+    border:1px solid #bbb;
+    background:#fff;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.quantity-number{
+    min-width:25px;
+    text-align:center;
+    font-weight:800;
+}
+
+.remove-item{
+    margin-top:10px;
+    border:none;
+    background:transparent;
+    color:#777;
+    cursor:pointer;
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+.remove-item:hover{
+    color:#000;
+}
+
+.cart-summary{
+    margin-top:25px;
+    padding-top:20px;
+    border-top:2px solid #000;
+}
+
+.cart-total-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:20px;
+    font-weight:900;
+}
+
+.cart-total-label{
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.whatsapp-order{
+    display:block;
+    margin-top:20px;
+    padding:16px;
+    background:#000;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    font-weight:900;
+}
+
+.empty-cart{
+    text-align:center;
+    padding:60px 10px;
+    color:#777;
+}
+
+.empty-cart-title{
+    font-size:20px;
+    font-weight:900;
+    color:#111;
+    margin-bottom:8px;
+}
+
+/* =====================================================
+   LIGHTBOX
+===================================================== */
+
+.lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    z-index:5000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.lightbox.open{
+    display:flex;
+}
+
+.lightbox img{
+    max-width:95%;
+    max-height:90vh;
+    object-fit:contain;
+}
+
+.close-lightbox{
+    position:absolute;
+    top:15px;
+    right:25px;
+    color:#fff;
+    font-size:42px;
+    cursor:pointer;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    background:#f5f5f5;
+    text-align:center;
+    padding:55px 20px;
+}
+
+footer h3{
+    font-size:27px;
+    letter-spacing:2px;
+}
+
+footer p{
+    margin-top:10px;
+    color:#555;
+}
+
+/* =====================================================
+   SOCIAL ICONS
+===================================================== */
+
+.social-icons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:22px;
+    margin-top:25px;
+}
+
+.social-icon{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    transition:transform .2s ease,opacity .2s ease;
+}
+
+.social-icon:hover{
+    transform:translateY(-4px);
+    opacity:.75;
+}
+
+.social-icon svg{
+    width:23px;
+    height:23px;
+    fill:currentColor;
+}
+
+.copyright{
+    margin-top:32px;
+    font-size:13px;
+    color:#555;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px){
+
+    header{
+        min-height:78px;
+        padding:7px 15px;
+        overflow-x:auto;
+        justify-content:flex-start;
+    }
+
+    .header-brand{
+        min-width:58px;
+    }
+
+    .header-brand img{
+        width:32px;
+        height:32px;
+    }
+
+    .header-brand-name{
+        font-size:9px;
+    }
+
+    .nav{
+        gap:16px;
+        min-width:max-content;
+        margin-left:18px;
+    }
+
+    .nav-button{
+        font-size:10px;
+    }
+
+    .search{
+        font-size:21px;
+    }
+
+    .cart{
+        font-size:21px;
+    }
+
+    .hero{
+        min-height:70vh;
+    }
+
+    .hero h1{
+        letter-spacing:-6px;
+    }
+
+    .hero::after{
+        width:300px;
+        height:300px;
+    }
+
+    .collection-nav{
+        gap:8px;
+    }
+
+    .collection-nav button{
+        padding:10px 17px;
+        font-size:11px;
+    }
+
+    .collection-grid{
+        grid-template-columns:1fr;
+        padding:0 15px 60px;
+    }
+
+    .collection-card{
+        height:52vh;
+        min-height:350px;
+    }
+
+    .collection-overlay h3{
+        font-size:36px;
+    }
+
+    .product-screen{
+        padding:25px 15px 60px;
+    }
+
+    .product-layout{
+        grid-template-columns:1fr;
+        gap:28px;
+    }
+
+    .product-images{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .founder-section{
+        grid-template-columns:1fr;
+    }
+
+    .founder-image{
+        height:430px;
+    }
+
+    .founder-content{
+        min-height:330px;
+    }
+
+    .about{
+        padding:65px 20px;
+    }
+
+    .about h2{
+        font-size:38px;
+    }
+
+    .about p{
+        font-size:17px;
+    }
+
+    .cart-panel{
+        width:100%;
+        max-width:100%;
+        right:-100%;
+    }
+
+    .cart-panel.open{
+        right:0;
+    }
+
+    .social-icons{
+        gap:18px;
+    }
+}
+
+@media(max-width:450px){
+
+    header{
+        min-height:70px;
+    }
+
+    .nav{
+        gap:13px;
+    }
+
+    .nav-button{
+        font-size:8px;
+    }
+
+    .search{
+        font-size:20px;
+    }
+
+    .social-icon{
+        width:43px;
+        height:43px;
+    }
+}
 </style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOADING SCREEN
+===================================================== -->
+
+<div id="loader">
+    <div class="loader-content">
+
+        <img
+            class="loader-logo"
+            src="sums-black-logo.png"
+            alt="SUMS Logo"
+        >
+
+        <div class="loader-name">
+            SUMS
+        </div>
+
+        <div class="loader-line"></div>
+
+    </div>
+</div>
+
+<!-- =====================================================
+     HEADER
+     LOGO + SUMS BELOW IT ON LEFT
+===================================================== -->
+
+<header>
+
+    <div
+        class="header-brand"
+        onclick="showHome()"
+        title="SUMS Home"
+    >
+
+        <img
+            src="sums-black-logo.png"
+            alt="SUMS Logo"
+        >
+
+        <div class="header-brand-name">
+            SUMS
+        </div>
+
+    </div>
+
+    <nav class="nav">
+
+        <button
+            class="nav-button"
+            onclick="showHome()"
+        >
+            HOME
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showTshirts()"
+        >
+            T-SHIRTS
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showHoodies()"
+        >
+            HOODIES
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showPants()"
+        >
+            PANTS
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showAbout()"
+        >
+            ABOUT
+        </button>
+
+        <span
+            class="search"
+            title="Search"
+            onclick="openSearch()"
+        >
+            ⌕
+        </span>
+
+        <div
+            class="cart"
+            onclick="openCart()"
+            title="Cart"
+        >
+            🛒
+
+            <span
+                class="cart-count"
+                id="cartCount"
+            >
+                0
+            </span>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<main id="homeScreen" class="screen active">
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>SUMS</h1>
+
+            <div class="hero-tagline">
+                BORN FROM THE WILD COAST.
+            </div>
+
+            <button
+                class="hero-button"
+                onclick="showCollections()"
+            >
+                EXPLORE SUMS
+            </button>
+
+        </div>
+
+    </section>
+
+    <section
+        id="collections"
+        class="collection-intro"
+    >
+
+        <h2>SHOP SUMS</h2>
+
+        <p>
+            Choose your collection.
+        </p>
+
+    </section>
+
+    <div class="collection-nav">
+
+        <button onclick="showTshirts()">
+            T-SHIRTS
+        </button>
+
+        <button onclick="showHoodies()">
+            HOODIES
+        </button>
+
+        <button onclick="showPants()">
+            PANTS
+        </button>
+
+    </div>
+
+    <div class="collection-grid">
+
+        <button
+            class="collection-card"
+            onclick="showHoodies()"
+        >
+
+            <img
+                src="white-hoodie.jpg"
+                alt="SUMS Hoodies"
+            >
+
+            <div class="collection-overlay">
+
+                <h3>HOODIES</h3>
+
+                <p>
+                    Explore the SUMS hoodie collection.
+                </p>
+
+                <span class="shop-button">
+                    SHOP HOODIES
+                </span>
+
+            </div>
+
+        </button>
+
+        <button
+            class="collection-card"
+            onclick="showTshirts()"
+        >
+
+            <img
+                src="grey-tshirt.jpg"
+                alt="SUMS T-Shirts"
+            >
+
+            <div class="collection-overlay">
+
+                <h3>T-SHIRTS</h3>
+
+                <p>
+                    Explore the SUMS T-shirt collection.
+                </p>
+
+                <span class="shop-button">
+                    SHOP T-SHIRTS
+                </span>
+
+            </div>
+
+        </button>
+
+        <button
+            class="collection-card"
+            onclick="showPants()"
+        >
+
+            <img
+                src="grey-pants.jpg"
+                alt="SUMS Pants"
+            >
+
+            <div class="collection-overlay">
+
+                <h3>PANTS</h3>
+
+                <p>
+                    Explore the SUMS pants collection.
+                </p>
+
+                <span class="shop-button">
+                    SHOP PANTS
+                </span>
+
+            </div>
+
+        </button>
+
+    </div>
+
+    <!-- FOUNDER EDITION — NO onclick -->
+
+    <section class="founder-section">
+
+        <img
+            class="founder-image"
+            src="founder-hoodie-front.jpg"
+            alt="SUMS Hoodie-5120 Founder Edition"
+        >
+
+        <div class="founder-content">
+
+            <div>
+
+                <h2>
+                    SUMS HOODIE-5120
+                    <br>
+                    FOUNDER EDITION
+                </h2>
+
+                <p>
+                    A premium SUMS piece coming soon.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section
+        id="aboutSection"
+        class="about"
+    >
+
+        <h2>
+            ABOUT SUMS
+        </h2>
+
+        <p>
+            SUMS is a South African streetwear brand
+            representing culture, movement and ambition.
+            Born from the wild coast. Built for those who
+            create their own legacy.
+        </p>
+
+    </section>
+
+</main>
+
+<!-- =====================================================
+     HOODIES
+===================================================== -->
+
+<main id="hoodieScreen" class="screen">
+
+<section class="product-screen">
+
+<button
+    class="back-button"
+    onclick="showHome()"
+>
+    ← Back to SUMS
+</button>
+
+<div class="product-title">
+
+    <h1>HOODIES</h1>
+
+    <p>
+        Choose your colour and size.
+    </p>
+
+</div>
+
+<div class="product-layout">
+
+<div class="product-images">
+
+<div
+    class="product-image"
+    onclick="zoomImage('hoodieFront')"
+>
+
+    <img
+        id="hoodieFront"
+        src="white-hoodie.jpg"
+        alt="SUMS Hoodie Front"
+    >
+
+    <div class="image-label">
+        FRONT
+    </div>
+
+</div>
+
+<div
+    class="product-image"
+    onclick="zoomImage('hoodieBack')"
+>
+
+    <img
+        id="hoodieBack"
+        src="white-hoodie-back.jpg"
+        alt="SUMS Hoodie Back"
+    >
+
+    <div class="image-label">
+        BACK
+    </div>
+
+</div>
+
+</div>
+
+<div class="product-details">
+
+<h2>SUMS Hoodie</h2>
+
+<div class="price">
+    R599.99
+</div>
+
+<div class="option-title">
+    COLOUR
+</div>
+
+<div class="colours">
+
+<button
+    class="colour-btn active"
+    onclick="changeHoodie('white',this)"
+>
+    WHITE
+</button>
+
+<button
+    class="colour-btn"
+    onclick="changeHoodie('grey',this)"
+>
+    GREY
+</button>
+
+<button
+    class="colour-btn"
+    onclick="changeHoodie('brown',this)"
+>
+    BROWN
+</button>
+
+</div>
+
+<div class="option-title">
+    SIZE
+</div>
+
+<div class="sizes">
+
+<button class="size-btn" onclick="chooseHoodieSize(this)">XS</button>
+<button class="size-btn" onclick="chooseHoodieSize(this)">S</button>
+<button class="size-btn active" onclick="chooseHoodieSize(this)">M</button>
+<button class="size-btn" onclick="chooseHoodieSize(this)">L</button>
+<button class="size-btn" onclick="chooseHoodieSize(this)">XL</button>
+<button class="size-btn" onclick="chooseHoodieSize(this)">XXL</button>
+
+</div>
+
+<button
+    class="add-cart"
+    onclick="addHoodie()"
+>
+    ADD TO CART
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     T-SHIRTS
+===================================================== -->
+
+<main id="tshirtScreen" class="screen">
+
+<section class="product-screen">
+
+<button
+    class="back-button"
+    onclick="showHome()"
+>
+    ← Back to SUMS
+</button>
+
+<div class="product-title">
+
+    <h1>T-SHIRTS</h1>
+
+    <p>
+        Choose your colour and size.
+    </p>
+
+</div>
+
+<div class="product-layout">
+
+<div class="product-images">
+
+<div
+    class="product-image"
+    onclick="zoomImage('tshirtFront')"
+>
+
+    <img
+        id="tshirtFront"
+        src="grey-tshirt.jpg"
+        alt="SUMS T-Shirt Front"
+    >
+
+    <div class="image-label">
+        FRONT
+    </div>
+
+</div>
+
+<div
+    class="product-image"
+    onclick="zoomImage('tshirtBack')"
+>
+
+    <img
+        id="tshirtBack"
+        src="grey-tshirt-back.jpg"
+        alt="SUMS T-Shirt Back"
+    >
+
+    <div class="image-label">
+        BACK
+    </div>
+
+</div>
+
+</div>
+
+<div class="product-details">
+
+<h2>SUMS T-Shirt</h2>
+
+<div class="price">
+    R499.99
+</div>
+
+<div class="option-title">
+    COLOUR
+</div>
+
+<div class="colours">
+
+<button
+    class="colour-btn active"
+    onclick="changeTshirt('grey',this)"
+>
+    GREY
+</button>
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('skyblue',this)"
+>
+    SKY BLUE
+</button>
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('navy',this)"
+>
+    NAVY
+</button>
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('black',this)"
+>
+    BLACK
+</button>
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('white',this)"
+>
+    WHITE
+</button>
+
+</div>
+
+<div class="option-title">
+    SIZE
+</div>
+
+<div class="sizes">
+
+<button class="size-btn" onclick="chooseTshirtSize(this)">XS</button>
+<button class="size-btn" onclick="chooseTshirtSize(this)">S</button>
+<button class="size-btn active" onclick="chooseTshirtSize(this)">M</button>
+<button class="size-btn" onclick="chooseTshirtSize(this)">L</button>
+<button class="size-btn" onclick="chooseTshirtSize(this)">XL</button>
+<button class="size-btn" onclick="chooseTshirtSize(this)">XXL</button>
+
+</div>
+
+<button
+    class="add-cart"
+    onclick="addTshirt()"
+>
+    ADD TO CART
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     PANTS
+===================================================== -->
+
+<main id="pantsScreen" class="screen">
+
+<section class="product-screen">
+
+<button
+    class="back-button"
+    onclick="showHome()"
+>
+    ← Back to SUMS
+</button>
+
+<div class="product-title">
+
+    <h1>PANTS</h1>
+
+    <p>
+        Choose your colour and size.
+    </p>
+
+</div>
+
+<div class="product-layout">
+
+<div class="product-images">
+
+<div
+    class="product-image"
+    onclick="zoomImage('pantsFront')"
+>
+
+    <img
+        id="pantsFront"
+        src="grey-pants.jpg"
+        alt="SUMS Pants Front"
+    >
+
+    <div class="image-label">
+        FRONT
+    </div>
+
+</div>
+
+<div
+    class="product-image"
+    onclick="zoomImage('pantsBack')"
+>
+
+    <img
+        id="pantsBack"
+        src="grey-pants-back.jpg"
+        alt="SUMS Pants Back"
+    >
+
+    <div class="image-label">
+        BACK
+    </div>
+
+</div>
+
+</div>
+
+<div class="product-details">
+
+<h2>SUMS Pants</h2>
+
+<div class="price">
+    R549.99
+</div>
+
+<div class="option-title">
+    COLOUR
+</div>
+
+<div class="colours">
+
+<button
+    class="colour-btn active"
+    onclick="changePants('grey',this)"
+>
+    GREY
+</button>
+
+<button
+    class="colour-btn"
+    onclick="changePants('black',this)"
+>
+    BLACK
+</button>
+
+</div>
+
+<div class="option-title">
+    SIZE
+</div>
+
+<div class="sizes">
+
+<button class="size-btn" onclick="choosePantsSize(this)">XS</button>
+<button class="size-btn" onclick="choosePantsSize(this)">S</button>
+<button class="size-btn active" onclick="choosePantsSize(this)">M</button>
+<button class="size-btn" onclick="choosePantsSize(this)">L</button>
+<button class="size-btn" onclick="choosePantsSize(this)">XL</button>
+<button class="size-btn" onclick="choosePantsSize(this)">XXL</button>
+
+</div>
+
+<button
+    class="add-cart"
+    onclick="addPants()"
+>
+    ADD TO CART
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     ABOUT SCREEN
+===================================================== -->
+
+<main id="aboutScreen" class="screen">
+
+<section class="about">
+
+    <h2>
+        ABOUT SUMS
+    </h2>
+
+    <p>
+        SUMS is a South African streetwear brand
+        representing culture, movement and ambition.
+        Born from the wild coast. Built for those who
+        create their own legacy.
+    </p>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     CART
+===================================================== -->
+
+<div
+    class="cart-panel"
+    id="cartPanel"
+>
+
+<div class="cart-header">
+
+    <h2>
+        Your Cart
+    </h2>
+
+    <span
+        class="close-cart"
+        onclick="closeCart()"
+    >
+        ×
+    </span>
+
+</div>
+
+<div id="cartItems">
+
+    <div class="empty-cart">
+
+        <div class="empty-cart-title">
+            Your cart is empty.
+        </div>
+
+        <p>
+            Add something from SUMS.
+        </p>
+
+    </div>
+
+</div>
+
+<div
+    id="cartSummary"
+    class="cart-summary"
+    style="display:none;"
+>
+
+    <div class="cart-total-row">
+
+        <span class="cart-total-label">
+            TOTAL
+        </span>
+
+        <span id="cartTotal">
+            R0.00
+        </span>
+
+    </div>
+
+</div>
+
+<a
+    id="whatsappOrder"
+    class="whatsapp-order"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    style="display:none;"
+>
+    ORDER VIA WHATSAPP
+</a>
+
+</div>
+
+<!-- =====================================================
+     LIGHTBOX
+===================================================== -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeLightbox()"
+>
+
+<span class="close-lightbox">
+    ×
+</span>
+
+<img
+    id="lightboxImage"
+    src=""
+    alt="SUMS Product"
+>
+
+</div>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<h3>SUMS</h3>
+
+<p>
+    South African streetwear.
+</p>
+
+<div class="social-icons">
+
+<!-- WHATSAPP -->
+
+<a
+    class="social-icon"
+    href="https://wa.me/27796265589"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp"
+    title="WhatsApp"
+>
+
+<svg viewBox="0 0 24 24" aria-hidden="true">
+
+<path d="M12 2a10 10 0 0 0-8.66 15l-1.1 4.02 4.12-1.08A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.08-1.12l-.29-.17-2.45.64.65-2.38-.19-.3A8 8 0 1 1 12 20Zm4.42-5.83c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.58 4.09 3.62.57.25 1.01.4 1.36.51.57.18 1.09.15 1.5.09.46-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z"/>
+
+</svg>
+
+</a>
+
+<!-- INSTAGRAM -->
+
+<a
+    class="social-icon"
+    href="https://www.instagram.com/sumsdept?utm_source=qr&igsh=MXZpejM1djF6MmEzMg=="
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    title="Instagram"
+>
+
+<svg viewBox="0 0 24 24" aria-hidden="true">
+
+<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+
+</svg>
+
+</a>
+
+<!-- TIKTOK -->
+
+<a
+    class="social-icon"
+    href="https://www.tiktok.com/@sumsessentials26?_r=1&_t=ZS-98zaKbzkTK8"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="TikTok"
+    title="TikTok"
+>
+
+<svg viewBox="0 0 24 24" aria-hidden="true">
+
+<path d="M16.5 2h3.03c.25 1.43 1.04 2.7 2.22 3.58A6.5 6.5 0 0 0 24 6.42v3.1a9.6 9.6 0 0 1-4.47-1.1v7.03a7.55 7.55 0 1 1-7.55-7.55c.31 0 .61.02.91.06v3.17a4.5 4.5 0 1 0 3.61 4.32V2Z"/>
+
+</svg>
+
+</a>
+
+<!-- FACEBOOK -->
+
+<a
+    class="social-icon"
+    href="https://www.facebook.com/share/14kuq16W28K/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+    title="Facebook"
+>
+
+<svg viewBox="0 0 24 24" aria-hidden="true">
+
+<path d="M13.5 22v-8h2.75l.5-3h-3.25V9.05c0-.87.29-1.47 1.55-1.47h1.7V4.9c-.29-.04-1.29-.13-2.45-.13-2.42 0-4.08 1.48-4.08 4.2V11H7.5v3h2.72v8h3.28Z"/>
+
+</svg>
+
+</a>
+
+</div>
+
+<div class="copyright">
+    © 2026 SUMS. All rights reserved.
+</div>
+
+</footer>
+
+<script>
+
+/* =====================================================
+   LOADING SCREEN
+   EXACTLY 3 SECONDS
+===================================================== */
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        const loader=document.getElementById("loader");
+
+        if(loader){
+            loader.classList.add("hide");
+        }
+
+    },3000);
+
+});
+
+/* =====================================================
+   SCREEN CONTROL
+===================================================== */
+
+function hideScreens(){
+
+    document.querySelectorAll(".screen").forEach(function(screen){
+        screen.classList.remove("active");
+    });
+
+}
+
+function showHome(){
+
+    hideScreens();
+
+    document.getElementById("homeScreen").classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+function showCollections(){
+
+    showHome();
+
+    setTimeout(function(){
+
+        const collections=document.getElementById("collections");
+
+        if(collections){
+            collections.scrollIntoView({
+                behavior:"auto"
+            });
+        }
+
+    },50);
+
+}
+
+function showHoodies(){
+
+    hideScreens();
+
+    document.getElementById("hoodieScreen").classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+function showTshirts(){
+
+    hideScreens();
+
+    document.getElementById("tshirtScreen").classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+function showPants(){
+
+    hideScreens();
+
+    document.getElementById("pantsScreen").classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+function showAbout(){
+
+    hideScreens();
+
+    document.getElementById("aboutScreen").classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function openSearch(){
+
+    const searchTerm=prompt("Search SUMS:");
+
+    if(!searchTerm){
+        return;
+    }
+
+    const term=searchTerm.toLowerCase().trim();
+
+    if(
+        term.includes("hoodie") ||
+        term.includes("hoodies")
+    ){
+        showHoodies();
+        return;
+    }
+
+    if(
+        term.includes("shirt") ||
+        term.includes("shirts") ||
+        term.includes("t-shirt") ||
+        term.includes("t-shirts")
+    ){
+        showTshirts();
+        return;
+    }
+
+    if(
+        term.includes("pant") ||
+        term.includes("pants")
+    ){
+        showPants();
+        return;
+    }
+
+    if(term.includes("about")){
+        showAbout();
+        return;
+    }
+
+    alert("No SUMS collection found for: " + searchTerm);
+
+}
+
+/* =====================================================
+   HOODIE COLOURS
+===================================================== */
+
+let hoodieColour="White";
+let hoodieSize="M";
+
+function changeHoodie(colour,button){
+
+    hoodieColour=
+        colour.charAt(0).toUpperCase()+colour.slice(1);
+
+    document.querySelectorAll(
+        "#hoodieScreen .colour-btn"
+    ).forEach(function(btn){
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    const front=document.getElementById("hoodieFront");
+    const back=document.getElementById("hoodieBack");
+
+    if(colour==="white"){
+        front.src="white-hoodie.jpg";
+        back.src="white-hoodie-back.jpg";
+    }
+
+    if(colour==="grey"){
+        front.src="grey-hoodie.jpg";
+        back.src="grey-hoodie-back.jpg";
+    }
+
+    if(colour==="brown"){
+        front.src="brown-hoodie.jpg";
+        back.src="brown-hoodie-back.jpg";
+    }
+
+}
+
+/* =====================================================
+   T-SHIRT COLOURS
+===================================================== */
+
+let tshirtColour="Grey";
+let tshirtSize="M";
+
+function changeTshirt(colour,button){
+
+    tshirtColour=
+        colour==="skyblue"
+        ?"Sky Blue"
+        :colour.charAt(0).toUpperCase()+colour.slice(1);
+
+    document.querySelectorAll(
+        "#tshirtScreen .colour-btn"
+    ).forEach(function(btn){
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    const front=document.getElementById("tshirtFront");
+    const back=document.getElementById("tshirtBack");
+
+    if(colour==="grey"){
+        front.src="grey-tshirt.jpg";
+        back.src="grey-tshirt-back.jpg";
+    }
+
+    if(colour==="skyblue"){
+        front.src="skyblue-tshirt.jpg";
+        back.src="skyblue-tshirt-back.jpg";
+    }
+
+    if(colour==="navy"){
+        front.src="navy-tshirt.jpg";
+        back.src="navy-tshirt-back.jpg";
+    }
+
+    if(colour==="black"){
+        front.src="black-tshirt.jpg";
+        back.src="black-tshirt-back.jpg";
+    }
+
+    if(colour==="white"){
+        front.src="white-tshirt.jpg";
+        back.src="white-tshirt-back.jpg";
+    }
+
+}
+
+/* =====================================================
+   PANTS COLOURS
+===================================================== */
+
+let pantsColour="Grey";
+let pantsSize="M";
+
+function changePants(colour,button){
+
+    pantsColour=
+        colour.charAt(0).toUpperCase()+colour.slice(1);
+
+    document.querySelectorAll(
+        "#pantsScreen .colour-btn"
+    ).forEach(function(btn){
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    const front=document.getElementById("pantsFront");
+    const back=document.getElementById("pantsBack");
+
+    if(colour==="grey"){
+        front.src="grey-pants.jpg";
+        back.src="grey-pants-back.jpg";
+    }
+
+    if(colour==="black"){
+        front.src="black-pants.jpg";
+        back.src="black-pants-back.jpg";
+    }
+
+}
+
+/* =====================================================
+   SIZES
+===================================================== */
+
+function chooseHoodieSize(button){
+
+    document.querySelectorAll(
+        "#hoodieScreen .size-btn"
+    ).forEach(function(btn){
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    hoodieSize=button.innerText.trim();
+
+}
+
+function chooseTshirtSize(button){
+
+    document.querySelectorAll(
+        "#tshirtScreen .size-btn"
+    ).forEach(function(btn){
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    tshirtSize=button.innerText.trim();
+
+}
+
+function choosePantsSize(button){
+
+    document.querySelectorAll(
+        "#pantsScreen .size-btn"
+    ).forEach(function(btn){
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    pantsSize=button.innerText.trim();
+
+}
+
+/* =====================================================
+   CART
+===================================================== */
+
+let cart=[];
+
+function addHoodie(){
+
+    addToCart({
+        name:"SUMS Hoodie",
+        price:599.99,
+        colour:hoodieColour,
+        size:hoodieSize,
+        image:document.getElementById("hoodieFront").src
+    });
+
+}
+
+function addTshirt(){
+
+    addToCart({
+        name:"SUMS T-Shirt",
+        price:499.99,
+        colour:tshirtColour,
+        size:tshirtSize,
+        image:document.getElementById("tshirtFront").src
+    });
+
+}
+
+function addPants(){
+
+    addToCart({
+        name:"SUMS Pants",
+        price:549.99,
+        colour:pantsColour,
+        size:pantsSize,
+        image:document.getElementById("pantsFront").src
+    });
+
+}
+
+function addToCart(item){
+
+    const existing=cart.find(function(cartItem){
+
+        return(
+            cartItem.name===item.name &&
+            cartItem.colour===item.colour &&
+            cartItem.size===item.size
+        );
+
+    });
+
+    if(existing){
+
+        existing.quantity+=1;
+
+    }else{
+
+        item.quantity=1;
+        cart.push(item);
+
+    }
+
+    updateCartCount();
+    renderCart();
+    openCart();
+
+}
+
+function updateCartCount(){
+
+    const totalQuantity=cart.reduce(
+        function(total,item){
+            return total+item.quantity;
+        },
+        0
+    );
+
+    document.getElementById("cartCount").innerText=
+        totalQuantity;
+
+}
+
+function increaseQuantity(index){
+
+    cart[index].quantity+=1;
+
+    updateCartCount();
+    renderCart();
+
+}
+
+function decreaseQuantity(index){
+
+    cart[index].quantity-=1;
+
+    if(cart[index].quantity<=0){
+        cart.splice(index,1);
+    }
+
+    updateCartCount();
+    renderCart();
+
+}
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    updateCartCount();
+    renderCart();
+
+}
+
+/* =====================================================
+   CART RENDER
+===================================================== */
+
+function renderCart(){
+
+    const container=document.getElementById("cartItems");
+    const whatsapp=document.getElementById("whatsappOrder");
+    const summary=document.getElementById("cartSummary");
+    const totalDisplay=document.getElementById("cartTotal");
+
+    if(cart.length===0){
+
+        container.innerHTML=`
+
+            <div class="empty-cart">
+
+                <div class="empty-cart-title">
+                    Your cart is empty.
+                </div>
+
+                <p>
+                    Add something from SUMS.
+                </p>
+
+            </div>
+
+        `;
+
+        summary.style.display="none";
+        whatsapp.style.display="none";
+
+        return;
+
+    }
+
+    container.innerHTML="";
+
+    let total=0;
+
+    let message=
+        "Hello SUMS, I would like to order:%0A%0A";
+
+    cart.forEach(function(item,index){
+
+        const itemTotal=
+            item.price*item.quantity;
+
+        total+=itemTotal;
+
+        container.innerHTML+=`
+
+            <div class="cart-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+                <div class="cart-item-info">
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+                    <p>
+                        Colour: ${item.colour}
+                    </p>
+
+                    <p>
+                        Size: ${item.size}
+                    </p>
+
+                    <p>
+                        R${item.price.toFixed(2)} each
+                    </p>
+
+                    <div class="quantity-row">
+
+                        <button
+                            class="quantity-btn"
+                            onclick="decreaseQuantity(${index})"
+                        >
+                            −
+                        </button>
+
+                        <span class="quantity-number">
+                            ${item.quantity}
+                        </span>
+
+                        <button
+                            class="quantity-btn"
+                            onclick="increaseQuantity(${index})"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeItem(${index})"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+        message+=
+            `${index+1}. `+
+            `${item.name} | `+
+            `${item.colour} | `+
+            `Size ${item.size} | `+
+            `Qty ${item.quantity} | `+
+            `R${itemTotal.toFixed(2)}%0A`;
+
+    });
+
+    totalDisplay.innerText=
+        "R"+total.toFixed(2);
+
+    summary.style.display="block";
+
+    message+=
+        `%0ATotal: R${total.toFixed(2)}`;
+
+    whatsapp.href=
+        "https://wa.me/27796265589?text="+message;
+
+    whatsapp.style.display="block";
+
+}
+
+/* =====================================================
+   CART OPEN/CLOSE
+===================================================== */
+
+function openCart(){
+
+    document
+        .getElementById("cartPanel")
+        .classList.add("open");
+
+}
+
+function closeCart(){
+
+    document
+        .getElementById("cartPanel")
+        .classList.remove("open");
+
+}
+
+/* =====================================================
+   IMAGE ZOOM
+===================================================== */
+
+function zoomImage(id){
+
+    const image=document.getElementById(id);
+
+    document.getElementById("lightboxImage").src=
+        image.src;
+
+    document.getElementById("lightbox").classList.add("open");
+
+}
+
+function closeLightbox(){
+
+    document
+        .getElementById("lightbox")
+        .classList.remove("open");
+
+}
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key==="Escape"){
+
+        closeLightbox();
+        closeCart();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
