@@ -9,14 +9,6 @@
 
 <title>SUMS — Premium Streetwear</title>
 
-
-<!-- REAL SOCIAL MEDIA ICONS -->
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
->
-
-
 <style>
 
 /* =====================================================
@@ -51,14 +43,10 @@ body {
     background: #000;
     color: #fff;
     z-index: 10000;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    transition:
-        opacity .5s ease,
-        visibility .5s ease;
+    transition: opacity .5s ease, visibility .5s ease;
 }
 
 #loader.hide {
@@ -75,9 +63,7 @@ body {
     width: 90px;
     height: 90px;
     object-fit: contain;
-
-    animation:
-        loaderSpin 1.8s ease-in-out infinite;
+    animation: loaderSpin 1.8s ease-in-out infinite;
 }
 
 .loader-name {
@@ -85,9 +71,7 @@ body {
     font-size: 34px;
     font-weight: 900;
     letter-spacing: 7px;
-
-    animation:
-        loaderPulse 1.5s ease-in-out infinite;
+    animation: loaderPulse 1.5s ease-in-out infinite;
 }
 
 .loader-line {
@@ -95,50 +79,35 @@ body {
     height: 2px;
     background: #fff;
     margin: 22px auto 0;
-
     transform-origin: center;
-
-    animation:
-        loaderLine 1.5s ease-in-out infinite;
+    animation: loaderLine 1.5s ease-in-out infinite;
 }
 
 @keyframes loaderSpin {
-
     0% {
-        transform:
-            rotateY(0deg)
-            scale(.85);
+        transform: rotateY(0deg) scale(.85);
     }
 
     50% {
-        transform:
-            rotateY(180deg)
-            scale(1);
+        transform: rotateY(180deg) scale(1);
     }
 
     100% {
-        transform:
-            rotateY(360deg)
-            scale(.85);
+        transform: rotateY(360deg) scale(.85);
     }
-
 }
 
 @keyframes loaderPulse {
-
-    0%,
-    100% {
+    0%, 100% {
         opacity: .45;
     }
 
     50% {
         opacity: 1;
     }
-
 }
 
 @keyframes loaderLine {
-
     0% {
         transform: scaleX(.2);
     }
@@ -150,96 +119,40 @@ body {
     100% {
         transform: scaleX(.2);
     }
-
 }
 
 
 /* =====================================================
    HEADER
+   NO SUMS LOGO / NAME HERE
 ===================================================== */
 
 header {
     height: 78px;
-
     background: #fff;
-
     border-bottom: 1px solid #ddd;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     padding: 0 35px;
 
     position: sticky;
     top: 0;
-
     z-index: 1000;
 }
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    color: #000;
-
-    text-decoration: none;
-}
-
-.brand-logo {
-    width: 44px;
-    height: 44px;
-
-    object-fit: contain;
-
-    animation:
-        logoRotate 3s ease-in-out infinite;
-
-    transform-style: preserve-3d;
-}
-
-@keyframes logoRotate {
-
-    0% {
-        transform: rotateY(0deg);
-    }
-
-    45% {
-        transform: rotateY(180deg);
-    }
-
-    55% {
-        transform: rotateY(180deg);
-    }
-
-    100% {
-        transform: rotateY(360deg);
-    }
-
-}
-
-.brand-name {
-    font-size: 25px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
 
 .nav {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 24px;
 }
 
 .nav-button {
     border: none;
     background: transparent;
-
     cursor: pointer;
 
     font-size: 13px;
@@ -257,6 +170,7 @@ header {
 
 .search {
     font-size: 24px;
+    cursor: pointer;
 }
 
 .cart {
@@ -327,19 +241,18 @@ header {
 
         transform-origin: center center;
     }
-
 }
 
 
 /* =====================================================
    HERO
+   FIRST PAGE KEPT
 ===================================================== */
 
 .hero {
     min-height: 82vh;
 
     position: relative;
-
     overflow: hidden;
 
     display: flex;
@@ -420,14 +333,12 @@ header {
             rotate(360deg)
             scale(1.2);
     }
-
 }
 
 .hero-content {
     max-width: 950px;
 
     position: relative;
-
     z-index: 2;
 
     animation:
@@ -445,7 +356,6 @@ header {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
 .hero h1 {
@@ -480,7 +390,6 @@ header {
     padding: 16px 34px;
 
     background: #fff;
-
     color: #000;
 
     border-radius: 30px;
@@ -504,7 +413,8 @@ header {
 
 
 /* =====================================================
-   SHOP SECTION
+   SHOP COLLECTION
+   NO HOME HERE
 ===================================================== */
 
 .collection-intro {
@@ -526,11 +436,56 @@ header {
     color: #666;
 }
 
+
+/* =====================================================
+   COLLECTION CATEGORY NAV
+===================================================== */
+
+.collection-nav {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    padding:
+        0 20px 35px;
+}
+
+.collection-nav button {
+    border: 1px solid #111;
+
+    background: #fff;
+
+    color: #111;
+
+    padding:
+        12px 22px;
+
+    border-radius: 25px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.collection-nav button:hover {
+    transform: translateY(-2px);
+}
+
 .collection-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(3, 1fr);
 
     gap: 18px;
 
@@ -539,9 +494,9 @@ header {
 }
 
 .collection-card {
-    height: 58vh;
+    height: 62vh;
 
-    min-height: 400px;
+    min-height: 430px;
 
     position: relative;
 
@@ -581,7 +536,7 @@ header {
     right: 0;
     bottom: 0;
 
-    padding: 28px;
+    padding: 35px;
 
     text-align: left;
 
@@ -595,7 +550,7 @@ header {
 }
 
 .collection-overlay h3 {
-    font-size: 34px;
+    font-size: 42px;
     font-weight: 900;
 }
 
@@ -612,7 +567,8 @@ header {
 
     color: #000;
 
-    padding: 12px 22px;
+    padding:
+        12px 22px;
 
     border-radius: 25px;
 
@@ -638,7 +594,8 @@ header {
 
     background: #f1f1f1;
 
-    padding: 12px 20px;
+    padding:
+        12px 20px;
 
     border-radius: 25px;
 
@@ -651,6 +608,7 @@ header {
 
 .product-title {
     text-align: center;
+
     margin-bottom: 35px;
 }
 
@@ -771,17 +729,14 @@ header {
     border:
         1px solid #bbb;
 
-    padding: 11px 16px;
+    padding:
+        11px 16px;
 
     cursor: pointer;
 
     font-weight: 700;
 
     border-radius: 4px;
-}
-
-.colour-btn:hover {
-    border-color: #000;
 }
 
 .colour-btn.active {
@@ -805,7 +760,8 @@ header {
 .size-btn {
     min-width: 50px;
 
-    padding: 12px 10px;
+    padding:
+        12px 10px;
 
     background: #fff;
 
@@ -855,7 +811,7 @@ header {
 
 /* =====================================================
    FOUNDER EDITION
-   INTENTIONALLY NOT CLICKABLE
+   UNCLICKABLE
 ===================================================== */
 
 .founder-section {
@@ -871,8 +827,6 @@ header {
         1fr 1fr;
 
     min-height: 620px;
-
-    user-select: none;
 }
 
 .founder-image {
@@ -954,7 +908,6 @@ header {
     position: fixed;
 
     top: 0;
-
     right: -430px;
 
     width: 410px;
@@ -995,6 +948,7 @@ header {
 
 .close-cart {
     font-size: 30px;
+
     cursor: pointer;
 }
 
@@ -1162,10 +1116,6 @@ header {
     font-weight: 900;
 }
 
-.whatsapp-order i {
-    margin-right: 8px;
-}
-
 
 /* =====================================================
    EMPTY CART
@@ -1229,7 +1179,6 @@ header {
     position: absolute;
 
     top: 15px;
-
     right: 25px;
 
     color: #fff;
@@ -1249,7 +1198,8 @@ footer {
 
     text-align: center;
 
-    padding: 55px 20px;
+    padding:
+        55px 20px;
 }
 
 footer h3 {
@@ -1273,44 +1223,54 @@ footer p {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
-    gap: 20px;
+    gap: 22px;
 
     margin-top: 25px;
 }
 
-.social-icons a {
-    width: 46px;
-    height: 46px;
+.social-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    border-radius: 50%;
-
-    background: #000;
+    background: #111;
 
     color: #fff;
 
     text-decoration: none;
 
-    font-size: 20px;
-
     transition:
-        transform .25s ease,
-        opacity .25s ease;
+        transform .2s ease,
+        opacity .2s ease;
 }
 
-.social-icons a:hover {
-    transform:
-        translateY(-5px)
-        scale(1.05);
+.social-icon:hover {
+    transform: translateY(-4px);
 
     opacity: .75;
+}
+
+.social-icon svg {
+    width: 23px;
+    height: 23px;
+
+    fill: currentColor;
+}
+
+.copyright {
+    margin-top: 32px;
+
+    font-size: 13px;
+
+    color: #555;
 }
 
 
@@ -1318,36 +1278,24 @@ footer p {
    MOBILE
 ===================================================== */
 
-@media(max-width:1000px) {
-
-    .collection-grid {
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-}
-
 @media(max-width:800px) {
 
     header {
         padding: 0 16px;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
     }
 
     .nav {
-        gap: 12px;
+        gap: 16px;
+
+        min-width: max-content;
     }
 
     .nav-button {
         font-size: 10px;
-    }
-
-    .brand-name {
-        font-size: 20px;
-    }
-
-    .brand-logo {
-        width: 40px;
-        height: 40px;
     }
 
     .search {
@@ -1369,6 +1317,17 @@ footer p {
     .hero::after {
         width: 300px;
         height: 300px;
+    }
+
+    .collection-nav {
+        gap: 8px;
+    }
+
+    .collection-nav button {
+        padding:
+            10px 17px;
+
+        font-size: 11px;
     }
 
     .collection-grid {
@@ -1441,6 +1400,9 @@ footer p {
         right: 0;
     }
 
+    .social-icons {
+        gap: 18px;
+    }
 }
 
 
@@ -1454,21 +1416,8 @@ footer p {
         height: 70px;
     }
 
-    .brand {
-        gap: 5px;
-    }
-
-    .brand-name {
-        font-size: 17px;
-    }
-
-    .brand-logo {
-        width: 34px;
-        height: 34px;
-    }
-
     .nav {
-        gap: 8px;
+        gap: 13px;
     }
 
     .nav-button {
@@ -1477,6 +1426,11 @@ footer p {
 
     .search {
         display: none;
+    }
+
+    .social-icon {
+        width: 43px;
+        height: 43px;
     }
 
 }
@@ -1516,28 +1470,10 @@ footer p {
 
 <!-- =====================================================
      HEADER
+     EXACT NAVIGATION REQUESTED
 ===================================================== -->
 
 <header>
-
-<a
-    href="#"
-    class="brand"
-    onclick="showHome(); return false;"
->
-
-    <img
-        class="brand-logo"
-        src="sums-black-logo.png"
-        alt="SUMS Logo"
-    >
-
-    <span class="brand-name">
-        SUMS
-    </span>
-
-</a>
-
 
 <nav class="nav">
 
@@ -1576,13 +1512,17 @@ footer p {
         ABOUT
     </button>
 
-    <span class="search">
+    <span
+        class="search"
+        title="Search"
+    >
         ⌕
     </span>
 
     <div
         class="cart"
         onclick="openCart()"
+        title="Cart"
     >
 
         🛒
@@ -1610,6 +1550,11 @@ footer p {
     class="screen active"
 >
 
+
+<!-- =====================================================
+     FIRST PAGE
+     KEPT AS REQUESTED
+===================================================== -->
 
 <section class="hero">
 
@@ -1655,136 +1600,128 @@ footer p {
 </section>
 
 
+<!-- =====================================================
+     COLLECTION NAV
+     ONLY CLOTHES — NO HOME
+===================================================== -->
+
+<div class="collection-nav">
+
+    <button onclick="showTshirts()">
+        T-SHIRTS
+    </button>
+
+    <button onclick="showHoodies()">
+        HOODIES
+    </button>
+
+    <button onclick="showPants()">
+        PANTS
+    </button>
+
+</div>
+
+
 <div class="collection-grid">
 
 
-    <!-- HOME -->
+<!-- =====================================================
+     HOODIES CARD
+===================================================== -->
 
-    <button
-        class="collection-card"
-        onclick="showHome()"
+<button
+    class="collection-card"
+    onclick="showHoodies()"
+>
+
+    <img
+        src="white-hoodie.jpg"
+        alt="SUMS Hoodies"
     >
 
-        <img
-            src="sums-black-logo.png"
-            alt="SUMS Home"
-            style="
-                object-fit:contain;
-                background:#111;
-                padding:50px;
-            "
-        >
+    <div class="collection-overlay">
 
-        <div class="collection-overlay">
+        <h3>
+            HOODIES
+        </h3>
 
-            <h3>
-                HOME
-            </h3>
+        <p>
+            Explore the SUMS hoodie collection.
+        </p>
 
-            <p>
-                Return to the SUMS home.
-            </p>
+        <span class="shop-button">
+            SHOP HOODIES
+        </span>
 
-            <span class="shop-button">
-                HOME
-            </span>
+    </div>
 
-        </div>
-
-    </button>
+</button>
 
 
-    <!-- T-SHIRTS -->
+<!-- =====================================================
+     T-SHIRTS CARD
+===================================================== -->
 
-    <button
-        class="collection-card"
-        onclick="showTshirts()"
+<button
+    class="collection-card"
+    onclick="showTshirts()"
+>
+
+    <img
+        src="grey-tshirt.jpg"
+        alt="SUMS T-Shirts"
     >
 
-        <img
-            src="grey-tshirt.jpg"
-            alt="SUMS T-Shirts"
-        >
+    <div class="collection-overlay">
 
-        <div class="collection-overlay">
+        <h3>
+            T-SHIRTS
+        </h3>
 
-            <h3>
-                T-SHIRTS
-            </h3>
+        <p>
+            Explore the SUMS T-shirt collection.
+        </p>
 
-            <p>
-                Explore the SUMS T-shirt collection.
-            </p>
+        <span class="shop-button">
+            SHOP T-SHIRTS
+        </span>
 
-            <span class="shop-button">
-                SHOP T-SHIRTS
-            </span>
+    </div>
 
-        </div>
-
-    </button>
+</button>
 
 
-    <!-- HOODIES -->
+<!-- =====================================================
+     PANTS CARD
+===================================================== -->
 
-    <button
-        class="collection-card"
-        onclick="showHoodies()"
+<button
+    class="collection-card"
+    onclick="showPants()"
+>
+
+    <img
+        src="grey-pants.jpg"
+        alt="SUMS Pants"
     >
 
-        <img
-            src="white-hoodie.jpg"
-            alt="SUMS Hoodies"
-        >
+    <div class="collection-overlay">
 
-        <div class="collection-overlay">
+        <h3>
+            PANTS
+        </h3>
 
-            <h3>
-                HOODIES
-            </h3>
+        <p>
+            Explore the SUMS pants collection.
+        </p>
 
-            <p>
-                Explore the SUMS hoodie collection.
-            </p>
+        <span class="shop-button">
+            SHOP PANTS
+        </span>
 
-            <span class="shop-button">
-                SHOP HOODIES
-            </span>
+    </div>
 
-        </div>
-
-    </button>
-
-
-    <!-- PANTS -->
-
-    <button
-        class="collection-card"
-        onclick="showPants()"
-    >
-
-        <img
-            src="grey-pants.jpg"
-            alt="SUMS Pants"
-        >
-
-        <div class="collection-overlay">
-
-            <h3>
-                PANTS
-            </h3>
-
-            <p>
-                Explore the SUMS pants collection.
-            </p>
-
-            <span class="shop-button">
-                SHOP PANTS
-            </span>
-
-        </div>
-
-    </button>
+</button>
 
 
 </div>
@@ -1974,12 +1911,29 @@ footer p {
 
 <div class="sizes">
 
-<button class="size-btn" onclick="chooseHoodieSize(this)">XS</button>
-<button class="size-btn" onclick="chooseHoodieSize(this)">S</button>
-<button class="size-btn active" onclick="chooseHoodieSize(this)">M</button>
-<button class="size-btn" onclick="chooseHoodieSize(this)">L</button>
-<button class="size-btn" onclick="chooseHoodieSize(this)">XL</button>
-<button class="size-btn" onclick="chooseHoodieSize(this)">XXL</button>
+<button class="size-btn" onclick="chooseHoodieSize(this)">
+    XS
+</button>
+
+<button class="size-btn" onclick="chooseHoodieSize(this)">
+    S
+</button>
+
+<button class="size-btn active" onclick="chooseHoodieSize(this)">
+    M
+</button>
+
+<button class="size-btn" onclick="chooseHoodieSize(this)">
+    L
+</button>
+
+<button class="size-btn" onclick="chooseHoodieSize(this)">
+    XL
+</button>
+
+<button class="size-btn" onclick="chooseHoodieSize(this)">
+    XXL
+</button>
 
 </div>
 
@@ -2138,12 +2092,29 @@ footer p {
 
 <div class="sizes">
 
-<button class="size-btn" onclick="chooseTshirtSize(this)">XS</button>
-<button class="size-btn" onclick="chooseTshirtSize(this)">S</button>
-<button class="size-btn active" onclick="chooseTshirtSize(this)">M</button>
-<button class="size-btn" onclick="chooseTshirtSize(this)">L</button>
-<button class="size-btn" onclick="chooseTshirtSize(this)">XL</button>
-<button class="size-btn" onclick="chooseTshirtSize(this)">XXL</button>
+<button class="size-btn" onclick="chooseTshirtSize(this)">
+    XS
+</button>
+
+<button class="size-btn" onclick="chooseTshirtSize(this)">
+    S
+</button>
+
+<button class="size-btn active" onclick="chooseTshirtSize(this)">
+    M
+</button>
+
+<button class="size-btn" onclick="chooseTshirtSize(this)">
+    L
+</button>
+
+<button class="size-btn" onclick="chooseTshirtSize(this)">
+    XL
+</button>
+
+<button class="size-btn" onclick="chooseTshirtSize(this)">
+    XXL
+</button>
 
 </div>
 
@@ -2281,12 +2252,29 @@ footer p {
 
 <div class="sizes">
 
-<button class="size-btn" onclick="choosePantsSize(this)">XS</button>
-<button class="size-btn" onclick="choosePantsSize(this)">S</button>
-<button class="size-btn active" onclick="choosePantsSize(this)">M</button>
-<button class="size-btn" onclick="choosePantsSize(this)">L</button>
-<button class="size-btn" onclick="choosePantsSize(this)">XL</button>
-<button class="size-btn" onclick="choosePantsSize(this)">XXL</button>
+<button class="size-btn" onclick="choosePantsSize(this)">
+    XS
+</button>
+
+<button class="size-btn" onclick="choosePantsSize(this)">
+    S
+</button>
+
+<button class="size-btn active" onclick="choosePantsSize(this)">
+    M
+</button>
+
+<button class="size-btn" onclick="choosePantsSize(this)">
+    L
+</button>
+
+<button class="size-btn" onclick="choosePantsSize(this)">
+    XL
+</button>
+
+<button class="size-btn" onclick="choosePantsSize(this)">
+    XXL
+</button>
 
 </div>
 
@@ -2389,7 +2377,7 @@ footer p {
         </span>
 
         <span id="cartTotal">
-            R0
+            R0.00
         </span>
 
     </div>
@@ -2404,10 +2392,8 @@ footer p {
     target="_blank"
     style="display:none;"
 >
-    <i class="fa-brands fa-whatsapp"></i>
     ORDER VIA WHATSAPP
 </a>
-
 
 </div>
 
@@ -2460,48 +2446,92 @@ footer p {
 <!-- WHATSAPP -->
 
 <a
+    class="social-icon"
     href="https://wa.me/27796265589"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="SUMS WhatsApp"
+    aria-label="WhatsApp"
+    title="WhatsApp"
 >
-    <i class="fa-brands fa-whatsapp"></i>
+
+<svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+>
+
+<path d="M12 2a10 10 0 0 0-8.66 15l-1.1 4.02 4.12-1.08A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.08-1.12l-.29-.17-2.45.64.65-2.38-.19-.3A8 8 0 1 1 12 20Zm4.42-5.83c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.58 4.09 3.62.57.25 1.01.4 1.36.51.57.18 1.09.15 1.5.09.46-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z"/>
+
+</svg>
+
 </a>
 
 
 <!-- INSTAGRAM -->
 
 <a
+    class="social-icon"
     href="https://www.instagram.com/sumsdept?utm_source=qr&igsh=MXZpejM1djF6MmEzMg=="
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="SUMS Instagram"
+    aria-label="Instagram"
+    title="Instagram"
 >
-    <i class="fa-brands fa-instagram"></i>
+
+<svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+>
+
+<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+
+</svg>
+
 </a>
 
 
 <!-- TIKTOK -->
 
 <a
+    class="social-icon"
     href="https://www.tiktok.com/@sumsessentials26?_r=1&_t=ZS-98zaKbzkTK8"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="SUMS TikTok"
+    aria-label="TikTok"
+    title="TikTok"
 >
-    <i class="fa-brands fa-tiktok"></i>
+
+<svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+>
+
+<path d="M16.5 2h3.03c.25 1.43 1.04 2.7 2.22 3.58A6.5 6.5 0 0 0 24 6.42v3.1a9.6 9.6 0 0 1-4.47-1.1v7.03a7.55 7.55 0 1 1-7.55-7.55c.31 0 .61.02.91.06v3.17a4.5 4.5 0 1 0 3.61 4.32V2Z"/>
+
+</svg>
+
 </a>
 
 
 <!-- FACEBOOK -->
 
 <a
+    class="social-icon"
     href="https://www.facebook.com/share/14kuq16W28K/"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="SUMS Facebook"
+    aria-label="Facebook"
+    title="Facebook"
 >
-    <i class="fa-brands fa-facebook-f"></i>
+
+<svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+>
+
+<path d="M13.5 22v-8h2.75l.5-3h-3.25V9.05c0-.87.29-1.47 1.55-1.47h1.7V4.9c-.29-.04-1.29-.13-2.45-.13-2.42 0-4.08 1.48-4.08 4.2V11H7.5v3h2.72v8h3.28Z"/>
+
+</svg>
+
 </a>
 
 
@@ -2552,9 +2582,7 @@ function hideScreens() {
         .forEach(
             screen => {
 
-                screen.classList.remove(
-                    "active"
-                );
+                screen.classList.remove("active");
 
             }
         );
@@ -2570,10 +2598,7 @@ function showHome() {
         .getElementById("homeScreen")
         .classList.add("active");
 
-    window.scrollTo(
-        0,
-        0
-    );
+    window.scrollTo(0, 0);
 
 }
 
@@ -2606,10 +2631,7 @@ function showHoodies() {
         .getElementById("hoodieScreen")
         .classList.add("active");
 
-    window.scrollTo(
-        0,
-        0
-    );
+    window.scrollTo(0, 0);
 
 }
 
@@ -2622,10 +2644,7 @@ function showTshirts() {
         .getElementById("tshirtScreen")
         .classList.add("active");
 
-    window.scrollTo(
-        0,
-        0
-    );
+    window.scrollTo(0, 0);
 
 }
 
@@ -2638,10 +2657,7 @@ function showPants() {
         .getElementById("pantsScreen")
         .classList.add("active");
 
-    window.scrollTo(
-        0,
-        0
-    );
+    window.scrollTo(0, 0);
 
 }
 
@@ -2654,10 +2670,7 @@ function showAbout() {
         .getElementById("aboutScreen")
         .classList.add("active");
 
-    window.scrollTo(
-        0,
-        0
-    );
+    window.scrollTo(0, 0);
 
 }
 
@@ -2669,75 +2682,47 @@ function showAbout() {
 let hoodieColour = "White";
 let hoodieSize = "M";
 
-
-function changeHoodie(
-    colour,
-    button
-) {
+function changeHoodie(colour, button) {
 
     hoodieColour =
         colour.charAt(0).toUpperCase() +
         colour.slice(1);
-
 
     document
         .querySelectorAll(
             "#hoodieScreen .colour-btn"
         )
         .forEach(
-            btn => {
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            }
+            btn => btn.classList.remove("active")
         );
 
-
-    button.classList.add(
-        "active"
-    );
-
+    button.classList.add("active");
 
     const front =
-        document.getElementById(
-            "hoodieFront"
-        );
+        document.getElementById("hoodieFront");
 
     const back =
-        document.getElementById(
-            "hoodieBack"
-        );
+        document.getElementById("hoodieBack");
 
 
     if (colour === "white") {
 
-        front.src =
-            "white-hoodie.jpg";
-
-        back.src =
-            "white-hoodie-back.jpg";
+        front.src = "white-hoodie.jpg";
+        back.src = "white-hoodie-back.jpg";
 
     }
 
     if (colour === "grey") {
 
-        front.src =
-            "grey-hoodie.jpg";
-
-        back.src =
-            "grey-hoodie-back.jpg";
+        front.src = "grey-hoodie.jpg";
+        back.src = "grey-hoodie-back.jpg";
 
     }
 
     if (colour === "brown") {
 
-        front.src =
-            "brown-hoodie.jpg";
-
-        back.src =
-            "brown-hoodie-back.jpg";
+        front.src = "brown-hoodie.jpg";
+        back.src = "brown-hoodie-back.jpg";
 
     }
 
@@ -2751,11 +2736,7 @@ function changeHoodie(
 let tshirtColour = "Grey";
 let tshirtSize = "M";
 
-
-function changeTshirt(
-    colour,
-    button
-) {
+function changeTshirt(colour, button) {
 
     tshirtColour =
         colour === "skyblue"
@@ -2763,85 +2744,55 @@ function changeTshirt(
         : colour.charAt(0).toUpperCase() +
           colour.slice(1);
 
-
     document
         .querySelectorAll(
             "#tshirtScreen .colour-btn"
         )
         .forEach(
-            btn => {
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            }
+            btn => btn.classList.remove("active")
         );
 
-
-    button.classList.add(
-        "active"
-    );
-
+    button.classList.add("active");
 
     const front =
-        document.getElementById(
-            "tshirtFront"
-        );
+        document.getElementById("tshirtFront");
 
     const back =
-        document.getElementById(
-            "tshirtBack"
-        );
+        document.getElementById("tshirtBack");
 
 
     if (colour === "grey") {
 
-        front.src =
-            "grey-tshirt.jpg";
-
-        back.src =
-            "grey-tshirt-back.jpg";
+        front.src = "grey-tshirt.jpg";
+        back.src = "grey-tshirt-back.jpg";
 
     }
 
     if (colour === "skyblue") {
 
-        front.src =
-            "skyblue-tshirt.jpg";
-
-        back.src =
-            "skyblue-tshirt-back.jpg";
+        front.src = "skyblue-tshirt.jpg";
+        back.src = "skyblue-tshirt-back.jpg";
 
     }
 
     if (colour === "navy") {
 
-        front.src =
-            "navy-tshirt.jpg";
-
-        back.src =
-            "navy-tshirt-back.jpg";
+        front.src = "navy-tshirt.jpg";
+        back.src = "navy-tshirt-back.jpg";
 
     }
 
     if (colour === "black") {
 
-        front.src =
-            "black-tshirt.jpg";
-
-        back.src =
-            "black-tshirt-back.jpg";
+        front.src = "black-tshirt.jpg";
+        back.src = "black-tshirt-back.jpg";
 
     }
 
     if (colour === "white") {
 
-        front.src =
-            "white-tshirt.jpg";
-
-        back.src =
-            "white-tshirt-back.jpg";
+        front.src = "white-tshirt.jpg";
+        back.src = "white-tshirt-back.jpg";
 
     }
 
@@ -2855,65 +2806,40 @@ function changeTshirt(
 let pantsColour = "Grey";
 let pantsSize = "M";
 
-
-function changePants(
-    colour,
-    button
-) {
+function changePants(colour, button) {
 
     pantsColour =
         colour.charAt(0).toUpperCase() +
         colour.slice(1);
-
 
     document
         .querySelectorAll(
             "#pantsScreen .colour-btn"
         )
         .forEach(
-            btn => {
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            }
+            btn => btn.classList.remove("active")
         );
 
-
-    button.classList.add(
-        "active"
-    );
-
+    button.classList.add("active");
 
     const front =
-        document.getElementById(
-            "pantsFront"
-        );
+        document.getElementById("pantsFront");
 
     const back =
-        document.getElementById(
-            "pantsBack"
-        );
+        document.getElementById("pantsBack");
 
 
     if (colour === "grey") {
 
-        front.src =
-            "grey-pants.jpg";
-
-        back.src =
-            "grey-pants-back.jpg";
+        front.src = "grey-pants.jpg";
+        back.src = "grey-pants-back.jpg";
 
     }
 
     if (colour === "black") {
 
-        front.src =
-            "black-pants.jpg";
-
-        back.src =
-            "black-pants-back.jpg";
+        front.src = "black-pants.jpg";
+        back.src = "black-pants-back.jpg";
 
     }
 
@@ -2931,13 +2857,7 @@ function chooseHoodieSize(button) {
             "#hoodieScreen .size-btn"
         )
         .forEach(
-            btn => {
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            }
+            btn => btn.classList.remove("active")
         );
 
     button.classList.add("active");
@@ -2955,13 +2875,7 @@ function chooseTshirtSize(button) {
             "#tshirtScreen .size-btn"
         )
         .forEach(
-            btn => {
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            }
+            btn => btn.classList.remove("active")
         );
 
     button.classList.add("active");
@@ -2979,13 +2893,7 @@ function choosePantsSize(button) {
             "#pantsScreen .size-btn"
         )
         .forEach(
-            btn => {
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            }
+            btn => btn.classList.remove("active")
         );
 
     button.classList.add("active");
@@ -3011,23 +2919,17 @@ function addHoodie() {
 
     addToCart({
 
-        name:
-            "SUMS Hoodie",
+        name: "SUMS Hoodie",
 
-        price:
-            599.99,
+        price: 599.99,
 
-        colour:
-            hoodieColour,
+        colour: hoodieColour,
 
-        size:
-            hoodieSize,
+        size: hoodieSize,
 
         image:
             document
-                .getElementById(
-                    "hoodieFront"
-                )
+                .getElementById("hoodieFront")
                 .src
 
     });
@@ -3043,23 +2945,17 @@ function addTshirt() {
 
     addToCart({
 
-        name:
-            "SUMS T-Shirt",
+        name: "SUMS T-Shirt",
 
-        price:
-            499.99,
+        price: 499.99,
 
-        colour:
-            tshirtColour,
+        colour: tshirtColour,
 
-        size:
-            tshirtSize,
+        size: tshirtSize,
 
         image:
             document
-                .getElementById(
-                    "tshirtFront"
-                )
+                .getElementById("tshirtFront")
                 .src
 
     });
@@ -3075,23 +2971,17 @@ function addPants() {
 
     addToCart({
 
-        name:
-            "SUMS Pants",
+        name: "SUMS Pants",
 
-        price:
-            549.99,
+        price: 549.99,
 
-        colour:
-            pantsColour,
+        colour: pantsColour,
 
-        size:
-            pantsSize,
+        size: pantsSize,
 
         image:
             document
-                .getElementById(
-                    "pantsFront"
-                )
+                .getElementById("pantsFront")
                 .src
 
     });
@@ -3144,19 +3034,14 @@ function updateCartCount() {
 
     const totalQuantity =
         cart.reduce(
-            (
-                total,
-                item
-            ) =>
+            (total, item) =>
                 total + item.quantity,
             0
         );
 
 
     document
-        .getElementById(
-            "cartCount"
-        )
+        .getElementById("cartCount")
         .innerText =
         totalQuantity;
 
@@ -3187,14 +3072,9 @@ function decreaseQuantity(index) {
     cart[index].quantity -= 1;
 
 
-    if (
-        cart[index].quantity <= 0
-    ) {
+    if (cart[index].quantity <= 0) {
 
-        cart.splice(
-            index,
-            1
-        );
+        cart.splice(index, 1);
 
     }
 
@@ -3212,10 +3092,7 @@ function decreaseQuantity(index) {
 
 function removeItem(index) {
 
-    cart.splice(
-        index,
-        1
-    );
+    cart.splice(index, 1);
 
     updateCartCount();
 
@@ -3231,29 +3108,19 @@ function removeItem(index) {
 function renderCart() {
 
     const container =
-        document.getElementById(
-            "cartItems"
-        );
+        document.getElementById("cartItems");
 
     const whatsapp =
-        document.getElementById(
-            "whatsappOrder"
-        );
+        document.getElementById("whatsappOrder");
 
     const summary =
-        document.getElementById(
-            "cartSummary"
-        );
+        document.getElementById("cartSummary");
 
     const totalDisplay =
-        document.getElementById(
-            "cartTotal"
-        );
+        document.getElementById("cartTotal");
 
 
-    if (
-        cart.length === 0
-    ) {
+    if (cart.length === 0) {
 
         container.innerHTML = `
 
@@ -3271,41 +3138,32 @@ function renderCart() {
 
         `;
 
+        summary.style.display = "none";
 
-        summary.style.display =
-            "none";
-
-        whatsapp.style.display =
-            "none";
+        whatsapp.style.display = "none";
 
         return;
 
     }
 
 
-    container.innerHTML =
-        "";
+    container.innerHTML = "";
 
-    let total =
-        0;
+    let total = 0;
 
     let message =
         "Hello SUMS, I would like to order:%0A%0A";
 
 
     cart.forEach(
-        (
-            item,
-            index
-        ) => {
+        (item, index) => {
 
             const itemTotal =
                 item.price *
                 item.quantity;
 
 
-            total +=
-                itemTotal;
+            total += itemTotal;
 
 
             container.innerHTML += `
@@ -3338,10 +3196,7 @@ function renderCart() {
                             each
                         </p>
 
-
-                        <div
-                            class="quantity-row"
-                        >
+                        <div class="quantity-row">
 
                             <button
                                 class="quantity-btn"
@@ -3350,13 +3205,11 @@ function renderCart() {
                                 −
                             </button>
 
-
                             <span
                                 class="quantity-number"
                             >
                                 ${item.quantity}
                             </span>
-
 
                             <button
                                 class="quantity-btn"
@@ -3366,7 +3219,6 @@ function renderCart() {
                             </button>
 
                         </div>
-
 
                         <button
                             class="remove-item"
@@ -3424,12 +3276,8 @@ function renderCart() {
 function openCart() {
 
     document
-        .getElementById(
-            "cartPanel"
-        )
-        .classList.add(
-            "open"
-        );
+        .getElementById("cartPanel")
+        .classList.add("open");
 
 }
 
@@ -3441,12 +3289,8 @@ function openCart() {
 function closeCart() {
 
     document
-        .getElementById(
-            "cartPanel"
-        )
-        .classList.remove(
-            "open"
-        );
+        .getElementById("cartPanel")
+        .classList.remove("open");
 
 }
 
@@ -3458,26 +3302,18 @@ function closeCart() {
 function zoomImage(id) {
 
     const image =
-        document.getElementById(
-            id
-        );
+        document.getElementById(id);
 
 
     document
-        .getElementById(
-            "lightboxImage"
-        )
+        .getElementById("lightboxImage")
         .src =
         image.src;
 
 
     document
-        .getElementById(
-            "lightbox"
-        )
-        .classList.add(
-            "open"
-        );
+        .getElementById("lightbox")
+        .classList.add("open");
 
 }
 
@@ -3485,12 +3321,8 @@ function zoomImage(id) {
 function closeLightbox() {
 
     document
-        .getElementById(
-            "lightbox"
-        )
-        .classList.remove(
-            "open"
-        );
+        .getElementById("lightbox")
+        .classList.remove("open");
 
 }
 
@@ -3503,9 +3335,7 @@ document.addEventListener(
     "keydown",
     function(event) {
 
-        if (
-            event.key === "Escape"
-        ) {
+        if (event.key === "Escape") {
 
             closeLightbox();
 
@@ -3517,7 +3347,6 @@ document.addEventListener(
 );
 
 </script>
-
 
 </body>
 </html>
