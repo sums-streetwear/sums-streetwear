@@ -44,12 +44,16 @@ body {
 #loader {
     position: fixed;
     inset: 0;
+
     background: #000;
     color: #fff;
+
     z-index: 10000;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     transition:
         opacity .5s ease,
         visibility .5s ease;
@@ -68,16 +72,21 @@ body {
 .loader-logo {
     width: 90px;
     height: 90px;
+
     object-fit: contain;
+
     animation:
         loaderSpin 1.8s ease-in-out infinite;
 }
 
 .loader-name {
     margin-top: 20px;
+
     font-size: 34px;
     font-weight: 900;
+
     letter-spacing: 7px;
+
     animation:
         loaderPulse 1.5s ease-in-out infinite;
 }
@@ -85,9 +94,13 @@ body {
 .loader-line {
     width: 130px;
     height: 2px;
+
     background: #fff;
+
     margin: 22px auto 0;
+
     transform-origin: center;
+
     animation:
         loaderLine 1.5s ease-in-out infinite;
 }
@@ -150,31 +163,43 @@ body {
 
 header {
     height: 78px;
+
     background: #fff;
+
     border-bottom: 1px solid #ddd;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 35px;
+
     position: sticky;
     top: 0;
+
     z-index: 1000;
 }
 
 .brand {
     display: flex;
     align-items: center;
+
     gap: 10px;
+
     color: #000;
+
     text-decoration: none;
 }
 
 .brand-logo {
     width: 44px;
     height: 44px;
+
     object-fit: contain;
+
     animation:
         logoRotate 3s ease-in-out infinite;
+
     transform-style: preserve-3d;
 }
 
@@ -200,7 +225,9 @@ header {
 
 .brand-name {
     font-size: 25px;
+
     font-weight: 900;
+
     letter-spacing: 2px;
 }
 
@@ -212,15 +239,21 @@ header {
 .nav {
     display: flex;
     align-items: center;
+
     gap: 24px;
 }
 
 .nav-button {
     border: none;
+
     background: transparent;
+
     cursor: pointer;
+
     font-size: 13px;
+
     font-weight: 800;
+
     transition:
         opacity .2s ease,
         transform .2s ease;
@@ -237,22 +270,30 @@ header {
 
 .cart {
     position: relative;
+
     font-size: 23px;
+
     cursor: pointer;
 }
 
 .cart-count {
     position: absolute;
+
     top: -8px;
     right: -10px;
+
     width: 18px;
     height: 18px;
+
     background: #000;
     color: #fff;
+
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 10px;
 }
 
@@ -267,6 +308,7 @@ header {
 
 .screen.active {
     display: block;
+
     animation:
         pageFlip .65s ease both;
 }
@@ -302,12 +344,17 @@ header {
 
 .hero {
     min-height: 82vh;
+
     position: relative;
+
     overflow: hidden;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     padding: 70px 20px;
 
     background:
@@ -323,9 +370,12 @@ header {
 
 .hero::before {
     content: "SUMS";
+
     position: absolute;
+
     left: 50%;
     top: 50%;
+
     transform:
         translate(-50%, -50%)
         scale(1.8);
@@ -334,17 +384,24 @@ header {
         clamp(100px, 25vw, 320px);
 
     font-weight: 900;
+
     letter-spacing: -15px;
+
     color: rgba(255,255,255,.025);
+
     white-space: nowrap;
+
     pointer-events: none;
 }
 
 .hero::after {
     content: "";
+
     position: absolute;
+
     width: 500px;
     height: 500px;
+
     border:
         1px solid
         rgba(255,255,255,.08);
@@ -375,7 +432,9 @@ header {
 
 .hero-content {
     max-width: 950px;
+
     position: relative;
+
     z-index: 2;
 
     animation:
@@ -401,29 +460,42 @@ header {
         clamp(70px, 15vw, 180px);
 
     font-weight: 900;
+
     letter-spacing: -10px;
+
     line-height: .78;
+
     text-transform: uppercase;
 }
 
 .hero-tagline {
     margin-top: 30px;
+
     font-size:
         clamp(18px, 3vw, 28px);
 
     font-weight: 700;
+
     letter-spacing: 1px;
 }
 
 .hero-button {
     margin-top: 35px;
+
     display: inline-block;
+
     padding: 16px 34px;
+
     background: #fff;
+
     color: #000;
+
     border-radius: 30px;
+
     font-weight: 900;
+
     cursor: pointer;
+
     border: none;
 
     transition:
@@ -434,6 +506,7 @@ header {
 
 .hero-button:hover {
     transform: translateY(-4px);
+
     background: #ddd;
 }
 
@@ -444,6 +517,7 @@ header {
 
 .collection-intro {
     text-align: center;
+
     padding:
         70px 20px 35px;
 }
@@ -457,35 +531,50 @@ header {
 
 .collection-intro p {
     margin-top: 10px;
+
     color: #666;
 }
 
 .collection-grid {
     display: grid;
+
     grid-template-columns:
-        1fr 1fr;
+        repeat(3, 1fr);
+
     gap: 18px;
+
     padding:
         0 25px 80px;
 }
 
 .collection-card {
     height: 62vh;
+
     min-height: 430px;
+
     position: relative;
+
     overflow: hidden;
+
     cursor: pointer;
+
     border: none;
+
     padding: 0;
+
     background: #eee;
+
     transform-style: preserve-3d;
 }
 
 .collection-card img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     display: block;
+
     transition:
         transform .35s ease;
 }
@@ -496,11 +585,15 @@ header {
 
 .collection-overlay {
     position: absolute;
+
     left: 0;
     right: 0;
     bottom: 0;
+
     padding: 35px;
+
     text-align: left;
+
     color: #fff;
 
     background:
@@ -512,6 +605,7 @@ header {
 
 .collection-overlay h3 {
     font-size: 45px;
+
     font-weight: 900;
 }
 
@@ -521,11 +615,17 @@ header {
 
 .shop-button {
     display: inline-block;
+
     margin-top: 18px;
+
     background: #fff;
+
     color: #000;
+
     padding: 12px 22px;
+
     border-radius: 25px;
+
     font-weight: 800;
 }
 
@@ -536,42 +636,56 @@ header {
 
 .product-screen {
     max-width: 1300px;
+
     margin: auto;
+
     padding:
         35px 25px 80px;
 }
 
 .back-button {
     border: none;
+
     background: #f1f1f1;
+
     padding: 12px 20px;
+
     border-radius: 25px;
+
     font-weight: 800;
+
     cursor: pointer;
+
     margin-bottom: 30px;
 }
 
 .product-title {
     text-align: center;
+
     margin-bottom: 35px;
 }
 
 .product-title h1 {
     font-size:
         clamp(45px, 7vw, 70px);
+
     font-weight: 900;
 }
 
 .product-title p {
     color: #666;
+
     margin-top: 8px;
 }
 
 .product-layout {
     display: grid;
+
     grid-template-columns:
         1.25fr .75fr;
+
     gap: 45px;
+
     align-items: start;
 }
 
@@ -582,21 +696,28 @@ header {
 
 .product-images {
     display: grid;
+
     grid-template-columns:
         1fr 1fr;
+
     gap: 14px;
 }
 
 .product-image {
     background: #f3f3f3;
+
     overflow: hidden;
+
     cursor: zoom-in;
 }
 
 .product-image img {
     width: 100%;
+
     aspect-ratio: 4 / 5;
+
     object-fit: cover;
+
     display: block;
 
     transition:
@@ -609,9 +730,13 @@ header {
 
 .image-label {
     background: #fff;
+
     padding: 9px;
+
     text-align: center;
+
     font-size: 12px;
+
     font-weight: 800;
 }
 
@@ -622,76 +747,108 @@ header {
 
 .product-details h2 {
     font-size: 32px;
+
     font-weight: 900;
 }
 
 .price {
     font-size: 22px;
+
     font-weight: 800;
+
     margin:
         10px 0 28px;
 }
 
 .option-title {
     font-size: 13px;
+
     font-weight: 900;
+
     margin-bottom: 11px;
 }
 
 .colours {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 8px;
+
     margin-bottom: 28px;
 }
 
 .colour-btn {
     background: #fff;
+
     border:
         1px solid #bbb;
+
     padding: 11px 16px;
+
     cursor: pointer;
+
     font-weight: 700;
+
     border-radius: 4px;
 }
 
 .colour-btn.active {
     background: #000;
+
     color: #fff;
+
     border-color: #000;
 }
 
 .sizes {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 7px;
+
     margin-bottom: 28px;
 }
 
 .size-btn {
     min-width: 50px;
+
     padding: 12px 10px;
+
     background: #fff;
+
     border:
         1px solid #bbb;
+
     cursor: pointer;
+
     font-weight: 700;
 }
 
 .size-btn.active {
     background: #000;
+
     color: #fff;
+
     border-color: #000;
 }
 
 .add-cart {
     width: 100%;
+
     padding: 17px;
+
     border: none;
+
     background: #000;
+
     color: #fff;
+
     cursor: pointer;
+
     font-size: 15px;
+
     font-weight: 900;
 
     transition:
@@ -701,6 +858,7 @@ header {
 
 .add-cart:hover {
     transform: translateY(-2px);
+
     opacity: .85;
 }
 
@@ -711,10 +869,13 @@ header {
 
 .founder-section {
     background: #111;
+
     color: #fff;
+
     margin-top: 30px;
 
     display: grid;
+
     grid-template-columns:
         1fr 1fr;
 
@@ -723,16 +884,23 @@ header {
 
 .founder-image {
     width: 100%;
+
     height: 620px;
+
     object-fit: cover;
+
     display: block;
 }
 
 .founder-content {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 50px;
+
     text-align: center;
 }
 
@@ -741,12 +909,15 @@ header {
         clamp(38px, 5vw, 65px);
 
     line-height: .95;
+
     font-weight: 900;
 }
 
 .founder-content p {
     margin-top: 20px;
+
     color: #ccc;
+
     font-size: 17px;
 }
 
@@ -757,20 +928,27 @@ header {
 
 .about {
     padding: 90px 25px;
+
     max-width: 1000px;
+
     margin: auto;
+
     text-align: center;
 }
 
 .about h2 {
     font-size: 45px;
+
     font-weight: 900;
+
     margin-bottom: 25px;
 }
 
 .about p {
     font-size: 20px;
+
     line-height: 1.7;
+
     color: #333;
 }
 
@@ -781,12 +959,19 @@ header {
 
 .cart-panel {
     position: fixed;
+
     top: 0;
+
     right: -430px;
+
     width: 410px;
+
     max-width: 92%;
+
     height: 100vh;
+
     background: #fff;
+
     z-index: 4000;
 
     box-shadow:
@@ -794,6 +979,7 @@ header {
         rgba(0,0,0,.18);
 
     padding: 28px;
+
     overflow-y: auto;
 
     transition:
@@ -806,28 +992,38 @@ header {
 
 .cart-header {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     margin-bottom: 25px;
 }
 
 .close-cart {
     font-size: 30px;
+
     cursor: pointer;
 }
 
 .cart-item {
     display: flex;
+
     gap: 14px;
+
     padding: 18px 0;
+
     border-bottom:
         1px solid #ddd;
 }
 
 .cart-item img {
     width: 82px;
+
     height: 100px;
+
     object-fit: cover;
+
     flex-shrink: 0;
 }
 
@@ -841,7 +1037,9 @@ header {
 
 .cart-item-info p {
     font-size: 13px;
+
     color: #555;
+
     margin-top: 4px;
 }
 
@@ -852,29 +1050,41 @@ header {
 
 .quantity-row {
     display: flex;
+
     align-items: center;
+
     gap: 8px;
+
     margin-top: 12px;
 }
 
 .quantity-btn {
     width: 28px;
     height: 28px;
+
     border:
         1px solid #bbb;
+
     background: #fff;
+
     cursor: pointer;
+
     font-size: 17px;
+
     font-weight: 700;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 }
 
 .quantity-number {
     min-width: 25px;
+
     text-align: center;
+
     font-weight: 800;
 }
 
@@ -885,12 +1095,19 @@ header {
 
 .remove-item {
     margin-top: 10px;
+
     border: none;
+
     background: transparent;
+
     color: #777;
+
     cursor: pointer;
+
     font-size: 11px;
+
     font-weight: 800;
+
     text-transform: uppercase;
 }
 
@@ -905,21 +1122,28 @@ header {
 
 .cart-summary {
     margin-top: 25px;
+
     padding-top: 20px;
+
     border-top:
         2px solid #000;
 }
 
 .cart-total-row {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     font-size: 20px;
+
     font-weight: 900;
 }
 
 .cart-total-label {
     font-size: 13px;
+
     letter-spacing: 1px;
 }
 
@@ -930,12 +1154,19 @@ header {
 
 .whatsapp-order {
     display: block;
+
     margin-top: 20px;
+
     padding: 16px;
+
     background: #000;
+
     color: #fff;
+
     text-align: center;
+
     text-decoration: none;
+
     font-weight: 900;
 }
 
@@ -946,14 +1177,19 @@ header {
 
 .empty-cart {
     text-align: center;
+
     padding: 60px 10px;
+
     color: #777;
 }
 
 .empty-cart-title {
     font-size: 20px;
+
     font-weight: 900;
+
     color: #111;
+
     margin-bottom: 8px;
 }
 
@@ -964,13 +1200,20 @@ header {
 
 .lightbox {
     display: none;
+
     position: fixed;
+
     inset: 0;
+
     background:
         rgba(0,0,0,.92);
+
     z-index: 5000;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 20px;
 }
 
@@ -980,16 +1223,23 @@ header {
 
 .lightbox img {
     max-width: 95%;
+
     max-height: 90vh;
+
     object-fit: contain;
 }
 
 .close-lightbox {
     position: absolute;
+
     top: 15px;
+
     right: 25px;
+
     color: #fff;
+
     font-size: 42px;
+
     cursor: pointer;
 }
 
@@ -1000,22 +1250,27 @@ header {
 
 footer {
     background: #f5f5f5;
+
     text-align: center;
+
     padding: 55px 20px;
 }
 
 footer h3 {
     font-size: 27px;
+
     letter-spacing: 2px;
 }
 
 footer p {
     margin-top: 10px;
+
     color: #555;
 }
 
 .copyright {
     margin-top: 25px;
+
     font-size: 13px;
 }
 
@@ -1070,12 +1325,14 @@ footer p {
 
     .collection-grid {
         grid-template-columns: 1fr;
+
         padding:
             0 15px 60px;
     }
 
     .collection-card {
         height: 52vh;
+
         min-height: 350px;
     }
 
@@ -1090,6 +1347,7 @@ footer p {
 
     .product-layout {
         grid-template-columns: 1fr;
+
         gap: 28px;
     }
 
@@ -1125,7 +1383,9 @@ footer p {
 
     .cart-panel {
         width: 100%;
+
         max-width: 100%;
+
         right: -100%;
     }
 
@@ -1183,6 +1443,7 @@ footer p {
 
 <!-- =====================================================
      LOADING SCREEN
+     2 SECONDS
 ===================================================== -->
 
 <div id="loader">
@@ -1232,6 +1493,7 @@ footer p {
 
 
 <nav class="nav">
+
 
     <button
         class="nav-button"
@@ -1360,7 +1622,7 @@ footer p {
     >
 
         <img
-            src="brown-hoodie.jpg"
+            src="white-hoodie.jpg"
             alt="SUMS Hoodies"
         >
 
@@ -1391,7 +1653,7 @@ footer p {
     >
 
         <img
-            src="black-tshirt.jpg"
+            src="grey-tshirt.jpg"
             alt="SUMS T-Shirts"
         >
 
@@ -1407,6 +1669,37 @@ footer p {
 
             <span class="shop-button">
                 SHOP T-SHIRTS
+            </span>
+
+        </div>
+
+    </button>
+
+
+    <!-- PANTS -->
+
+    <button
+        class="collection-card"
+        onclick="showPants()"
+    >
+
+        <img
+            src="grey-pants.jpg"
+            alt="SUMS Pants"
+        >
+
+        <div class="collection-overlay">
+
+            <h3>
+                PANTS
+            </h3>
+
+            <p>
+                Explore the SUMS pants collection.
+            </p>
+
+            <span class="shop-button">
+                SHOP PANTS
             </span>
 
         </div>
@@ -1561,7 +1854,7 @@ footer p {
 </h2>
 
 <div class="price">
-    R700
+    R599.99
 </div>
 
 
@@ -1571,6 +1864,7 @@ footer p {
 
 
 <div class="colours">
+
 
 <button
     class="colour-btn active"
@@ -1587,6 +1881,23 @@ footer p {
     GREY
 </button>
 
+
+<button
+    class="colour-btn"
+    onclick="changeHoodie('lightgrey',this)"
+>
+    LIGHT GREY
+</button>
+
+
+<button
+    class="colour-btn"
+    onclick="changeHoodie('white',this)"
+>
+    WHITE
+</button>
+
+
 </div>
 
 
@@ -1597,12 +1908,14 @@ footer p {
 
 <div class="sizes">
 
+
 <button
     class="size-btn"
     onclick="chooseHoodieSize(this)"
 >
     XS
 </button>
+
 
 <button
     class="size-btn"
@@ -1611,12 +1924,14 @@ footer p {
     S
 </button>
 
+
 <button
     class="size-btn active"
     onclick="chooseHoodieSize(this)"
 >
     M
 </button>
+
 
 <button
     class="size-btn"
@@ -1625,6 +1940,7 @@ footer p {
     L
 </button>
 
+
 <button
     class="size-btn"
     onclick="chooseHoodieSize(this)"
@@ -1632,12 +1948,14 @@ footer p {
     XL
 </button>
 
+
 <button
     class="size-btn"
     onclick="chooseHoodieSize(this)"
 >
     XXL
 </button>
+
 
 </div>
 
@@ -1744,7 +2062,7 @@ footer p {
 </h2>
 
 <div class="price">
-    R400
+    R499.99
 </div>
 
 
@@ -1754,6 +2072,7 @@ footer p {
 
 
 <div class="colours">
+
 
 <button
     class="colour-btn active"
@@ -1770,6 +2089,31 @@ footer p {
     WHITE
 </button>
 
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('grey',this)"
+>
+    GREY
+</button>
+
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('navy',this)"
+>
+    NAVY
+</button>
+
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('skyblue',this)"
+>
+    SKY BLUE
+</button>
+
+
 </div>
 
 
@@ -1780,12 +2124,14 @@ footer p {
 
 <div class="sizes">
 
+
 <button
     class="size-btn"
     onclick="chooseTshirtSize(this)"
 >
     XS
 </button>
+
 
 <button
     class="size-btn"
@@ -1794,12 +2140,14 @@ footer p {
     S
 </button>
 
+
 <button
     class="size-btn active"
     onclick="chooseTshirtSize(this)"
 >
     M
 </button>
+
 
 <button
     class="size-btn"
@@ -1808,6 +2156,7 @@ footer p {
     L
 </button>
 
+
 <button
     class="size-btn"
     onclick="chooseTshirtSize(this)"
@@ -1815,12 +2164,14 @@ footer p {
     XL
 </button>
 
+
 <button
     class="size-btn"
     onclick="chooseTshirtSize(this)"
 >
     XXL
 </button>
+
 
 </div>
 
@@ -1927,7 +2278,7 @@ footer p {
 </h2>
 
 <div class="price">
-    R500
+    R549.99
 </div>
 
 
@@ -1937,6 +2288,7 @@ footer p {
 
 
 <div class="colours">
+
 
 <button
     class="colour-btn active"
@@ -1953,6 +2305,7 @@ footer p {
     BLACK
 </button>
 
+
 </div>
 
 
@@ -1963,12 +2316,14 @@ footer p {
 
 <div class="sizes">
 
+
 <button
     class="size-btn"
     onclick="choosePantsSize(this)"
 >
     XS
 </button>
+
 
 <button
     class="size-btn"
@@ -1977,12 +2332,14 @@ footer p {
     S
 </button>
 
+
 <button
     class="size-btn active"
     onclick="choosePantsSize(this)"
 >
     M
 </button>
+
 
 <button
     class="size-btn"
@@ -1991,6 +2348,7 @@ footer p {
     L
 </button>
 
+
 <button
     class="size-btn"
     onclick="choosePantsSize(this)"
@@ -1998,12 +2356,14 @@ footer p {
     XL
 </button>
 
+
 <button
     class="size-btn"
     onclick="choosePantsSize(this)"
 >
     XXL
 </button>
+
 
 </div>
 
@@ -2183,6 +2543,7 @@ footer p {
 
 /* =====================================================
    LOADING SCREEN
+   EXACTLY 2 SECONDS
 ===================================================== */
 
 window.addEventListener(
@@ -2263,6 +2624,10 @@ function showCollections() {
 }
 
 
+/* =====================================================
+   HOODIES
+===================================================== */
+
 function showHoodies() {
 
     hideScreens();
@@ -2278,6 +2643,10 @@ function showHoodies() {
 
 }
 
+
+/* =====================================================
+   T-SHIRTS
+===================================================== */
 
 function showTshirts() {
 
@@ -2295,6 +2664,10 @@ function showTshirts() {
 }
 
 
+/* =====================================================
+   PANTS
+===================================================== */
+
 function showPants() {
 
     hideScreens();
@@ -2310,6 +2683,10 @@ function showPants() {
 
 }
 
+
+/* =====================================================
+   ABOUT
+===================================================== */
 
 function showAbout() {
 
@@ -2342,8 +2719,10 @@ function changeHoodie(
 ) {
 
     hoodieColour =
-        colour.charAt(0).toUpperCase() +
-        colour.slice(1);
+        colour === "lightgrey"
+        ? "Light Grey"
+        : colour.charAt(0).toUpperCase() +
+          colour.slice(1);
 
 
     document
@@ -2402,6 +2781,32 @@ function changeHoodie(
 
     }
 
+
+    if (
+        colour === "lightgrey"
+    ) {
+
+        front.src =
+            "light grey-hoodie.jpg";
+
+        back.src =
+            "light grey-hoodie-back.jpg";
+
+    }
+
+
+    if (
+        colour === "white"
+    ) {
+
+        front.src =
+            "white-hoodie.jpg";
+
+        back.src =
+            "white-hoodie-back.jpg";
+
+    }
+
 }
 
 
@@ -2420,8 +2825,10 @@ function changeTshirt(
 ) {
 
     tshirtColour =
-        colour.charAt(0).toUpperCase() +
-        colour.slice(1);
+        colour === "skyblue"
+        ? "Sky Blue"
+        : colour.charAt(0).toUpperCase() +
+          colour.slice(1);
 
 
     document
@@ -2477,6 +2884,45 @@ function changeTshirt(
 
         back.src =
             "white-tshirt-back.jpg";
+
+    }
+
+
+    if (
+        colour === "grey"
+    ) {
+
+        front.src =
+            "grey-tshirt.jpg";
+
+        back.src =
+            "grey-tshirt-back.jpg";
+
+    }
+
+
+    if (
+        colour === "navy"
+    ) {
+
+        front.src =
+            "navy-tshirt.jpg";
+
+        back.src =
+            "navy-tshirt-back.jpg";
+
+    }
+
+
+    if (
+        colour === "skyblue"
+    ) {
+
+        front.src =
+            "skyblue-tshirt.jpg";
+
+        back.src =
+            "skyblue-tshirt-back.jpg";
 
     }
 
@@ -2674,7 +3120,7 @@ function addHoodie() {
             "SUMS Hoodie",
 
         price:
-            700,
+            599.99,
 
         colour:
             hoodieColour,
@@ -2706,7 +3152,7 @@ function addTshirt() {
             "SUMS T-Shirt",
 
         price:
-            400,
+            499.99,
 
         colour:
             tshirtColour,
@@ -2738,7 +3184,7 @@ function addPants() {
             "SUMS Pants",
 
         price:
-            500,
+            549.99,
 
         colour:
             pantsColour,
@@ -3002,7 +3448,7 @@ function renderCart() {
                         </p>
 
                         <p>
-                            R${item.price}
+                            R${item.price.toFixed(2)}
                             each
                         </p>
 
@@ -3056,22 +3502,26 @@ function renderCart() {
                 `${item.colour} | ` +
                 `Size ${item.size} | ` +
                 `Qty ${item.quantity} | ` +
-                `R${itemTotal}%0A`;
+                `R${itemTotal.toFixed(2)}%0A`;
 
         }
     );
 
 
+    /* TOTAL */
+
     totalDisplay.innerText =
-        "R" + total;
+        "R" + total.toFixed(2);
 
 
     summary.style.display =
         "block";
 
 
+    /* WHATSAPP */
+
     message +=
-        `%0ATotal: R${total}`;
+        `%0ATotal: R${total.toFixed(2)}`;
 
 
     whatsapp.href =
