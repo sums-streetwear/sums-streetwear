@@ -12,7 +12,6 @@
 
 <title>SUMS — Premium Streetwear</title>
 
-
 <style>
 
 /* =====================================================
@@ -44,10 +43,8 @@ body {
 #loader {
     position: fixed;
     inset: 0;
-
     background: #000;
     color: #fff;
-
     z-index: 10000;
 
     display: flex;
@@ -72,7 +69,6 @@ body {
 .loader-logo {
     width: 90px;
     height: 90px;
-
     object-fit: contain;
 
     animation:
@@ -81,10 +77,8 @@ body {
 
 .loader-name {
     margin-top: 20px;
-
     font-size: 34px;
     font-weight: 900;
-
     letter-spacing: 7px;
 
     animation:
@@ -94,7 +88,6 @@ body {
 .loader-line {
     width: 130px;
     height: 2px;
-
     background: #fff;
 
     margin: 22px auto 0;
@@ -225,9 +218,7 @@ header {
 
 .brand-name {
     font-size: 25px;
-
     font-weight: 900;
-
     letter-spacing: 2px;
 }
 
@@ -239,19 +230,16 @@ header {
 .nav {
     display: flex;
     align-items: center;
-
     gap: 24px;
 }
 
 .nav-button {
     border: none;
-
     background: transparent;
 
     cursor: pointer;
 
     font-size: 13px;
-
     font-weight: 800;
 
     transition:
@@ -266,15 +254,11 @@ header {
 
 .search {
     font-size: 24px;
-
-    cursor: pointer;
 }
 
 .cart {
     position: relative;
-
     font-size: 23px;
-
     cursor: pointer;
 }
 
@@ -319,9 +303,11 @@ header {
 
     0% {
         opacity: 0;
+
         transform:
             perspective(1400px)
             rotateY(-90deg);
+
         transform-origin: center right;
     }
 
@@ -331,9 +317,11 @@ header {
 
     100% {
         opacity: 1;
+
         transform:
             perspective(1400px)
             rotateY(0deg);
+
         transform-origin: center center;
     }
 
@@ -348,7 +336,6 @@ header {
     min-height: 82vh;
 
     position: relative;
-
     overflow: hidden;
 
     display: flex;
@@ -436,7 +423,6 @@ header {
     max-width: 950px;
 
     position: relative;
-
     z-index: 2;
 
     animation:
@@ -508,7 +494,6 @@ header {
 
 .hero-button:hover {
     transform: translateY(-4px);
-
     background: #ddd;
 }
 
@@ -533,7 +518,6 @@ header {
 
 .collection-intro p {
     margin-top: 10px;
-
     color: #666;
 }
 
@@ -607,7 +591,6 @@ header {
 
 .collection-overlay h3 {
     font-size: 45px;
-
     font-weight: 900;
 }
 
@@ -749,7 +732,6 @@ header {
 
 .product-details h2 {
     font-size: 32px;
-
     font-weight: 900;
 }
 
@@ -795,9 +777,9 @@ header {
     border-radius: 4px;
 
     transition:
-        transform .15s ease,
-        background .15s ease,
-        color .15s ease;
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
 }
 
 .colour-btn:hover {
@@ -869,7 +851,6 @@ header {
 
 .add-cart:hover {
     transform: translateY(-2px);
-
     opacity: .85;
 }
 
@@ -1160,7 +1141,7 @@ header {
 
 
 /* =====================================================
-   WHATSAPP
+   WHATSAPP ORDER
 ===================================================== */
 
 .whatsapp-order {
@@ -1278,6 +1259,106 @@ footer p {
 
     color: #555;
 }
+
+.footer-price-list {
+    margin-top: 25px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.footer-price {
+    padding: 10px 15px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    border-radius: 20px;
+}
+
+
+/* =====================================================
+   SOCIAL ICONS
+===================================================== */
+
+.social-section {
+    margin-top: 30px;
+}
+
+.social-title {
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #000;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+
+    opacity: .75;
+}
+
+.social-icon svg {
+    width: 23px;
+    height: 23px;
+
+    fill: currentColor;
+}
+
+.whatsapp-footer svg {
+    width: 25px;
+    height: 25px;
+}
+
+
+/* =====================================================
+   COPYRIGHT
+===================================================== */
 
 .copyright {
     margin-top: 25px;
@@ -1442,6 +1523,11 @@ footer p {
         display: none;
     }
 
+    .social-icon {
+        width: 43px;
+        height: 43px;
+    }
+
 }
 
 </style>
@@ -1454,7 +1540,6 @@ footer p {
 
 <!-- =====================================================
      LOADING SCREEN
-     2 SECONDS
 ===================================================== -->
 
 <div id="loader">
@@ -1505,14 +1590,12 @@ footer p {
 
 <nav class="nav">
 
-
     <button
         class="nav-button"
         onclick="showHome()"
     >
         HOME
     </button>
-
 
     <button
         class="nav-button"
@@ -1521,14 +1604,12 @@ footer p {
         T-SHIRTS
     </button>
 
-
     <button
         class="nav-button"
         onclick="showHoodies()"
     >
         HOODIES
     </button>
-
 
     <button
         class="nav-button"
@@ -1537,7 +1618,6 @@ footer p {
         PANTS
     </button>
 
-
     <button
         class="nav-button"
         onclick="showAbout()"
@@ -1545,16 +1625,13 @@ footer p {
         ABOUT
     </button>
 
-
     <span class="search">
         ⌕
     </span>
 
-
     <div
         class="cart"
         onclick="openCart()"
-        aria-label="Shopping cart"
     >
 
         🛒
@@ -1645,7 +1722,7 @@ footer p {
             </h3>
 
             <p>
-                Explore the SUMS hoodie collection.
+                R599.99
             </p>
 
             <span class="shop-button">
@@ -1676,7 +1753,7 @@ footer p {
             </h3>
 
             <p>
-                Explore the SUMS T-shirt collection.
+                R499.99
             </p>
 
             <span class="shop-button">
@@ -1707,7 +1784,7 @@ footer p {
             </h3>
 
             <p>
-                Explore the SUMS pants collection.
+                R549.99
             </p>
 
             <span class="shop-button">
@@ -1723,7 +1800,8 @@ footer p {
 
 
 <!-- =====================================================
-     FOUNDER
+     FOUNDER EDITION
+     INTENTIONALLY NOT CLICKABLE
 ===================================================== -->
 
 <section class="founder-section">
@@ -1772,7 +1850,7 @@ footer p {
         SUMS is a South African streetwear brand
         representing culture, movement and ambition.
         Born from the wild coast. Built for those who
-        create their own legacy
+        create their own legacy.
     </p>
 
 </section>
@@ -1808,7 +1886,7 @@ footer p {
     </h1>
 
     <p>
-        Choose your colour and size.
+        R599.99 — Choose your colour and size.
     </p>
 
 </div>
@@ -1866,7 +1944,7 @@ footer p {
 </h2>
 
 <div class="price">
-    R700
+    R599.99
 </div>
 
 
@@ -1877,14 +1955,12 @@ footer p {
 
 <div class="colours">
 
-
 <button
     class="colour-btn active"
     onclick="changeHoodie('white',this)"
 >
     WHITE
 </button>
-
 
 <button
     class="colour-btn"
@@ -1893,14 +1969,12 @@ footer p {
     GREY
 </button>
 
-
 <button
     class="colour-btn"
     onclick="changeHoodie('brown',this)"
 >
     BROWN
 </button>
-
 
 </div>
 
@@ -1912,45 +1986,33 @@ footer p {
 
 <div class="sizes">
 
-<button
-    class="size-btn"
-    onclick="chooseHoodieSize(this)"
->
+<button class="size-btn"
+    onclick="chooseHoodieSize(this)">
     XS
 </button>
 
-<button
-    class="size-btn"
-    onclick="chooseHoodieSize(this)"
->
+<button class="size-btn"
+    onclick="chooseHoodieSize(this)">
     S
 </button>
 
-<button
-    class="size-btn active"
-    onclick="chooseHoodieSize(this)"
->
+<button class="size-btn active"
+    onclick="chooseHoodieSize(this)">
     M
 </button>
 
-<button
-    class="size-btn"
-    onclick="chooseHoodieSize(this)"
->
+<button class="size-btn"
+    onclick="chooseHoodieSize(this)">
     L
 </button>
 
-<button
-    class="size-btn"
-    onclick="chooseHoodieSize(this)"
->
+<button class="size-btn"
+    onclick="chooseHoodieSize(this)">
     XL
 </button>
 
-<button
-    class="size-btn"
-    onclick="chooseHoodieSize(this)"
->
+<button class="size-btn"
+    onclick="chooseHoodieSize(this)">
     XXL
 </button>
 
@@ -2001,7 +2063,7 @@ footer p {
     </h1>
 
     <p>
-        Choose your colour and size.
+        R499.99 — Choose your colour and size.
     </p>
 
 </div>
@@ -2059,7 +2121,7 @@ footer p {
 </h2>
 
 <div class="price">
-    R400
+    R499.99
 </div>
 
 
@@ -2070,38 +2132,12 @@ footer p {
 
 <div class="colours">
 
-
-<button
-    class="colour-btn active"
-    onclick="changeTshirt('grey',this)"
->
-    GREY
-</button>
-
-
-<button
-    class="colour-btn"
-    onclick="changeTshirt('skyblue',this)"
->
-    SKY BLUE
-</button>
-
-
-<button
-    class="colour-btn"
-    onclick="changeTshirt('navy',this)"
->
-    NAVY
-</button>
-
-
 <button
     class="colour-btn"
     onclick="changeTshirt('black',this)"
 >
     BLACK
 </button>
-
 
 <button
     class="colour-btn"
@@ -2110,6 +2146,26 @@ footer p {
     WHITE
 </button>
 
+<button
+    class="colour-btn active"
+    onclick="changeTshirt('grey',this)"
+>
+    GREY
+</button>
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('skyblue',this)"
+>
+    SKY BLUE
+</button>
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('navy',this)"
+>
+    NAVY
+</button>
 
 </div>
 
@@ -2121,45 +2177,33 @@ footer p {
 
 <div class="sizes">
 
-<button
-    class="size-btn"
-    onclick="chooseTshirtSize(this)"
->
+<button class="size-btn"
+    onclick="chooseTshirtSize(this)">
     XS
 </button>
 
-<button
-    class="size-btn"
-    onclick="chooseTshirtSize(this)"
->
+<button class="size-btn"
+    onclick="chooseTshirtSize(this)">
     S
 </button>
 
-<button
-    class="size-btn active"
-    onclick="chooseTshirtSize(this)"
->
+<button class="size-btn active"
+    onclick="chooseTshirtSize(this)">
     M
 </button>
 
-<button
-    class="size-btn"
-    onclick="chooseTshirtSize(this)"
->
+<button class="size-btn"
+    onclick="chooseTshirtSize(this)">
     L
 </button>
 
-<button
-    class="size-btn"
-    onclick="chooseTshirtSize(this)"
->
+<button class="size-btn"
+    onclick="chooseTshirtSize(this)">
     XL
 </button>
 
-<button
-    class="size-btn"
-    onclick="chooseTshirtSize(this)"
->
+<button class="size-btn"
+    onclick="chooseTshirtSize(this)">
     XXL
 </button>
 
@@ -2210,7 +2254,7 @@ footer p {
     </h1>
 
     <p>
-        Choose your colour and size.
+        R549.99 — Choose your colour and size.
     </p>
 
 </div>
@@ -2268,7 +2312,7 @@ footer p {
 </h2>
 
 <div class="price">
-    R600
+    R549.99
 </div>
 
 
@@ -2279,7 +2323,6 @@ footer p {
 
 <div class="colours">
 
-
 <button
     class="colour-btn active"
     onclick="changePants('grey',this)"
@@ -2287,14 +2330,12 @@ footer p {
     GREY
 </button>
 
-
 <button
     class="colour-btn"
     onclick="changePants('black',this)"
 >
     BLACK
 </button>
-
 
 </div>
 
@@ -2306,45 +2347,33 @@ footer p {
 
 <div class="sizes">
 
-<button
-    class="size-btn"
-    onclick="choosePantsSize(this)"
->
+<button class="size-btn"
+    onclick="choosePantsSize(this)">
     XS
 </button>
 
-<button
-    class="size-btn"
-    onclick="choosePantsSize(this)"
->
+<button class="size-btn"
+    onclick="choosePantsSize(this)">
     S
 </button>
 
-<button
-    class="size-btn active"
-    onclick="choosePantsSize(this)"
->
+<button class="size-btn active"
+    onclick="choosePantsSize(this)">
     M
 </button>
 
-<button
-    class="size-btn"
-    onclick="choosePantsSize(this)"
->
+<button class="size-btn"
+    onclick="choosePantsSize(this)">
     L
 </button>
 
-<button
-    class="size-btn"
-    onclick="choosePantsSize(this)"
->
+<button class="size-btn"
+    onclick="choosePantsSize(this)">
     XL
 </button>
 
-<button
-    class="size-btn"
-    onclick="choosePantsSize(this)"
->
+<button class="size-btn"
+    onclick="choosePantsSize(this)">
     XXL
 </button>
 
@@ -2387,7 +2416,7 @@ footer p {
         SUMS is a South African streetwear brand
         representing culture, movement and ambition.
         Born from the wild coast. Built for those who
-        create their own legacy
+        create their own legacy.
     </p>
 
 </section>
@@ -2510,9 +2539,135 @@ footer p {
     WhatsApp: 079 626 5589
 </p>
 
+
+<!-- PRICES -->
+
+<div class="footer-price-list">
+
+    <div class="footer-price">
+        T-SHIRTS — R499.99
+    </div>
+
+    <div class="footer-price">
+        HOODIES — R599.99
+    </div>
+
+    <div class="footer-price">
+        PANTS — R549.99
+    </div>
+
+</div>
+
+
+<!-- SOCIAL MEDIA -->
+
+<div class="social-section">
+
+    <div class="social-title">
+        FOLLOW SUMS
+    </div>
+
+
+    <div class="social-icons">
+
+
+        <!-- WHATSAPP -->
+
+        <a
+            class="social-icon whatsapp-footer"
+            href="https://wa.me/27796265589"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path d="M12.04 2C6.5 2 2 6.48 2 12c0 1.76.46 3.41 1.34 4.9L2 22l5.24-1.31A9.96 9.96 0 0 0 12.04 22C17.56 22 22 17.52 22 12S17.56 2 12.04 2Zm0 18.18c-1.56 0-3.09-.42-4.42-1.22l-.32-.19-3.11.78.8-3.03-.21-.33A8.2 8.2 0 0 1 3.82 12c0-4.54 3.69-8.23 8.22-8.23S20.23 7.46 20.23 12s-3.67 8.18-8.19 8.18Zm4.51-6.13c-.25-.13-1.49-.74-1.72-.82-.23-.09-.4-.13-.57.13-.17.25-.65.82-.8.99-.15.17-.3.19-.55.06-.25-.13-1.04-.38-1.98-1.21-.73-.65-1.22-1.45-1.36-1.7-.14-.25-.02-.39.11-.52.11-.11.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.87-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.52.6.19 1.15.16 1.58.1.48-.07 1.49-.61 1.7-1.2.21-.59.21-1.1.15-1.2-.06-.1-.23-.16-.48-.29Z"/>
+
+            </svg>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            class="social-icon"
+            href="https://www.instagram.com/sumsdept/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 1.8A3.7 3.7 0 0 0 3.8 7.5v9a3.7 3.7 0 0 0 3.7 3.7h9a3.7 3.7 0 0 0 3.7-3.7v-9a3.7 3.7 0 0 0-3.7-3.7h-9Zm9.75 1.35a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Z"/>
+
+            </svg>
+
+        </a>
+
+
+        <!-- TIKTOK -->
+
+        <a
+            class="social-icon"
+            href="https://www.tiktok.com/@sumsessentials26"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.77h-3.03v12.76a2.88 2.88 0 1 1-2.88-2.88c.25 0 .5.03.73.1v-3.08a6 6 0 1 0 5.18 5.95V9.3a7.86 7.86 0 0 0 4.6 1.48V7.75a4.85 4.85 0 0 1-.83-.06Z"/>
+
+            </svg>
+
+        </a>
+
+
+        <!-- FACEBOOK -->
+
+        <a
+            class="social-icon"
+            href="https://www.facebook.com/share/14kuq16W28K/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.08c0-.87.24-1.46 1.51-1.46h1.61V4.94c-.28-.04-1.24-.12-2.36-.12-2.34 0-3.94 1.43-3.94 4.06V11H7.67v3h2.65v8h3.18Z"/>
+
+            </svg>
+
+        </a>
+
+
+    </div>
+
+</div>
+
+
 <p>
     South African streetwear.
 </p>
+
 
 <div class="copyright">
     © 2026 SUMS. All rights reserved.
@@ -2770,17 +2925,23 @@ function changeTshirt(
     button
 ) {
 
-    if (colour === "skyblue") {
+    const names = {
 
-        tshirtColour = "Sky Blue";
+        black: "Black",
 
-    } else {
+        white: "White",
 
-        tshirtColour =
-            colour.charAt(0).toUpperCase() +
-            colour.slice(1);
+        grey: "Grey",
 
-    }
+        skyblue: "Sky Blue",
+
+        navy: "Navy"
+
+    };
+
+
+    tshirtColour =
+        names[colour];
 
 
     document
@@ -2814,59 +2975,11 @@ function changeTshirt(
         );
 
 
-    if (colour === "grey") {
+    front.src =
+        colour + "-tshirt.jpg";
 
-        front.src =
-            "grey-tshirt.jpg";
-
-        back.src =
-            "grey-tshirt-back.jpg";
-
-    }
-
-
-    if (colour === "skyblue") {
-
-        front.src =
-            "skyblue-tshirt.jpg";
-
-        back.src =
-            "skyblue-tshirt-back.jpg";
-
-    }
-
-
-    if (colour === "navy") {
-
-        front.src =
-            "navy-tshirt.jpg";
-
-        back.src =
-            "navy-tshirt-back.jpg";
-
-    }
-
-
-    if (colour === "black") {
-
-        front.src =
-            "black-tshirt.jpg";
-
-        back.src =
-            "black-tshirt-back.jpg";
-
-    }
-
-
-    if (colour === "white") {
-
-        front.src =
-            "white-tshirt.jpg";
-
-        back.src =
-            "white-tshirt-back.jpg";
-
-    }
+    back.src =
+        colour + "-tshirt-back.jpg";
 
 }
 
@@ -2921,26 +3034,11 @@ function changePants(
         );
 
 
-    if (colour === "grey") {
+    front.src =
+        colour + "-pants.jpg";
 
-        front.src =
-            "grey-pants.jpg";
-
-        back.src =
-            "grey-pants-back.jpg";
-
-    }
-
-
-    if (colour === "black") {
-
-        front.src =
-            "black-pants.jpg";
-
-        back.src =
-            "black-pants-back.jpg";
-
-    }
+    back.src =
+        colour + "-pants-back.jpg";
 
 }
 
@@ -3058,7 +3156,7 @@ function addHoodie() {
             "SUMS Hoodie",
 
         price:
-            700,
+            599.99,
 
         colour:
             hoodieColour,
@@ -3090,7 +3188,7 @@ function addTshirt() {
             "SUMS T-Shirt",
 
         price:
-            400,
+            499.99,
 
         colour:
             tshirtColour,
@@ -3122,7 +3220,7 @@ function addPants() {
             "SUMS Pants",
 
         price:
-            600,
+            549.99,
 
         colour:
             pantsColour,
@@ -3386,7 +3484,7 @@ function renderCart() {
                         </p>
 
                         <p>
-                            R${item.price}
+                            R${item.price.toFixed(2)}
                             each
                         </p>
 
@@ -3440,14 +3538,14 @@ function renderCart() {
                 `${item.colour} | ` +
                 `Size ${item.size} | ` +
                 `Qty ${item.quantity} | ` +
-                `R${itemTotal}%0A`;
+                `R${itemTotal.toFixed(2)}%0A`;
 
         }
     );
 
 
     totalDisplay.innerText =
-        "R" + total;
+        "R" + total.toFixed(2);
 
 
     summary.style.display =
@@ -3455,7 +3553,7 @@ function renderCart() {
 
 
     message +=
-        `%0ATotal: R${total}`;
+        `%0ATotal: R${total.toFixed(2)}`;
 
 
     whatsapp.href =
