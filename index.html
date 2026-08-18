@@ -266,6 +266,8 @@ header {
 
 .search {
     font-size: 24px;
+
+    cursor: pointer;
 }
 
 .cart {
@@ -535,17 +537,11 @@ header {
     color: #666;
 }
 
-
-/* =====================================================
-   COLLECTION GRID
-   FIRST TWO + SECOND TWO
-===================================================== */
-
 .collection-grid {
     display: grid;
 
     grid-template-columns:
-        1fr 1fr;
+        repeat(3, 1fr);
 
     gap: 18px;
 
@@ -571,14 +567,6 @@ header {
     background: #eee;
 
     transform-style: preserve-3d;
-
-    text-align: left;
-}
-
-/* NON-CLICKABLE COMING SOON CARD */
-
-.collection-card.coming-soon {
-    cursor: default;
 }
 
 .collection-card img {
@@ -595,12 +583,6 @@ header {
 
 .collection-card:hover img {
     transform: scale(1.03);
-}
-
-/* Prevent hover zoom on coming-soon card */
-
-.collection-card.coming-soon:hover img {
-    transform: none;
 }
 
 .collection-overlay {
@@ -811,6 +793,15 @@ header {
     font-weight: 700;
 
     border-radius: 4px;
+
+    transition:
+        transform .15s ease,
+        background .15s ease,
+        color .15s ease;
+}
+
+.colour-btn:hover {
+    transform: translateY(-1px);
 }
 
 .colour-btn.active {
@@ -880,6 +871,65 @@ header {
     transform: translateY(-2px);
 
     opacity: .85;
+}
+
+
+/* =====================================================
+   FOUNDER EDITION
+===================================================== */
+
+.founder-section {
+    background: #111;
+
+    color: #fff;
+
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    min-height: 620px;
+}
+
+.founder-image {
+    width: 100%;
+
+    height: 620px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.founder-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px;
+
+    text-align: center;
+}
+
+.founder-content h2 {
+    font-size:
+        clamp(38px, 5vw, 65px);
+
+    line-height: .95;
+
+    font-weight: 900;
+}
+
+.founder-content p {
+    margin-top: 20px;
+
+    color: #ccc;
+
+    font-size: 17px;
 }
 
 
@@ -1110,7 +1160,7 @@ header {
 
 
 /* =====================================================
-   WHATSAPP ORDER
+   WHATSAPP
 ===================================================== */
 
 .whatsapp-order {
@@ -1202,58 +1252,6 @@ header {
     font-size: 42px;
 
     cursor: pointer;
-}
-
-
-/* =====================================================
-   SOCIAL MEDIA
-===================================================== */
-
-.social-links {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 18px;
-
-    margin-top: 25px;
-}
-
-.social-link {
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #000;
-
-    color: #fff;
-
-    text-decoration: none;
-
-    transition:
-        transform .25s ease,
-        opacity .25s ease;
-}
-
-.social-link:hover {
-    transform: translateY(-4px);
-
-    opacity: .75;
-}
-
-.social-link svg {
-    width: 24px;
-    height: 24px;
-
-    fill: currentColor;
 }
 
 
@@ -1369,6 +1367,18 @@ footer p {
             1fr 1fr;
     }
 
+    .founder-section {
+        grid-template-columns: 1fr;
+    }
+
+    .founder-image {
+        height: 430px;
+    }
+
+    .founder-content {
+        min-height: 330px;
+    }
+
     .about {
         padding:
             65px 20px;
@@ -1444,6 +1454,7 @@ footer p {
 
 <!-- =====================================================
      LOADING SCREEN
+     2 SECONDS
 ===================================================== -->
 
 <div id="loader">
@@ -1494,6 +1505,7 @@ footer p {
 
 <nav class="nav">
 
+
     <button
         class="nav-button"
         onclick="showHome()"
@@ -1542,6 +1554,7 @@ footer p {
     <div
         class="cart"
         onclick="openCart()"
+        aria-label="Shopping cart"
     >
 
         🛒
@@ -1610,16 +1623,10 @@ footer p {
 </section>
 
 
-<!-- =====================================================
-     COLLECTION GRID
-===================================================== -->
-
 <div class="collection-grid">
 
 
-    <!-- =================================================
-         HOODIES
-    ================================================= -->
+    <!-- HOODIES -->
 
     <button
         class="collection-card"
@@ -1627,7 +1634,7 @@ footer p {
     >
 
         <img
-            src="brown-hoodie.jpg"
+            src="white-hoodie.jpg"
             alt="SUMS Hoodies"
         >
 
@@ -1650,9 +1657,7 @@ footer p {
     </button>
 
 
-    <!-- =================================================
-         T-SHIRTS
-    ================================================= -->
+    <!-- T-SHIRTS -->
 
     <button
         class="collection-card"
@@ -1660,7 +1665,7 @@ footer p {
     >
 
         <img
-            src="black-tshirt.jpg"
+            src="grey-tshirt.jpg"
             alt="SUMS T-Shirts"
         >
 
@@ -1683,9 +1688,7 @@ footer p {
     </button>
 
 
-    <!-- =================================================
-         PANTS
-    ================================================= -->
+    <!-- PANTS -->
 
     <button
         class="collection-card"
@@ -1716,40 +1719,40 @@ footer p {
     </button>
 
 
-    <!-- =================================================
-         FOUNDER HOODIE — COMING SOON
-         
-         IMPORTANT:
-         VISIBLE BUT NOT CLICKABLE
-         NO onclick
-         NO shop button
-    ================================================= -->
+</div>
 
-    <div
-        class="collection-card coming-soon"
+
+<!-- =====================================================
+     FOUNDER
+===================================================== -->
+
+<section class="founder-section">
+
+    <img
+        class="founder-image"
+        src="founder-hoodie-front.jpg"
+        alt="SUMS Hoodie-5120 Founder Edition"
     >
 
-        <img
-            src="founder-hoodie-front.jpg"
-            alt="SUMS Hoodie-5120 Founder Edition"
-        >
+    <div class="founder-content">
 
-        <div class="collection-overlay">
+        <div>
 
-            <h3>
-                HOODIE-5120
-            </h3>
+            <h2>
+                SUMS HOODIE-5120
+                <br>
+                FOUNDER EDITION
+            </h2>
 
             <p>
-                FOUNDER EDITION — COMING SOON.
+                A premium SUMS piece coming soon.
             </p>
 
         </div>
 
     </div>
 
-
-</div>
+</section>
 
 
 <!-- =====================================================
@@ -1824,7 +1827,7 @@ footer p {
 
     <img
         id="hoodieFront"
-        src="brown-hoodie.jpg"
+        src="white-hoodie.jpg"
         alt="SUMS Hoodie Front"
     >
 
@@ -1842,7 +1845,7 @@ footer p {
 
     <img
         id="hoodieBack"
-        src="brown-hoodie-back.jpg"
+        src="white-hoodie-back.jpg"
         alt="SUMS Hoodie Back"
     >
 
@@ -1863,7 +1866,7 @@ footer p {
 </h2>
 
 <div class="price">
-    R599.99
+    R700
 </div>
 
 
@@ -1877,9 +1880,9 @@ footer p {
 
 <button
     class="colour-btn active"
-    onclick="changeHoodie('brown',this)"
+    onclick="changeHoodie('white',this)"
 >
-    BROWN
+    WHITE
 </button>
 
 
@@ -1888,6 +1891,14 @@ footer p {
     onclick="changeHoodie('grey',this)"
 >
     GREY
+</button>
+
+
+<button
+    class="colour-btn"
+    onclick="changeHoodie('brown',this)"
+>
+    BROWN
 </button>
 
 
@@ -2009,7 +2020,7 @@ footer p {
 
     <img
         id="tshirtFront"
-        src="black-tshirt.jpg"
+        src="grey-tshirt.jpg"
         alt="SUMS T-Shirt Front"
     >
 
@@ -2027,7 +2038,7 @@ footer p {
 
     <img
         id="tshirtBack"
-        src="black-tshirt-back.jpg"
+        src="grey-tshirt-back.jpg"
         alt="SUMS T-Shirt Back"
     >
 
@@ -2048,7 +2059,7 @@ footer p {
 </h2>
 
 <div class="price">
-    R499.99
+    R400
 </div>
 
 
@@ -2062,6 +2073,30 @@ footer p {
 
 <button
     class="colour-btn active"
+    onclick="changeTshirt('grey',this)"
+>
+    GREY
+</button>
+
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('skyblue',this)"
+>
+    SKY BLUE
+</button>
+
+
+<button
+    class="colour-btn"
+    onclick="changeTshirt('navy',this)"
+>
+    NAVY
+</button>
+
+
+<button
+    class="colour-btn"
     onclick="changeTshirt('black',this)"
 >
     BLACK
@@ -2233,7 +2268,7 @@ footer p {
 </h2>
 
 <div class="price">
-    R549.99
+    R600
 </div>
 
 
@@ -2472,115 +2507,12 @@ footer p {
 </h3>
 
 <p>
-    South African streetwear.
+    WhatsApp: 079 626 5589
 </p>
 
-
-<!-- =====================================================
-     SOCIAL ICONS
-===================================================== -->
-
-<div class="social-links">
-
-
-<!-- =====================================================
-     WHATSAPP
-===================================================== -->
-
-<a
-    class="social-link"
-    href="https://wa.me/27796265589"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="SUMS WhatsApp"
->
-
-<svg
-    viewBox="0 0 24 24"
-    aria-hidden="true"
->
-
-    <path d="M20.52 3.48A11.78 11.78 0 0012.06 0C5.56 0 .27 5.29.27 11.79c0 2.08.54 4.11 1.57 5.9L.17 24l6.47-1.64a11.77 11.77 0 005.42 1.31h.01c6.5 0 11.78-5.29 11.78-11.79 0-3.14-1.22-6.09-3.33-8.4zM12.07 21.6h-.01a9.78 9.78 0 01-4.98-1.36l-.36-.21-3.84.98 1.03-3.75-.23-.38a9.78 9.78 0 01-1.5-5.09c0-5.41 4.4-9.81 9.81-9.81 2.62 0 5.08 1.02 6.93 2.87a9.74 9.74 0 012.87 6.94c0 5.41-4.4 9.81-9.81 9.81zm5.39-7.35c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.09 4.5.71.31 1.26.5 1.69.64.71.23 1.35.2 1.86.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
-
-</svg>
-
-</a>
-
-
-<!-- =====================================================
-     TIKTOK
-===================================================== -->
-
-<a
-    class="social-link"
-    href="https://www.tiktok.com/@sumsessentials26?_r=1&_t=ZS-98zaKbzkTK8"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="SUMS TikTok"
->
-
-<svg
-    viewBox="0 0 24 24"
-    aria-hidden="true"
->
-
-    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-3.77A4.83 4.83 0 0115.67 1h-3.49v14.04a2.88 2.88 0 11-2.88-2.88c.3 0 .59.05.86.14v-3.56a6.4 6.4 0 00-.86-.06A6.37 6.37 0 1015.67 15V8.36a8.26 8.26 0 004.92 1.61V6.48c-.34 0-.67-.04-1-.11z"/>
-
-</svg>
-
-</a>
-
-
-<!-- =====================================================
-     INSTAGRAM
-===================================================== -->
-
-<a
-    class="social-link"
-    href="https://www.instagram.com/sumsdept?utm_source=qr&igsh=MXZpejM1djF6MmEzMg=="
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="SUMS Instagram"
->
-
-<svg
-    viewBox="0 0 24 24"
-    aria-hidden="true"
->
-
-    <path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9a5.5 5.5 0 01-5.5 5.5h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4h-9zm9.75 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
-
-</svg>
-
-</a>
-
-
-<!-- =====================================================
-     FACEBOOK
-===================================================== -->
-
-<a
-    class="social-link"
-    href="https://www.facebook.com/share/14kuq16W28K/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="SUMS Facebook"
->
-
-<svg
-    viewBox="0 0 24 24"
-    aria-hidden="true"
->
-
-    <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.43H7.08v-3.5h3.05V9.41c0-3.03 1.79-4.7 4.55-4.7 1.32 0 2.7.24 2.7.24v2.99h-1.52c-1.5 0-1.97.94-1.97 1.9v2.23h3.35l-.54 3.5h-2.81V24C19.61 23.09 24 18.09 24 12.07z"/>
-
-</svg>
-
-</a>
-
-
-</div>
-
+<p>
+    South African streetwear.
+</p>
 
 <div class="copyright">
     © 2026 SUMS. All rights reserved.
@@ -2675,10 +2607,6 @@ function showCollections() {
 }
 
 
-/* =====================================================
-   HOODIES
-===================================================== */
-
 function showHoodies() {
 
     hideScreens();
@@ -2694,10 +2622,6 @@ function showHoodies() {
 
 }
 
-
-/* =====================================================
-   T-SHIRTS
-===================================================== */
 
 function showTshirts() {
 
@@ -2715,10 +2639,6 @@ function showTshirts() {
 }
 
 
-/* =====================================================
-   PANTS
-===================================================== */
-
 function showPants() {
 
     hideScreens();
@@ -2734,10 +2654,6 @@ function showPants() {
 
 }
 
-
-/* =====================================================
-   ABOUT
-===================================================== */
 
 function showAbout() {
 
@@ -2759,7 +2675,7 @@ function showAbout() {
    HOODIE COLOURS
 ===================================================== */
 
-let hoodieColour = "Brown";
+let hoodieColour = "White";
 
 let hoodieSize = "M";
 
@@ -2805,28 +2721,35 @@ function changeHoodie(
         );
 
 
-    if (
-        colour === "brown"
-    ) {
+    if (colour === "white") {
 
         front.src =
-            "brown-hoodie.jpg";
+            "white-hoodie.jpg";
 
         back.src =
-            "brown-hoodie-back.jpg";
+            "white-hoodie-back.jpg";
 
     }
 
 
-    if (
-        colour === "grey"
-    ) {
+    if (colour === "grey") {
 
         front.src =
             "grey-hoodie.jpg";
 
         back.src =
             "grey-hoodie-back.jpg";
+
+    }
+
+
+    if (colour === "brown") {
+
+        front.src =
+            "brown-hoodie.jpg";
+
+        back.src =
+            "brown-hoodie-back.jpg";
 
     }
 
@@ -2837,7 +2760,7 @@ function changeHoodie(
    T-SHIRT COLOURS
 ===================================================== */
 
-let tshirtColour = "Black";
+let tshirtColour = "Grey";
 
 let tshirtSize = "M";
 
@@ -2847,9 +2770,17 @@ function changeTshirt(
     button
 ) {
 
-    tshirtColour =
-        colour.charAt(0).toUpperCase() +
-        colour.slice(1);
+    if (colour === "skyblue") {
+
+        tshirtColour = "Sky Blue";
+
+    } else {
+
+        tshirtColour =
+            colour.charAt(0).toUpperCase() +
+            colour.slice(1);
+
+    }
 
 
     document
@@ -2883,9 +2814,40 @@ function changeTshirt(
         );
 
 
-    if (
-        colour === "black"
-    ) {
+    if (colour === "grey") {
+
+        front.src =
+            "grey-tshirt.jpg";
+
+        back.src =
+            "grey-tshirt-back.jpg";
+
+    }
+
+
+    if (colour === "skyblue") {
+
+        front.src =
+            "skyblue-tshirt.jpg";
+
+        back.src =
+            "skyblue-tshirt-back.jpg";
+
+    }
+
+
+    if (colour === "navy") {
+
+        front.src =
+            "navy-tshirt.jpg";
+
+        back.src =
+            "navy-tshirt-back.jpg";
+
+    }
+
+
+    if (colour === "black") {
 
         front.src =
             "black-tshirt.jpg";
@@ -2896,9 +2858,7 @@ function changeTshirt(
     }
 
 
-    if (
-        colour === "white"
-    ) {
+    if (colour === "white") {
 
         front.src =
             "white-tshirt.jpg";
@@ -2961,9 +2921,7 @@ function changePants(
         );
 
 
-    if (
-        colour === "grey"
-    ) {
+    if (colour === "grey") {
 
         front.src =
             "grey-pants.jpg";
@@ -2974,9 +2932,7 @@ function changePants(
     }
 
 
-    if (
-        colour === "black"
-    ) {
+    if (colour === "black") {
 
         front.src =
             "black-pants.jpg";
@@ -2990,7 +2946,7 @@ function changePants(
 
 
 /* =====================================================
-   HOODIE SIZES
+   SIZES
 ===================================================== */
 
 function chooseHoodieSize(
@@ -3023,10 +2979,6 @@ function chooseHoodieSize(
 }
 
 
-/* =====================================================
-   T-SHIRT SIZES
-===================================================== */
-
 function chooseTshirtSize(
     button
 ) {
@@ -3056,10 +3008,6 @@ function chooseTshirtSize(
 
 }
 
-
-/* =====================================================
-   PANTS SIZES
-===================================================== */
 
 function choosePantsSize(
     button
@@ -3110,7 +3058,7 @@ function addHoodie() {
             "SUMS Hoodie",
 
         price:
-            599.99,
+            700,
 
         colour:
             hoodieColour,
@@ -3142,7 +3090,7 @@ function addTshirt() {
             "SUMS T-Shirt",
 
         price:
-            499.99,
+            400,
 
         colour:
             tshirtColour,
@@ -3174,7 +3122,7 @@ function addPants() {
             "SUMS Pants",
 
         price:
-            549.99,
+            600,
 
         colour:
             pantsColour,
@@ -3438,7 +3386,7 @@ function renderCart() {
                         </p>
 
                         <p>
-                            R${item.price.toFixed(2)}
+                            R${item.price}
                             each
                         </p>
 
@@ -3492,24 +3440,22 @@ function renderCart() {
                 `${item.colour} | ` +
                 `Size ${item.size} | ` +
                 `Qty ${item.quantity} | ` +
-                `R${itemTotal.toFixed(2)}%0A`;
+                `R${itemTotal}%0A`;
 
         }
     );
 
 
     totalDisplay.innerText =
-        "R" + total.toFixed(2);
+        "R" + total;
 
 
     summary.style.display =
         "block";
 
 
-    /* WHATSAPP */
-
     message +=
-        `%0ATotal: R${total.toFixed(2)}`;
+        `%0ATotal: R${total}`;
 
 
     whatsapp.href =
