@@ -44,16 +44,12 @@ body {
 #loader {
     position: fixed;
     inset: 0;
-
     background: #000;
     color: #fff;
-
     z-index: 10000;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition:
         opacity .5s ease,
         visibility .5s ease;
@@ -72,21 +68,16 @@ body {
 .loader-logo {
     width: 90px;
     height: 90px;
-
     object-fit: contain;
-
     animation:
         loaderSpin 1.8s ease-in-out infinite;
 }
 
 .loader-name {
     margin-top: 20px;
-
     font-size: 34px;
     font-weight: 900;
-
     letter-spacing: 7px;
-
     animation:
         loaderPulse 1.5s ease-in-out infinite;
 }
@@ -94,13 +85,9 @@ body {
 .loader-line {
     width: 130px;
     height: 2px;
-
     background: #fff;
-
     margin: 22px auto 0;
-
     transform-origin: center;
-
     animation:
         loaderLine 1.5s ease-in-out infinite;
 }
@@ -163,43 +150,31 @@ body {
 
 header {
     height: 78px;
-
     background: #fff;
-
     border-bottom: 1px solid #ddd;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 0 35px;
-
     position: sticky;
     top: 0;
-
     z-index: 1000;
 }
 
 .brand {
     display: flex;
     align-items: center;
-
     gap: 10px;
-
     color: #000;
-
     text-decoration: none;
 }
 
 .brand-logo {
     width: 44px;
     height: 44px;
-
     object-fit: contain;
-
     animation:
         logoRotate 3s ease-in-out infinite;
-
     transform-style: preserve-3d;
 }
 
@@ -225,9 +200,7 @@ header {
 
 .brand-name {
     font-size: 25px;
-
     font-weight: 900;
-
     letter-spacing: 2px;
 }
 
@@ -239,21 +212,15 @@ header {
 .nav {
     display: flex;
     align-items: center;
-
     gap: 24px;
 }
 
 .nav-button {
     border: none;
-
     background: transparent;
-
     cursor: pointer;
-
     font-size: 13px;
-
     font-weight: 800;
-
     transition:
         opacity .2s ease,
         transform .2s ease;
@@ -270,30 +237,22 @@ header {
 
 .cart {
     position: relative;
-
     font-size: 23px;
-
     cursor: pointer;
 }
 
 .cart-count {
     position: absolute;
-
     top: -8px;
     right: -10px;
-
     width: 18px;
     height: 18px;
-
     background: #000;
     color: #fff;
-
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 10px;
 }
 
@@ -308,7 +267,6 @@ header {
 
 .screen.active {
     display: block;
-
     animation:
         pageFlip .65s ease both;
 }
@@ -344,17 +302,12 @@ header {
 
 .hero {
     min-height: 82vh;
-
     position: relative;
-
     overflow: hidden;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
-
     padding: 70px 20px;
 
     background:
@@ -370,12 +323,9 @@ header {
 
 .hero::before {
     content: "SUMS";
-
     position: absolute;
-
     left: 50%;
     top: 50%;
-
     transform:
         translate(-50%, -50%)
         scale(1.8);
@@ -384,24 +334,17 @@ header {
         clamp(100px, 25vw, 320px);
 
     font-weight: 900;
-
     letter-spacing: -15px;
-
     color: rgba(255,255,255,.025);
-
     white-space: nowrap;
-
     pointer-events: none;
 }
 
 .hero::after {
     content: "";
-
     position: absolute;
-
     width: 500px;
     height: 500px;
-
     border:
         1px solid
         rgba(255,255,255,.08);
@@ -432,9 +375,7 @@ header {
 
 .hero-content {
     max-width: 950px;
-
     position: relative;
-
     z-index: 2;
 
     animation:
@@ -460,42 +401,29 @@ header {
         clamp(70px, 15vw, 180px);
 
     font-weight: 900;
-
     letter-spacing: -10px;
-
     line-height: .78;
-
     text-transform: uppercase;
 }
 
 .hero-tagline {
     margin-top: 30px;
-
     font-size:
         clamp(18px, 3vw, 28px);
 
     font-weight: 700;
-
     letter-spacing: 1px;
 }
 
 .hero-button {
     margin-top: 35px;
-
     display: inline-block;
-
     padding: 16px 34px;
-
     background: #fff;
-
     color: #000;
-
     border-radius: 30px;
-
     font-weight: 900;
-
     cursor: pointer;
-
     border: none;
 
     transition:
@@ -506,7 +434,6 @@ header {
 
 .hero-button:hover {
     transform: translateY(-4px);
-
     background: #ddd;
 }
 
@@ -517,7 +444,6 @@ header {
 
 .collection-intro {
     text-align: center;
-
     padding:
         70px 20px 35px;
 }
@@ -531,50 +457,35 @@ header {
 
 .collection-intro p {
     margin-top: 10px;
-
     color: #666;
 }
 
 .collection-grid {
     display: grid;
-
     grid-template-columns:
         1fr 1fr;
-
     gap: 18px;
-
     padding:
         0 25px 80px;
 }
 
 .collection-card {
     height: 62vh;
-
     min-height: 430px;
-
     position: relative;
-
     overflow: hidden;
-
     cursor: pointer;
-
     border: none;
-
     padding: 0;
-
     background: #eee;
-
     transform-style: preserve-3d;
 }
 
 .collection-card img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     display: block;
-
     transition:
         transform .35s ease;
 }
@@ -585,15 +496,11 @@ header {
 
 .collection-overlay {
     position: absolute;
-
     left: 0;
     right: 0;
     bottom: 0;
-
     padding: 35px;
-
     text-align: left;
-
     color: #fff;
 
     background:
@@ -605,7 +512,6 @@ header {
 
 .collection-overlay h3 {
     font-size: 45px;
-
     font-weight: 900;
 }
 
@@ -615,17 +521,11 @@ header {
 
 .shop-button {
     display: inline-block;
-
     margin-top: 18px;
-
     background: #fff;
-
     color: #000;
-
     padding: 12px 22px;
-
     border-radius: 25px;
-
     font-weight: 800;
 }
 
@@ -636,56 +536,42 @@ header {
 
 .product-screen {
     max-width: 1300px;
-
     margin: auto;
-
     padding:
         35px 25px 80px;
 }
 
 .back-button {
     border: none;
-
     background: #f1f1f1;
-
     padding: 12px 20px;
-
     border-radius: 25px;
-
     font-weight: 800;
-
     cursor: pointer;
-
     margin-bottom: 30px;
 }
 
 .product-title {
     text-align: center;
-
     margin-bottom: 35px;
 }
 
 .product-title h1 {
     font-size:
         clamp(45px, 7vw, 70px);
-
     font-weight: 900;
 }
 
 .product-title p {
     color: #666;
-
     margin-top: 8px;
 }
 
 .product-layout {
     display: grid;
-
     grid-template-columns:
         1.25fr .75fr;
-
     gap: 45px;
-
     align-items: start;
 }
 
@@ -696,28 +582,21 @@ header {
 
 .product-images {
     display: grid;
-
     grid-template-columns:
         1fr 1fr;
-
     gap: 14px;
 }
 
 .product-image {
     background: #f3f3f3;
-
     overflow: hidden;
-
     cursor: zoom-in;
 }
 
 .product-image img {
     width: 100%;
-
     aspect-ratio: 4 / 5;
-
     object-fit: cover;
-
     display: block;
 
     transition:
@@ -730,13 +609,9 @@ header {
 
 .image-label {
     background: #fff;
-
     padding: 9px;
-
     text-align: center;
-
     font-size: 12px;
-
     font-weight: 800;
 }
 
@@ -747,108 +622,76 @@ header {
 
 .product-details h2 {
     font-size: 32px;
-
     font-weight: 900;
 }
 
 .price {
     font-size: 22px;
-
     font-weight: 800;
-
     margin:
         10px 0 28px;
 }
 
 .option-title {
     font-size: 13px;
-
     font-weight: 900;
-
     margin-bottom: 11px;
 }
 
 .colours {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 8px;
-
     margin-bottom: 28px;
 }
 
 .colour-btn {
     background: #fff;
-
     border:
         1px solid #bbb;
-
     padding: 11px 16px;
-
     cursor: pointer;
-
     font-weight: 700;
-
     border-radius: 4px;
 }
 
 .colour-btn.active {
     background: #000;
-
     color: #fff;
-
     border-color: #000;
 }
 
 .sizes {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 7px;
-
     margin-bottom: 28px;
 }
 
 .size-btn {
     min-width: 50px;
-
     padding: 12px 10px;
-
     background: #fff;
-
     border:
         1px solid #bbb;
-
     cursor: pointer;
-
     font-weight: 700;
 }
 
 .size-btn.active {
     background: #000;
-
     color: #fff;
-
     border-color: #000;
 }
 
 .add-cart {
     width: 100%;
-
     padding: 17px;
-
     border: none;
-
     background: #000;
-
     color: #fff;
-
     cursor: pointer;
-
     font-size: 15px;
-
     font-weight: 900;
 
     transition:
@@ -858,7 +701,6 @@ header {
 
 .add-cart:hover {
     transform: translateY(-2px);
-
     opacity: .85;
 }
 
@@ -869,13 +711,10 @@ header {
 
 .founder-section {
     background: #111;
-
     color: #fff;
-
     margin-top: 30px;
 
     display: grid;
-
     grid-template-columns:
         1fr 1fr;
 
@@ -884,23 +723,16 @@ header {
 
 .founder-image {
     width: 100%;
-
     height: 620px;
-
     object-fit: cover;
-
     display: block;
 }
 
 .founder-content {
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     padding: 50px;
-
     text-align: center;
 }
 
@@ -909,15 +741,12 @@ header {
         clamp(38px, 5vw, 65px);
 
     line-height: .95;
-
     font-weight: 900;
 }
 
 .founder-content p {
     margin-top: 20px;
-
     color: #ccc;
-
     font-size: 17px;
 }
 
@@ -928,27 +757,20 @@ header {
 
 .about {
     padding: 90px 25px;
-
     max-width: 1000px;
-
     margin: auto;
-
     text-align: center;
 }
 
 .about h2 {
     font-size: 45px;
-
     font-weight: 900;
-
     margin-bottom: 25px;
 }
 
 .about p {
     font-size: 20px;
-
     line-height: 1.7;
-
     color: #333;
 }
 
@@ -959,19 +781,12 @@ header {
 
 .cart-panel {
     position: fixed;
-
     top: 0;
-
     right: -430px;
-
     width: 410px;
-
     max-width: 92%;
-
     height: 100vh;
-
     background: #fff;
-
     z-index: 4000;
 
     box-shadow:
@@ -979,7 +794,6 @@ header {
         rgba(0,0,0,.18);
 
     padding: 28px;
-
     overflow-y: auto;
 
     transition:
@@ -992,38 +806,28 @@ header {
 
 .cart-header {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     margin-bottom: 25px;
 }
 
 .close-cart {
     font-size: 30px;
-
     cursor: pointer;
 }
 
 .cart-item {
     display: flex;
-
     gap: 14px;
-
     padding: 18px 0;
-
     border-bottom:
         1px solid #ddd;
 }
 
 .cart-item img {
     width: 82px;
-
     height: 100px;
-
     object-fit: cover;
-
     flex-shrink: 0;
 }
 
@@ -1037,9 +841,7 @@ header {
 
 .cart-item-info p {
     font-size: 13px;
-
     color: #555;
-
     margin-top: 4px;
 }
 
@@ -1050,41 +852,29 @@ header {
 
 .quantity-row {
     display: flex;
-
     align-items: center;
-
     gap: 8px;
-
     margin-top: 12px;
 }
 
 .quantity-btn {
     width: 28px;
     height: 28px;
-
     border:
         1px solid #bbb;
-
     background: #fff;
-
     cursor: pointer;
-
     font-size: 17px;
-
     font-weight: 700;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 }
 
 .quantity-number {
     min-width: 25px;
-
     text-align: center;
-
     font-weight: 800;
 }
 
@@ -1095,19 +885,12 @@ header {
 
 .remove-item {
     margin-top: 10px;
-
     border: none;
-
     background: transparent;
-
     color: #777;
-
     cursor: pointer;
-
     font-size: 11px;
-
     font-weight: 800;
-
     text-transform: uppercase;
 }
 
@@ -1122,28 +905,21 @@ header {
 
 .cart-summary {
     margin-top: 25px;
-
     padding-top: 20px;
-
     border-top:
         2px solid #000;
 }
 
 .cart-total-row {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     font-size: 20px;
-
     font-weight: 900;
 }
 
 .cart-total-label {
     font-size: 13px;
-
     letter-spacing: 1px;
 }
 
@@ -1154,19 +930,12 @@ header {
 
 .whatsapp-order {
     display: block;
-
     margin-top: 20px;
-
     padding: 16px;
-
     background: #000;
-
     color: #fff;
-
     text-align: center;
-
     text-decoration: none;
-
     font-weight: 900;
 }
 
@@ -1177,19 +946,14 @@ header {
 
 .empty-cart {
     text-align: center;
-
     padding: 60px 10px;
-
     color: #777;
 }
 
 .empty-cart-title {
     font-size: 20px;
-
     font-weight: 900;
-
     color: #111;
-
     margin-bottom: 8px;
 }
 
@@ -1200,20 +964,13 @@ header {
 
 .lightbox {
     display: none;
-
     position: fixed;
-
     inset: 0;
-
     background:
         rgba(0,0,0,.92);
-
     z-index: 5000;
-
     align-items: center;
-
     justify-content: center;
-
     padding: 20px;
 }
 
@@ -1223,23 +980,16 @@ header {
 
 .lightbox img {
     max-width: 95%;
-
     max-height: 90vh;
-
     object-fit: contain;
 }
 
 .close-lightbox {
     position: absolute;
-
     top: 15px;
-
     right: 25px;
-
     color: #fff;
-
     font-size: 42px;
-
     cursor: pointer;
 }
 
@@ -1250,27 +1000,22 @@ header {
 
 footer {
     background: #f5f5f5;
-
     text-align: center;
-
     padding: 55px 20px;
 }
 
 footer h3 {
     font-size: 27px;
-
     letter-spacing: 2px;
 }
 
 footer p {
     margin-top: 10px;
-
     color: #555;
 }
 
 .copyright {
     margin-top: 25px;
-
     font-size: 13px;
 }
 
@@ -1325,14 +1070,12 @@ footer p {
 
     .collection-grid {
         grid-template-columns: 1fr;
-
         padding:
             0 15px 60px;
     }
 
     .collection-card {
         height: 52vh;
-
         min-height: 350px;
     }
 
@@ -1347,7 +1090,6 @@ footer p {
 
     .product-layout {
         grid-template-columns: 1fr;
-
         gap: 28px;
     }
 
@@ -1383,9 +1125,7 @@ footer p {
 
     .cart-panel {
         width: 100%;
-
         max-width: 100%;
-
         right: -100%;
     }
 
@@ -1443,7 +1183,6 @@ footer p {
 
 <!-- =====================================================
      LOADING SCREEN
-     2 SECONDS
 ===================================================== -->
 
 <div id="loader">
@@ -1494,9 +1233,6 @@ footer p {
 
 <nav class="nav">
 
-
-    <!-- HOME -->
-
     <button
         class="nav-button"
         onclick="showHome()"
@@ -1504,8 +1240,6 @@ footer p {
         HOME
     </button>
 
-
-    <!-- T-SHIRTS -->
 
     <button
         class="nav-button"
@@ -1515,8 +1249,6 @@ footer p {
     </button>
 
 
-    <!-- HOODIES -->
-
     <button
         class="nav-button"
         onclick="showHoodies()"
@@ -1525,7 +1257,13 @@ footer p {
     </button>
 
 
-    <!-- ABOUT -->
+    <button
+        class="nav-button"
+        onclick="showPants()"
+    >
+        PANTS
+    </button>
+
 
     <button
         class="nav-button"
@@ -1535,14 +1273,10 @@ footer p {
     </button>
 
 
-    <!-- SEARCH -->
-
     <span class="search">
         ⌕
     </span>
 
-
-    <!-- CART -->
 
     <div
         class="cart"
@@ -1579,26 +1313,13 @@ footer p {
 
     <div class="hero-content">
 
-
-        <!-- REMOVED:
-             SOUTH AFRICAN STREETWEAR
-        -->
-
-
         <h1>
             SUMS
         </h1>
 
-
         <div class="hero-tagline">
             BORN FROM THE WILD COAST.
         </div>
-
-
-        <!-- REMOVED:
-             PREMIUM STREETWEAR PARAGRAPH
-        -->
-
 
         <button
             class="hero-button"
@@ -1639,7 +1360,7 @@ footer p {
     >
 
         <img
-            src="white-hoodie.jpg"
+            src="brown-hoodie.jpg"
             alt="SUMS Hoodies"
         >
 
@@ -1670,7 +1391,7 @@ footer p {
     >
 
         <img
-            src="grey-tshirt.jpg"
+            src="black-tshirt.jpg"
             alt="SUMS T-Shirts"
         >
 
@@ -1801,7 +1522,7 @@ footer p {
 
     <img
         id="hoodieFront"
-        src="white-hoodie.jpg"
+        src="brown-hoodie.jpg"
         alt="SUMS Hoodie Front"
     >
 
@@ -1819,7 +1540,7 @@ footer p {
 
     <img
         id="hoodieBack"
-        src="white-hoodie-back.jpg"
+        src="brown-hoodie-back.jpg"
         alt="SUMS Hoodie Back"
     >
 
@@ -1851,12 +1572,11 @@ footer p {
 
 <div class="colours">
 
-
 <button
     class="colour-btn active"
-    onclick="changeHoodie('white',this)"
+    onclick="changeHoodie('brown',this)"
 >
-    WHITE
+    BROWN
 </button>
 
 
@@ -1866,15 +1586,6 @@ footer p {
 >
     GREY
 </button>
-
-
-<button
-    class="colour-btn"
-    onclick="changeHoodie('brown',this)"
->
-    BROWN
-</button>
-
 
 </div>
 
@@ -1886,14 +1597,12 @@ footer p {
 
 <div class="sizes">
 
-
 <button
     class="size-btn"
     onclick="chooseHoodieSize(this)"
 >
     XS
 </button>
-
 
 <button
     class="size-btn"
@@ -1902,14 +1611,12 @@ footer p {
     S
 </button>
 
-
 <button
     class="size-btn active"
     onclick="chooseHoodieSize(this)"
 >
     M
 </button>
-
 
 <button
     class="size-btn"
@@ -1918,7 +1625,6 @@ footer p {
     L
 </button>
 
-
 <button
     class="size-btn"
     onclick="chooseHoodieSize(this)"
@@ -1926,14 +1632,12 @@ footer p {
     XL
 </button>
 
-
 <button
     class="size-btn"
     onclick="chooseHoodieSize(this)"
 >
     XXL
 </button>
-
 
 </div>
 
@@ -2001,7 +1705,7 @@ footer p {
 
     <img
         id="tshirtFront"
-        src="grey-tshirt.jpg"
+        src="black-tshirt.jpg"
         alt="SUMS T-Shirt Front"
     >
 
@@ -2019,7 +1723,7 @@ footer p {
 
     <img
         id="tshirtBack"
-        src="grey-tshirt-back.jpg"
+        src="black-tshirt-back.jpg"
         alt="SUMS T-Shirt Back"
     >
 
@@ -2051,30 +1755,20 @@ footer p {
 
 <div class="colours">
 
-
 <button
     class="colour-btn active"
-    onclick="changeTshirt('grey',this)"
+    onclick="changeTshirt('black',this)"
 >
-    GREY
+    BLACK
 </button>
 
 
 <button
     class="colour-btn"
-    onclick="changeTshirt('skyblue',this)"
+    onclick="changeTshirt('white',this)"
 >
-    SKY BLUE
+    WHITE
 </button>
-
-
-<button
-    class="colour-btn"
-    onclick="changeTshirt('navy',this)"
->
-    NAVY
-</button>
-
 
 </div>
 
@@ -2086,14 +1780,12 @@ footer p {
 
 <div class="sizes">
 
-
 <button
     class="size-btn"
     onclick="chooseTshirtSize(this)"
 >
     XS
 </button>
-
 
 <button
     class="size-btn"
@@ -2102,14 +1794,12 @@ footer p {
     S
 </button>
 
-
 <button
     class="size-btn active"
     onclick="chooseTshirtSize(this)"
 >
     M
 </button>
-
 
 <button
     class="size-btn"
@@ -2118,14 +1808,12 @@ footer p {
     L
 </button>
 
-
 <button
     class="size-btn"
     onclick="chooseTshirtSize(this)"
 >
     XL
 </button>
-
 
 <button
     class="size-btn"
@@ -2134,13 +1822,195 @@ footer p {
     XXL
 </button>
 
-
 </div>
 
 
 <button
     class="add-cart"
     onclick="addTshirt()"
+>
+    ADD TO CART
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     PANTS
+===================================================== -->
+
+<main
+    id="pantsScreen"
+    class="screen"
+>
+
+<section class="product-screen">
+
+
+<button
+    class="back-button"
+    onclick="showHome()"
+>
+    ← Back to SUMS
+</button>
+
+
+<div class="product-title">
+
+    <h1>
+        PANTS
+    </h1>
+
+    <p>
+        Choose your colour and size.
+    </p>
+
+</div>
+
+
+<div class="product-layout">
+
+
+<div class="product-images">
+
+
+<div
+    class="product-image"
+    onclick="zoomImage('pantsFront')"
+>
+
+    <img
+        id="pantsFront"
+        src="grey-pants.jpg"
+        alt="SUMS Pants Front"
+    >
+
+    <div class="image-label">
+        FRONT
+    </div>
+
+</div>
+
+
+<div
+    class="product-image"
+    onclick="zoomImage('pantsBack')"
+>
+
+    <img
+        id="pantsBack"
+        src="grey-pants-back.jpg"
+        alt="SUMS Pants Back"
+    >
+
+    <div class="image-label">
+        BACK
+    </div>
+
+</div>
+
+
+</div>
+
+
+<div class="product-details">
+
+<h2>
+    SUMS Pants
+</h2>
+
+<div class="price">
+    R500
+</div>
+
+
+<div class="option-title">
+    COLOUR
+</div>
+
+
+<div class="colours">
+
+<button
+    class="colour-btn active"
+    onclick="changePants('grey',this)"
+>
+    GREY
+</button>
+
+
+<button
+    class="colour-btn"
+    onclick="changePants('black',this)"
+>
+    BLACK
+</button>
+
+</div>
+
+
+<div class="option-title">
+    SIZE
+</div>
+
+
+<div class="sizes">
+
+<button
+    class="size-btn"
+    onclick="choosePantsSize(this)"
+>
+    XS
+</button>
+
+<button
+    class="size-btn"
+    onclick="choosePantsSize(this)"
+>
+    S
+</button>
+
+<button
+    class="size-btn active"
+    onclick="choosePantsSize(this)"
+>
+    M
+</button>
+
+<button
+    class="size-btn"
+    onclick="choosePantsSize(this)"
+>
+    L
+</button>
+
+<button
+    class="size-btn"
+    onclick="choosePantsSize(this)"
+>
+    XL
+</button>
+
+<button
+    class="size-btn"
+    onclick="choosePantsSize(this)"
+>
+    XXL
+</button>
+
+</div>
+
+
+<button
+    class="add-cart"
+    onclick="addPants()"
 >
     ADD TO CART
 </button>
@@ -2313,7 +2183,6 @@ footer p {
 
 /* =====================================================
    LOADING SCREEN
-   EXACTLY 2 SECONDS
 ===================================================== */
 
 window.addEventListener(
@@ -2394,11 +2263,6 @@ function showCollections() {
 }
 
 
-/* =====================================================
-   HOODIES
-   FLIP TRANSITION
-===================================================== */
-
 function showHoodies() {
 
     hideScreens();
@@ -2414,11 +2278,6 @@ function showHoodies() {
 
 }
 
-
-/* =====================================================
-   T-SHIRTS
-   FLIP TRANSITION
-===================================================== */
 
 function showTshirts() {
 
@@ -2436,9 +2295,21 @@ function showTshirts() {
 }
 
 
-/* =====================================================
-   ABOUT
-===================================================== */
+function showPants() {
+
+    hideScreens();
+
+    document
+        .getElementById("pantsScreen")
+        .classList.add("active");
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
 
 function showAbout() {
 
@@ -2460,7 +2331,7 @@ function showAbout() {
    HOODIE COLOURS
 ===================================================== */
 
-let hoodieColour = "White";
+let hoodieColour = "Brown";
 
 let hoodieSize = "M";
 
@@ -2507,14 +2378,14 @@ function changeHoodie(
 
 
     if (
-        colour === "white"
+        colour === "brown"
     ) {
 
         front.src =
-            "white-hoodie.jpg";
+            "brown-hoodie.jpg";
 
         back.src =
-            "white-hoodie-back.jpg";
+            "brown-hoodie-back.jpg";
 
     }
 
@@ -2531,19 +2402,6 @@ function changeHoodie(
 
     }
 
-
-    if (
-        colour === "brown"
-    ) {
-
-        front.src =
-            "brown-hoodie.jpg";
-
-        back.src =
-            "brown-hoodie-back.jpg";
-
-    }
-
 }
 
 
@@ -2551,7 +2409,7 @@ function changeHoodie(
    T-SHIRT COLOURS
 ===================================================== */
 
-let tshirtColour = "Grey";
+let tshirtColour = "Black";
 
 let tshirtSize = "M";
 
@@ -2562,10 +2420,8 @@ function changeTshirt(
 ) {
 
     tshirtColour =
-        colour === "skyblue"
-        ? "Sky Blue"
-        : colour.charAt(0).toUpperCase() +
-          colour.slice(1);
+        colour.charAt(0).toUpperCase() +
+        colour.slice(1);
 
 
     document
@@ -2600,40 +2456,105 @@ function changeTshirt(
 
 
     if (
+        colour === "black"
+    ) {
+
+        front.src =
+            "black-tshirt.jpg";
+
+        back.src =
+            "black-tshirt-back.jpg";
+
+    }
+
+
+    if (
+        colour === "white"
+    ) {
+
+        front.src =
+            "white-tshirt.jpg";
+
+        back.src =
+            "white-tshirt-back.jpg";
+
+    }
+
+}
+
+
+/* =====================================================
+   PANTS COLOURS
+===================================================== */
+
+let pantsColour = "Grey";
+
+let pantsSize = "M";
+
+
+function changePants(
+    colour,
+    button
+) {
+
+    pantsColour =
+        colour.charAt(0).toUpperCase() +
+        colour.slice(1);
+
+
+    document
+        .querySelectorAll(
+            "#pantsScreen .colour-btn"
+        )
+        .forEach(
+            btn => {
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    const front =
+        document.getElementById(
+            "pantsFront"
+        );
+
+    const back =
+        document.getElementById(
+            "pantsBack"
+        );
+
+
+    if (
         colour === "grey"
     ) {
 
         front.src =
-            "grey-tshirt.jpg";
+            "grey-pants.jpg";
 
         back.src =
-            "grey-tshirt-back.jpg";
+            "grey-pants-back.jpg";
 
     }
 
 
     if (
-        colour === "skyblue"
+        colour === "black"
     ) {
 
         front.src =
-            "skyblue-tshirt.jpg";
+            "black-pants.jpg";
 
         back.src =
-            "skyblue-tshirt-back.jpg";
-
-    }
-
-
-    if (
-        colour === "navy"
-    ) {
-
-        front.src =
-            "navy-tshirt.jpg";
-
-        back.src =
-            "navy-tshirt-back.jpg";
+            "black-pants-back.jpg";
 
     }
 
@@ -2704,6 +2625,36 @@ function chooseTshirtSize(
 }
 
 
+function choosePantsSize(
+    button
+) {
+
+    document
+        .querySelectorAll(
+            "#pantsScreen .size-btn"
+        )
+        .forEach(
+            btn => {
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    pantsSize =
+        button.innerText.trim();
+
+}
+
+
 /* =====================================================
    CART
 ===================================================== */
@@ -2767,6 +2718,38 @@ function addTshirt() {
             document
                 .getElementById(
                     "tshirtFront"
+                )
+                .src
+
+    });
+
+}
+
+
+/* =====================================================
+   ADD PANTS
+===================================================== */
+
+function addPants() {
+
+    addToCart({
+
+        name:
+            "SUMS Pants",
+
+        price:
+            500,
+
+        colour:
+            pantsColour,
+
+        size:
+            pantsSize,
+
+        image:
+            document
+                .getElementById(
+                    "pantsFront"
                 )
                 .src
 
@@ -3079,8 +3062,6 @@ function renderCart() {
     );
 
 
-    /* TOTAL */
-
     totalDisplay.innerText =
         "R" + total;
 
@@ -3088,8 +3069,6 @@ function renderCart() {
     summary.style.display =
         "block";
 
-
-    /* WHATSAPP */
 
     message +=
         `%0ATotal: R${total}`;
