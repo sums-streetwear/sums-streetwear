@@ -8,10 +8,11 @@
 <link rel="icon" href="sums-black-logo.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:auto}
-body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111;overflow-x:hidden}
+html{scroll-behavior:auto;overflow-x:hidden;width:100%}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111;overflow-x:hidden;width:100%}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer}
+img{max-width:100%}
 
 /* LOADER */
 #loader{position:fixed;inset:0;background:#000;color:#fff;z-index:10000;display:flex;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s}
@@ -51,21 +52,25 @@ header{min-height:90px;background:#fff;border-bottom:1px solid #ddd;display:flex
 .stack .slot{opacity:0;visibility:hidden}
 .stack .slot.on{opacity:1;visibility:visible}
 
-/* HERO — picture: hero-wallpaper.jpg */
-.hero{min-height:82vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;color:#fff;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.6)),url(hero-wallpaper.jpg) center/cover no-repeat,radial-gradient(circle at center,#292929 0%,#111 42%,#000 100%)}
-.hero::after{content:"";position:absolute;width:500px;height:500px;border:1px solid rgba(255,255,255,.1);border-radius:50%;animation:ring 12s linear infinite;pointer-events:none}
+/* HERO — no photo, styled purely with CSS so it always looks sharp */
+.hero{min-height:82vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;color:#fff;
+ background:
+  radial-gradient(circle at 30% 20%,rgba(255,255,255,.08),transparent 55%),
+  radial-gradient(circle at 75% 80%,rgba(255,255,255,.06),transparent 50%),
+  linear-gradient(160deg,#1c1c1c 0%,#0c0c0c 55%,#000 100%);
+}
+.hero::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 2px,transparent 2px 34px);pointer-events:none}
+.hero::after{content:"";position:absolute;top:50%;left:50%;width:500px;height:500px;margin:-250px 0 0 -250px;border:1px solid rgba(255,255,255,.1);border-radius:50%;animation:ring 12s linear infinite;pointer-events:none}
 @keyframes ring{to{transform:rotate(360deg) scale(1.2)}}
 .hero-in{max-width:950px;position:relative;z-index:2;animation:rise 1s ease both;text-shadow:0 2px 24px rgba(0,0,0,.45)}
 @keyframes rise{from{opacity:0;transform:translateY(25px)}}
-.hero h1{font-size:clamp(70px,15vw,180px);font-weight:900;letter-spacing:-10px;line-height:.78;text-transform:uppercase}
+.hero h1{font-size:clamp(70px,15vw,180px);font-weight:900;letter-spacing:-10px;line-height:.78;text-transform:uppercase;background:linear-gradient(180deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .tag{margin-top:30px;font-size:clamp(18px,3vw,28px);font-weight:700;letter-spacing:1px}
 .hero-btn{margin-top:35px;padding:16px 34px;background:#fff;color:#000;border:none;border-radius:30px;font-weight:900;text-shadow:none;transition:transform .25s,background .25s}
 .hero-btn:hover{transform:translateY(-4px);background:#ddd}
 
-/* SHOP BANNER — picture: shop-wallpaper.jpg */
-.shop-intro{text-align:center;color:#fff;padding:90px 20px;scroll-margin-top:90px;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(shop-wallpaper.jpg) center/cover no-repeat,#111}
-.shop-intro h2{font-size:clamp(38px,6vw,65px);font-weight:900}
-.shop-intro p{margin-top:10px;color:#ddd}
+/* SHOP BANNER — picture: shop-wallpaper.jpg (no text overlay, the image speaks for itself) */
+.shop-intro{position:relative;min-height:46vh;background:url(shop-wallpaper.jpg) center/cover no-repeat,#111;scroll-margin-top:90px}
 
 /* HOME CARDS */
 .pills{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:35px 20px}
@@ -145,6 +150,15 @@ figcaption{background:#fff;padding:9px;text-align:center;font-size:12px;font-wei
 #lb img{max-width:95%;max-height:90vh;object-fit:contain}
 #lb span{position:absolute;top:15px;right:25px;color:#fff;font-size:42px;cursor:pointer}
 
+/* COOKIE NOTICE */
+#cookieBar{position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;background:#111;color:#fff;padding:20px 22px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.3);z-index:6000;display:flex;flex-wrap:wrap;align-items:center;gap:14px;transform:translateY(140%);opacity:0;transition:transform .4s ease,opacity .4s ease}
+#cookieBar.show{transform:translateY(0);opacity:1}
+#cookieBar p{font-size:13px;line-height:1.5;color:#ddd;flex:1;min-width:200px}
+#cookieBar .cbtns{display:flex;gap:10px;flex-shrink:0}
+#cookieBar button{padding:10px 18px;border-radius:20px;border:none;font-weight:800;font-size:12px}
+#cookieAccept{background:#fff;color:#000}
+#cookieDecline{background:transparent;color:#ccc;border:1px solid #555}
+
 /* FOOTER */
 footer{background:#f5f5f5;text-align:center;padding:55px 20px}
 footer h3{font-size:27px;letter-spacing:2px}
@@ -160,8 +174,8 @@ footer p{margin-top:10px;color:#555}
 header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-start}
 .brand{min-width:58px}.brand img{width:32px;height:32px}.brand-name{font-size:9px}
 .nav{gap:16px;min-width:max-content;margin-left:18px}.nav a{font-size:10px}.search,.cart{font-size:21px}
-.hero{min-height:70vh}.hero h1{letter-spacing:-6px}.hero::after{width:300px;height:300px}
-.shop-intro{padding:70px 20px}
+.hero{min-height:70vh}.hero h1{letter-spacing:-6px}.hero::after{width:300px;height:300px;margin:-150px 0 0 -150px}
+.shop-intro{min-height:32vh}
 .pills{gap:8px}.pills a{padding:10px 17px;font-size:11px}
 .grid3{grid-template-columns:1fr;padding:0 15px 60px}
 .card{height:52vh;min-height:350px}.card-text h3{font-size:36px}
@@ -173,6 +187,7 @@ header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-sta
 .about{padding:65px 20px}.about h2{font-size:38px}.about p{font-size:17px}
 #cartPanel{width:100%;max-width:100%;right:-100%}
 .social{gap:18px}
+#cookieBar{left:10px;right:10px;bottom:10px;padding:16px}
 }
 @media(max-width:450px){header{min-height:70px}.nav{gap:13px}.nav a{font-size:8px}.search{font-size:20px}.social a{width:43px;height:43px}}
 </style>
@@ -203,7 +218,7 @@ header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-sta
 <div class="tag">BORN FROM THE WILD COAST.</div>
 <button class="hero-btn" onclick="document.getElementById('shop').scrollIntoView()">EXPLORE SUMS</button>
 </div></section>
-<section id="shop" class="shop-intro"><h2>SHOP SUMS</h2><p>Choose your collection.</p></section>
+<section id="shop" class="shop-intro"></section>
 <div class="pills" id="pills"></div>
 <div class="grid3" id="cards"></div>
 <section class="founder">
@@ -228,6 +243,14 @@ header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-sta
 
 <div id="lb" onclick="closeLB()"><span>×</span><img id="lbImg" alt="SUMS Product"></div>
 
+<div id="cookieBar" role="dialog" aria-label="Cookie notice">
+<p>SUMS uses cookies to remember your cart and improve your shopping experience. By continuing to browse, you agree to our use of cookies.</p>
+<div class="cbtns">
+<button id="cookieDecline" onclick="cookieChoice(false)">Decline</button>
+<button id="cookieAccept" onclick="cookieChoice(true)">Accept</button>
+</div>
+</div>
+
 <footer>
 <h3>SUMS</h3>
 <p>South African streetwear.</p>
@@ -244,7 +267,7 @@ header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-sta
 /* ============ EDIT HERE ============
    price: a number (799.99) shows R799.99 — price:null shows just R
    Photos: "name" needs name.jpg (front) and name-back.jpg (back)
-   Pictures: hero-wallpaper.jpg (top of home), shop-wallpaper.jpg (SHOP SUMS banner) */
+   Pictures: shop-wallpaper.jpg (SHOP SUMS banner) */
 const S5=["S","M","L","XL","2XL"];
 
 const CATS={
@@ -388,6 +411,17 @@ function renderCart(){
 function openCart(){$("cartPanel").classList.add("open")}
 function closeCart(){$("cartPanel").classList.remove("open")}
 
+/* ---------- COOKIE NOTICE ---------- */
+function cookieChoice(accepted){
+ try{localStorage.setItem("sums_cookie_choice",accepted?"accepted":"declined")}catch(e){}
+ $("cookieBar").classList.remove("show");
+}
+function maybeShowCookieBar(){
+ let choice=null;
+ try{choice=localStorage.getItem("sums_cookie_choice")}catch(e){}
+ if(!choice)setTimeout(()=>$("cookieBar").classList.add("show"),600);
+}
+
 /* ---------- PAGES (links like #/product/baseball-jacket; Back button works) ---------- */
 function route(){
  const h=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean),v=h[0]||"";
@@ -415,6 +449,7 @@ addEventListener("load",()=>{
  setTimeout(()=>$("loader").classList.add("hide"),3000);
  const warm=()=>Object.keys(PRODUCTS).forEach(id=>PRODUCTS[id].colours.forEach(c=>{new Image().src=c[1]+".jpg"}));
  "requestIdleCallback" in window?requestIdleCallback(warm):setTimeout(warm,1500);
+ maybeShowCookieBar();
 });
 
 if("scrollRestoration" in history)history.scrollRestoration="manual";
