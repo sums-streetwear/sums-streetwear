@@ -95,21 +95,22 @@ header{min-height:90px;background:#fff;border-bottom:1px solid #ddd;display:flex
 .stack .slot{opacity:0;visibility:hidden}
 .stack .slot.on{opacity:1;visibility:visible}
 
-/* HERO — no photo, styled purely with CSS so it always looks sharp */
-.hero{min-height:82vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;color:#fff;
+/* HERO — no photo, styled purely with CSS so it always looks sharp
+   (shortened: change min-height below to make it taller or shorter) */
+.hero{min-height:56vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:50px 20px;color:#fff;
  background:
   radial-gradient(circle at 30% 20%,rgba(255,255,255,.08),transparent 55%),
   radial-gradient(circle at 75% 80%,rgba(255,255,255,.06),transparent 50%),
   linear-gradient(160deg,#1c1c1c 0%,#0c0c0c 55%,#000 100%);
 }
 .hero::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 2px,transparent 2px 34px);pointer-events:none}
-.hero::after{content:"";position:absolute;top:50%;left:50%;width:500px;height:500px;margin:-250px 0 0 -250px;border:1px solid rgba(255,255,255,.1);border-radius:50%;animation:ring 12s linear infinite;pointer-events:none}
+.hero::after{content:"";position:absolute;top:50%;left:50%;width:380px;height:380px;margin:-190px 0 0 -190px;border:1px solid rgba(255,255,255,.1);border-radius:50%;animation:ring 12s linear infinite;pointer-events:none}
 @keyframes ring{to{transform:rotate(360deg) scale(1.2)}}
 .hero-in{max-width:950px;position:relative;z-index:2;animation:rise 1s ease both;text-shadow:0 2px 24px rgba(0,0,0,.45)}
 @keyframes rise{from{opacity:0;transform:translateY(25px)}}
-.hero h1{font-size:clamp(70px,15vw,180px);font-weight:900;letter-spacing:-10px;line-height:.78;text-transform:uppercase;background:linear-gradient(180deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.tag{margin-top:30px;font-size:clamp(18px,3vw,28px);font-weight:700;letter-spacing:1px}
-.hero-btn{margin-top:35px;padding:16px 34px;background:#fff;color:#000;border:none;border-radius:30px;font-weight:900;text-shadow:none;transition:transform .25s,background .25s}
+.hero h1{font-size:clamp(64px,13vw,150px);font-weight:900;letter-spacing:-8px;line-height:.78;text-transform:uppercase;background:linear-gradient(180deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.tag{margin-top:22px;font-size:clamp(18px,3vw,26px);font-weight:700;letter-spacing:1px}
+.hero-btn{margin-top:26px;padding:16px 34px;background:#fff;color:#000;border:none;border-radius:30px;font-weight:900;text-shadow:none;transition:transform .25s,background .25s}
 .hero-btn:hover{transform:translateY(-4px);background:#ddd}
 
 /* SHOP BANNER — picture: shop-wallpaper.jpg (no text overlay, the image speaks for itself) */
@@ -217,7 +218,7 @@ footer p{margin-top:10px;color:#555}
 header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-start}
 .brand{min-width:58px}.brand img{width:32px;height:32px}.brand-name{font-size:9px}
 .nav{gap:16px;min-width:max-content;margin-left:18px}.nav a{font-size:10px}.search,.cart{font-size:21px}
-.hero{min-height:70vh}.hero h1{letter-spacing:-6px}.hero::after{width:300px;height:300px;margin:-150px 0 0 -150px}
+.hero{min-height:44vh;padding:40px 20px}.hero h1{letter-spacing:-5px}.hero::after{width:240px;height:240px;margin:-120px 0 0 -120px}
 .shop-intro{min-height:32vh}
 .pills{gap:8px}.pills a{padding:10px 17px;font-size:11px}
 .grid3{grid-template-columns:1fr;padding:0 15px 60px}
@@ -278,9 +279,7 @@ header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-sta
 <main id="s-prod" class="screen"><section class="page" id="prodBox"></section></main>
 <main id="s-about" class="screen"><section class="about">
 <h2>ABOUT SUMS</h2>
-<p>SUMS started with a simple idea: streetwear that carries where you're from, not just what's trending. The name and the story trace back to the Wild Coast — its rawness, its rhythm, its refusal to be anything but itself.</p>
-<p style="margin-top:22px">Every piece is built for people building their own path: creators, hustlers, students, dreamers. Not following a legacy — writing one. That's the standard behind every drop, every stitch, every colour we choose.</p>
-<p style="margin-top:22px">This is still day one. More pieces, more drops, and more of the SUMS story are coming — follow along on Instagram and TikTok to catch it as it happens.</p>
+<p>SUMS is a South African streetwear brand representing culture, movement and ambition. Born from the wild coast. Built for those who create their own legacy.</p>
 </section></main>
 
 <div id="cartPanel">
