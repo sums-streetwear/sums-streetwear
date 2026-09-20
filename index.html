@@ -6,2517 +6,419 @@
 <title>SUMS | South African Streetwear — Wild Coast</title>
 <meta property="og:site_name" content="SUMS Streetwear">
 <link rel="icon" href="sums-black-logo.png">
-
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:auto;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#fff;
-    color:#111;
-    overflow-x:hidden;
-}
-
-a{
-    color:inherit;
-}
-
-/* =====================================================
-   LOADING SCREEN — MOVING LOGO FOR 3 SECONDS
-===================================================== */
-
-#loader{
-    position:fixed;
-    inset:0;
-    background:#000;
-    color:#fff;
-    z-index:10000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:opacity .5s ease,visibility .5s ease;
-}
-
-#loader.hide{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-}
-
-.loader-content{
-    text-align:center;
-}
-
-.loader-logo{
-    width:90px;
-    height:90px;
-    object-fit:contain;
-    animation:loaderSpin 1.8s ease-in-out infinite;
-}
-
-.loader-name{
-    margin-top:20px;
-    font-size:34px;
-    font-weight:900;
-    letter-spacing:7px;
-    animation:loaderPulse 1.5s ease-in-out infinite;
-}
-
-.loader-line{
-    width:130px;
-    height:2px;
-    background:#fff;
-    margin:22px auto 0;
-    transform-origin:center;
-    animation:loaderLine 1.5s ease-in-out infinite;
-}
-
-@keyframes loaderSpin{
-    0%{
-        transform:rotateY(0deg) scale(.85);
-    }
-    50%{
-        transform:rotateY(180deg) scale(1);
-    }
-    100%{
-        transform:rotateY(360deg) scale(.85);
-    }
-}
-
-@keyframes loaderPulse{
-    0%,100%{opacity:.45;}
-    50%{opacity:1;}
-}
-
-@keyframes loaderLine{
-    0%{transform:scaleX(.2);}
-    50%{transform:scaleX(1);}
-    100%{transform:scaleX(.2);}
-}
-
-/* =====================================================
-   HEADER
-   LOGO LEFT — SUMS BELOW LOGO
-   NAV RIGHT
-===================================================== */
-
-header{
-    min-height:90px;
-    background:#fff;
-    border-bottom:1px solid #ddd;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:8px 35px;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.header-brand{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    cursor:pointer;
-    min-width:72px;
-    text-decoration:none;
-    color:#111;
-}
-
-.header-brand img{
-    width:38px;
-    height:38px;
-    object-fit:contain;
-    display:block;
-}
-
-.header-brand-name{
-    margin-top:3px;
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:2px;
-    line-height:1;
-}
-
-.nav{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-    gap:24px;
-    flex:1;
-    margin-left:25px;
-}
-
-.nav-button{
-    border:none;
-    background:transparent;
-    cursor:pointer;
-    font-size:13px;
-    font-weight:800;
-    color:#111;
-    text-decoration:none;
-    padding:6px 0;
-    border-bottom:2px solid transparent;
-    transition:opacity .2s ease,transform .2s ease;
-}
-
-.nav-button:hover{
-    opacity:.55;
-    transform:translateY(-1px);
-}
-
-.nav-button.active{
-    border-bottom-color:#111;
-}
-
-.search{
-    font-size:24px;
-    cursor:pointer;
-    line-height:1;
-}
-
-.cart{
-    position:relative;
-    font-size:23px;
-    cursor:pointer;
-    line-height:1;
-}
-
-.cart-count{
-    position:absolute;
-    top:-8px;
-    right:-10px;
-    width:18px;
-    height:18px;
-    background:#000;
-    color:#fff;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:10px;
-}
-
-/* =====================================================
-   SCREENS
-===================================================== */
-
-.screen{
-    display:none;
-}
-
-.screen.active{
-    display:block;
-    animation:pageFlip .65s ease both;
-}
-
-@keyframes pageFlip{
-    0%{
-        opacity:0;
-        transform:perspective(1400px) rotateY(-90deg);
-        transform-origin:center right;
-    }
-    55%{opacity:.7;}
-    100%{
-        opacity:1;
-        transform:perspective(1400px) rotateY(0deg);
-        transform-origin:center center;
-    }
-}
-
-/* =====================================================
-   PHOTOS — GREY BOX IF A PHOTO FILE IS MISSING
-===================================================== */
-
-.no-photo::after{
-    content:"PHOTO COMING SOON";
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:10px;
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:1px;
-    color:#999;
-    pointer-events:none;
-}
-
-.img-frame{
-    position:relative;
-    aspect-ratio:4/5;
-    background:#f3f3f3;
-    overflow:hidden;
-}
-
-.img-frame img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:transform .25s ease;
-}
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-    min-height:82vh;
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:70px 20px;
-    background:radial-gradient(circle at center,#292929 0%,#111 42%,#000 100%);
-    color:#fff;
-}
-
-.hero::before{
-    content:"SUMS";
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%) scale(1.8);
-    font-size:clamp(100px,25vw,320px);
-    font-weight:900;
-    letter-spacing:-15px;
-    color:rgba(255,255,255,.025);
-    white-space:nowrap;
-    pointer-events:none;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:50%;
-    animation:heroCircle 12s linear infinite;
-    pointer-events:none;
-}
-
-@keyframes heroCircle{
-    from{
-        transform:rotate(0deg) scale(1);
-    }
-    to{
-        transform:rotate(360deg) scale(1.2);
-    }
-}
-
-.hero-content{
-    max-width:950px;
-    position:relative;
-    z-index:2;
-    animation:heroReveal 1s ease both;
-}
-
-@keyframes heroReveal{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.hero h1{
-    font-size:clamp(70px,15vw,180px);
-    font-weight:900;
-    letter-spacing:-10px;
-    line-height:.78;
-    text-transform:uppercase;
-}
-
-.hero-tagline{
-    margin-top:30px;
-    font-size:clamp(18px,3vw,28px);
-    font-weight:700;
-    letter-spacing:1px;
-}
-
-.hero-button{
-    margin-top:35px;
-    display:inline-block;
-    padding:16px 34px;
-    background:#fff;
-    color:#000;
-    border-radius:30px;
-    font-weight:900;
-    cursor:pointer;
-    border:none;
-    transition:transform .25s ease,background .25s ease,color .25s ease;
-}
-
-.hero-button:hover{
-    transform:translateY(-4px);
-    background:#ddd;
-}
-
-/* =====================================================
-   COLLECTION (HOME)
-===================================================== */
-
-.collection-intro{
-    text-align:center;
-    padding:70px 20px 35px;
-    scroll-margin-top:90px;
-}
-
-.collection-intro h2{
-    font-size:clamp(38px,6vw,65px);
-    font-weight:900;
-}
-
-.collection-intro p{
-    margin-top:10px;
-    color:#666;
-}
-
-.collection-nav{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-    flex-wrap:wrap;
-    padding:0 20px 35px;
-}
-
-.collection-nav a{
-    border:1px solid #111;
-    background:#fff;
-    color:#111;
-    padding:12px 22px;
-    border-radius:25px;
-    font-weight:900;
-    font-size:13px;
-    text-decoration:none;
-    cursor:pointer;
-    transition:transform .2s ease;
-}
-
-.collection-nav a:hover{
-    transform:translateY(-2px);
-}
-
-.collection-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    padding:0 25px 80px;
-}
-
-.collection-card{
-    display:block;
-    height:62vh;
-    min-height:430px;
-    position:relative;
-    overflow:hidden;
-    cursor:pointer;
-    text-decoration:none;
-    background:#eee;
-}
-
-.collection-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:transform .35s ease;
-}
-
-.collection-card:hover img{
-    transform:scale(1.03);
-}
-
-.collection-overlay{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    padding:35px;
-    text-align:left;
-    color:#fff;
-    background:linear-gradient(transparent,rgba(0,0,0,.85));
-}
-
-.collection-overlay h3{
-    font-size:42px;
-    font-weight:900;
-}
-
-.collection-overlay p{
-    margin-top:7px;
-}
-
-.shop-button{
-    display:inline-block;
-    margin-top:18px;
-    background:#fff;
-    color:#000;
-    padding:12px 22px;
-    border-radius:25px;
-    font-weight:800;
-}
-
-/* =====================================================
-   COLLECTION PAGE + PRODUCT PAGE
-===================================================== */
-
-.product-screen{
-    max-width:1300px;
-    margin:auto;
-    padding:35px 25px 80px;
-}
-
-.back-button{
-    display:inline-block;
-    border:none;
-    background:#f1f1f1;
-    padding:12px 20px;
-    border-radius:25px;
-    font-weight:800;
-    font-size:13px;
-    text-decoration:none;
-    color:#111;
-    cursor:pointer;
-    margin-bottom:30px;
-}
-
-.product-title{
-    text-align:center;
-    margin-bottom:35px;
-}
-
-.product-title h1{
-    font-size:clamp(45px,7vw,70px);
-    font-weight:900;
-}
-
-.product-title p{
-    color:#666;
-    margin-top:8px;
-}
-
-/* ---------- PRODUCT CARDS (COLLECTION PAGE) ---------- */
-
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,340px));
-    justify-content:center;
-    gap:24px;
-}
-
-.product-card{
-    display:block;
-    text-decoration:none;
-    color:#111;
-    cursor:pointer;
-}
-
-.product-card:hover .img-frame img{
-    transform:scale(1.03);
-}
-
-.product-card h3{
-    margin-top:14px;
-    font-size:16px;
-    font-weight:900;
-}
-
-.product-card-sub{
-    margin-top:4px;
-    font-size:13px;
-    color:#666;
-}
-
-.product-card-price{
-    margin-top:6px;
-    font-weight:800;
-}
-
-.search-empty{
-    text-align:center;
-    color:#666;
-    padding:40px 0;
-}
-
-/* ---------- PRODUCT PAGE ---------- */
-
-.product-layout{
-    display:grid;
-    grid-template-columns:1.25fr .75fr;
-    gap:45px;
-    align-items:start;
-}
-
-.product-images{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-}
-
-.product-image{
-    background:#f3f3f3;
-    overflow:hidden;
-    cursor:zoom-in;
-}
-
-.product-image:hover .img-frame img{
-    transform:scale(1.03);
-}
-
-.image-label{
-    background:#fff;
-    padding:9px;
-    text-align:center;
-    font-size:12px;
-    font-weight:800;
-}
-
-.product-name{
-    font-size:32px;
-    font-weight:900;
-}
-
-.product-tag{
-    display:inline-block;
-    margin-top:10px;
-    padding:4px 12px;
-    border:1px solid #111;
-    border-radius:20px;
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1px;
-}
-
-.price{
-    font-size:22px;
-    font-weight:800;
-    margin:10px 0 28px;
-}
-
-.option-title{
-    font-size:13px;
-    font-weight:900;
-    margin-bottom:11px;
-}
-
-.option-title span{
-    font-weight:700;
-    color:#555;
-}
-
-.colours{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:28px;
-}
-
-.colour-btn{
-    background:#fff;
-    border:1px solid #bbb;
-    padding:11px 16px;
-    cursor:pointer;
-    font-weight:700;
-    border-radius:4px;
-}
-
-.colour-btn.active{
-    background:#000;
-    color:#fff;
-    border-color:#000;
-}
-
-.sizes{
-    display:flex;
-    flex-wrap:wrap;
-    gap:7px;
-    margin-bottom:10px;
-}
-
-.size-btn{
-    min-width:50px;
-    padding:12px 10px;
-    background:#fff;
-    border:1px solid #bbb;
-    cursor:pointer;
-    font-weight:700;
-}
-
-.size-btn.active{
-    background:#000;
-    color:#fff;
-    border-color:#000;
-}
-
-.size-error{
-    min-height:22px;
-    margin-bottom:14px;
-    color:#b00020;
-    font-size:13px;
-    font-weight:700;
-}
-
-.add-cart{
-    width:100%;
-    padding:17px;
-    border:none;
-    background:#000;
-    color:#fff;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:900;
-    transition:transform .2s ease,opacity .2s ease;
-}
-
-.add-cart:hover{
-    transform:translateY(-2px);
-    opacity:.85;
-}
-
-/* =====================================================
-   FOUNDER EDITION — NOT CLICKABLE
-===================================================== */
-
-.founder-section{
-    background:#111;
-    color:#fff;
-    margin-top:30px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    min-height:620px;
-}
-
-.founder-image{
-    width:100%;
-    height:620px;
-    object-fit:cover;
-    display:block;
-}
-
-.founder-content{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:50px;
-    text-align:center;
-}
-
-.founder-content h2{
-    font-size:clamp(38px,5vw,65px);
-    line-height:.95;
-    font-weight:900;
-}
-
-.founder-content p{
-    margin-top:20px;
-    color:#ccc;
-    font-size:17px;
-}
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
-.about{
-    padding:90px 25px;
-    max-width:1000px;
-    margin:auto;
-    text-align:center;
-}
-
-.about h2{
-    font-size:45px;
-    font-weight:900;
-    margin-bottom:25px;
-}
-
-.about p{
-    font-size:20px;
-    line-height:1.7;
-    color:#333;
-}
-
-/* =====================================================
-   CART
-===================================================== */
-
-.cart-panel{
-    position:fixed;
-    top:0;
-    right:-430px;
-    width:410px;
-    max-width:92%;
-    height:100vh;
-    background:#fff;
-    z-index:4000;
-    box-shadow:-5px 0 25px rgba(0,0,0,.18);
-    padding:28px;
-    overflow-y:auto;
-    transition:right .25s ease;
-}
-
-.cart-panel.open{
-    right:0;
-}
-
-.cart-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:25px;
-}
-
-.close-cart{
-    font-size:30px;
-    cursor:pointer;
-}
-
-.cart-item{
-    display:flex;
-    gap:14px;
-    padding:18px 0;
-    border-bottom:1px solid #ddd;
-}
-
-.cart-thumb{
-    width:82px;
-    height:100px;
-    position:relative;
-    background:#f3f3f3;
-    overflow:hidden;
-    flex-shrink:0;
-}
-
-.cart-thumb img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.cart-thumb.no-photo::after{
-    font-size:8px;
-    padding:4px;
-}
-
-.cart-item-info{
-    flex:1;
-}
-
-.cart-item-info h4{
-    margin-bottom:8px;
-}
-
-.cart-item-info p{
-    font-size:13px;
-    color:#555;
-    margin-top:4px;
-}
-
-.quantity-row{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin-top:12px;
-}
-
-.quantity-btn{
-    width:28px;
-    height:28px;
-    border:1px solid #bbb;
-    background:#fff;
-    cursor:pointer;
-    font-size:17px;
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.quantity-number{
-    min-width:25px;
-    text-align:center;
-    font-weight:800;
-}
-
-.remove-item{
-    margin-top:10px;
-    border:none;
-    background:transparent;
-    color:#777;
-    cursor:pointer;
-    font-size:11px;
-    font-weight:800;
-    text-transform:uppercase;
-}
-
-.remove-item:hover{
-    color:#000;
-}
-
-.cart-summary{
-    margin-top:25px;
-    padding-top:20px;
-    border-top:2px solid #000;
-}
-
-.cart-total-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:20px;
-    font-weight:900;
-}
-
-.cart-total-label{
-    font-size:13px;
-    letter-spacing:1px;
-}
-
-.whatsapp-order{
-    display:block;
-    margin-top:20px;
-    padding:16px;
-    background:#000;
-    color:#fff;
-    text-align:center;
-    text-decoration:none;
-    font-weight:900;
-}
-
-.empty-cart{
-    text-align:center;
-    padding:60px 10px;
-    color:#777;
-}
-
-.empty-cart-title{
-    font-size:20px;
-    font-weight:900;
-    color:#111;
-    margin-bottom:8px;
-}
-
-/* =====================================================
-   LIGHTBOX
-===================================================== */
-
-.lightbox{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.92);
-    z-index:5000;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.lightbox.open{
-    display:flex;
-}
-
-.lightbox img{
-    max-width:95%;
-    max-height:90vh;
-    object-fit:contain;
-}
-
-.close-lightbox{
-    position:absolute;
-    top:15px;
-    right:25px;
-    color:#fff;
-    font-size:42px;
-    cursor:pointer;
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-    background:#f5f5f5;
-    text-align:center;
-    padding:55px 20px;
-}
-
-footer h3{
-    font-size:27px;
-    letter-spacing:2px;
-}
-
-footer p{
-    margin-top:10px;
-    color:#555;
-}
-
-/* =====================================================
-   SOCIAL ICONS
-===================================================== */
-
-.social-icons{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:22px;
-    margin-top:25px;
-}
-
-.social-icon{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#111;
-    color:#fff;
-    text-decoration:none;
-    transition:transform .2s ease,opacity .2s ease;
-}
-
-.social-icon:hover{
-    transform:translateY(-4px);
-    opacity:.75;
-}
-
-.social-icon svg{
-    width:23px;
-    height:23px;
-    fill:currentColor;
-}
-
-.copyright{
-    margin-top:32px;
-    font-size:13px;
-    color:#555;
-}
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:#000;color:#fff;z-index:10000;display:flex;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s}
+#loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-content{text-align:center}
+.loader-logo{width:90px;height:90px;object-fit:contain;animation:spin 1.8s ease-in-out infinite}
+.loader-name{margin-top:20px;font-size:34px;font-weight:900;letter-spacing:7px;animation:pulse 1.5s ease-in-out infinite}
+.loader-line{width:130px;height:2px;background:#fff;margin:22px auto 0;animation:line 1.5s ease-in-out infinite}
+@keyframes spin{0%{transform:rotateY(0) scale(.85)}50%{transform:rotateY(180deg) scale(1)}100%{transform:rotateY(360deg) scale(.85)}}
+@keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes line{0%,100%{transform:scaleX(.2)}50%{transform:scaleX(1)}}
+
+/* HEADER */
+header{min-height:90px;background:#fff;border-bottom:1px solid #ddd;display:flex;align-items:center;justify-content:space-between;padding:8px 35px;position:sticky;top:0;z-index:1000}
+.brand{display:flex;flex-direction:column;align-items:center;min-width:72px;flex-shrink:0}
+.brand img{width:38px;height:38px;object-fit:contain}
+.brand-name{margin-top:3px;font-size:11px;font-weight:900;letter-spacing:2px;line-height:1}
+.nav{display:flex;align-items:center;justify-content:flex-end;gap:24px;flex:1;margin-left:25px}
+.nav a{font-size:13px;font-weight:800;padding:6px 0;border-bottom:2px solid transparent;transition:opacity .2s}
+.nav a:hover{opacity:.55}
+.nav a.on{border-bottom-color:#111}
+.search{font-size:24px;cursor:pointer;line-height:1}
+.cart{position:relative;font-size:23px;cursor:pointer;line-height:1}
+.cart b{position:absolute;top:-8px;right:-10px;width:18px;height:18px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:400}
+
+/* SCREENS */
+.screen{display:none}
+.screen.active{display:block;animation:flip .4s ease both}
+@keyframes flip{from{opacity:0;transform:perspective(1400px) rotateY(-90deg);transform-origin:right center}to{opacity:1;transform:none}}
+
+/* PHOTOS (a missing photo shows the faded SUMS logo) */
+.frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:#f3f3f3}
+.slot{position:absolute;inset:0;background:#f3f3f3}
+.slot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.slot.miss img{visibility:hidden}
+.slot.miss::after{content:"";position:absolute;inset:0;background:url(sums-black-logo.png) center/28% no-repeat;opacity:.15}
+.stack .slot{opacity:0;visibility:hidden}
+.stack .slot.on{opacity:1;visibility:visible}
+
+/* HERO — picture: hero-wallpaper.jpg */
+.hero{min-height:82vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;color:#fff;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.6)),url(hero-wallpaper.jpg) center/cover no-repeat,radial-gradient(circle at center,#292929 0%,#111 42%,#000 100%)}
+.hero::after{content:"";position:absolute;width:500px;height:500px;border:1px solid rgba(255,255,255,.1);border-radius:50%;animation:ring 12s linear infinite;pointer-events:none}
+@keyframes ring{to{transform:rotate(360deg) scale(1.2)}}
+.hero-in{max-width:950px;position:relative;z-index:2;animation:rise 1s ease both;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}}
+.hero h1{font-size:clamp(70px,15vw,180px);font-weight:900;letter-spacing:-10px;line-height:.78;text-transform:uppercase}
+.tag{margin-top:30px;font-size:clamp(18px,3vw,28px);font-weight:700;letter-spacing:1px}
+.hero-btn{margin-top:35px;padding:16px 34px;background:#fff;color:#000;border:none;border-radius:30px;font-weight:900;text-shadow:none;transition:transform .25s,background .25s}
+.hero-btn:hover{transform:translateY(-4px);background:#ddd}
+
+/* SHOP BANNER — picture: shop-wallpaper.jpg */
+.shop-intro{text-align:center;color:#fff;padding:90px 20px;scroll-margin-top:90px;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(shop-wallpaper.jpg) center/cover no-repeat,#111}
+.shop-intro h2{font-size:clamp(38px,6vw,65px);font-weight:900}
+.shop-intro p{margin-top:10px;color:#ddd}
+
+/* HOME CARDS */
+.pills{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:35px 20px}
+.pills a{border:1px solid #111;padding:12px 22px;border-radius:25px;font-weight:900;font-size:13px;transition:transform .2s}
+.pills a:hover{transform:translateY(-2px)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:0 25px 80px}
+.card{display:block;height:62vh;min-height:430px;position:relative;overflow:hidden;background:#eee}
+.card-text{position:absolute;left:0;right:0;bottom:0;padding:35px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.card-text h3{font-size:42px;font-weight:900}
+.card-text p{margin-top:7px}
+.shop-btn{display:inline-block;margin-top:18px;background:#fff;color:#000;padding:12px 22px;border-radius:25px;font-weight:800}
+.card:hover img,.pcard:hover img,figure:hover .on img{transform:scale(1.03)}
+
+/* COLLECTION + PRODUCT PAGES */
+.page{max-width:1300px;margin:auto;padding:35px 25px 80px}
+.back{display:inline-block;background:#f1f1f1;padding:12px 20px;border-radius:25px;font-weight:800;font-size:13px;margin-bottom:30px}
+.title{text-align:center;margin-bottom:35px}
+.title h1{font-size:clamp(45px,7vw,70px);font-weight:900}
+.title p{color:#666;margin-top:8px}
+.plist{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,340px));justify-content:center;gap:24px}
+.pcard h3{margin-top:14px;font-size:16px;font-weight:900}
+.pcard small{display:block;margin-top:4px;font-size:13px;color:#666}
+.pcard .pr{margin-top:6px;font-weight:800}
+.empty{text-align:center;color:#666;padding:40px 0}
+.pl{display:grid;grid-template-columns:1.25fr .75fr;gap:45px;align-items:start}
+.imgs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+figure{background:#f3f3f3;cursor:zoom-in;overflow:hidden}
+figcaption{background:#fff;padding:9px;text-align:center;font-size:12px;font-weight:800}
+.pname{font-size:32px;font-weight:900}
+.price{font-size:22px;font-weight:800;margin:10px 0 28px}
+.opt{font-size:13px;font-weight:900;margin-bottom:11px}
+.opt span{font-weight:700;color:#555}
+.colours{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.sizes{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
+.colour-btn,.size-btn{background:#fff;border:1px solid #bbb;font-weight:700}
+.colour-btn{padding:11px 16px;border-radius:4px}
+.size-btn{min-width:50px;padding:12px 10px}
+.colour-btn.on,.size-btn.on{background:#000;color:#fff;border-color:#000}
+.err{min-height:22px;margin-bottom:14px;color:#b00020;font-size:13px;font-weight:700}
+.add{width:100%;padding:17px;border:none;background:#000;color:#fff;font-size:15px;font-weight:900;transition:transform .2s,opacity .2s}
+.add:hover{transform:translateY(-2px);opacity:.85}
+
+/* FOUNDER + ABOUT */
+.founder{background:#111;color:#fff;margin-top:30px;display:grid;grid-template-columns:1fr 1fr;min-height:620px}
+.founder img{width:100%;height:620px;object-fit:cover;display:block}
+.founder-text{display:flex;align-items:center;justify-content:center;padding:50px;text-align:center}
+.founder h2{font-size:clamp(38px,5vw,65px);line-height:.95;font-weight:900}
+.founder p{margin-top:20px;color:#ccc;font-size:17px}
+.about{padding:90px 25px;max-width:1000px;margin:auto;text-align:center}
+.about h2{font-size:45px;font-weight:900;margin-bottom:25px}
+.about p{font-size:20px;line-height:1.7;color:#333}
+
+/* CART */
+#cartPanel{position:fixed;top:0;right:-430px;width:410px;max-width:92%;height:100vh;background:#fff;z-index:4000;box-shadow:-5px 0 25px rgba(0,0,0,.18);padding:28px;overflow-y:auto;transition:right .25s}
+#cartPanel.open{right:0}
+.cart-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}
+.x{font-size:30px;cursor:pointer}
+.item{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid #ddd}
+.thumb{width:82px;height:100px;position:relative;overflow:hidden;flex-shrink:0}
+.info{flex:1}
+.info h4{margin-bottom:8px}
+.info p{font-size:13px;color:#555;margin-top:4px}
+.qty{display:flex;align-items:center;gap:8px;margin-top:12px}
+.qty button{width:28px;height:28px;border:1px solid #bbb;background:#fff;font-size:17px;font-weight:700}
+.qty span{min-width:25px;text-align:center;font-weight:800}
+.rm{margin-top:10px;border:none;background:none;color:#777;font-size:11px;font-weight:800;text-transform:uppercase}
+.rm:hover{color:#000}
+.total{margin-top:25px;padding-top:20px;border-top:2px solid #000;display:flex;justify-content:space-between;align-items:center;font-size:20px;font-weight:900}
+.total small{font-size:13px;letter-spacing:1px}
+.wa{display:block;margin-top:20px;padding:16px;background:#000;color:#fff;text-align:center;font-weight:900}
+.empty-cart{text-align:center;padding:60px 10px;color:#777}
+.empty-cart b{display:block;font-size:20px;color:#111;margin-bottom:8px}
+
+/* LIGHTBOX */
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:5000;align-items:center;justify-content:center;padding:20px}
+#lb.open{display:flex}
+#lb img{max-width:95%;max-height:90vh;object-fit:contain}
+#lb span{position:absolute;top:15px;right:25px;color:#fff;font-size:42px;cursor:pointer}
+
+/* FOOTER */
+footer{background:#f5f5f5;text-align:center;padding:55px 20px}
+footer h3{font-size:27px;letter-spacing:2px}
+footer p{margin-top:10px;color:#555}
+.social{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:25px}
+.social a{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#111;color:#fff;transition:transform .2s,opacity .2s}
+.social a:hover{transform:translateY(-4px);opacity:.75}
+.social svg{width:23px;height:23px;fill:currentColor}
+.copy{margin-top:32px;font-size:13px;color:#555}
+
+/* MOBILE */
 @media(max-width:800px){
-
-    header{
-        min-height:78px;
-        padding:7px 15px;
-        overflow-x:auto;
-        justify-content:flex-start;
-    }
-
-    .header-brand{
-        min-width:58px;
-    }
-
-    .header-brand img{
-        width:32px;
-        height:32px;
-    }
-
-    .header-brand-name{
-        font-size:9px;
-    }
-
-    .nav{
-        gap:16px;
-        min-width:max-content;
-        margin-left:18px;
-    }
-
-    .nav-button{
-        font-size:10px;
-    }
-
-    .search{
-        font-size:21px;
-    }
-
-    .cart{
-        font-size:21px;
-    }
-
-    .hero{
-        min-height:70vh;
-    }
-
-    .hero h1{
-        letter-spacing:-6px;
-    }
-
-    .hero::after{
-        width:300px;
-        height:300px;
-    }
-
-    .collection-nav{
-        gap:8px;
-    }
-
-    .collection-nav a{
-        padding:10px 17px;
-        font-size:11px;
-    }
-
-    .collection-grid{
-        grid-template-columns:1fr;
-        padding:0 15px 60px;
-    }
-
-    .collection-card{
-        height:52vh;
-        min-height:350px;
-    }
-
-    .collection-overlay h3{
-        font-size:36px;
-    }
-
-    .product-screen{
-        padding:25px 15px 60px;
-    }
-
-    .product-grid{
-        grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-        gap:16px;
-    }
-
-    .product-layout{
-        grid-template-columns:1fr;
-        gap:28px;
-    }
-
-    .product-images{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .product-name{
-        font-size:26px;
-    }
-
-    .founder-section{
-        grid-template-columns:1fr;
-    }
-
-    .founder-image{
-        height:430px;
-    }
-
-    .founder-content{
-        min-height:330px;
-    }
-
-    .about{
-        padding:65px 20px;
-    }
-
-    .about h2{
-        font-size:38px;
-    }
-
-    .about p{
-        font-size:17px;
-    }
-
-    .cart-panel{
-        width:100%;
-        max-width:100%;
-        right:-100%;
-    }
-
-    .cart-panel.open{
-        right:0;
-    }
-
-    .social-icons{
-        gap:18px;
-    }
+header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-start}
+.brand{min-width:58px}.brand img{width:32px;height:32px}.brand-name{font-size:9px}
+.nav{gap:16px;min-width:max-content;margin-left:18px}.nav a{font-size:10px}.search,.cart{font-size:21px}
+.hero{min-height:70vh}.hero h1{letter-spacing:-6px}.hero::after{width:300px;height:300px}
+.shop-intro{padding:70px 20px}
+.pills{gap:8px}.pills a{padding:10px 17px;font-size:11px}
+.grid3{grid-template-columns:1fr;padding:0 15px 60px}
+.card{height:52vh;min-height:350px}.card-text h3{font-size:36px}
+.page{padding:25px 15px 60px}
+.plist{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.pl{grid-template-columns:1fr;gap:28px}
+.pname{font-size:26px}
+.founder{grid-template-columns:1fr}.founder img{height:430px}.founder-text{min-height:330px}
+.about{padding:65px 20px}.about h2{font-size:38px}.about p{font-size:17px}
+#cartPanel{width:100%;max-width:100%;right:-100%}
+.social{gap:18px}
 }
-
-@media(max-width:450px){
-
-    header{
-        min-height:70px;
-    }
-
-    .nav{
-        gap:13px;
-    }
-
-    .nav-button{
-        font-size:8px;
-    }
-
-    .search{
-        font-size:20px;
-    }
-
-    .social-icon{
-        width:43px;
-        height:43px;
-    }
-}
+@media(max-width:450px){header{min-height:70px}.nav{gap:13px}.nav a{font-size:8px}.search{font-size:20px}.social a{width:43px;height:43px}}
 </style>
 </head>
-
 <body>
 
-<!-- GitHub Pages redeploy -->
-
-<!-- =====================================================
-     LOADING SCREEN
-===================================================== -->
-
-<div id="loader">
-    <div class="loader-content">
-
-        <img
-            class="loader-logo"
-            src="sums-black-logo.png"
-            alt="SUMS Logo"
-        >
-
-        <div class="loader-name">
-            SUMS
-        </div>
-
-        <div class="loader-line"></div>
-
-    </div>
-</div>
-
-<!-- =====================================================
-     HEADER
-     LOGO + SUMS BELOW IT ON LEFT
-     MENU: HOME / T-SHIRTS / TOPS / PANTS / ABOUT
-===================================================== -->
+<div id="loader"><div class="loader-content">
+<img class="loader-logo" src="sums-black-logo.png" alt="SUMS Logo">
+<div class="loader-name">SUMS</div><div class="loader-line"></div>
+</div></div>
 
 <header>
-
-    <a
-        class="header-brand"
-        href="#/"
-        title="SUMS Home"
-    >
-
-        <img
-            src="sums-black-logo.png"
-            alt="SUMS Logo"
-        >
-
-        <div class="header-brand-name">
-            SUMS
-        </div>
-
-    </a>
-
-    <nav class="nav">
-
-        <a class="nav-button" data-nav="home" href="#/">HOME</a>
-
-        <a class="nav-button" data-nav="tshirts" href="#/category/tshirts">T-SHIRTS</a>
-
-        <a class="nav-button" data-nav="tops" href="#/category/tops">TOPS</a>
-
-        <a class="nav-button" data-nav="pants" href="#/category/pants">PANTS</a>
-
-        <a class="nav-button" data-nav="about" href="#/about">ABOUT</a>
-
-        <span
-            class="search"
-            title="Search"
-            onclick="openSearch()"
-        >
-            ⌕
-        </span>
-
-        <div
-            class="cart"
-            onclick="openCart()"
-            title="Cart"
-        >
-            🛒
-
-            <span
-                class="cart-count"
-                id="cartCount"
-            >
-                0
-            </span>
-
-        </div>
-
-    </nav>
-
+<a class="brand" href="#/" title="SUMS Home"><img src="sums-black-logo.png" alt="SUMS Logo"><span class="brand-name">SUMS</span></a>
+<nav class="nav">
+<a data-nav="home" href="#/">HOME</a>
+<a data-nav="tshirts" href="#/category/tshirts">T-SHIRTS</a>
+<a data-nav="tops" href="#/category/tops">TOPS</a>
+<a data-nav="pants" href="#/category/pants">PANTS</a>
+<a data-nav="about" href="#/about">ABOUT</a>
+<span class="search" title="Search" onclick="openSearch()">⌕</span>
+<div class="cart" title="Cart" onclick="openCart()">🛒<b id="cartCount">0</b></div>
+</nav>
 </header>
 
-<!-- =====================================================
-     HOME
-===================================================== -->
-
-<main id="homeScreen" class="screen active">
-
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <h1>SUMS</h1>
-
-            <div class="hero-tagline">
-                BORN FROM THE WILD COAST.
-            </div>
-
-            <button
-                class="hero-button"
-                onclick="scrollToCollections()"
-            >
-                EXPLORE SUMS
-            </button>
-
-        </div>
-
-    </section>
-
-    <section
-        id="collections"
-        class="collection-intro"
-    >
-
-        <h2>SHOP SUMS</h2>
-
-        <p>
-            Choose your collection.
-        </p>
-
-    </section>
-
-    <!-- BUTTONS + CARDS ARE BUILT AUTOMATICALLY FROM THE CATEGORIES LIST IN THE SCRIPT -->
-    <div class="collection-nav" id="collectionNav"></div>
-
-    <div class="collection-grid" id="collectionGrid"></div>
-
-    <section class="founder-section">
-
-        <img
-            class="founder-image"
-            src="founder-hoodie-front.jpg"
-            alt="SUMS Hoodie-5120 Founder Edition"
-        >
-
-        <div class="founder-content">
-
-            <div>
-
-                <h2>
-                    SUMS HOODIE-5120
-                    <br>
-                    FOUNDER EDITION
-                </h2>
-
-                <p>
-                    A premium SUMS piece coming soon.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section
-        id="aboutSection"
-        class="about"
-    >
-
-        <h2>
-            ABOUT SUMS
-        </h2>
-
-        <p>
-            SUMS is a South African streetwear brand
-            representing culture, movement and ambition.
-            Born from the wild coast. Built for those who
-            create their own legacy.
-        </p>
-
-    </section>
-
-</main>
-
-<!-- =====================================================
-     COLLECTION PAGE (T-SHIRTS / TOPS / PANTS / SEARCH)
-     FILLED IN BY THE SCRIPT
-===================================================== -->
-
-<main id="categoryScreen" class="screen">
-
-    <section class="product-screen" id="categoryContent"></section>
-
-</main>
-
-<!-- =====================================================
-     PRODUCT PAGE
-     FILLED IN BY THE SCRIPT
-===================================================== -->
-
-<main id="productScreen" class="screen">
-
-    <section class="product-screen" id="productContent"></section>
-
-</main>
-
-<!-- =====================================================
-     ABOUT SCREEN
-===================================================== -->
-
-<main id="aboutScreen" class="screen">
-
-<section class="about">
-
-    <h2>
-        ABOUT SUMS
-    </h2>
-
-    <p>
-        SUMS is a South African streetwear brand
-        representing culture, movement and ambition.
-        Born from the wild coast. Built for those who
-        create their own legacy.
-    </p>
-
+<main id="s-home" class="screen active">
+<section class="hero"><div class="hero-in">
+<h1>SUMS</h1>
+<div class="tag">BORN FROM THE WILD COAST.</div>
+<button class="hero-btn" onclick="document.getElementById('shop').scrollIntoView()">EXPLORE SUMS</button>
+</div></section>
+<section id="shop" class="shop-intro"><h2>SHOP SUMS</h2><p>Choose your collection.</p></section>
+<div class="pills" id="pills"></div>
+<div class="grid3" id="cards"></div>
+<section class="founder">
+<img src="founder-hoodie-front.jpg" alt="SUMS Hoodie-5120 Founder Edition">
+<div class="founder-text"><div><h2>SUMS HOODIE-5120<br>FOUNDER EDITION</h2><p>A premium SUMS piece coming soon.</p></div></div>
 </section>
-
+<section class="about"><h2>ABOUT SUMS</h2><p>SUMS is a South African streetwear brand representing culture, movement and ambition. Born from the wild coast. Built for those who create their own legacy.</p></section>
 </main>
 
-<!-- =====================================================
-     CART
-===================================================== -->
+<main id="s-list" class="screen"><section class="page" id="listBox"></section></main>
+<main id="s-prod" class="screen"><section class="page" id="prodBox"></section></main>
+<main id="s-about" class="screen"><section class="about"><h2>ABOUT SUMS</h2><p>SUMS is a South African streetwear brand representing culture, movement and ambition. Born from the wild coast. Built for those who create their own legacy.</p></section></main>
 
-<div
-    class="cart-panel"
-    id="cartPanel"
->
-
-<div class="cart-header">
-
-    <h2>
-        Your Cart
-    </h2>
-
-    <span
-        class="close-cart"
-        onclick="closeCart()"
-    >
-        ×
-    </span>
-
+<div id="cartPanel">
+<div class="cart-head"><h2>Your Cart</h2><span class="x" onclick="closeCart()">×</span></div>
+<div id="cartItems"></div>
+<div id="cartFoot" hidden>
+<div class="total"><small>TOTAL</small><span id="cartTotal">R</span></div>
+<a id="wa" class="wa" target="_blank" rel="noopener noreferrer" href="#">ORDER VIA WHATSAPP</a>
+</div>
 </div>
 
-<div id="cartItems">
-
-    <div class="empty-cart">
-
-        <div class="empty-cart-title">
-            Your cart is empty.
-        </div>
-
-        <p>
-            Add something from SUMS.
-        </p>
-
-    </div>
-
-</div>
-
-<div
-    id="cartSummary"
-    class="cart-summary"
-    style="display:none;"
->
-
-    <div class="cart-total-row">
-
-        <span class="cart-total-label">
-            TOTAL
-        </span>
-
-        <span id="cartTotal">
-            R
-        </span>
-
-    </div>
-
-</div>
-
-<a
-    id="whatsappOrder"
-    class="whatsapp-order"
-    href="#"
-    target="_blank"
-    rel="noopener noreferrer"
-    style="display:none;"
->
-    ORDER VIA WHATSAPP
-</a>
-
-</div>
-
-<!-- =====================================================
-     LIGHTBOX
-===================================================== -->
-
-<div
-    class="lightbox"
-    id="lightbox"
-    onclick="closeLightbox()"
->
-
-<span class="close-lightbox">
-    ×
-</span>
-
-<img
-    id="lightboxImage"
-    src=""
-    alt="SUMS Product"
->
-
-</div>
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<div id="lb" onclick="closeLB()"><span>×</span><img id="lbImg" alt="SUMS Product"></div>
 
 <footer>
-
 <h3>SUMS</h3>
-
-<p>
-    South African streetwear.
-</p>
-
-<div class="social-icons">
-
-<!-- WHATSAPP -->
-
-<a
-    class="social-icon"
-    href="https://wa.me/27796265589"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="WhatsApp"
-    title="WhatsApp"
->
-
-<svg viewBox="0 0 24 24" aria-hidden="true">
-
-<path d="M12 2a10 10 0 0 0-8.66 15l-1.1 4.02 4.12-1.08A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.08-1.12l-.29-.17-2.45.64.65-2.38-.19-.3A8 8 0 1 1 12 20Zm4.42-5.83c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.58 4.09 3.62.57.25 1.01.4 1.36.51.57.18 1.09.15 1.5.09.46-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z"/>
-
-</svg>
-
-</a>
-
-<!-- INSTAGRAM -->
-
-<a
-    class="social-icon"
-    href="https://www.instagram.com/sumsdept?utm_source=qr&igsh=MXZpejM1djF6MmEzMg=="
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-    title="Instagram"
->
-
-<svg viewBox="0 0 24 24" aria-hidden="true">
-
-<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
-
-</svg>
-
-</a>
-
-<!-- TIKTOK -->
-
-<a
-    class="social-icon"
-    href="https://www.tiktok.com/@sumsessentials26?_r=1&_t=ZS-98zaKbzkTK8"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="TikTok"
-    title="TikTok"
->
-
-<svg viewBox="0 0 24 24" aria-hidden="true">
-
-<path d="M16.5 2h3.03c.25 1.43 1.04 2.7 2.22 3.58A6.5 6.5 0 0 0 24 6.42v3.1a9.6 9.6 0 0 1-4.47-1.1v7.03a7.55 7.55 0 1 1-7.55-7.55c.31 0 .61.02.91.06v3.17a4.5 4.5 0 1 0 3.61 4.32V2Z"/>
-
-</svg>
-
-</a>
-
-<!-- FACEBOOK -->
-
-<a
-    class="social-icon"
-    href="https://www.facebook.com/share/14kuq16W28K/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Facebook"
-    title="Facebook"
->
-
-<svg viewBox="0 0 24 24" aria-hidden="true">
-
-<path d="M13.5 22v-8h2.75l.5-3h-3.25V9.05c0-.87.29-1.47 1.55-1.47h1.7V4.9c-.29-.04-1.29-.13-2.45-.13-2.42 0-4.08 1.48-4.08 4.2V11H7.5v3h2.72v8h3.28Z"/>
-
-</svg>
-
-</a>
-
+<p>South African streetwear.</p>
+<div class="social">
+<a href="https://wa.me/27796265589" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15l-1.1 4.02 4.12-1.08A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.08-1.12l-.29-.17-2.45.64.65-2.38-.19-.3A8 8 0 1 1 12 20Zm4.42-5.83c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.58 4.09 3.62.57.25 1.01.4 1.36.51.57.18 1.09.15 1.5.09.46-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z"/></svg></a>
+<a href="https://www.instagram.com/sumsdept?utm_source=qr&igsh=MXZpejM1djF6MmEzMg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg></a>
+<a href="https://www.tiktok.com/@sumsessentials26?_r=1&_t=ZS-98zaKbzkTK8" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 2h3.03c.25 1.43 1.04 2.7 2.22 3.58A6.5 6.5 0 0 0 24 6.42v3.1a9.6 9.6 0 0 1-4.47-1.1v7.03a7.55 7.55 0 1 1-7.55-7.55c.31 0 .61.02.91.06v3.17a4.5 4.5 0 1 0 3.61 4.32V2Z"/></svg></a>
+<a href="https://www.facebook.com/share/14kuq16W28K/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.75l.5-3h-3.25V9.05c0-.87.29-1.47 1.55-1.47h1.7V4.9c-.29-.04-1.29-.13-2.45-.13-2.42 0-4.08 1.48-4.08 4.2V11H7.5v3h2.72v8h3.28Z"/></svg></a>
 </div>
-
-<div class="copyright">
-    © 2026 SUMS. All rights reserved.
-</div>
-
+<div class="copy">© 2026 SUMS. All rights reserved.</div>
 </footer>
 
 <script>
+/* ============ EDIT HERE ============
+   price: a number (799.99) shows R799.99 — price:null shows just R
+   Photos: "name" needs name.jpg (front) and name-back.jpg (back)
+   Pictures: hero-wallpaper.jpg (top of home), shop-wallpaper.jpg (SHOP SUMS banner) */
+const S5=["S","M","L","XL","2XL"];
 
-/* =====================================================
-   ★★★  PRODUCT LIST — EDIT PRICES AND ITEMS HERE  ★★★
-
-   PRICES
-   ------
-   price:null   → the website shows just  R
-   price:799.99 → the website shows       R799.99
-   (numbers only — no R, no quotes, use a dot for cents)
-   Change the price ONCE here and it updates the product
-   page, the cart, the total and the WhatsApp order.
-
-   PHOTO NAMES
-   -----------
-   Every colour has an  image  name. The website adds:
-       image + ".jpg"        → FRONT photo
-       image + "-back.jpg"   → BACK photo
-   Example: image:"black-waffle" needs these two files
-   uploaded next to index.html on GitHub:
-       black-waffle.jpg
-       black-waffle-back.jpg
-   Names must be lowercase, no spaces, and end in .jpg
-===================================================== */
-
-const CATEGORIES={
-
-    tshirts:{
-        label:"T-SHIRTS",
-        intro:"Choose your tee.",
-        blurb:"Explore the SUMS T-shirt collection.",
-        products:["quartz-tee"]
-    },
-
-    tops:{
-        label:"TOPS",
-        intro:"Long sleeves and jackets. Choose your piece.",
-        blurb:"Explore the SUMS tops collection.",
-        products:["waffle-boxy-long-sleeve","baseball-jacket"]
-    },
-
-    pants:{
-        label:"PANTS",
-        intro:"Choose your pair.",
-        blurb:"Explore the SUMS pants collection.",
-        products:["straight-leg-sweatpants"]
-    }
-
+const CATS={
+ tshirts:{label:"T-SHIRTS",intro:"Choose your tee.",blurb:"Explore the SUMS T-shirt collection.",items:["quartz-tee"]},
+ tops:{label:"TOPS",intro:"Long sleeves and jackets. Choose your piece.",blurb:"Explore the SUMS tops collection.",items:["waffle-boxy-long-sleeve","baseball-jacket"],cover:"black-waffle.jpg"},
+ pants:{label:"PANTS",intro:"Choose your pair.",blurb:"Explore the SUMS pants collection.",items:["straight-leg-sweatpants"]}
 };
 
 const PRODUCTS={
-
-    "quartz-tee":{
-        name:"SUMS Quartz Tee",
-        category:"tshirts",
-        gender:"",
-        price:826.08,
-        keywords:"tee tees t-shirt tshirt shirt",
-        sizes:["S","M","L","XL","2XL"],
-        colours:[
-            {name:"Army Green with Gray",image:"army-green-gray-quartz-tee"},
-            {name:"Khaki with Gray",image:"khaki-gray-quartz-tee"},
-            {name:"Navy Blue with Gray",image:"navy-gray-quartz-tee"}
-        ]
-    },
-
-    "waffle-boxy-long-sleeve":{
-        name:"SUMS Waffle Boxy Long Sleeve Shirt",
-        category:"tops",
-        gender:"Unisex",
-        price:999.99,
-        keywords:"waffle boxy long sleeve longsleeve shirt shirts top",
-        sizes:["S","M","L","XL","2XL"],
-        colours:[
-            {name:"Khaki Camo",image:"khaki-camo-waffle"},
-            {name:"Gray Camo",image:"gray-camo-waffle"},
-            {name:"Haze Blue",image:"haze-blue-waffle"},
-            {name:"Black",image:"black-waffle"}
-        ]
-    },
-
-    "baseball-jacket":{
-        name:"SUMS Baseball Jacket",
-        category:"tops",
-        gender:"",
-        price:1299.99,
-        keywords:"baseball jacket jackets bomber varsity top",
-        sizes:["XS","S","M","L","XL","2XL"],
-        colours:[
-            {name:"Navy Blue with Apricot",image:"navy-apricot-baseball-jacket"},
-            {name:"Garnet with Apricot",image:"garnet-apricot-baseball-jacket"},
-            {name:"Black with Apricot",image:"black-apricot-baseball-jacket"},
-            {name:"Green with Apricot",image:"green-apricot-baseball-jacket"},
-            {name:"Navy Blue with Purple",image:"navy-purple-baseball-jacket"}
-        ]
-    },
-
-    "straight-leg-sweatpants":{
-        name:"SUMS Straight-Leg Sweatpants",
-        category:"pants",
-        gender:"",
-        price:1043.47,
-        keywords:"straight leg sweatpants sweat pants trousers joggers",
-        sizes:["S","M","L","XL","2XL"],
-        colours:[
-            {name:"Grey",image:"grey-pants"},
-            {name:"Black",image:"black-pants"}
-        ]
-    }
-
+ "quartz-tee":{name:"SUMS Quartz Tee",cat:"tshirts",price:826.08,sizes:S5,words:"tee tees t-shirt tshirt shirt",colours:[
+  ["Army Green with Gray","army-green-gray-quartz-tee"],
+  ["Khaki with Gray","khaki-gray-quartz-tee"],
+  ["Navy Blue with Gray","navy-gray-quartz-tee"]]},
+ "waffle-boxy-long-sleeve":{name:"SUMS Waffle Boxy Long Sleeve Shirt",cat:"tops",price:999.99,sizes:S5,words:"waffle boxy long sleeve longsleeve shirt shirts top",colours:[
+  ["Khaki Camo","khaki-camo-waffle"],
+  ["Gray Camo","gray-camo-waffle"],
+  ["Haze Blue","haze-blue-waffle"],
+  ["Black","black-waffle"]]},
+ "baseball-jacket":{name:"SUMS Baseball Jacket",cat:"tops",price:1299.99,sizes:["XS","S","M","L","XL","2XL"],words:"baseball jacket jackets bomber varsity top",colours:[
+  ["Navy Blue with Apricot","navy-apricot-baseball-jacket"],
+  ["Garnet with Apricot","garnet-apricot-baseball-jacket"],
+  ["Black with Apricot","black-apricot-baseball-jacket"],
+  ["Green with Apricot","green-apricot-baseball-jacket"],
+  ["Navy Blue with Purple","navy-purple-baseball-jacket"]]},
+ "straight-leg-sweatpants":{name:"SUMS Straight-Leg Sweatpants",cat:"pants",price:1043.47,sizes:S5,words:"straight leg sweatpants sweat pants trousers joggers",colours:[
+  ["Grey","grey-pants"],
+  ["Black","black-pants"]]}
 };
+/* ============ END EDIT ============ */
 
-/* =====================================================
-   HELPERS
-===================================================== */
+const $=id=>document.getElementById(id);
+const has=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const priced=p=>typeof p==="number"&&isFinite(p);
+const money=p=>priced(p)?"R"+p.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}):"R";
+const slot=(src,alt,on,first)=>'<div class="slot'+(on?' on':'')+'"><img src="'+src+'" alt="'+esc(alt)+'" decoding="async"'+(first?'':' fetchpriority="low"')+' onerror="this.parentNode.classList.add(\'miss\')"></div>';
+const BASE=document.title;
+let cur=null,col=0,size=null,cart=[];
 
-function has(object,key){
-    return Object.prototype.hasOwnProperty.call(object,key);
-}
-
-function hasPrice(price){
-    return typeof price==="number" && isFinite(price);
-}
-
-function formatPrice(price){
-
-    if(!hasPrice(price)){
-        return "R";
-    }
-
-    return "R"+price.toLocaleString("en-US",{
-        minimumFractionDigits:2,
-        maximumFractionDigits:2
-    });
-
-}
-
-function escapeHtml(text){
-
-    return String(text)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#39;");
-
-}
-
-function photoMissing(img){
-
-    img.style.visibility="hidden";
-    img.parentElement.classList.add("no-photo");
-
-}
-
-function photoLoaded(img){
-
-    img.style.visibility="visible";
-    img.parentElement.classList.remove("no-photo");
-
-}
-
-function photo(src,alt,id){
-
-    return '<img'+
-        (id?' id="'+id+'"':'')+
-        ' src="'+src+'"'+
-        ' alt="'+escapeHtml(alt)+'"'+
-        ' onerror="photoMissing(this)"'+
-        ' onload="photoLoaded(this)">';
-
-}
-
-function colourCountText(product){
-
-    const count=product.colours.length;
-
-    return count+" colour"+(count===1?"":"s");
-
-}
-
-/* =====================================================
-   LOADING SCREEN
-   EXACTLY 3 SECONDS
-===================================================== */
-
-window.addEventListener("load",function(){
-
-    setTimeout(function(){
-
-        const loader=document.getElementById("loader");
-
-        if(loader){
-            loader.classList.add("hide");
-        }
-
-    },3000);
-
-});
-
-/* =====================================================
-   HOME PAGE — BUTTONS + CARDS FROM CATEGORIES
-===================================================== */
-
+/* ---------- HOME ---------- */
 function buildHome(){
-
-    let navHtml="";
-    let gridHtml="";
-
-    Object.keys(CATEGORIES).forEach(function(id){
-
-        const category=CATEGORIES[id];
-        const firstProduct=PRODUCTS[category.products[0]];
-        const cardImage=firstProduct.colours[0].image+".jpg";
-
-        navHtml+=
-            '<a href="#/category/'+id+'">'+
-                category.label+
-            '</a>';
-
-        gridHtml+=
-            '<a class="collection-card" href="#/category/'+id+'">'+
-                photo(cardImage,"SUMS "+category.label)+
-                '<div class="collection-overlay">'+
-                    '<h3>'+category.label+'</h3>'+
-                    '<p>'+category.blurb+'</p>'+
-                    '<span class="shop-button">SHOP '+category.label+'</span>'+
-                '</div>'+
-            '</a>';
-
-    });
-
-    document.getElementById("collectionNav").innerHTML=navHtml;
-    document.getElementById("collectionGrid").innerHTML=gridHtml;
-
+ let p="",g="";
+ for(const id in CATS){
+  const c=CATS[id],f=PRODUCTS[c.items[0]].colours[0][1]+".jpg";
+  p+='<a href="#/category/'+id+'">'+c.label+'</a>';
+  g+='<a class="card" href="#/category/'+id+'">'+slot(c.cover||f,"SUMS "+c.label,0,1)+'<div class="card-text"><h3>'+c.label+'</h3><p>'+c.blurb+'</p><span class="shop-btn">SHOP '+c.label+'</span></div></a>';
+ }
+ $("pills").innerHTML=p;$("cards").innerHTML=g;
 }
 
-function scrollToCollections(){
-
-    const collections=document.getElementById("collections");
-
-    if(collections){
-        collections.scrollIntoView({
-            behavior:"auto"
-        });
-    }
-
+/* ---------- COLLECTION PAGES + SEARCH ---------- */
+function card(id){
+ const p=PRODUCTS[id],n=p.colours.length;
+ return '<a class="pcard" href="#/product/'+id+'"><div class="frame">'+slot(p.colours[0][1]+".jpg",p.name,0,1)+'</div><h3>'+esc(p.name)+'</h3><small>'+n+' colour'+(n>1?'s':'')+'</small><div class="pr">'+money(p.price)+'</div></a>';
 }
-
-/* =====================================================
-   COLLECTION PAGES
-===================================================== */
-
-function productCard(id){
-
-    const product=PRODUCTS[id];
-    const frontImage=product.colours[0].image+".jpg";
-
-    const sub=
-        (product.gender?product.gender+" · ":"")+
-        colourCountText(product);
-
-    return(
-        '<a class="product-card" href="#/product/'+id+'">'+
-            '<div class="img-frame">'+
-                photo(frontImage,product.name)+
-            '</div>'+
-            '<h3>'+escapeHtml(product.name)+'</h3>'+
-            '<div class="product-card-sub">'+sub+'</div>'+
-            '<div class="product-card-price">'+formatPrice(product.price)+'</div>'+
-        '</a>'
-    );
-
+function listing(title,sub,ids,none){
+ $("listBox").innerHTML='<a class="back" href="#/">← Back to SUMS</a><div class="title"><h1>'+title+'</h1><p>'+sub+'</p></div>'+(ids.length?'<div class="plist">'+ids.map(card).join("")+'</div>':'<p class="empty">'+none+'</p>');
 }
-
-function renderCategory(categoryId){
-
-    const category=CATEGORIES[categoryId];
-
-    let cards="";
-
-    category.products.forEach(function(id){
-        cards+=productCard(id);
-    });
-
-    document.getElementById("categoryContent").innerHTML=
-        '<a class="back-button" href="#/">← Back to SUMS</a>'+
-        '<div class="product-title">'+
-            '<h1>'+category.label+'</h1>'+
-            '<p>'+category.intro+'</p>'+
-        '</div>'+
-        '<div class="product-grid">'+cards+'</div>';
-
-}
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
 function openSearch(){
-
-    const searchTerm=prompt("Search SUMS:");
-
-    if(!searchTerm || !searchTerm.trim()){
-        return;
-    }
-
-    const term=searchTerm.trim();
-
-    if(term.toLowerCase()==="about"){
-        location.hash="#/about";
-        return;
-    }
-
-    location.hash="#/search/"+encodeURIComponent(term);
-
+ const t=(prompt("Search SUMS:")||"").trim();
+ if(t)location.hash=t.toLowerCase()==="about"?"#/about":"#/search/"+encodeURIComponent(t);
+}
+function search(t){
+ const w=t.toLowerCase().split(/\s+/).filter(Boolean);
+ return Object.keys(PRODUCTS).filter(id=>{
+  const p=PRODUCTS[id],h=(p.name+" "+CATS[p.cat].label+" "+p.words+" "+p.colours.map(c=>c[0]).join(" ")).toLowerCase();
+  return w.every(x=>h.includes(x));
+ });
 }
 
-function renderSearch(term){
-
-    const words=term.toLowerCase().split(/\s+/).filter(Boolean);
-
-    const matches=Object.keys(PRODUCTS).filter(function(id){
-
-        const product=PRODUCTS[id];
-
-        const haystack=(
-            product.name+" "+
-            CATEGORIES[product.category].label+" "+
-            product.keywords+" "+
-            product.gender+" "+
-            product.colours.map(function(colour){
-                return colour.name;
-            }).join(" ")
-        ).toLowerCase();
-
-        return words.every(function(word){
-            return haystack.indexOf(word)!==-1;
-        });
-
-    });
-
-    let body="";
-
-    if(matches.length===0){
-
-        body=
-            '<p class="search-empty">'+
-                'No SUMS products found for "'+escapeHtml(term)+'".'+
-            '</p>';
-
-    }else{
-
-        let cards="";
-
-        matches.forEach(function(id){
-            cards+=productCard(id);
-        });
-
-        body='<div class="product-grid">'+cards+'</div>';
-
-    }
-
-    document.getElementById("categoryContent").innerHTML=
-        '<a class="back-button" href="#/">← Back to SUMS</a>'+
-        '<div class="product-title">'+
-            '<h1>SEARCH</h1>'+
-            '<p>Results for "'+escapeHtml(term)+'"</p>'+
-        '</div>'+
-        body;
-
+/* ---------- PRODUCT PAGE ----------
+   Every colour's front + back photo is loaded once and stacked,
+   so pressing a colour button just switches — no waiting. */
+function showProduct(id){
+ const p=PRODUCTS[id];
+ cur=id;col=0;size=null;
+ const front=p.colours.map((c,i)=>slot(c[1]+".jpg",p.name+" front",i==0,i==0)).join("");
+ const back=p.colours.map((c,i)=>slot(c[1]+"-back.jpg",p.name+" back",i==0,i==0)).join("");
+ $("prodBox").innerHTML=
+ '<a class="back" href="#/category/'+p.cat+'">← Back to '+CATS[p.cat].label+'</a>'+
+ '<div class="pl"><div class="imgs">'+
+ '<figure onclick="zoom(this)"><div class="frame stack" id="imgFront">'+front+'</div><figcaption>FRONT</figcaption></figure>'+
+ '<figure onclick="zoom(this)"><div class="frame stack" id="imgBack">'+back+'</div><figcaption>BACK</figcaption></figure></div>'+
+ '<div><h1 class="pname">'+esc(p.name)+'</h1><div class="price">'+money(p.price)+'</div>'+
+ '<div class="opt">COLOUR: <span id="colName">'+esc(p.colours[0][0])+'</span></div>'+
+ '<div class="colours">'+p.colours.map((c,i)=>'<button class="colour-btn'+(i?'':' on')+'" onclick="pick('+i+')">'+esc(c[0])+'</button>').join("")+'</div>'+
+ '<div class="opt">SIZE</div><div class="sizes">'+p.sizes.map(s=>'<button class="size-btn" onclick="pickSize(this)">'+s+'</button>').join("")+'</div>'+
+ '<div class="err" id="err"></div><button class="add" onclick="addCurrent()">ADD TO CART</button></div></div>';
 }
-
-/* =====================================================
-   PRODUCT PAGE
-===================================================== */
-
-let currentProduct=null;
-let currentColour=0;
-let currentSize=null;
-
-function renderProduct(id){
-
-    const product=PRODUCTS[id];
-    const category=CATEGORIES[product.category];
-    const firstColour=product.colours[0];
-
-    currentProduct=id;
-    currentColour=0;
-    currentSize=null;
-
-    let colourButtons="";
-
-    product.colours.forEach(function(colour,index){
-
-        colourButtons+=
-            '<button class="colour-btn'+(index===0?' active':'')+'"'+
-            ' onclick="selectColour('+index+')">'+
-                escapeHtml(colour.name)+
-            '</button>';
-
-    });
-
-    let sizeButtons="";
-
-    product.sizes.forEach(function(size){
-
-        sizeButtons+=
-            '<button class="size-btn" onclick="selectSize(this)">'+
-                size+
-            '</button>';
-
-    });
-
-    document.getElementById("productContent").innerHTML=
-
-        '<a class="back-button" href="#/category/'+product.category+'">'+
-            '← Back to '+category.label+
-        '</a>'+
-
-        '<div class="product-layout">'+
-
-            '<div class="product-images">'+
-
-                '<div class="product-image" onclick="zoomImage(\'productFront\')">'+
-                    '<div class="img-frame">'+
-                        photo(firstColour.image+".jpg",product.name+" front","productFront")+
-                    '</div>'+
-                    '<div class="image-label">FRONT</div>'+
-                '</div>'+
-
-                '<div class="product-image" onclick="zoomImage(\'productBack\')">'+
-                    '<div class="img-frame">'+
-                        photo(firstColour.image+"-back.jpg",product.name+" back","productBack")+
-                    '</div>'+
-                    '<div class="image-label">BACK</div>'+
-                '</div>'+
-
-            '</div>'+
-
-            '<div class="product-details">'+
-
-                '<h1 class="product-name">'+escapeHtml(product.name)+'</h1>'+
-
-                (product.gender?'<div class="product-tag">'+escapeHtml(product.gender.toUpperCase())+'</div>':'')+
-
-                '<div class="price">'+formatPrice(product.price)+'</div>'+
-
-                '<div class="option-title">'+
-                    'COLOUR: <span id="colourName">'+escapeHtml(firstColour.name)+'</span>'+
-                '</div>'+
-
-                '<div class="colours">'+colourButtons+'</div>'+
-
-                '<div class="option-title">SIZE</div>'+
-
-                '<div class="sizes">'+sizeButtons+'</div>'+
-
-                '<div class="size-error" id="sizeError"></div>'+
-
-                '<button class="add-cart" onclick="addSelectedToCart()">'+
-                    'ADD TO CART'+
-                '</button>'+
-
-            '</div>'+
-
-        '</div>';
-
+function pick(i){
+ col=i;
+ ["imgFront","imgBack"].forEach(id=>[].forEach.call($(id).children,(s,k)=>s.classList.toggle("on",k===i)));
+ $("colName").textContent=PRODUCTS[cur].colours[i][0];
+ document.querySelectorAll("#prodBox .colour-btn").forEach((b,k)=>b.classList.toggle("on",k===i));
 }
-
-function selectColour(index){
-
-    const product=PRODUCTS[currentProduct];
-    const colour=product.colours[index];
-
-    currentColour=index;
-
-    const front=document.getElementById("productFront");
-    const back=document.getElementById("productBack");
-
-    front.alt=product.name+" front";
-    back.alt=product.name+" back";
-
-    front.src=colour.image+".jpg";
-    back.src=colour.image+"-back.jpg";
-
-    document.getElementById("colourName").textContent=colour.name;
-
-    document.querySelectorAll(
-        "#productContent .colour-btn"
-    ).forEach(function(button,buttonIndex){
-        button.classList.toggle("active",buttonIndex===index);
-    });
-
+function pickSize(b){
+ document.querySelectorAll("#prodBox .size-btn").forEach(x=>x.classList.remove("on"));
+ b.classList.add("on");size=b.textContent;$("err").textContent="";
 }
-
-function selectSize(button){
-
-    document.querySelectorAll(
-        "#productContent .size-btn"
-    ).forEach(function(btn){
-        btn.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
-    currentSize=button.innerText.trim();
-
-    document.getElementById("sizeError").textContent="";
-
+function addCurrent(){
+ if(!size){$("err").textContent="Please select a size.";return}
+ const p=PRODUCTS[cur],c=p.colours[col];
+ addToCart({id:cur,name:p.name,colour:c[0],size:size,image:c[1]+".jpg"});
 }
-
-function addSelectedToCart(){
-
-    if(!currentSize){
-
-        document.getElementById("sizeError").textContent=
-            "Please select a size.";
-
-        return;
-
-    }
-
-    const product=PRODUCTS[currentProduct];
-    const colour=product.colours[currentColour];
-
-    addToCart({
-        productId:currentProduct,
-        name:product.name,
-        colour:colour.name,
-        size:currentSize,
-        image:colour.image+".jpg"
-    });
-
+function zoom(f){
+ const s=f.querySelector(".slot.on");
+ if(!s||s.classList.contains("miss"))return;
+ $("lbImg").src=s.querySelector("img").src;$("lb").classList.add("open");
 }
+function closeLB(){$("lb").classList.remove("open")}
 
-/* =====================================================
-   PAGE CONTROL (LINKS LIKE #/product/baseball-jacket)
-   The phone / browser BACK button works because of this.
-===================================================== */
-
-const BASE_TITLE=document.title;
-
-function activate(screenId){
-
-    document.querySelectorAll(".screen").forEach(function(screen){
-        screen.classList.remove("active");
-    });
-
-    const screen=document.getElementById(screenId);
-
-    void screen.offsetWidth;
-
-    screen.classList.add("active");
-
-    window.scrollTo(0,0);
-
+/* ---------- CART ---------- */
+function addToCart(it){
+ const e=cart.find(x=>x.id===it.id&&x.colour===it.colour&&x.size===it.size);
+ if(e)e.qty++;else{it.qty=1;cart.push(it)}
+ renderCart();openCart();
 }
-
-function setActiveNav(key){
-
-    document.querySelectorAll(".nav-button").forEach(function(link){
-        link.classList.toggle("active",link.getAttribute("data-nav")===key);
-    });
-
-}
-
-function handleRoute(){
-
-    const parts=location.hash
-        .replace(/^#\/?/,"")
-        .split("/")
-        .filter(Boolean);
-
-    const view=parts[0]||"";
-
-    let value="";
-
-    try{
-        value=decodeURIComponent(parts.slice(1).join("/"));
-    }catch(error){
-        value="";
-    }
-
-    let navKey="home";
-    let title=BASE_TITLE;
-
-    if(view==="category" && has(CATEGORIES,value)){
-
-        renderCategory(value);
-        activate("categoryScreen");
-
-        navKey=value;
-        title=CATEGORIES[value].label+" | SUMS";
-
-    }else if(view==="product" && has(PRODUCTS,value)){
-
-        renderProduct(value);
-        activate("productScreen");
-
-        navKey=PRODUCTS[value].category;
-        title=PRODUCTS[value].name+" | SUMS";
-
-    }else if(view==="search" && value){
-
-        renderSearch(value);
-        activate("categoryScreen");
-
-        navKey="";
-        title="Search | SUMS";
-
-    }else if(view==="about"){
-
-        activate("aboutScreen");
-
-        navKey="about";
-        title="About | SUMS";
-
-    }else{
-
-        activate("homeScreen");
-
-    }
-
-    setActiveNav(navKey);
-
-    document.title=title;
-
-}
-
-window.addEventListener("hashchange",handleRoute);
-
-document.addEventListener("click",function(event){
-
-    const link=event.target.closest('a[href^="#/"]');
-
-    if(!link){
-        return;
-    }
-
-    const target=link.getAttribute("href");
-    const current=location.hash||"#/";
-
-    if(target===current){
-        event.preventDefault();
-        handleRoute();
-    }
-
-});
-
-if("scrollRestoration" in history){
-    history.scrollRestoration="manual";
-}
-
-/* =====================================================
-   CART
-===================================================== */
-
-let cart=[];
-
-function addToCart(item){
-
-    const existing=cart.find(function(cartItem){
-
-        return(
-            cartItem.productId===item.productId &&
-            cartItem.colour===item.colour &&
-            cartItem.size===item.size
-        );
-
-    });
-
-    if(existing){
-
-        existing.quantity+=1;
-
-    }else{
-
-        item.quantity=1;
-        cart.push(item);
-
-    }
-
-    updateCartCount();
-    renderCart();
-    openCart();
-
-}
-
-function updateCartCount(){
-
-    const totalQuantity=cart.reduce(
-        function(total,item){
-            return total+item.quantity;
-        },
-        0
-    );
-
-    document.getElementById("cartCount").innerText=
-        totalQuantity;
-
-}
-
-function increaseQuantity(index){
-
-    cart[index].quantity+=1;
-
-    updateCartCount();
-    renderCart();
-
-}
-
-function decreaseQuantity(index){
-
-    cart[index].quantity-=1;
-
-    if(cart[index].quantity<=0){
-        cart.splice(index,1);
-    }
-
-    updateCartCount();
-    renderCart();
-
-}
-
-function removeItem(index){
-
-    cart.splice(index,1);
-
-    updateCartCount();
-    renderCart();
-
-}
-
-/* =====================================================
-   CART RENDER
-===================================================== */
-
+function chg(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);renderCart()}
+function del(i){cart.splice(i,1);renderCart()}
 function renderCart(){
-
-    const container=document.getElementById("cartItems");
-    const whatsapp=document.getElementById("whatsappOrder");
-    const summary=document.getElementById("cartSummary");
-    const totalDisplay=document.getElementById("cartTotal");
-
-    if(cart.length===0){
-
-        container.innerHTML=
-            '<div class="empty-cart">'+
-                '<div class="empty-cart-title">Your cart is empty.</div>'+
-                '<p>Add something from SUMS.</p>'+
-            '</div>';
-
-        summary.style.display="none";
-        whatsapp.style.display="none";
-
-        return;
-
-    }
-
-    let html="";
-    let total=0;
-    let missingPrice=false;
-
-    let message="Hello SUMS, I would like to order:\n\n";
-
-    cart.forEach(function(item,index){
-
-        const price=PRODUCTS[item.productId].price;
-
-        let lineTotalText="R";
-
-        if(hasPrice(price)){
-            total+=price*item.quantity;
-            lineTotalText=formatPrice(price*item.quantity);
-        }else{
-            missingPrice=true;
-        }
-
-        html+=
-            '<div class="cart-item">'+
-
-                '<div class="cart-thumb">'+
-                    photo(item.image,item.name)+
-                '</div>'+
-
-                '<div class="cart-item-info">'+
-
-                    '<h4>'+escapeHtml(item.name)+'</h4>'+
-
-                    '<p>Colour: '+escapeHtml(item.colour)+'</p>'+
-
-                    '<p>Size: '+escapeHtml(item.size)+'</p>'+
-
-                    '<p>'+formatPrice(price)+' each</p>'+
-
-                    '<div class="quantity-row">'+
-
-                        '<button class="quantity-btn" onclick="decreaseQuantity('+index+')">−</button>'+
-
-                        '<span class="quantity-number">'+item.quantity+'</span>'+
-
-                        '<button class="quantity-btn" onclick="increaseQuantity('+index+')">+</button>'+
-
-                    '</div>'+
-
-                    '<button class="remove-item" onclick="removeItem('+index+')">Remove</button>'+
-
-                '</div>'+
-
-            '</div>';
-
-        message+=
-            (index+1)+". "+
-            item.name+" | "+
-            item.colour+" | "+
-            "Size "+item.size+" | "+
-            "Qty "+item.quantity+" | "+
-            lineTotalText+"\n";
-
-    });
-
-    container.innerHTML=html;
-
-    const totalText=missingPrice?"R":formatPrice(total);
-
-    totalDisplay.innerText=totalText;
-
-    summary.style.display="block";
-
-    if(!missingPrice){
-        message+="\nTotal: "+totalText;
-    }
-
-    whatsapp.href=
-        "https://wa.me/27796265589?text="+encodeURIComponent(message);
-
-    whatsapp.style.display="block";
-
+ $("cartCount").textContent=cart.reduce((n,x)=>n+x.qty,0);
+ if(!cart.length){
+  $("cartItems").innerHTML='<div class="empty-cart"><b>Your cart is empty.</b>Add something from SUMS.</div>';
+  $("cartFoot").hidden=true;return;
+ }
+ let total=0,missing=false,msg="Hello SUMS, I would like to order:\n\n";
+ $("cartItems").innerHTML=cart.map((x,i)=>{
+  const pr=PRODUCTS[x.id].price;let line="R";
+  if(priced(pr)){total+=pr*x.qty;line=money(pr*x.qty)}else missing=true;
+  msg+=(i+1)+". "+x.name+" | "+x.colour+" | Size "+x.size+" | Qty "+x.qty+" | "+line+"\n";
+  return '<div class="item"><div class="thumb">'+slot(x.image,x.name,0,1)+'</div><div class="info"><h4>'+esc(x.name)+'</h4><p>Colour: '+esc(x.colour)+'</p><p>Size: '+x.size+'</p><p>'+money(pr)+' each</p>'+
+  '<div class="qty"><button onclick="chg('+i+',-1)">−</button><span>'+x.qty+'</span><button onclick="chg('+i+',1)">+</button></div>'+
+  '<button class="rm" onclick="del('+i+')">Remove</button></div></div>';
+ }).join("");
+ const t=missing?"R":money(total);
+ $("cartTotal").textContent=t;
+ if(!missing)msg+="\nTotal: "+t;
+ $("wa").href="https://wa.me/27796265589?text="+encodeURIComponent(msg);
+ $("cartFoot").hidden=false;
 }
+function openCart(){$("cartPanel").classList.add("open")}
+function closeCart(){$("cartPanel").classList.remove("open")}
 
-/* =====================================================
-   CART OPEN/CLOSE
-===================================================== */
-
-function openCart(){
-
-    document
-        .getElementById("cartPanel")
-        .classList.add("open");
-
+/* ---------- PAGES (links like #/product/baseball-jacket; Back button works) ---------- */
+function route(){
+ const h=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean),v=h[0]||"";
+ let a="";try{a=decodeURIComponent(h.slice(1).join("/"))}catch(e){}
+ let s="s-home",nav="home",title=BASE;
+ if(v==="category"&&has(CATS,a)){listing(CATS[a].label,CATS[a].intro,CATS[a].items);s="s-list";nav=a;title=CATS[a].label+" | SUMS"}
+ else if(v==="product"&&has(PRODUCTS,a)){showProduct(a);s="s-prod";nav=PRODUCTS[a].cat;title=PRODUCTS[a].name+" | SUMS"}
+ else if(v==="search"&&a){listing("SEARCH",'Results for "'+esc(a)+'"',search(a),'No SUMS products found for "'+esc(a)+'".');s="s-list";nav="";title="Search | SUMS"}
+ else if(v==="about"){s="s-about";nav="about";title="About | SUMS"}
+ document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));
+ const el=$(s);void el.offsetWidth;el.classList.add("active");
+ scrollTo(0,0);
+ document.querySelectorAll(".nav a").forEach(x=>x.classList.toggle("on",x.dataset.nav===nav));
+ document.title=title;
 }
+addEventListener("hashchange",route);
+addEventListener("click",e=>{
+ const a=e.target.closest('a[href^="#/"]');
+ if(a&&a.getAttribute("href")===(location.hash||"#/")){e.preventDefault();route()}
+});
+addEventListener("keydown",e=>{if(e.key==="Escape"){closeLB();closeCart()}});
 
-function closeCart(){
-
-    document
-        .getElementById("cartPanel")
-        .classList.remove("open");
-
-}
-
-/* =====================================================
-   IMAGE ZOOM
-===================================================== */
-
-function zoomImage(id){
-
-    const image=document.getElementById(id);
-
-    if(!image || image.parentElement.classList.contains("no-photo")){
-        return;
-    }
-
-    document.getElementById("lightboxImage").src=
-        image.src;
-
-    document.getElementById("lightbox").classList.add("open");
-
-}
-
-function closeLightbox(){
-
-    document
-        .getElementById("lightbox")
-        .classList.remove("open");
-
-}
-
-/* =====================================================
-   ESCAPE KEY
-===================================================== */
-
-document.addEventListener("keydown",function(event){
-
-    if(event.key==="Escape"){
-
-        closeLightbox();
-        closeCart();
-
-    }
-
+/* loader = exactly 3 seconds; then quietly warm up the product photos */
+addEventListener("load",()=>{
+ setTimeout(()=>$("loader").classList.add("hide"),3000);
+ const warm=()=>Object.keys(PRODUCTS).forEach(id=>PRODUCTS[id].colours.forEach(c=>{new Image().src=c[1]+".jpg"}));
+ "requestIdleCallback" in window?requestIdleCallback(warm):setTimeout(warm,1500);
 });
 
-/* =====================================================
-   START
-===================================================== */
-
-buildHome();
-handleRoute();
-
+if("scrollRestoration" in history)history.scrollRestoration="manual";
+buildHome();renderCart();route();
 </script>
-
 </body>
 </html>
