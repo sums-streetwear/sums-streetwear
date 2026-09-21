@@ -78,7 +78,8 @@ header{min-height:90px;background:#fff;border-bottom:1px solid #ddd;display:flex
 .nav a:hover{opacity:.55}
 .nav a.on{border-bottom-color:#111}
 .search{font-size:24px;cursor:pointer;line-height:1}
-.cart{position:relative;font-size:23px;cursor:pointer;line-height:1}
+.cart{position:relative;cursor:pointer;line-height:1;display:flex}
+.cart svg{width:26px;height:26px;stroke:#111}
 .cart b{position:absolute;top:-8px;right:-10px;width:18px;height:18px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:400}
 
 /* SCREENS */
@@ -142,7 +143,11 @@ header{min-height:90px;background:#fff;border-bottom:1px solid #ddd;display:flex
 .pcard h3{margin-top:14px;font-size:16px;font-weight:900}
 .pcard small{display:block;margin-top:4px;font-size:13px;color:#666}
 .pcard .pr{margin-top:6px;font-weight:800}
-.pcart{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;background:#fff;border:none;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 3px 10px rgba(0,0,0,.2);z-index:2}
+.tdots{display:flex;justify-content:center;gap:5px;margin-top:9px}
+.tdots span{width:5px;height:5px;border-radius:50%;background:#ccc;transition:background .2s}
+.tdots span.on{background:#111}
+.pcart{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;background:#fff;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.2);z-index:2}
+.pcart svg{width:17px;height:17px;stroke:#111}
 .pcart:hover{transform:translateY(-2px)}
 .empty{text-align:center;color:#666;padding:40px 0}
 .pl{display:grid;grid-template-columns:1.25fr .75fr;gap:45px;align-items:start}
@@ -265,7 +270,7 @@ header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-sta
 <a data-nav="shop-all" href="#/shop-all">SHOP ALL</a>
 <a data-nav="about" href="#/about">ABOUT</a>
 <span class="search" title="Search" onclick="openSearch()">⌕</span>
-<div class="cart" title="Cart" onclick="openCart()">🛒<b id="cartCount">0</b></div>
+<div class="cart" title="Cart" onclick="openCart()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8h11l1 12.5a1.5 1.5 0 0 1-1.5 1.5h-10a1.5 1.5 0 0 1-1.5-1.5L6.5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><b id="cartCount">0</b></div>
 </nav>
 </header>
 
@@ -411,9 +416,14 @@ function variants(ids){
 function variantCard(id,i){
  const p=PRODUCTS[id],c=p.colours[i];
  return '<div class="pcard"><a href="#/product/'+id+'/'+c[1]+'">'+
- '<div class="swipe"><div class="sframe">'+slot(c[1]+".jpg",p.name+" "+c[0],0,1)+'</div><div class="sframe">'+slot(c[1]+"-back.jpg",p.name+" "+c[0],0,0)+'</div></div>'+
+ '<div class="swipe" onscroll="onTileSwipe(this)"><div class="sframe">'+slot(c[1]+".jpg",p.name+" "+c[0],0,1)+'</div><div class="sframe">'+slot(c[1]+"-back.jpg",p.name+" "+c[0],0,0)+'</div></div>'+
+ '<div class="tdots"><span class="on"></span><span></span></div>'+
  '<h3>'+esc(p.name)+'</h3><small>'+esc(c[0])+'</small><div class="pr">'+money(p.price)+'</div></a>'+
- '<button class="pcart" title="Quick add" onclick="event.preventDefault();event.stopPropagation();quickAdd(\''+id+'\','+i+')">🛒</button></div>';
+ '<button class="pcart" title="Quick add" onclick="event.preventDefault();event.stopPropagation();quickAdd(\''+id+'\','+i+')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8h11l1 12.5a1.5 1.5 0 0 1-1.5 1.5h-10a1.5 1.5 0 0 1-1.5-1.5L6.5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></button></div>';
+}
+function onTileSwipe(el){
+ const idx=Math.round(el.scrollLeft/el.clientWidth);
+ el.parentElement.querySelectorAll(".tdots span").forEach((d,k)=>d.classList.toggle("on",k===idx));
 }
 function listing(title,sub,vlist,none){
  $("listBox").innerHTML='<a class="back" href="#/">← Back to SUMS</a><div class="title"><h1>'+title+'</h1><p>'+sub+'</p></div>'+(vlist.length?'<div class="plist">'+vlist.map(v=>variantCard(v.id,v.i)).join("")+'</div>':'<p class="empty">'+none+'</p>');
@@ -437,14 +447,12 @@ function search(t){
 /* ---------- QUICK ADD (colour + size straight from a listing card) ---------- */
 function quickAdd(id,ci){
  qaId=id;qaCol=ci||0;qaSize=null;
- const p=PRODUCTS[id];
- $("qaBox").innerHTML='<span class="qa-close" onclick="closeQuick()">×</span><h3>'+esc(p.name)+'</h3><div class="price">'+money(p.price)+'</div>'+
- '<div class="opt">COLOUR</div><div class="colours">'+p.colours.map((c,i)=>'<button class="colour-btn'+(i===qaCol?' on':'')+'" onclick="qaPickColour('+i+')">'+esc(c[0])+'</button>').join("")+'</div>'+
+ const p=PRODUCTS[id],c=p.colours[qaCol];
+ $("qaBox").innerHTML='<span class="qa-close" onclick="closeQuick()">×</span><h3>'+esc(p.name)+'</h3><small style="display:block;color:#666;margin-bottom:4px">'+esc(c[0])+'</small><div class="price">'+money(p.price)+'</div>'+
  '<div class="opt">SIZE</div><div class="sizes">'+p.sizes.map(s=>'<button class="size-btn" onclick="qaPickSize(this)">'+s+'</button>').join("")+'</div>'+
  '<div class="err" id="qaErr"></div><button class="add" onclick="qaConfirm()">ADD TO CART</button>';
  $("qa").classList.add("open");
 }
-function qaPickColour(i){qaCol=i;document.querySelectorAll("#qaBox .colour-btn").forEach((b,k)=>b.classList.toggle("on",k===i))}
 function qaPickSize(b){document.querySelectorAll("#qaBox .size-btn").forEach(x=>x.classList.remove("on"));b.classList.add("on");qaSize=b.textContent;$("qaErr").textContent=""}
 function qaConfirm(){
  if(!qaSize){$("qaErr").textContent="Please select a size.";return}
@@ -471,20 +479,8 @@ function showProduct(id,ci){
  '<figcaption id="imgCap">FRONT — swipe for back</figcaption></div>'+
  '<div><h1 class="pname">'+esc(p.name)+'</h1><div class="price">'+money(p.price)+'</div>'+
  '<div class="opt">COLOUR: <span id="colName">'+esc(c0[0])+'</span></div>'+
- '<div class="colours">'+p.colours.map((c,i)=>'<button class="colour-btn'+(i===col?' on':'')+'" onclick="pick('+i+')">'+esc(c[0])+'</button>').join("")+'</div>'+
  '<div class="opt">SIZE</div><div class="sizes">'+p.sizes.map(s=>'<button class="size-btn" onclick="pickSize(this)">'+s+'</button>').join("")+'</div>'+
  '<div class="err" id="err"></div><button class="add" onclick="addCurrent()">ADD TO CART</button></div></div>';
-}
-function pick(i){
- col=i;
- const c=PRODUCTS[cur].colours[i];
- const imgs=document.querySelectorAll("#swipe .slot img");
- imgs[0].src=c[1]+".jpg";imgs[0].closest(".slot").classList.remove("miss");
- imgs[1].src=c[1]+"-back.jpg";imgs[1].closest(".slot").classList.remove("miss");
- $("swipe").scrollTo({left:0});
- updateDots(0);
- $("colName").textContent=c[0];
- document.querySelectorAll("#prodBox .colour-btn").forEach((b,k)=>b.classList.toggle("on",k===i));
 }
 function pickSize(b){
  document.querySelectorAll("#prodBox .size-btn").forEach(x=>x.classList.remove("on"));
