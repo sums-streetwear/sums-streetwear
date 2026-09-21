@@ -402,34 +402,44 @@ function buildHome(){
    Every listing card already shows the front photo, swipeable to the
    back photo, plus a small cart button for a colour+size quick-add —
    no need to open the full product page just to buy. */
-function card(id){
- const p=PRODUCTS[id],n=p.colours.length,c0=p.colours[0];
- return '<div class="pcard"><a href="#/product/'+id+'">'+
- '<div class="swipe"><div class="sframe">'+slot(c0[1]+".jpg",p.name,0,1)+'</div><div class="sframe">'+slot(c0[1]+"-back.jpg",p.name,0,0)+'</div></div>'+
- '<h3>'+esc(p.name)+'</h3><small>'+n+' colour'+(n>1?'s':'')+'</small><div class="pr">'+money(p.price)+'</div></a>'+
- '<button class="pcart" title="Quick add" onclick="event.preventDefault();event.stopPropagation();quickAdd(\''+id+'\')">🛒</button></div>';
+/* Every colourway of every piece gets its own tile — no need to open
+   a product just to see what colours exist. Tapping a tile still goes
+   to the full product page, opened straight to that colour. */
+function variants(ids){
+ return ids.flatMap(id=>PRODUCTS[id].colours.map((c,i)=>({id,i})));
 }
-function listing(title,sub,ids,none){
- $("listBox").innerHTML='<a class="back" href="#/">← Back to SUMS</a><div class="title"><h1>'+title+'</h1><p>'+sub+'</p></div>'+(ids.length?'<div class="plist">'+ids.map(card).join("")+'</div>':'<p class="empty">'+none+'</p>');
+function variantCard(id,i){
+ const p=PRODUCTS[id],c=p.colours[i];
+ return '<div class="pcard"><a href="#/product/'+id+'/'+c[1]+'">'+
+ '<div class="swipe"><div class="sframe">'+slot(c[1]+".jpg",p.name+" "+c[0],0,1)+'</div><div class="sframe">'+slot(c[1]+"-back.jpg",p.name+" "+c[0],0,0)+'</div></div>'+
+ '<h3>'+esc(p.name)+'</h3><small>'+esc(c[0])+'</small><div class="pr">'+money(p.price)+'</div></a>'+
+ '<button class="pcart" title="Quick add" onclick="event.preventDefault();event.stopPropagation();quickAdd(\''+id+'\','+i+')">🛒</button></div>';
+}
+function listing(title,sub,vlist,none){
+ $("listBox").innerHTML='<a class="back" href="#/">← Back to SUMS</a><div class="title"><h1>'+title+'</h1><p>'+sub+'</p></div>'+(vlist.length?'<div class="plist">'+vlist.map(v=>variantCard(v.id,v.i)).join("")+'</div>':'<p class="empty">'+none+'</p>');
 }
 function openSearch(){
  const t=(prompt("Search SUMS:")||"").trim();
  if(t)location.hash=t.toLowerCase()==="about"?"#/about":"#/search/"+encodeURIComponent(t);
 }
 function search(t){
- const w=t.toLowerCase().split(/\s+/).filter(Boolean);
- return Object.keys(PRODUCTS).filter(id=>{
-  const p=PRODUCTS[id],h=(p.name+" "+CATS[p.cat].label+" "+p.words+" "+p.colours.map(c=>c[0]).join(" ")).toLowerCase();
-  return w.every(x=>h.includes(x));
- });
+ const w=t.toLowerCase().split(/\s+/).filter(Boolean),out=[];
+ for(const id in PRODUCTS){
+  const p=PRODUCTS[id];
+  p.colours.forEach((c,i)=>{
+   const h=(p.name+" "+CATS[p.cat].label+" "+p.words+" "+c[0]).toLowerCase();
+   if(w.every(x=>h.includes(x)))out.push({id,i});
+  });
+ }
+ return out;
 }
 
 /* ---------- QUICK ADD (colour + size straight from a listing card) ---------- */
-function quickAdd(id){
- qaId=id;qaCol=0;qaSize=null;
+function quickAdd(id,ci){
+ qaId=id;qaCol=ci||0;qaSize=null;
  const p=PRODUCTS[id];
  $("qaBox").innerHTML='<span class="qa-close" onclick="closeQuick()">×</span><h3>'+esc(p.name)+'</h3><div class="price">'+money(p.price)+'</div>'+
- '<div class="opt">COLOUR</div><div class="colours">'+p.colours.map((c,i)=>'<button class="colour-btn'+(i?'':' on')+'" onclick="qaPickColour('+i+')">'+esc(c[0])+'</button>').join("")+'</div>'+
+ '<div class="opt">COLOUR</div><div class="colours">'+p.colours.map((c,i)=>'<button class="colour-btn'+(i===qaCol?' on':'')+'" onclick="qaPickColour('+i+')">'+esc(c[0])+'</button>').join("")+'</div>'+
  '<div class="opt">SIZE</div><div class="sizes">'+p.sizes.map(s=>'<button class="size-btn" onclick="qaPickSize(this)">'+s+'</button>').join("")+'</div>'+
  '<div class="err" id="qaErr"></div><button class="add" onclick="qaConfirm()">ADD TO CART</button>';
  $("qa").classList.add("open");
@@ -447,10 +457,10 @@ function closeQuick(){$("qa").classList.remove("open")}
 /* ---------- PRODUCT PAGE ----------
    Front/back are one swipeable frame per colour (swipe left for back).
    Colour buttons swap both photos and snap the frame back to front. */
-function showProduct(id){
+function showProduct(id,ci){
  const p=PRODUCTS[id];
- cur=id;col=0;size=null;
- const c0=p.colours[0];
+ cur=id;col=ci||0;size=null;
+ const c0=p.colours[col];
  $("prodBox").innerHTML=
  '<a class="back" href="#/category/'+p.cat+'">← Back to '+CATS[p.cat].label+'</a>'+
  '<div class="pl"><div class="imgs">'+
@@ -461,7 +471,7 @@ function showProduct(id){
  '<figcaption id="imgCap">FRONT — swipe for back</figcaption></div>'+
  '<div><h1 class="pname">'+esc(p.name)+'</h1><div class="price">'+money(p.price)+'</div>'+
  '<div class="opt">COLOUR: <span id="colName">'+esc(c0[0])+'</span></div>'+
- '<div class="colours">'+p.colours.map((c,i)=>'<button class="colour-btn'+(i?'':' on')+'" onclick="pick('+i+')">'+esc(c[0])+'</button>').join("")+'</div>'+
+ '<div class="colours">'+p.colours.map((c,i)=>'<button class="colour-btn'+(i===col?' on':'')+'" onclick="pick('+i+')">'+esc(c[0])+'</button>').join("")+'</div>'+
  '<div class="opt">SIZE</div><div class="sizes">'+p.sizes.map(s=>'<button class="size-btn" onclick="pickSize(this)">'+s+'</button>').join("")+'</div>'+
  '<div class="err" id="err"></div><button class="add" onclick="addCurrent()">ADD TO CART</button></div></div>';
 }
@@ -545,13 +555,29 @@ function maybeShowCookieBar(){
 
 /* ---------- PAGES (links like #/product/baseball-jacket; Back button works) ---------- */
 function route(){
- const h=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean),v=h[0]||"";
- let a="";try{a=decodeURIComponent(h.slice(1).join("/"))}catch(e){}
+ let h=[];try{h=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean).map(decodeURIComponent)}catch(e){}
+ const v=h[0]||"";
  let s="s-home",nav="home",title=BASE;
- if(v==="category"&&has(CATS,a)){listing(CATS[a].label,CATS[a].intro,CATS[a].items);s="s-list";nav=a;title=CATS[a].label+" | SUMS"}
- else if(v==="product"&&has(PRODUCTS,a)){showProduct(a);s="s-prod";nav=PRODUCTS[a].cat;title=PRODUCTS[a].name+" | SUMS"}
- else if(v==="search"&&a){listing("SEARCH",'Results for "'+esc(a)+'"',search(a),'No SUMS products found for "'+esc(a)+'".');s="s-list";nav="";title="Search | SUMS"}
- else if(v==="shop-all"){listing("SHOP ALL","Every SUMS piece, in one place.",Object.keys(PRODUCTS),"Nothing here yet.");s="s-list";nav="shop-all";title="Shop All | SUMS"}
+ if(v==="category"&&has(CATS,h[1])){
+  const a=h[1];
+  listing(CATS[a].label,CATS[a].intro,variants(CATS[a].items),"Nothing here yet.");
+  s="s-list";nav=a;title=CATS[a].label+" | SUMS";
+ }
+ else if(v==="product"&&has(PRODUCTS,h[1])){
+  const id=h[1],p=PRODUCTS[id];
+  let ci=0;
+  if(h[2]){const found=p.colours.findIndex(c=>c[1]===h[2]);if(found>=0)ci=found}
+  showProduct(id,ci);s="s-prod";nav=p.cat;title=p.name+" | SUMS";
+ }
+ else if(v==="search"&&h[1]){
+  const a=h[1];
+  listing("SEARCH",'Results for "'+esc(a)+'"',search(a),'No SUMS products found for "'+esc(a)+'".');
+  s="s-list";nav="";title="Search | SUMS";
+ }
+ else if(v==="shop-all"){
+  listing("SHOP ALL","Every SUMS piece, in one place.",variants(Object.keys(PRODUCTS)),"Nothing here yet.");
+  s="s-list";nav="shop-all";title="Shop All | SUMS";
+ }
  else if(v==="about"){s="s-about";nav="about";title="About | SUMS"}
  document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));
  const el=$(s);void el.offsetWidth;el.classList.add("active");
