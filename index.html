@@ -60,8 +60,8 @@ img{max-width:100%}
 /* LOADER */
 #loader{position:fixed;inset:0;background:#000;color:#fff;z-index:10000;display:flex;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s}
 #loader.hide{opacity:0;visibility:hidden;pointer-events:none}
-.loader-content{text-align:center}
-.loader-logo{width:90px;height:90px;object-fit:contain;animation:spin 1.8s ease-in-out infinite}
+.loader-content{text-align:center;perspective:700px}
+.loader-logo{width:90px;height:90px;object-fit:contain;animation:spin 2s ease-in-out 1;backface-visibility:hidden}
 .loader-name{margin-top:20px;font-size:34px;font-weight:900;letter-spacing:7px;animation:pulse 1.5s ease-in-out infinite}
 .loader-line{width:130px;height:2px;background:#fff;margin:22px auto 0;animation:line 1.5s ease-in-out infinite}
 @keyframes spin{0%{transform:rotateY(0) scale(.85)}50%{transform:rotateY(180deg) scale(1)}100%{transform:rotateY(360deg) scale(.85)}}
@@ -120,12 +120,14 @@ header{min-height:90px;background:#fff;border-bottom:1px solid #ddd;display:flex
 .pills{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:35px 20px}
 .pills a{border:1px solid #111;padding:12px 22px;border-radius:25px;font-weight:900;font-size:13px;transition:transform .2s}
 .pills a:hover{transform:translateY(-2px)}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:0 25px 80px}
-.card{display:block;height:62vh;min-height:430px;position:relative;overflow:hidden;background:#eee}
-.card-text{position:absolute;left:0;right:0;bottom:0;padding:35px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.85))}
-.card-text h3{font-size:42px;font-weight:900}
-.card-text p{margin-top:7px}
-.shop-btn{display:inline-block;margin-top:18px;background:#fff;color:#000;padding:12px 22px;border-radius:25px;font-weight:800}
+.grid3{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 25px 70px}
+.card{display:block;aspect-ratio:3/4;position:relative;overflow:hidden;background:#eee}
+.card-text{position:absolute;left:0;right:0;bottom:0;padding:18px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.card-text h3{font-size:clamp(17px,2vw,26px);font-weight:900}
+.card-text p{margin-top:5px;font-size:12px}
+.shop-btn{display:inline-block;margin-top:10px;background:#fff;color:#000;padding:9px 16px;border-radius:20px;font-weight:800;font-size:11px}
+.founder-card{background:#111}
+.founder-card .card-text{background:linear-gradient(transparent,rgba(0,0,0,.9))}
 .card:hover img,.pcard:hover img,figure:hover .on img{transform:scale(1.03)}
 
 /* COLLECTION + PRODUCT PAGES */
@@ -157,12 +159,7 @@ figcaption{background:#fff;padding:9px;text-align:center;font-size:12px;font-wei
 .add{width:100%;padding:17px;border:none;background:#000;color:#fff;font-size:15px;font-weight:900;transition:transform .2s,opacity .2s}
 .add:hover{transform:translateY(-2px);opacity:.85}
 
-/* FOUNDER + ABOUT */
-.founder{background:#111;color:#fff;margin-top:30px;display:grid;grid-template-columns:1fr 1fr;min-height:620px}
-.founder img{width:100%;height:620px;object-fit:cover;display:block}
-.founder-text{display:flex;align-items:center;justify-content:center;padding:50px;text-align:center}
-.founder h2{font-size:clamp(38px,5vw,65px);line-height:.95;font-weight:900}
-.founder p{margin-top:20px;color:#ccc;font-size:17px}
+/* ABOUT */
 .about{padding:90px 25px;max-width:1000px;margin:auto;text-align:center}
 .about h2{font-size:45px;font-weight:900;margin-bottom:25px}
 .about p{font-size:20px;line-height:1.7;color:#333}
@@ -221,13 +218,11 @@ header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-sta
 .hero{min-height:44vh;padding:40px 20px}.hero h1{letter-spacing:-5px}.hero::after{width:240px;height:240px;margin:-120px 0 0 -120px}
 .shop-intro{min-height:32vh}
 .pills{gap:8px}.pills a{padding:10px 17px;font-size:11px}
-.grid3{grid-template-columns:1fr;padding:0 15px 60px}
-.card{height:52vh;min-height:350px}.card-text h3{font-size:36px}
+.grid3{grid-template-columns:repeat(2,1fr);gap:10px;padding:0 15px 50px}
 .page{padding:25px 15px 60px}
 .plist{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
 .pl{grid-template-columns:1fr;gap:28px}
 .pname{font-size:26px}
-.founder{grid-template-columns:1fr}.founder img{height:430px}.founder-text{min-height:330px}
 .about{padding:65px 20px}.about h2{font-size:38px}.about p{font-size:17px}
 #cartPanel{width:100%;max-width:100%;right:-100%}
 .social{gap:18px}
@@ -266,12 +261,6 @@ header{min-height:78px;padding:7px 15px;overflow-x:auto;justify-content:flex-sta
 <section id="shop" class="shop-intro"></section>
 <div class="pills" id="pills"></div>
 <div class="grid3" id="cards"></div>
-<section class="founder">
-<img src="founder-hoodie-front.jpg" alt="SUMS Hoodie-5120 Founder Edition">
-<div class="founder-text"><div><h2>SUMS HOODIE-5120<br>FOUNDER EDITION</h2><p>A premium SUMS piece coming soon.</p>
-<a class="hero-btn" style="display:inline-block;margin-top:22px;color:#000" target="_blank" rel="noopener noreferrer" href="https://wa.me/27796265589?text=Hi%20SUMS%2C%20please%20notify%20me%20when%20the%20Hoodie-5120%20Founder%20Edition%20drops.">NOTIFY ME ON WHATSAPP</a>
-</div></div>
-</section>
 <section class="about"><h2>ABOUT SUMS</h2><p>SUMS is a South African streetwear brand representing culture, movement and ambition. Born from the wild coast. Built for those who create their own legacy.</p></section>
 </main>
 
@@ -384,6 +373,8 @@ function buildHome(){
   p+='<a href="#/category/'+id+'">'+c.label+'</a>';
   g+='<a class="card" href="#/category/'+id+'">'+slot(c.cover||f,"SUMS "+c.label,0,1)+'<div class="card-text"><h3>'+c.label+'</h3><p>'+c.blurb+'</p><span class="shop-btn">SHOP '+c.label+'</span></div></a>';
  }
+ /* Founder Edition rides in the same grid, right after the last collection tile */
+ g+='<a class="card founder-card" href="https://wa.me/27796265589?text=Hi%20SUMS%2C%20please%20notify%20me%20when%20the%20Hoodie-5120%20Founder%20Edition%20drops." target="_blank" rel="noopener noreferrer">'+slot("founder-hoodie-front.jpg","SUMS Hoodie-5120 Founder Edition",0,0)+'<div class="card-text"><h3>FOUNDER EDITION</h3><p>Hoodie-5120 — coming soon.</p><span class="shop-btn">NOTIFY ME</span></div></a>';
  $("pills").innerHTML=p;$("cards").innerHTML=g;
 }
 
@@ -514,10 +505,11 @@ addEventListener("click",e=>{
 });
 addEventListener("keydown",e=>{if(e.key==="Escape"){closeLB();closeCart()}});
 
-/* loader = exactly 3 seconds; then quietly warm up the product photos */
+/* loader = exactly 2 seconds, matching one full logo spin so it never cuts off mid-turn */
 addEventListener("load",()=>{
- setTimeout(()=>$("loader").classList.add("hide"),3000);
- const warm=()=>Object.keys(PRODUCTS).forEach(id=>PRODUCTS[id].colours.forEach(c=>{new Image().src=c[1]+".jpg"}));
+ setTimeout(()=>$("loader").classList.add("hide"),2000);
+ /* lightweight warm-up: just each product's first photo, not the whole catalogue */
+ const warm=()=>Object.keys(PRODUCTS).forEach(id=>{new Image().src=PRODUCTS[id].colours[0][1]+".jpg"});
  "requestIdleCallback" in window?requestIdleCallback(warm):setTimeout(warm,1500);
  maybeShowCookieBar();
 });
