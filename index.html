@@ -142,9 +142,14 @@ header{min-height:90px;background:#fff;border-bottom:1px solid #ddd;display:flex
 .pcard .pr{margin-top:6px;font-weight:800}
 .empty{text-align:center;color:#666;padding:40px 0}
 .pl{display:grid;grid-template-columns:1.25fr .75fr;gap:45px;align-items:start}
-.imgs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-figure{background:#f3f3f3;cursor:zoom-in;overflow:hidden}
-figcaption{background:#fff;padding:9px;text-align:center;font-size:12px;font-weight:800}
+.imgs{position:relative}
+.swipe{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.swipe::-webkit-scrollbar{display:none}
+.sframe{flex:0 0 100%;scroll-snap-align:start;position:relative;aspect-ratio:4/5;background:#f3f3f3;cursor:zoom-in}
+.dots{display:flex;justify-content:center;gap:6px;margin:10px 0 6px}
+.dots span{width:7px;height:7px;border-radius:50%;background:#ccc;transition:background .2s}
+.dots span.on{background:#111}
+figcaption{text-align:center;font-size:12px;font-weight:800;color:#777;letter-spacing:1px}
 .pname{font-size:32px;font-weight:900}
 .price{font-size:22px;font-weight:800;margin:10px 0 28px}
 .opt{font-size:13px;font-weight:900;margin-bottom:11px}
@@ -399,28 +404,35 @@ function search(t){
 }
 
 /* ---------- PRODUCT PAGE ----------
-   Every colour's front + back photo is loaded once and stacked,
-   so pressing a colour button just switches — no waiting. */
+   Front/back are one swipeable frame per colour (swipe left for back).
+   Colour buttons swap both photos and snap the frame back to front. */
 function showProduct(id){
  const p=PRODUCTS[id];
  cur=id;col=0;size=null;
- const front=p.colours.map((c,i)=>slot(c[1]+".jpg",p.name+" front",i==0,i==0)).join("");
- const back=p.colours.map((c,i)=>slot(c[1]+"-back.jpg",p.name+" back",i==0,i==0)).join("");
+ const c0=p.colours[0];
  $("prodBox").innerHTML=
  '<a class="back" href="#/category/'+p.cat+'">← Back to '+CATS[p.cat].label+'</a>'+
  '<div class="pl"><div class="imgs">'+
- '<figure onclick="zoom(this)"><div class="frame stack" id="imgFront">'+front+'</div><figcaption>FRONT</figcaption></figure>'+
- '<figure onclick="zoom(this)"><div class="frame stack" id="imgBack">'+back+'</div><figcaption>BACK</figcaption></figure></div>'+
+ '<div class="swipe" id="swipe" onscroll="onSwipe()">'+
+ '<div class="sframe" onclick="zoom(this)">'+slot(c0[1]+".jpg",p.name+" front",0,1)+'</div>'+
+ '<div class="sframe" onclick="zoom(this)">'+slot(c0[1]+"-back.jpg",p.name+" back",0,0)+'</div>'+
+ '</div><div class="dots" id="dots"><span class="on"></span><span></span></div>'+
+ '<figcaption id="imgCap">FRONT — swipe for back</figcaption></div>'+
  '<div><h1 class="pname">'+esc(p.name)+'</h1><div class="price">'+money(p.price)+'</div>'+
- '<div class="opt">COLOUR: <span id="colName">'+esc(p.colours[0][0])+'</span></div>'+
+ '<div class="opt">COLOUR: <span id="colName">'+esc(c0[0])+'</span></div>'+
  '<div class="colours">'+p.colours.map((c,i)=>'<button class="colour-btn'+(i?'':' on')+'" onclick="pick('+i+')">'+esc(c[0])+'</button>').join("")+'</div>'+
  '<div class="opt">SIZE</div><div class="sizes">'+p.sizes.map(s=>'<button class="size-btn" onclick="pickSize(this)">'+s+'</button>').join("")+'</div>'+
  '<div class="err" id="err"></div><button class="add" onclick="addCurrent()">ADD TO CART</button></div></div>';
 }
 function pick(i){
  col=i;
- ["imgFront","imgBack"].forEach(id=>[].forEach.call($(id).children,(s,k)=>s.classList.toggle("on",k===i)));
- $("colName").textContent=PRODUCTS[cur].colours[i][0];
+ const c=PRODUCTS[cur].colours[i];
+ const imgs=document.querySelectorAll("#swipe .slot img");
+ imgs[0].src=c[1]+".jpg";imgs[0].closest(".slot").classList.remove("miss");
+ imgs[1].src=c[1]+"-back.jpg";imgs[1].closest(".slot").classList.remove("miss");
+ $("swipe").scrollTo({left:0});
+ updateDots(0);
+ $("colName").textContent=c[0];
  document.querySelectorAll("#prodBox .colour-btn").forEach((b,k)=>b.classList.toggle("on",k===i));
 }
 function pickSize(b){
@@ -432,9 +444,17 @@ function addCurrent(){
  const p=PRODUCTS[cur],c=p.colours[col];
  addToCart({id:cur,name:p.name,colour:c[0],size:size,image:c[1]+".jpg"});
 }
-function zoom(f){
- const s=f.querySelector(".slot.on");
- if(!s||s.classList.contains("miss"))return;
+function onSwipe(){
+ const sw=$("swipe");
+ updateDots(Math.round(sw.scrollLeft/sw.clientWidth));
+}
+function updateDots(idx){
+ document.querySelectorAll("#dots span").forEach((d,k)=>d.classList.toggle("on",k===idx));
+ $("imgCap").textContent=idx===0?"FRONT — swipe for back":"BACK — swipe for front";
+}
+function zoom(el){
+ const s=el.querySelector(".slot");
+ if(s.classList.contains("miss"))return;
  $("lbImg").src=s.querySelector("img").src;$("lb").classList.add("open");
 }
 function closeLB(){$("lb").classList.remove("open")}
